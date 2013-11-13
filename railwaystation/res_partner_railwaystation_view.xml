@@ -4,15 +4,14 @@
         <record id="view_partner_railwaystation_form" model="ir.ui.view">
             <field name="name">res.partner.railwaystation.form.inherit</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="travel.view_travel_form"/>
             <field name="arch" type="xml">
-                <notebook position="inside">
-                     <page string="Railwaystation Informations" >
-                        <group colspan="2" col="2">
+                <xpath expr="//notebook/page[@string='Travel']" position="inside">
+                    <group>
+                          <separator string="Railwaystation" colspan="2"/>
                           <field name="railwaystation" />
-                        </group>
-                     </page>
-                </notebook>
+                    </group>
+                 </xpath>
       </field>
         </record>
     </data>

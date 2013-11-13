@@ -4,11 +4,14 @@
         <record id="view_partner_airline_form" model="ir.ui.view">
             <field name="name">res.partner.airline.form.inherit</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="travel.view_travel_form"/>
             <field name="arch" type="xml">
-                <field name="customer" position="after">
-                                <field name="airline"/>
-                </field>
+                <xpath expr="//notebook/page[@string='Travel']" position="inside">
+                    <group>
+                          <separator string="Airline" colspan="2"/>
+                          <field name="airline" />
+                    </group>
+                 </xpath>
             </field>
         </record>
     </data>

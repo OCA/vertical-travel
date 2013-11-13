@@ -34,7 +34,7 @@ This module allows to add :
     'author': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['crm',],
+    'depends': ['crm', 'travel', ],
     'data': ['res_partner_airport_view.xml',
              ],
     'demo': [],

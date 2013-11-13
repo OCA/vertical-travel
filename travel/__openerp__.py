@@ -32,7 +32,7 @@ Travel management with passengers.
 """,
     'depends': ['crm', 'city'],
     'external_dependencies': {},
-    'data': [],
+    'data': ['travel_view.xml', ],
     'demo': [],
     'test': [],
     'installable': True,
