@@ -16,7 +16,8 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
+
+
 {
     'name': 'Partner airline',
     'version': '1.0',
@@ -33,7 +34,7 @@ This module allows to add :
     'author': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['crm',],
+    'depends': ['crm', 'travel', ],
     'data': ['res_partner_airline_view.xml',
              ],
     'demo': [],
