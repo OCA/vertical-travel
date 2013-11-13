@@ -1,0 +1,72 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <!-- Views -->
+    <record model="ir.ui.view" id="travel_tree_view">
+        <field name="name">Travel Tree View</field>
+        <field name="model">travel.travel</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="TravelsTree" version="7.0">
+              <field name="name"/>
+              <field name="city_id"/>
+              <field name="date_start"/>
+              <field name="date_stop"/>
+              <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="travel_form_view">
+        <field name="name">Travel Form View</field>
+        <field name="model">travel.travel</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="TravelsForm" version="7.0">
+              <header>
+                <field name="state" widget="statusbar"
+                       statusbar_visible="draft,open,booking,reserved,confirmed,done"/>
+              </header>
+              <sheet string="Travels">
+                <group col="4">
+                  <group colspan="4" name="Title">
+                    <field name="name"/>
+                  </group>
+                  <group name="Details">
+                    <group string="Location">
+                      <field name="city_id"/>
+                    </group>
+                    <group string="Date">
+                      <field name="date_start"/>
+                      <field name="date_stop"/>
+                    </group>
+                  </group>
+                  <group name="Passengers" string="Passengers" col="1" colspan="4">
+                    <field name="passenger_ids" nolabel="1"/>
+                  </group>
+                </group>
+              </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record model="ir.actions.act_window" id="action_travels_tree_list">
+        <field name="name">Travels</field>
+        <field name="view_id" ref="travel_tree_view"/>
+        <field name="res_model">travel.travel</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem name="Administration"
+              id="menu_administration"/>
+    <menuitem name="Administration"
+              id="menu_administration_mainform"
+              parent="menu_administration" />
+    <menuitem name="Travels"
+              id="menu_travels"
+              parent="menu_administration_mainform"
+              action="action_travels_tree_list"/>
+  </data>
+</openerp>

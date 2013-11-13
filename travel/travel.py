@@ -35,6 +35,16 @@ class travel_travel(orm.Model):
         'date_stop': fields.date('End Date', required=True),
         'passenger_ids': fields.many2many('travel.passenger', 'travel_travel_passenger_rel', 'travel_id',
                                           'passenger_id', 'Passengers', help='List of passengers.'),
+        'state': fields.selection([('draft', 'Draft'),
+                                   ('open', 'Saved'),
+                                   ('booking', 'In Reservation'),
+                                   ('reserved', 'Reserved'),
+                                   ('confirmed', 'Confirmed'),
+                                   ('done', 'Closed'),
+                                   ], 'Status', readonly=True),
+    }
+    _defaults = {
+        'state': 'draft',
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
