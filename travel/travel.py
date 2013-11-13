@@ -23,16 +23,6 @@
 from openerp.osv import fields, orm
 
 
-class travel_passenger(orm.Model):
-    _description = 'Passenger on travel'
-    _name = 'travel.passenger'
-    _columns = {
-        'name': fields.many2one('res.partner', 'Name', required=True, ondelete='cascade',
-                                help="Name of partner."),
-        'date': fields.datetime('Date', required=True, help='Time of departure.')
-    }
-
-
 class travel_travel(orm.Model):
     _description = 'Travel'
     _name = 'travel.travel'
@@ -44,7 +34,7 @@ class travel_travel(orm.Model):
         'date_start': fields.date('Start Date', required=True),
         'date_stop': fields.date('End Date', required=True),
         'passenger_ids': fields.many2many('travel.passenger', 'travel_travel_passenger_rel', 'travel_id',
-                                          'travel_passenger_id', 'Passengers', help='List of passengers.'),
+                                          'passenger_id', 'Passengers', help='List of passengers.'),
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

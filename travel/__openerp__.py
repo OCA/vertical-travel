@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+##############################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    This module copyright (C) 2013 Savoir-faire Linux
@@ -17,6 +18,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+##############################################################################
 
 {
     'name': 'Travel',

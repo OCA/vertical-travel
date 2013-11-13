@@ -20,7 +20,16 @@
 #
 ##############################################################################
 
-import travel
-import travel_passenger
+from openerp.osv import fields, orm
+
+
+class travel_passenger(orm.Model):
+    _description = 'Passenger on travel'
+    _name = 'travel.passenger'
+    _columns = {
+        'name': fields.many2one('res.partner', 'Name', required=True, ondelete='cascade',
+                                help="Name of partner."),
+        'date': fields.datetime('Date', required=True, help='Time of departure.')
+    }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
