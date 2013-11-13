@@ -27,10 +27,13 @@ class travel_journey(orm.Model):
     _description = 'Journey of travel'
     _name = 'travel.journey'
     _columns = {
-        'from': fields.many2one('res.country.state.city', 'City', required='True',
+        'from': fields.many2one('res.country.state.city', 'From', required='True',
                                 help='Source city of travel.'),
-        'to': fields.many2one('res.country.state.city', 'City', required='True',
+        'to': fields.many2one('res.country.state.city', 'To', required='True',
                               help='Destination city of travel.'),
+        'passenger_id': fields.many2one('travel.passenger', 'Passenger', required='True',
+                                        help='Passenger on this journey.'),
+
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

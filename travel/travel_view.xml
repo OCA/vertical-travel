@@ -3,56 +3,56 @@
   <data>
     <!-- Views -->
     <record model="ir.ui.view" id="travel_tree_view">
-        <field name="name">Travel Tree View</field>
-        <field name="model">travel.travel</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="TravelsTree" version="7.0">
-              <field name="name"/>
-              <field name="city_id"/>
-              <field name="date_start"/>
-              <field name="date_stop"/>
-              <field name="state"/>
-            </tree>
-        </field>
+      <field name="name">Travel Tree View</field>
+      <field name="model">travel.travel</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="TravelsTree" version="7.0">
+          <field name="name"/>
+          <field name="city_id"/>
+          <field name="date_start"/>
+          <field name="date_stop"/>
+          <field name="state"/>
+        </tree>
+      </field>
     </record>
 
     <record model="ir.ui.view" id="travel_form_view">
-        <field name="name">Travel Form View</field>
-        <field name="model">travel.travel</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="TravelsForm" version="7.0">
-              <header>
-                <field name="state" widget="statusbar"
-                       statusbar_visible="draft,open,booking,reserved,confirmed,done"/>
-              </header>
-              <sheet string="Travels">
-                <group col="4">
-                  <group colspan="4" name="Title">
-                    <field name="name"/>
-                  </group>
-                  <group name="Details">
-                    <group string="Location">
-                      <field name="city_id"/>
-                    </group>
-                    <group string="Date">
-                      <field name="date_start"/>
-                      <field name="date_stop"/>
-                    </group>
-                  </group>
-                  <group name="Passengers" string="Passengers" col="1" colspan="4">
-                    <field name="passenger_ids" nolabel="1">
-                      <tree name="TravelPassengerTree" version="7.0">
-                        <field name="name"/>
-                        <field name="date"/>
-                      </tree>
-                    </field>
-                  </group>
+      <field name="name">Travel Form View</field>
+      <field name="model">travel.travel</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="TravelsForm" version="7.0">
+          <header>
+            <field name="state" widget="statusbar"
+                   statusbar_visible="draft,open,booking,reserved,confirmed,done"/>
+          </header>
+          <sheet string="Travels">
+            <group col="4">
+              <group colspan="4" name="Title">
+                <field name="name"/>
+              </group>
+              <group name="Details">
+                <group string="Location">
+                  <field name="city_id"/>
                 </group>
-              </sheet>
-            </form>
-        </field>
+                <group string="Date">
+                  <field name="date_start"/>
+                  <field name="date_stop"/>
+                </group>
+              </group>
+              <group name="Passengers" string="Passengers" col="1" colspan="4">
+                <field name="passenger_ids" nolabel="1">
+                  <tree name="TravelPassengerTree" version="7.0">
+                    <field name="name"/>
+                    <field name="date"/>
+                  </tree>
+                </field>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
     </record>
 
     <!-- Actions -->

@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <!-- Views -->
+    <record model="ir.ui.view" id="travel_passenger_journey_form_view">
+      <field name="name">Travel Passenger Form View</field>
+      <field name="model">travel.passenger</field>
+      <field name="inherit_id" ref="travel.travel_passenger_form_view"/>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Travel Passengers" version="7.0">
+          <sheet string="Passengers">
+            <notebook name="Info">
+              <page string="Journey">
+                <field name="journey_ids">
+                  <tree name="PassengerJourneyTree" version="7.0">
+                      <field name="from"/>
+                      <field name="to"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+  </data>
+</openerp>

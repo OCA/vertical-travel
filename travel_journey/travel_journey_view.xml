@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <!-- Views -->
+    <record model="ir.ui.view" id="travel_journey_form_view">
+        <field name="name">Passenger Journey Form View</field>
+        <field name="model">travel.journey</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Passenger Journeys" version="7.0">
+              <sheet string="Journeys">
+                <group string="Cities" col="4">
+                  <field name="from"/>
+                  <field name="to"/>
+                </group>
+                <group name="Info"/>
+              </sheet>
+            </form>
+        </field>
+    </record>
+  </data>
+</openerp>

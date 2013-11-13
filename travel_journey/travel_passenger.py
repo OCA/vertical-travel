@@ -26,8 +26,8 @@ from openerp.osv import fields, orm
 class travel_passenger(orm.Model):
     _inherit = 'travel.passenger'
     _columns = {
-        'journey_ids': fields.many2many('travel.journey', 'travel_passenger_journey_rel', 'passenger_id',
-                                        'journey_id', 'Journeys', help='List of journeys.'),
+        'journey_ids': fields.one2many('travel.journey', 'passenger_id', 'Journeys',
+                                       help='List of journeys.'),
 
     }
 
