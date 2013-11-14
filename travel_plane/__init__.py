@@ -20,6 +20,6 @@
 #
 ##############################################################################
 
-import travel_journey
+import travel_plane
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
