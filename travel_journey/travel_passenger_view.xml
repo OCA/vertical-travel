@@ -9,18 +9,18 @@
       <field name="type">form</field>
       <field name="arch" type="xml">
         <form string="Travel Passengers" version="7.0">
-            <notebook name="Info">
-              <page string="Journey">
-                <field name="journey_ids">
-                  <tree name="PassengerJourneyTree" version="7.0">
-                      <field name="origin"/>
-                      <field name="destination"/>
-                      <field name="departure"/>
-                      <field name="arrival"/>
-                  </tree>
-                </field>
-              </page>
-            </notebook>
+          <notebook name="Info">
+            <page string="Journey">
+              <field name="journey_ids">
+                <tree name="PassengerJourneyTree" version="7.0">
+                  <field name="origin"/>
+                  <field name="destination"/>
+                  <field name="departure"/>
+                  <field name="arrival"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
         </form>
       </field>
     </record>

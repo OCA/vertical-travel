@@ -1,0 +1,32 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <!-- View form inherit from travel_journey.travel_journey_form_view -->
+    <record id="view_travel_journey_plane_form" model="ir.ui.view">
+      <field name="name">travel.journey.form.inherit</field>
+      <field name="model">travel.journey</field>
+      <field name="inherit_id" ref="travel_journey.travel_journey_form_view"/>
+      <field name="arch" type="xml">
+        <group name="Info">
+          <separator string="Airport" colspan="4"/>
+          <field name="airport_from"/>
+          <field name="airport_to" />
+          <field name="airline" />
+        </group>
+      </field>
+    </record>
+    <!-- View tree inherit from travel_journey.travel_journey_form_view -->
+    <record id="view_travel_passenger_form_inherit" model="ir.ui.view">
+      <field name="name">travel.passenger.form.inherit</field>
+      <field name="model">travel.passenger</field>
+      <field name="inherit_id" ref="travel_journey.travel_passenger_journey_form_view"/>
+      <field name="arch" type="xml">
+        <field name="destination" position="after">
+          <field name="airport_from" string="Airport from"/>
+          <field name="airport_to" string="Airport to"/>
+          <field name="airline" />
+        </field>
+      </field>
+    </record>
+  </data>
+</openerp>

@@ -20,25 +20,6 @@
 #
 ##############################################################################
 
-{
-    'name': 'Travel by Plane',
-    'version': '0.1',
-    'author': 'Savoir-faire Linux',
-    'maintainer': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'category': 'Customer Relationship Management',
-    'description': """
- Travel journey
-=======================
-This module allows to create a travel by plane.
-""",
-    'depends': ['travel_journey', 'airport', 'airline'],
-    'external_dependencies': {},
-    'data': ['travel_plane_view.xml'],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'active': False,
-}
+import travel_journey_plane
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

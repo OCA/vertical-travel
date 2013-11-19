@@ -20,6 +20,22 @@
 #
 ##############################################################################
 
-import travel_plane
+from openerp.osv import fields, orm
+
+
+class travel_journey_plane(orm.Model):
+    _inherit = 'travel.journey'
+    _columns = {
+        'airport_from': fields.many2one('res.partner', 'From', required=True,
+                                        domain="[('airport','=',True)]",
+                                        help="Destination airport."),
+        'airport_to': fields.many2one('res.partner', 'To', required=True,
+                                      domain="[('airport','=',True)]",
+                                      help="Destination airport."),
+        'airline': fields.many2one('res.partner', 'Airline', required=True,
+                                   domain="[('airline','=',True)]",
+                                   help="Destination airport."),
+    }
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

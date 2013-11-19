@@ -20,22 +20,25 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
-
-
-class travel_plane(orm.Model):
-    _inherit = 'travel.journey'
-    _columns = {
-        'airport_from': fields.many2one('res.partner', 'From', required=True,
-                                        domain="[('airport','=',True)]",
-                                        help="Destination airport."),
-        'airport_to': fields.many2one('res.partner', 'To', required=True,
-                                      domain="[('airport','=',True)]",
-                                      help="Destination airport."),
-        'airline': fields.many2one('res.partner', 'Airline', required=True,
-                                   domain="[('airline','=',True)]",
-                                   help="Destination airport."),
-    }
-
+{
+    'name': 'Travel Journey by Plane',
+    'version': '0.1',
+    'author': 'Savoir-faire Linux',
+    'maintainer': 'Savoir-faire Linux',
+    'website': 'http://www.savoirfairelinux.com',
+    'category': 'Customer Relationship Management',
+    'description': """
+ Travel journey Plane
+=======================
+This module allows to create a travel by plane.
+""",
+    'depends': ['travel_journey', 'airport', 'airline'],
+    'external_dependencies': {},
+    'data': ['travel_journey_plane_view.xml'],
+    'demo': [],
+    'test': [],
+    'installable': True,
+    'active': False,
+}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
