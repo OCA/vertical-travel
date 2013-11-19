@@ -30,13 +30,13 @@
     'description': """\
 Travel management with passengers.
 """,
-    'depends': ['crm', 'city'],
+    'depends': ['crm', 'hr', 'city', ],
     'external_dependencies': {},
     'data': ['travel_view.xml',
              'travel_passenger_view.xml',
              'partner_view.xml',
              ],
-    'demo': [],
+    'demo': ['demo/travel_demo.xml'],
     'test': [],
     'installable': True,
     'active': False,

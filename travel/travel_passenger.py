@@ -28,10 +28,11 @@ class travel_passenger(orm.Model):
     _name = 'travel.passenger'
     _columns = {
         'name': fields.many2one('res.partner', 'Name', required=True, ondelete='cascade',
-                                help="Name of partner."),
+                                help="Name of Passenger."),
         'date': fields.datetime('Date', required=True, help='Time of departure.'),
         'travel_id': fields.many2one('travel.travel', 'Travel', required='True',
                                      help='Travel on which the passenger is going.'),
+        'department_id': fields.many2one('hr.department', 'Department'),
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

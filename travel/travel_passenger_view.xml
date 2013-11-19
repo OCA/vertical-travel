@@ -8,13 +8,12 @@
       <field name="type">form</field>
       <field name="arch" type="xml">
         <form string="Travel Passengers" version="7.0">
-          <sheet string="Passengers">
-            <group name="General">
-              <field name="name"/>
-              <field name="date"/>
+            <group name="General" col="4">
+                <field name="name"/>
+                <field name="department_id"/>
+              <field name="date" />
             </group>
             <notebook name="Info"/>
-          </sheet>
         </form>
       </field>
     </record>
