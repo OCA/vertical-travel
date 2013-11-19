@@ -3,46 +3,46 @@
   <data>
     <!-- Views -->
     <record model="ir.ui.view" id="travel_journey_form_view">
-        <field name="name">Passenger Journey Form View</field>
-        <field name="model">travel.journey</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Passenger Journeys" version="7.0">
-              <sheet string="Journeys">
-                <group col="4">
-                  <group string="Cities" col="2" colspan="2">
-                    <field name="origin"/>
-                    <field name="destination"/>
-                  </group>
-                  <group string="Times" col="2" colspan="2">
-                    <field name="departure"/>
-                    <field name="arrival"/>
-                  </group>
-                  <separator string="Visa" colspan="4"/>
-                  <field name="visa"/>
-                  <field name="visa_country"/>
+      <field name="name">Passenger Journey Form View</field>
+      <field name="model">travel.journey</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Passenger Journeys" version="7.0">
+          <sheet string="Journeys">
+            <group col="4">
+              <group string="Cities" col="2" colspan="2">
+                <field name="origin"/>
+                <field name="destination"/>
+              </group>
+              <group string="Times" col="2" colspan="2">
+                <field name="departure"/>
+                <field name="arrival"/>
+              </group>
+              <separator string="Visa" colspan="4"/>
+              <field name="visa"/>
+              <field name="visa_country"/>
 
-                <separator string="Class and Baggage" colspan="4"/>
-                  <field name="class_id" colspan="4"/>
-                  <field name="baggage_qty"/>
-                  <group col="3" colspan="2">
-                    <label for="baggage_weight"/>
-                    <field name="baggage_weight" nolabel="1"/>
-                    <div style="width:25%%">
-                      <field name="baggage_weight_uom"
-                             nolabel='1'
-                             class="oe_inline"
-                             domain="[('category_id.name', '=', 'Weight')]"/>
-                    </div>
-                  </group>
-                </group>
-                <group string="Comments">
-                  <field name="comment" nolabel="1"/>
-                </group>
-                <group name="Info"/>
-              </sheet>
-            </form>
-        </field>
+              <separator string="Class and Baggage" colspan="4"/>
+              <field name="class_id" colspan="4"/>
+              <field name="baggage_qty"/>
+              <group col="3" colspan="2">
+                <label for="baggage_weight"/>
+                <field name="baggage_weight" nolabel="1"/>
+                <div style="width:25%%">
+                  <field name="baggage_weight_uom"
+                         nolabel='1'
+                         class="oe_inline"
+                         domain="[('category_id.name', '=', 'Weight')]"/>
+                </div>
+              </group>
+            </group>
+            <group string="Comments">
+              <field name="comment" nolabel="1"/>
+            </group>
+            <group name="Info"/>
+          </sheet>
+        </form>
+      </field>
     </record>
   </data>
 </openerp>

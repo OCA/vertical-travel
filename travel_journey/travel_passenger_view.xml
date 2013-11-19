@@ -8,20 +8,18 @@
       <field name="inherit_id" ref="travel.travel_passenger_form_view"/>
       <field name="type">form</field>
       <field name="arch" type="xml">
-        <form string="Travel Passengers" version="7.0">
-          <notebook name="Info">
-            <page string="Journey">
-              <field name="journey_ids">
-                <tree name="PassengerJourneyTree" version="7.0">
-                  <field name="origin"/>
-                  <field name="destination"/>
-                  <field name="departure"/>
-                  <field name="arrival"/>
-                </tree>
-              </field>
-            </page>
-          </notebook>
-        </form>
+        <notebook name="Info" position="inside">
+          <page string="Journey">
+            <field name="journey_ids">
+              <tree name="PassengerJourneyTree" version="7.0">
+                <field name="origin"/>
+                <field name="destination"/>
+                <field name="departure"/>
+                <field name="arrival"/>
+              </tree>
+            </field>
+          </page>
+        </notebook>
       </field>
     </record>
   </data>

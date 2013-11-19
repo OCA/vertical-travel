@@ -28,9 +28,9 @@ class travel_journey(orm.Model):
     _name = 'travel.journey'
     _columns = {
         'origin': fields.many2one('res.country.state.city', 'Origin', required='True',
-                                help='Source city of travel.'),
+                                  help='Source city of travel.'),
         'destination': fields.many2one('res.country.state.city', 'Destination', required='True',
-                              help='Destination city of travel.'),
+                                       help='Destination city of travel.'),
         # TODO: One and only one of the following two has to be filled
         'departure': fields.datetime('Desired Departure',
                                      help='Desired date and time of departure.'),
