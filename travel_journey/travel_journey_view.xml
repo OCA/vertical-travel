@@ -9,9 +9,38 @@
         <field name="arch" type="xml">
             <form string="Passenger Journeys" version="7.0">
               <sheet string="Journeys">
-                <group string="Cities" col="4">
-                  <field name="from"/>
-                  <field name="to"/>
+                <group col="4">
+                  <group string="Cities" col="2">
+                    <field name="origin"/>
+                    <field name="destination"/>
+                  </group>
+                  <group string="Times" col="2">
+                    <field name="departure"/>
+                    <field name="arrival"/>
+                  </group>
+                </group>
+                <group string="Visa" col="4">
+                  <field name="visa"/>
+                  <field name="visa_country"/>
+                </group>
+                <group string="Class and Baggage" col="5">
+                  <field name="class_id" colspan="5"/>
+                  <field name="baggage_qty"/>
+                  <group col="3">
+                    <label for="baggage_weight"/>
+                    <div align="right">
+                      <field name="baggage_weight" nolabel="1"/>
+                    </div>
+                    <div style="width:25%%">
+                      <field name="baggage_weight_uom"
+                             nolabel='1'
+                             class="oe_inline"
+                             domain="[('category_id.name', '=', 'Weight')]"/>
+                    </div>
+                  </group>
+                </group>
+                <group string="Comments">
+                  <field name="comment" nolabel="1"/>
                 </group>
                 <group name="Info"/>
               </sheet>

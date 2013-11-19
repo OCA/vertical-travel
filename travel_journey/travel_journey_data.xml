@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data noupdate="1">
+    <!--
+    Class
+    -->
+    <record id="travel_journey_class_directive" model="travel.journey.class">
+      <field name="name">Meet Travel Directive</field>
+    </record>
+    <record id="travel_journey_class_economy" model="travel.journey.class">
+      <field name="name">Economy Class</field>
+    </record>
+    <record id="travel_journey_class_business" model="travel.journey.class">
+      <field name="name">Business Class</field>
+    </record>
+  </data>
+</openerp>

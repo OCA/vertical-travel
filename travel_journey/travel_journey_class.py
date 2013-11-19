@@ -20,28 +20,15 @@
 #
 ##############################################################################
 
-{
-    'name': 'Travel Journey',
-    'version': '0.1',
-    'author': 'Savoir-faire Linux',
-    'maintainer': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'category': 'Customer Relationship Management',
-    'description': """\
- Travel journey
-=======================
-This module allows to add a starting point and destination to a travel.
-""",
-    'depends': ['travel', 'city', 'product', ],
-    'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_journey_view.xml',
-             'travel_journey_data.xml',
-             ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'active': False,
-}
+from openerp.osv import fields, orm
+
+
+class travel_journey_class(orm.Model):
+    _name = 'travel.journey.class'
+    _description = 'Passenger Class for Journey'
+    _columns = {
+        'name': fields.char('Name', size=255, help="Name of passenger class.")
+
+    }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
