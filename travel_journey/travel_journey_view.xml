@@ -10,27 +10,24 @@
             <form string="Passenger Journeys" version="7.0">
               <sheet string="Journeys">
                 <group col="4">
-                  <group string="Cities" col="2">
+                  <group string="Cities" col="2" colspan="2">
                     <field name="origin"/>
                     <field name="destination"/>
                   </group>
-                  <group string="Times" col="2">
+                  <group string="Times" col="2" colspan="2">
                     <field name="departure"/>
                     <field name="arrival"/>
                   </group>
-                </group>
-                <group string="Visa" col="4">
+                  <separator string="Visa" colspan="4"/>
                   <field name="visa"/>
                   <field name="visa_country"/>
-                </group>
-                <group string="Class and Baggage" col="5">
-                  <field name="class_id" colspan="5"/>
+
+                <separator string="Class and Baggage" colspan="4"/>
+                  <field name="class_id" colspan="4"/>
                   <field name="baggage_qty"/>
-                  <group col="3">
+                  <group col="3" colspan="2">
                     <label for="baggage_weight"/>
-                    <div align="right">
-                      <field name="baggage_weight" nolabel="1"/>
-                    </div>
+                    <field name="baggage_weight" nolabel="1"/>
                     <div style="width:25%%">
                       <field name="baggage_weight_uom"
                              nolabel='1'
