@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <!-- Views -->
+    <record model="ir.ui.view" id="travel_car_rental_form_view">
+      <field name="name">Passenger Rental Form View</field>
+      <field name="model">travel.car.rental</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Car Rentals" version="7.0">
+          <sheet string="Car Rentals">
+            <group col="4">
+              <group string="Location" col="2" colspan="2">
+                <field name="pickup_loc"/>
+                <field name="dropoff_loc"/>
+                <field name="type"/>
+              </group>
+              <group string="Times" col="2" colspan="2">
+                <field name="start"/>
+                <field name="end"/>
+                <field name="driver"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+  </data>
+</openerp>

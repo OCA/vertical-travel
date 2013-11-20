@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <!-- Views -->
+    <record model="ir.ui.view" id="travel_passenger_rental_form_view">
+      <field name="name">Travel Passenger Form View</field>
+      <field name="model">travel.passenger</field>
+      <field name="inherit_id" ref="travel.travel_passenger_form_view"/>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <notebook name="Info" position="inside">
+          <page string="Car Rental">
+            <field name="car_rental_ids">
+              <tree name="PassengerCarRentalTree" version="7.0">
+                <field name="pickup_loc"/>
+                <field name="dropoff_loc"/>
+                <field name="type"/>
+                <field name="start"/>
+                <field name="end"/>
+                <field name="driver"/>
+              </tree>
+            </field>
+          </page>
+        </notebook>
+      </field>
+    </record>
+  </data>
+</openerp>
