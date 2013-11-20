@@ -2,10 +2,11 @@
 <openerp>
   <data>
     <!-- Views -->
-    <record model="ir.ui.view" id="travel_passenger_rental_form_view">
+    <record model="ir.ui.view" id="travel_passenger_car_rental_form_view">
       <field name="name">Travel Passenger Form View</field>
       <field name="model">travel.passenger</field>
       <field name="inherit_id" ref="travel.travel_passenger_form_view"/>
+      <field name="priority" eval="3.0"/>
       <field name="type">form</field>
       <field name="arch" type="xml">
         <notebook name="Info" position="inside">
