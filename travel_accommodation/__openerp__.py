@@ -28,11 +28,11 @@
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
     'description': """
- Travel accommodation
+ Travel Accommodation
 =======================
 This module adds accommodation management for travels.
 """,
-    'depends': ['travel', 'city'],
+    'depends': ['travel', 'city', 'product', ],
     'external_dependencies': {},
     'data': ['travel_passenger_view.xml',
              'travel_accommodation_view.xml'

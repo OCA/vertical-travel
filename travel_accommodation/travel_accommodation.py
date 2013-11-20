@@ -34,7 +34,7 @@ class travel_accommodation(orm.Model):
         def str_to_date(string):
             return datetime.strptime(string, '%Y-%m-%d').date()
 
-        return {obj.id: (str_to_date(obj.departure) - str_to_date(obj.arrival)).days
+        return {obj.id: (str_to_date(obj.arrival) - str_to_date(obj.departure)).days
                 for obj in self.browse(cr, uid, ids, context=context)}
 
     _columns = {
