@@ -27,7 +27,7 @@ class travel_journey_class(orm.Model):
     _name = 'travel.journey.class'
     _description = 'Passenger Class for Journey'
     _columns = {
-        'name': fields.char('Name', size=255, help="Name of passenger class.")
+        'name': fields.char('Name', size=255, help="Name of passenger class.", translate=True)
 
     }
 

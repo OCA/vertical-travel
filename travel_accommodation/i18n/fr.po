@@ -63,7 +63,6 @@ msgstr "Date de départ de l'hébergement."
 
 #. module: travel_accommodation
 #: model:ir.model,name:travel_accommodation.model_travel_passenger
-#, fuzzy
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
 
@@ -105,7 +104,7 @@ msgstr "Départ"
 #. module: travel_accommodation
 #: view:travel.accommodation:0
 msgid "Times"
-msgstr "Horodatage"
+msgstr "Heures et dates"
 
 #. module: travel_accommodation
 #: field:travel.accommodation,dinner:0
@@ -144,9 +143,8 @@ msgstr "Petit déjeuner"
 
 #. module: travel_accommodation
 #: view:travel.accommodation:0
-#, fuzzy
 msgid "Passenger Accommodation"
-msgstr "Hôtel"
+msgstr "Hébergement du voyageur"
 
 #. module: travel_accommodation
 #: field:travel.accommodation,close_to:0

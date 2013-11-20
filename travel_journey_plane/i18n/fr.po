@@ -88,13 +88,11 @@ msgstr "Aéroport d'origine"
 
 #. module: travel_journey_plane
 #: view:travel.journey:0
-#, fuzzy
 msgid "Times"
-msgstr "Horodatage"
+msgstr "Heures et dates"
 
 #. module: travel_journey_plane
 #: field:travel.journey,airline:0
-#, fuzzy
 msgid "Airline"
 msgstr "Compagnie aérienne"
 

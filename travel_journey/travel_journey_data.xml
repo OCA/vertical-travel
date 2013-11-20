@@ -8,10 +8,10 @@
       <field name="name">Meet Travel Directive</field>
     </record>
     <record id="travel_journey_class_economy" model="travel.journey.class">
-      <field name="name">Economy Class</field>
+      <field name="name">Economy</field>
     </record>
     <record id="travel_journey_class_business" model="travel.journey.class">
-      <field name="name">Business Class</field>
+      <field name="name">Business</field>
     </record>
   </data>
 </openerp>

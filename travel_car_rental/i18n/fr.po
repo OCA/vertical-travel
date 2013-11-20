@@ -49,7 +49,7 @@ msgstr "Liste de location d'autos."
 #. module: travel_car_rental
 #: help:travel.car.rental,start:0
 msgid "Start date and time of car rental."
-msgstr "Horodatage de la location d'auto."
+msgstr "Heure et date de la location d'auto."
 
 #. module: travel_car_rental
 #: field:travel.car.rental,pickup_loc:0
@@ -58,15 +58,13 @@ msgstr "Lieu prise en charge"
 
 #. module: travel_car_rental
 #: model:ir.model,name:travel_car_rental.model_travel_passenger
-#, fuzzy
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
 
 #. module: travel_car_rental
 #: view:travel.car.rental:0
-#, fuzzy
 msgid "Times"
-msgstr "Horodatage"
+msgstr "Heures et dates"
 
 #. module: travel_car_rental
 #: view:travel.car.rental:0 field:travel.passenger,car_rental_ids:0
@@ -90,7 +88,6 @@ msgstr "Locations d'auto pour le déplacement"
 
 #. module: travel_car_rental
 #: view:travel.car.rental:0
-#, fuzzy
 msgid "Location"
 msgstr "Lieu"
 
@@ -116,9 +113,8 @@ msgstr "Lieu de restitution de l'auto."
 
 #. module: travel_car_rental
 #: help:travel.car.rental,end:0
-#, fuzzy
 msgid "End date and time of car rental."
-msgstr "Horodatage de location d'auto"
+msgstr "Heure et date de location d'auto"
 
 #. module: travel_car_rental
 #: field:travel.car.rental,driver:0
