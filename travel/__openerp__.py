@@ -36,7 +36,7 @@ Travel management with passengers.
              'travel_passenger_view.xml',
              'partner_view.xml',
              ],
-    'demo': ['demo/travel_demo.xml'],
+    'demo': [],
     'test': [],
     'installable': True,
     'active': False,
