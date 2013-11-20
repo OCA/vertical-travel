@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <!-- Views -->
+    <record model="ir.ui.view" id="travel_accommodation_form_view">
+      <field name="name">Passenger Accommodation Form View</field>
+      <field name="model">travel.accommodation</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Passenger Accommodation" version="7.0">
+          <sheet string="Accommodation">
+            <group col="4">
+              <group string="Location" col="2" colspan="2">
+                <field name="location"/>
+                <field name="close_to"/>
+                <field name="budget"/>
+              </group>
+              <group string="Times" col="2" colspan="2">
+                <field name="departure"/>
+                <field name="arrival"/>
+                <field name="nights"/>
+              </group>
+              <group string="Meals" col="6" colspan="4">
+                <field name="breakfast"/>
+                <field name="lunch"/>
+                <field name="dinner"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+  </data>
+</openerp>
