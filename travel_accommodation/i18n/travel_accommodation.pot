@@ -1,0 +1,152 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* travel_accommodation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-20 18:04+0000\n"
+"PO-Revision-Date: 2013-11-20 13:09-0500\n"
+"Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.7\n"
+
+#. module: travel_accommodation
+#: help:travel.accommodation,passenger_id:0
+msgid "Passenger on this accommodation."
+msgstr ""
+
+#. module: travel_accommodation
+#: field:travel.accommodation,nights:0
+msgid "Nights"
+msgstr ""
+
+#. module: travel_accommodation
+#: help:travel.accommodation,budget:0
+msgid "Budget to allocate per night spent at Accommodations."
+msgstr ""
+
+#. module: travel_accommodation
+#: field:travel.accommodation,budget:0
+msgid "Budget per Night"
+msgstr ""
+
+#. module: travel_accommodation
+#: view:travel.accommodation:0 field:travel.accommodation,location:0
+msgid "Location"
+msgstr ""
+
+#. module: travel_accommodation
+#: field:travel.accommodation,arrival:0
+msgid "Arrival"
+msgstr ""
+
+#. module: travel_accommodation
+#: help:travel.accommodation,breakfast:0
+msgid "Is breakfast included?"
+msgstr ""
+
+#. module: travel_accommodation
+#: model:ir.model,name:travel_accommodation.model_travel_accommodation
+msgid "Accommodation of travel"
+msgstr ""
+
+#. module: travel_accommodation
+#: help:travel.accommodation,departure:0
+msgid "Date of departure from Accommodations."
+msgstr ""
+
+#. module: travel_accommodation
+#: model:ir.model,name:travel_accommodation.model_travel_passenger
+msgid "Passenger on travel"
+msgstr ""
+
+#. module: travel_accommodation
+#: help:travel.accommodation,dinner:0
+msgid "Is dinner included?"
+msgstr ""
+
+#. module: travel_accommodation
+#: field:travel.accommodation,lunch:0
+msgid "Lunch"
+msgstr ""
+
+#. module: travel_accommodation
+#: help:travel.accommodation,close_to:0
+msgid "Location in proximity to Accommodations."
+msgstr ""
+
+#. module: travel_accommodation
+#: help:travel.accommodation,location:0
+msgid "Location of Accommodation."
+msgstr ""
+
+#. module: travel_accommodation
+#: view:travel.accommodation:0
+msgid "Meals"
+msgstr ""
+
+#. module: travel_accommodation
+#: field:travel.accommodation,passenger_id:0
+msgid "Passenger"
+msgstr ""
+
+#. module: travel_accommodation
+#: field:travel.accommodation,departure:0
+msgid "Departure"
+msgstr ""
+
+#. module: travel_accommodation
+#: view:travel.accommodation:0
+msgid "Times"
+msgstr ""
+
+#. module: travel_accommodation
+#: field:travel.accommodation,dinner:0
+msgid "Dinner"
+msgstr ""
+
+#. module: travel_accommodation
+#: help:travel.accommodation,arrival:0
+msgid "Date of arrival at Accommodations."
+msgstr ""
+
+#. module: travel_accommodation
+#: help:travel.accommodation,lunch:0
+msgid "Is lunch included?"
+msgstr ""
+
+#. module: travel_accommodation
+#: field:travel.passenger,accommodation_ids:0
+msgid "Accommodations"
+msgstr ""
+
+#. module: travel_accommodation
+#: view:travel.accommodation:0 view:travel.passenger:0
+msgid "Accommodation"
+msgstr ""
+
+#. module: travel_accommodation
+#: help:travel.passenger,accommodation_ids:0
+msgid "List of accommodations."
+msgstr ""
+
+#. module: travel_accommodation
+#: field:travel.accommodation,breakfast:0
+msgid "Breakfast"
+msgstr ""
+
+#. module: travel_accommodation
+#: view:travel.accommodation:0
+msgid "Passenger Accommodation"
+msgstr ""
+
+#. module: travel_accommodation
+#: field:travel.accommodation,close_to:0
+msgid "Close to"
+msgstr ""
