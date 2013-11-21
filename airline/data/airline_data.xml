@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data noupdate="1">
+    <!-- Airline-->
+    <record forcecreate="True" id="airport1" model="res.partner">
+      <field name="name">All Nippon Airways</field>
+      <field name="airline">True</field>
+    </record>
+    <record forcecreate="True" id="airport2" model="res.partner">
+      <field name="name">Aerolineas Argentinas</field>
+      <field name="airline">True</field>
+    </record>
+    <record forcecreate="True" id="airport3" model="res.partner">
+      <field name="name">Arrowhead Airways</field>
+      <field name="airline">True</field>
+    </record>
+  </data>
+</openerp>

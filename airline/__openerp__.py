@@ -35,8 +35,10 @@ This module allows to add :
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
     'depends': ['crm', 'travel', ],
-    'data': ['res_partner_airline_view.xml',
-             ],
+    'data': [
+        'res_partner_airline_view.xml',
+        'data/airline_data.xml'
+    ],
     'demo': [],
     'test': [],
     'installable': True,

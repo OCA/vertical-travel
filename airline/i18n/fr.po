@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* res_partner_airline
+#	* airline
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 15:33+0000\n"
-"PO-Revision-Date: 2013-11-13 15:33+0000\n"
+"POT-Creation-Date: 2013-11-21 15:14+0000\n"
+"PO-Revision-Date: 2013-11-21 15:14+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,13 +15,13 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: res_partner_airline
-#: model:ir.model,name:res_partner_airline.model_res_partner
+#. module: airline
+#: model:ir.model,name:airline.model_res_partner
 msgid "Partner"
 msgstr "Partenaire"
 
-#. module: res_partner_airline
+#. module: airline
+#: view:res.partner:0
 #: field:res.partner,airline:0
 msgid "Airline"
 msgstr "Compagnie aérienne"
-

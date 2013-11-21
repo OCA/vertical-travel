@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data noupdate="1">
+     <!-- Airports-->
+    <record forcecreate="True" id="airport1" model="res.partner">
+      <field name="name">Heathrow</field>
+      <field name="airport">True</field>
+      <field name="iata_code">LHR</field>
+    </record>
+    <record forcecreate="True" id="airport2" model="res.partner">
+      <field name="name">Kugaaruk</field>
+      <field name="airport">True</field>
+      <field name="iata_code">YBB</field>
+    </record>
+    <record forcecreate="True" id="airport3" model="res.partner">
+      <field name="name">Pokhara</field>
+      <field name="airport">True</field>
+      <field name="iata_code">PKR</field>
+    </record>
+  </data>
+</openerp>
