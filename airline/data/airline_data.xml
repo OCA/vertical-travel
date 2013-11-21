@@ -23504,7 +23504,7 @@
       <field name="customer">False</field>
     </record>
     <record forcecreate="True" id="3918" model="res.partner">
-      <field name="name">Peau Vava%Gʻ%@u</field>
+      <field name="name">Peau Vava'u</field>
       <field name="airline">True</field>
       <field name="is_company">True</field>
       <field name="customer">False</field>
