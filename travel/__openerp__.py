@@ -30,7 +30,7 @@
     'description': """\
 Travel management with passengers.
 """,
-    'depends': ['crm', 'hr', 'city', ],
+    'depends': ['crm', 'city', 'hr_department_sequence', ],
     'external_dependencies': {},
     'data': ['travel_view.xml',
              'travel_passenger_view.xml',

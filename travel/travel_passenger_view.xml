@@ -10,7 +10,7 @@
         <form string="Travel Passengers" version="7.0">
           <group name="General" col="4">
             <field name="name"/>
-            <field name="department_id"/>
+            <field name="department_id" context="{'show_code': True}"/>
             <field name="date"/>
           </group>
           <notebook name="Info"/>
