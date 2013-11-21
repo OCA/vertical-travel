@@ -37,7 +37,7 @@ class travel_rental(orm.Model):
         'country_id': fields.related('city_id', 'country_id', type='many2one',
                                      relation='res.country', string="Country",
                                      readonly=True, help='Country of rental.'),
-        'city_id': fields.many2one('res.country.state.city', 'City', required='True',
+        'city_id': fields.many2one('res.country.city', 'City', required='True',
                                    help='City of rental.'),
         'start': fields.datetime('Start', required=True,
                                  help='Start date and time of rental.'),

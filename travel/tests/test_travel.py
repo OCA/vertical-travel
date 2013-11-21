@@ -43,8 +43,8 @@ class Base_Test_travel(TransactionCase):
                      }
         super(Base_Test_travel, self).setUp()
         # Create the city; we're not testing city, so we don't store in self
-        res_country_state_city = self.registry('res.country.state.city')
-        self.vals['city_id'] = res_country_state_city.create(self.cr, self.uid, {
+        res_country_city = self.registry('res.country.city')
+        self.vals['city_id'] = res_country_city.create(self.cr, self.uid, {
             'name': 'Test City',
             'state_id': 1, }, context=None)
         # Overwrite vals if needed

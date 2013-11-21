@@ -29,7 +29,7 @@ class travel_travel(orm.Model):
     _columns = {
         'name': fields.char('Name', size=256, required=True, select=True,
                             help='Name of travel.'),
-        'city_id': fields.many2one('res.country.state.city', 'City', required='True',
+        'city_id': fields.many2one('res.country.city', 'City', required='True',
                                    help='Destination city of travel.'),
         'country_id': fields.related('city_id', 'country_id', type='many2one',
                                      relation='res.country', string="Country",
