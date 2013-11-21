@@ -30,11 +30,20 @@ class travel_accommodation(orm.Model):
     _description = 'Accommodation of travel'
     _name = 'travel.accommodation'
 
-    def _get_nights(self, cr, uid, ids, fieldnames, args, context=None):
+    @staticmethod
+    def str_to_date_difference(lhs, rhs):
         def str_to_date(string):
             return datetime.strptime(string, '%Y-%m-%d').date()
+        return (str_to_date(lhs) - str_to_date(rhs)).days
 
-        return {obj.id: (str_to_date(obj.arrival) - str_to_date(obj.departure)).days
+    def on_change_times(self, cr, uid, ids, arrival, departure, context=None):
+        nights = 0
+        if arrival and departure:
+            nights = self.str_to_date_difference(departure, arrival)
+        return {'value': {'nights': nights}}
+
+    def _get_nights(self, cr, uid, ids, fieldnames, args, context=None):
+        return {obj.id: self.str_to_date_difference(obj.departure, obj.arrival)
                 for obj in self.browse(cr, uid, ids, context=context)}
 
     _columns = {
@@ -50,7 +59,7 @@ class travel_accommodation(orm.Model):
         'departure': fields.date('Departure', required=True,
                                  help='Date of departure from Accommodations.'),
         # TODO: calculate next when previous two are changed
-        'nights': fields.function(_get_nights, string='Nights', type='float'),
+        'nights': fields.function(_get_nights, string='Nights', type='float', digits=(1, 0)),
         'breakfast': fields.boolean('Breakfast', help='Is breakfast included?'),
         'lunch': fields.boolean('Lunch', help='Is lunch included?'),
         'dinner': fields.boolean('Dinner', help='Is dinner included?'),

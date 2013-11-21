@@ -16,8 +16,8 @@
                 <field name="budget"/>
               </group>
               <group string="Times" col="2" colspan="2">
-                <field name="departure"/>
-                <field name="arrival"/>
+                <field name="arrival" on_change="on_change_times(arrival, departure)"/>
+                <field name="departure" on_change="on_change_times(arrival, departure)"/>
                 <field name="nights"/>
               </group>
               <group string="Meals" col="6" colspan="4">
