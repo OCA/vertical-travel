@@ -38,10 +38,11 @@ for row in csvData:
         for i in range(len(tags)):
             tags[i] = tags[i].replace(' ', '_')
     else:
-        xmlData.write('<record forcecreate="True" id="' + str(rowNum) + '" model="res.partner">' + "\n")
+        xmlData.write('    '+'<record forcecreate="True" id="' + str(rowNum) + '" model="res.partner">' + "\n")
         for i in range(len(tags)):
-            xmlData.write('    ' + '<field name="' + tags[i] + '">' + row[i] + '</field>' + "\n")
-        xmlData.write('</record>' + "\n")
+            row[i] = row[i].replace('&', '&amp;')
+            xmlData.write('      ' + '<field name="' + tags[i] + '">' + row[i] + '</field>' + "\n")
+        xmlData.write('    '+'</record>' + "\n")
     rowNum += 1
 
 xmlData.write('  '+'</data>' + "\n")
