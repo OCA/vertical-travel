@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+##############################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    This module copyright (C) 2013 Savoir-faire Linux
@@ -17,6 +18,35 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+##############################################################################
 
-import hr
+{
+    'name': 'Employee Phone Extension',
+    'version': '1.0',
+    'category': 'Human Resources',
+    'description': """
+
+Employee Phone Extension
+=======================
+This module allows to add :
+-- interne_number
+-- short_number
+-- expiration_date
+
+
+    """,
+    'author': 'Savoir-faire Linux',
+    'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
+    'depends': ['hr', ],
+    'data': [
+        'hr_view.xml',
+    ],
+    'demo': [],
+    'test': [],
+    'installable': True,
+    'auto_install': False,
+    'images': [],
+}
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

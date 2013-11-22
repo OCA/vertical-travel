@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+##############################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    This module copyright (C) 2013 Savoir-faire Linux
@@ -17,6 +18,20 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+##############################################################################
 
-import hr
+from openerp.osv import fields, orm
+
+
+class hr_employee(orm.Model):
+    _inherit = 'hr.employee'
+
+    _columns = {
+        'internal_number': fields.char('Internal number', size=20,
+                            help='Interne number.'),
+        'short_number': fields.char('short number', size=20,
+                            help='short number.'),
+        'expiration_date': fields.date('Expiration date'),
+    }
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
