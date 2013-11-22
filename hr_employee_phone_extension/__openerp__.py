@@ -41,6 +41,7 @@ This module allows to add :
     'depends': ['hr', ],
     'data': [
         'hr_view.xml',
+        'hr_division_view.xml',
     ],
     'demo': [],
     'test': [],

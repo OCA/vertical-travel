@@ -23,16 +23,27 @@
 from openerp.osv import fields, orm
 
 
-class hr_employee(orm.Model):
-    _inherit = 'hr.employee'
+class hr_division(orm.Model):
+    def name_get(self, cr, uid, ids, context=None):
+        if context is None:
+            context = {}
+        if not ids:
+            return []
+        reads = self.read(cr, uid, ids, ['name','parent_id'], context=context)
+        res = []
+        for record in reads:
+            name = record['name']
+            if record['parent_id']:
+                name = record['parent_id'][1]+' / '+name
+            res.append((record['id'], name))
+        return res
 
+    _name = 'hr.division'
+    _description = 'Division'
     _columns = {
-        'internal_number': fields.char('Internal number', size=20,
-                            help='Interne number.'),
-        'short_number': fields.char('short number', size=20,
-                            help='short number.'),
-        'expiration_date': fields.date('Expiration date'),
-        'division_id': fields.many2one('hr.division', 'Division'),
+        'name': fields.char('Division name', size=128, required=True),
+        'code': fields.char('Code', size=10, required=True),
+        'parent_id': fields.many2one('hr.division', 'Parent division', select=True),
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

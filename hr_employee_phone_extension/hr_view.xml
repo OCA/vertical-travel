@@ -13,6 +13,9 @@
         <field name="passport_id"  position="after">
           <field name="expiration_date" />
         </field>
+        <field name="department_id"  position="after">
+          <field name="division_id" />
+        </field>
       </field>
     </record>
   </data>
