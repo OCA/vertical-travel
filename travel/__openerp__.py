@@ -27,8 +27,15 @@
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
-    'description': """\
+    'description': """
+Travel
+======
+
 Travel management with passengers.
+
+Contributors
+------------
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
     'depends': ['crm', 'city', 'hr_department_sequence', ],
     'external_dependencies': {},

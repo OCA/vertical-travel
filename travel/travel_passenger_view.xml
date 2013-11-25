@@ -9,7 +9,7 @@
       <field name="arch" type="xml">
         <form string="Travel Passengers" version="7.0">
           <group name="General" col="4">
-            <field name="name"/>
+            <field name="name" domain="[('is_company', '=', False)]"/>
             <field name="department_id" context="{'show_code': True}"/>
             <field name="date"/>
           </group>
