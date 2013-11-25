@@ -26,22 +26,22 @@ from openerp.osv import fields, orm
 class travel_journey_plane(orm.Model):
     _inherit = 'travel.journey'
     _columns = {
-        'airline': fields.many2one('res.partner', 'Airline', required=True,
+        'airline': fields.many2one('res.partner', 'Airline',
                                    domain="[('airline','=',True)]",
                                    help="Airline company."),
         'reservation': fields.char('Reservation Number', size=256,
                                    help="Number of the ticket reservation."),
-        'airport_from': fields.many2one('res.partner', 'Origin', required=True,
+        'airport_from': fields.many2one('res.partner', 'Origin',
                                         domain="[('airport','=',True)]",
                                         help="Departure airport."),
-        'airport_to': fields.many2one('res.partner', 'Destination', required=True,
+        'airport_to': fields.many2one('res.partner', 'Destination',
                                       domain="[('airport','=',True)]",
                                       help="Destination airport."),
         'fight_departure': fields.datetime('Flight Departure',
                                            help='Date and time of the departure of the flight.'),
         'fight_arrival': fields.datetime('Flight Arrival',
                                          help='Date and time of the arrival of the flight.'),
-        'cancelation': fields.text('Cancelation', help='Notes on cancelation.'),
+        'cancellation': fields.text('Cancellation', help='Notes on cancellation.'),
     }
 
 

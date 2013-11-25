@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-20 21:19+0000\n"
-"PO-Revision-Date: 2013-11-20 16:23-0500\n"
+"PO-Revision-Date: 2013-11-25 14:42-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -124,7 +124,7 @@ msgstr "Ville d'arrivée."
 #. module: travel_journey
 #: help:travel.journey,visa:0
 msgid "Is a visa required to visit destination city?"
-msgstr "Si le pays désitinaire requis un visa."
+msgstr "Si le pays destinataire requière un visa."
 
 #. module: travel_journey
 #: field:travel.journey,visa:0
@@ -134,7 +134,7 @@ msgstr "Visa requis"
 #. module: travel_journey
 #: view:travel.journey:0
 msgid "Class and Baggage"
-msgstr "Classe et baggage"
+msgstr "Classe et bagage"
 
 #. module: travel_journey
 #: view:travel.journey:0
@@ -164,7 +164,7 @@ msgstr "Voyageur"
 #. module: travel_journey
 #: help:travel.journey,baggage_qty:0
 msgid "Number of articles in baggage."
-msgstr "Nombre d'articles du baggage."
+msgstr "Nombre d'articles du bagage."
 
 #. module: travel_journey
 #: view:travel.journey:0 field:travel.passenger,journey_ids:0
@@ -179,7 +179,7 @@ msgstr "L'heure et la date du départ."
 #. module: travel_journey
 #: field:travel.journey,baggage_weight:0
 msgid "Baggage Weight"
-msgstr "Poids du baggage"
+msgstr "Poids du bagage"
 
 #. module: travel_journey
 #: help:travel.journey.class,name:0
@@ -189,17 +189,17 @@ msgstr "Nom de la classe du voyageur."
 #. module: travel_journey
 #: help:travel.journey,baggage_weight:0
 msgid "Weight of baggage."
-msgstr "Poids du baggage."
+msgstr "Poids du bagage."
 
 #. module: travel_journey
 #: help:travel.journey,baggage_weight_uom:0
 msgid "Unit of Measure for Baggage Weight"
-msgstr "L'unité de mesure pour le poids du baggage"
+msgstr "L'unité de mesure pour le poids du bagage"
 
 #. module: travel_journey
 #: field:travel.journey,baggage_qty:0
 msgid "Baggage Quantity"
-msgstr "Quantité de baggaes"
+msgstr "Quantité de bagages"
 
 #. module: travel_journey
 #: model:travel.journey.class,name:travel_journey.travel_journey_class_business

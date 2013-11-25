@@ -61,8 +61,8 @@ msgid "Departure airport."
 msgstr ""
 
 #. module: travel_journey_plane
-#: help:travel.journey,cancelation:0
-msgid "Notes on cancelation."
+#: help:travel.journey,cancellation:0
+msgid "Notes on cancellation."
 msgstr ""
 
 #. module: travel_journey_plane
@@ -77,8 +77,8 @@ msgstr ""
 
 #. module: travel_journey_plane
 #: view:travel.journey:0
-#: field:travel.journey,cancelation:0
-msgid "Cancelation"
+#: field:travel.journey,cancellation:0
+msgid "Cancellation"
 msgstr ""
 
 #. module: travel_journey_plane

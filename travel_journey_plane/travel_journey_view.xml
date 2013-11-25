@@ -16,11 +16,11 @@
               <field name="airport_to"/>
             </group>
             <group string="Times" col="2" colspan="2">
-              <field name="departure"/>
-              <field name="arrival"/>
+              <field name="fight_departure"/>
+              <field name="fight_arrival"/>
             </group>
-            <group string="Cancelation" colspan="4"> 
-              <field name="cancelation" nolabel="1"/>
+            <group string="Cancellation" colspan="4">
+              <field name="cancellation" nolabel="1"/>
             </group>
           </group>
         </group>

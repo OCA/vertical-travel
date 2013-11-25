@@ -47,7 +47,6 @@
                 <field name="passenger_ids" nolabel="1">
                   <tree name="TravelPassengerTree" version="7.0">
                     <field name="name"/>
-                    <field name="date"/>
                   </tree>
                 </field>
               </group>
