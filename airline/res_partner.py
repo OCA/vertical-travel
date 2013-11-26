@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+##############################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    This module copyright (C) 2013 Savoir-faire Linux
@@ -17,18 +18,21 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+##############################################################################
+
 from openerp.osv import orm, fields
 
 
-class res_partner_railwaystation(orm.Model):
-    """ Inherits partner and adds airport and iata_code fields  in the partner form """
+class res_partner(orm.Model):
+    """
+    Inherits partner and adds airline : boolean in the partner form
+    """
     _inherit = 'res.partner'
-
     _columns = {
-        'railwaystation': fields.boolean('Railwaystation'),
+        'airline': fields.boolean('Airline'),
     }
     _defaults = {
-        'railwaystation': 0,
+        'airline': 0,
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -20,16 +20,14 @@
 from openerp.osv import orm, fields
 
 
-class res_partner_airport(orm.Model):
+class res_partner(orm.Model):
     """ Inherits partner and adds airport and iata_code fields  in the partner form """
     _inherit = 'res.partner'
-
     _columns = {
-        'airport': fields.boolean('Airport'),
-        'iata_code': fields.char('IATA Airline code', size=3),
+        'railwaystation': fields.boolean('Railwaystation'),
     }
     _defaults = {
-        'airport': 0,
+        'railwaystation': 0,
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

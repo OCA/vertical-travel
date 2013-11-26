@@ -29,8 +29,12 @@
     'category': 'Customer Relationship Management',
     'description': """
  Travel Rentals
-=======================
+===============
 This module adds rental management for travels.
+
+Contributors
+------------
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
     'depends': ['travel', 'city'],
     'external_dependencies': {},

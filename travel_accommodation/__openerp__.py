@@ -29,8 +29,12 @@
     'category': 'Customer Relationship Management',
     'description': """
  Travel Accommodation
-=======================
+=====================
 This module adds accommodation management for travels.
+
+Contributors
+------------
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
     'depends': ['travel', 'city', 'product', ],
     'external_dependencies': {},

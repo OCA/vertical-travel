@@ -29,8 +29,12 @@
     'category': 'Customer Relationship Management',
     'description': """
  Travel journey Plane
-=======================
+=====================
 This module allows to create a travel by plane.
+
+Contributors
+------------
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
     'depends': ['travel_journey', 'airport', 'airline'],
     'external_dependencies': {},

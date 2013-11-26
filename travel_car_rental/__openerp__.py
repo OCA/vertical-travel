@@ -29,8 +29,12 @@
     'category': 'Customer Relationship Management',
     'description': """
  Travel Car Rentals
-=======================
+===================
 This module adds car rental management for travels.
+
+Contributors
+------------
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
     'depends': ['travel', 'city'],
     'external_dependencies': {},

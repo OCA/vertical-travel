@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+##############################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    This module copyright (C) 2013 Savoir-faire Linux
@@ -16,25 +17,28 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+##############################################################################
 
 {
     'name': 'Partner airline',
-    'version': '1.0',
+    'version': '0.1',
     'category': 'Customer Relationship Management',
     'description': """
-
 Partner airline
-=======================
+===============
 This module allows to add :
--- airline : boolean
+* airline : boolean
 
-
+Contributors
+------------
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
+* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
     """,
     'author': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['crm', 'travel', ],
+    'depends': ['crm', ],
+    'external_dependencies': {},
     'data': [
         'data/airline_data.xml'
     ],

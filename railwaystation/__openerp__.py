@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+###############################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    This module copyright (C) 2013 Savoir-faire Linux
@@ -17,6 +18,8 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+###############################################################################
+
 {
     'name': 'Partner Railwaystation',
     'version': '1.0',
@@ -28,14 +31,15 @@ Partner Railwaystation
 This module allows to add :
 -- railwaystation : boolean
 
-
+Contributors
+------------
+* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
     """,
     'author': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
     'depends': ['crm', 'travel', ],
-    'data': ['res_partner_railwaystation_view.xml',
-             ],
+    'data': [],
     'demo': [],
     'test': [],
     'installable': True,
