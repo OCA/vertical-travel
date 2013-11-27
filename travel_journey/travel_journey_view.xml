@@ -10,9 +10,18 @@
         <form string="Passenger Journeys" version="7.0">
           <sheet string="Journeys">
             <group col="4">
+              <group colspan="4">
+                <field name="return"/>
+              </group>
               <group string="Cities" col="2" colspan="2">
-                <field name="origin"/>
-                <field name="destination"/>
+                <field name="origin" on_change="on_change_location(origin)"/>
+                <field name="destination" />
+
+                <group string="Cities" col="2" colspan="2"
+                       attrs="{'invisible': [('return', '=', False)]}">
+                  <field name="return_origin"/>
+                  <field name="origin"/>
+                </group>
               </group>
               <group string="Times" col="2" colspan="2">
                 <field name="departure"/>

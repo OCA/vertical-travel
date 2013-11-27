@@ -26,6 +26,7 @@ from openerp.osv import fields, orm
 class travel_passenger(orm.Model):
     _description = 'Passenger on travel'
     _name = 'travel.passenger'
+    _inherit = ['mail.thread']
     _columns = {
         'name': fields.many2one('res.partner', 'Name', required=True, ondelete='cascade',
                                 help="Name of Passenger."),

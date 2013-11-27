@@ -26,6 +26,7 @@ from openerp.osv import fields, orm
 class travel_travel(orm.Model):
     _description = 'Travel'
     _name = 'travel.travel'
+    _inherit = ['mail.thread']
     _columns = {
         'name': fields.char('Name', size=256, required=True, select=True,
                             help='Name of travel.'),

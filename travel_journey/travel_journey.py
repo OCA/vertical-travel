@@ -26,17 +26,23 @@ from openerp.osv import fields, orm
 class travel_journey(orm.Model):
     _description = 'Journey of travel'
     _name = 'travel.journey'
+
+    def on_change_location(self, cr, uid, ids, location, context=None):
+        return {'value': {'return_origin': location}}
+
     _columns = {
         'origin': fields.many2one('res.country.city', 'Origin', required='True',
                                   help='Source city of travel.'),
         'destination': fields.many2one('res.country.city', 'Destination', required='True',
                                        help='Destination city of travel.'),
+        'return_origin': fields.many2one('res.country.city', 'Origin (return)', readonly=True),
+        'return': fields.boolean('Return Trip', help='Generate a return trip'),
         # TODO: One and only one of the following two has to be filled
         'departure': fields.datetime('Desired Departure',
                                      help='Desired date and time of departure.'),
         'arrival': fields.datetime('Desired Arrival',
                                    help='Desired date and time of Arrival.'),
-        'visa': fields.boolean('Visa Required', 
+        'visa': fields.boolean('Visa Required',
                                help='Is a visa required to visit destination city?'),
         # TODO: make following field only visible if previous field is true
         'visa_country': fields.many2one('res.country', 'Country Visa',
