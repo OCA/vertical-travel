@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 20:04+0000\n"
-"PO-Revision-Date: 2013-11-27 15:10-0500\n"
+"POT-Creation-Date: 2013-11-27 20:02+0000\n"
+"PO-Revision-Date: 2013-11-27 15:02-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,109 +19,109 @@ msgstr ""
 #. module: travel_service_rental
 #: field:travel.service.rental,city_id:0
 msgid "City"
-msgstr "Ville"
+msgstr ""
 
 #. module: travel_service_rental
 #: field:travel.service.rental,capacity:0
 msgid "Capacity"
-msgstr "Capacité"
+msgstr ""
 
 #. module: travel_service_rental
 #: help:travel.service.rental,city_id:0
 msgid "City of rental."
-msgstr "Ville de location."
+msgstr ""
 
 #. module: travel_service_rental
 #: help:travel.service.rental,capacity:0
 msgid "Maximum capacity of people in room."
-msgstr "Capacité maximale de la salle."
+msgstr ""
 
 #. module: travel_service_rental
 #: view:travel.service.rental:0 field:travel.service.rental,location:0
 msgid "Location"
-msgstr "Location"
+msgstr ""
 
 #. module: travel_service_rental
 #: field:travel.service.rental,end:0
 msgid "End"
-msgstr "Fin"
+msgstr ""
 
 #. module: travel_service_rental
 #: model:ir.model,name:travel_service_rental.model_travel_rental
 msgid "Rentals for travel"
-msgstr "Locations pour le déplacement"
+msgstr ""
 
 #. module: travel_service_rental
 #: view:travel.passenger:0
 msgid "Travel - Other services"
-msgstr "Autres Prestations "
+msgstr ""
 
 #. module: travel_service_rental
 #: model:ir.model,name:travel_service_rental.model_travel_passenger
 msgid "Passenger on travel"
-msgstr "Voyageur en déplacement"
+msgstr ""
 
 #. module: travel_service_rental
 #: help:travel.service.rental,location:0
 msgid "Location of rental supplier."
-msgstr "Lieu du fournisseur"
+msgstr ""
 
 #. module: travel_service_rental
 #: field:travel.service.rental,country_id:0
 msgid "Country"
-msgstr "Pays"
+msgstr ""
 
 #. module: travel_service_rental
 #: view:travel.service.rental:0 field:travel.service.rental,equipment:0
 msgid "Desired equipment"
-msgstr "Équipement souhaité"
+msgstr ""
 
 #. module: travel_service_rental
 #: view:travel.service.rental:0 field:travel.service.rental,services:0
 msgid "Desired services"
-msgstr "Services souhaités"
+msgstr ""
 
 #. module: travel_service_rental
 #: view:travel.service.rental:0
 msgid "Times"
-msgstr "Heures et dates"
+msgstr ""
 
 #. module: travel_service_rental
 #: view:travel.service.rental:0
 msgid "Rentals"
-msgstr "Locations"
+msgstr ""
 
 #. module: travel_service_rental
 #: field:travel.service.rental,start:0
 msgid "Start"
-msgstr "Début"
+msgstr ""
 
 #. module: travel_service_rental
 #: field:travel.service.rental,passenger_id:0
 msgid "Passenger"
-msgstr "Voyageur"
+msgstr ""
 
 #. module: travel_service_rental
 #: help:travel.service.rental,start:0
 msgid "Start date and time of rental."
-msgstr "Heure et date du début de la location."
+msgstr ""
 
 #. module: travel_service_rental
 #: help:travel.service.rental,passenger_id:0
 msgid "Passenger of this rental."
-msgstr "Voyageurs de la location."
+msgstr ""
 
 #. module: travel_service_rental
 #: help:travel.service.rental,end:0
 msgid "End date and time of rental."
-msgstr "Heure et date de la fin de la location."
+msgstr ""
 
 #. module: travel_service_rental
 #: help:travel.service.rental,country_id:0
 msgid "Country of rental."
-msgstr "Pays de location."
+msgstr ""
 
 #. module: travel_service_rental
 #: model:ir.model,name:travel_service_rental.model_travel_service_rental
 msgid "Service rentals for travel"
-msgstr "Service de locations pour le déplacement"
+msgstr ""
