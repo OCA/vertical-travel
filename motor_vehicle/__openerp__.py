@@ -21,26 +21,25 @@
 ##############################################################################
 
 {
-    'name': 'Travel Car Rentals',
+    'name': 'Motor Vehicle Management',
     'version': '0.1',
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
+    'summary': 'Motor vehicle',
     'description': """
- Travel Car Rentals
-===================
-This module adds car rental management for travels.
+Motor Vehicle Management
+========================
+This module adds type of motor vehicle.
 
 Contributors
 ------------
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
+* EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
 """,
-    'depends': ['travel', 'city', 'motor_vehicle', ],
+    'depends': [],
     'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_car_rental_view.xml'
-             ],
+    'data': [],
     'demo': [],
     'test': [],
     'installable': True,

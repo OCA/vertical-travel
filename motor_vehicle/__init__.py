@@ -16,35 +16,10 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
-{
-    'name': 'Travel Car Rentals',
-    'version': '0.1',
-    'author': 'Savoir-faire Linux',
-    'maintainer': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'category': 'Customer Relationship Management',
-    'description': """
- Travel Car Rentals
-===================
-This module adds car rental management for travels.
-
-Contributors
-------------
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
-""",
-    'depends': ['travel', 'city', 'motor_vehicle', ],
-    'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_car_rental_view.xml'
-             ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'active': False,
-}
+import motor_vehicle
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

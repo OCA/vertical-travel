@@ -33,7 +33,7 @@ class travel_car_rental(orm.Model):
     _columns = {
         'pickup_loc': fields.char('Pick-up Location', size=255, help="Location of car pick-up."),
         'dropoff_loc': fields.char('Drop-off Location', size=255, help="Location of car drop-off."),
-        'type': fields.char('Vehicle type', size=255, help="Make and model of the car."),
+        'type': fields.many2one('motor.vehicle', 'Vehicle type', help="Make and model of the car."),
         'start': fields.datetime('Start', required=True,
                                  help='Start date and time of car rental.'),
         'end': fields.datetime('End', required=True,

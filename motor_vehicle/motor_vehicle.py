@@ -20,31 +20,15 @@
 #
 ##############################################################################
 
-{
-    'name': 'Travel Car Rentals',
-    'version': '0.1',
-    'author': 'Savoir-faire Linux',
-    'maintainer': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'category': 'Customer Relationship Management',
-    'description': """
- Travel Car Rentals
-===================
-This module adds car rental management for travels.
+from openerp.osv import fields, orm
 
-Contributors
-------------
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
-""",
-    'depends': ['travel', 'city', 'motor_vehicle', ],
-    'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_car_rental_view.xml'
-             ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'active': False,
-}
+
+class motor_vehicle(orm.Model):
+    _description = 'Motor vehicle'
+    _name = 'motor.vehicle'
+    _columns = {
+        'name': fields.char('Name', size=256, required=True, select=True,
+                            help='Name of motor vehicle.'),
+    }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
