@@ -13,5 +13,8 @@
     <record id="travel_journey_class_business" model="travel.journey.class">
       <field name="name">Business</field>
     </record>
+    <record id="travel_journey_class_premium" model="travel.journey.class">
+      <field name="name">Premium</field>
+    </record>
   </data>
 </openerp>
