@@ -20,32 +20,6 @@
 #
 ##############################################################################
 
-{
-    'name': 'Travel Accommodation',
-    'version': '0.1',
-    'author': 'Savoir-faire Linux',
-    'maintainer': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'category': 'Customer Relationship Management',
-    'description': """
- Travel Accommodation
-=====================
-This module adds accommodation management for travels.
-
-Contributors
-------------
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
-""",
-    'depends': ['travel', 'city', 'product', ],
-    'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_accommodation_view.xml',
-             'wizard/travel_accommodation_import_view.xml',
-             ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'active': False,
-}
+import travel_accommodation_import
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
