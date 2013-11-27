@@ -46,7 +46,7 @@
               <group name="Passengers" string="Passengers" col="1" colspan="4">
                 <field name="passenger_ids" nolabel="1">
                   <tree name="TravelPassengerTree" version="7.0">
-                    <field name="name"/>
+                    <field name="partner_id"/>
                   </tree>
                 </field>
               </group>

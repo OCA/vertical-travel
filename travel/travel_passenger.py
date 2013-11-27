@@ -28,11 +28,14 @@ class travel_passenger(orm.Model):
     _name = 'travel.passenger'
     _inherit = ['mail.thread']
     _columns = {
-        'name': fields.many2one('res.partner', 'Name', required=True, ondelete='cascade',
-                                help="Name of Passenger."),
-        'travel_id': fields.many2one('travel.travel', 'Travel', required='True',
+        'partner_id': fields.many2one('res.partner', 'Name', required=True, ondelete='cascade',
+                                        help="Name of Passenger."),
+        'travel_id': fields.many2one('travel.travel', 'Travel',
                                      help='Travel on which the passenger is going.'),
         'department_id': fields.many2one('hr.department', 'Department'),
     }
+
+    def name_get(self, cr, uid, ids, context=None):
+        return [(i.id, i.partner_id.name) for i in self.browse(cr, uid, ids, context=context)]
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
