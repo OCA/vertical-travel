@@ -20,33 +20,6 @@
 #
 ##############################################################################
 
-{
-    'name': 'Travel Journey',
-    'version': '0.1',
-    'author': 'Savoir-faire Linux',
-    'maintainer': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'category': 'Customer Relationship Management',
-    'description': """
- Travel journey
-===============
-This module allows to add a starting point and destination to a travel.
-
-Contributors
-------------
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
-""",
-    'depends': ['travel', 'city', 'product', ],
-    'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_journey_view.xml',
-             'travel_journey_data.xml',
-             'wizard/travel_journey_import_view.xml'
-             ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'active': False,
-}
+import travel_journey_import
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
