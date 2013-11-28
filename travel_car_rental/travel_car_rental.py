@@ -40,7 +40,7 @@ class travel_car_rental(orm.Model):
                                help='End date and time of car rental.'),
         'driver': fields.boolean('With Chauffeur', help='Will the car rental require a driver.'),
         'passenger_id': fields.many2one('travel.passenger', 'Passenger', required=True,
-                                        help='Passenger on this accommodation.'),
+                                        help='Passenger on this car rental.'),
 
     }
 
