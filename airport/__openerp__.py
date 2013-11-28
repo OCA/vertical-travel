@@ -42,7 +42,8 @@ Contributors
     'depends': ['crm', ],
     'external_dependencies': {},
     'data': [
-        'data/airport_data.xml',
+        #'data/airport_data.xml',
+        'res_partner_view.xml'
     ],
     'demo': [],
     'test': [],

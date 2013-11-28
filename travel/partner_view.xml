@@ -7,7 +7,7 @@
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
         <notebook position="inside">
-          <page string="Travel" />
+          <page string="Travel" attrs="{'invisible': [('is_company','=',False), ('child_ids', '=', [])]}" autofocus="autofocus"/>
         </notebook>
       </field>
     </record>

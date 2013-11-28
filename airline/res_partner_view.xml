@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="view_partner_airline_form" model="ir.ui.view">
+    <field name="name">res.partner.airline.form.inherit</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="travel.view_travel_form"/>
+    <field name="arch" type="xml">
+      <page string="Travel" position="inside">
+        <group>
+          <separator string="airline" colspan="2"/>
+          <field name="airline" />
+        </group>
+      </page>
+    </field>
+    </record>
+  </data>
+</openerp>
