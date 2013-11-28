@@ -63,6 +63,8 @@ class travel_accommodation(orm.Model):
         'breakfast': fields.boolean('Breakfast', help='Is breakfast included?'),
         'lunch': fields.boolean('Lunch', help='Is lunch included?'),
         'dinner': fields.boolean('Dinner', help='Is dinner included?'),
+        'passenger_id': fields.many2one('travel.passenger', 'Passenger', required=True,
+                                        help='Passenger on this accommodation.'),
 
     }
 

@@ -40,13 +40,14 @@ class travel_accommodation_import(orm.TransientModel):
         Import accommodation information from other passenger
         """
         tai_pool = self.pool.get('travel.accommodation.import')
+        ta_pool = self.pool.get('travel.accommodation')
         for tai_obj in tai_pool.browse(cr, uid, ids, context=context):
             cur_passenger_obj = tai_obj.cur_passenger_id
             other_passenger_obj = tai_obj.passenger_id
-            vals = {
-                'accommodation_ids': [(6, 0, [i.id for i in other_passenger_obj.accommodation_ids])],
-            }
-            cur_passenger_obj.write(vals)
+            for acc_obj in other_passenger_obj.accommodation_ids:
+                new_acc_id = ta_pool.copy(cr, uid, acc_obj.id, context=context)
+                ta_pool.write(cr, uid, new_acc_id,
+                              {'passenger_id': cur_passenger_obj.id}, context=context)
         return {'type': 'ir.actions.act_window_close'}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
