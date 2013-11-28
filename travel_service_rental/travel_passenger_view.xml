@@ -11,7 +11,7 @@
       <field name="arch" type="xml">
         <notebook name="Info" position="inside">
           <page string="Travel - Other services">
-            <field name="rental_ids">
+            <field name="service_rental_ids">
               <tree name="PassengerRentalTree" version="7.0">
                 <field name="location"/>
                 <field name="city_id"/>
@@ -20,6 +20,13 @@
                 <field name="capacity"/>
               </tree>
             </field>
+            <center>
+              <!-- Import from other passengers with widget TODO: filter by state='draft'? -->
+              <button string="Copy from other Passengers"
+                      name="travel_service_rental.action_travel_service_rental_import"
+                      type="action"
+                      context="{'default_travel_id': travel_id, 'default_cur_passenger_id': id}"/>
+            </center>
           </page>
         </notebook>
       </field>

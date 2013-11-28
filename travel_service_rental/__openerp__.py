@@ -40,7 +40,8 @@ Contributors
     'depends': ['travel', 'city'],
     'external_dependencies': {},
     'data': ['travel_passenger_view.xml',
-             'travel_service_rental_view.xml'
+             'travel_service_rental_view.xml',
+             'wizard/travel_service_rental_import_view.xml',
              ],
     'demo': [],
     'test': [],
