@@ -20,7 +20,32 @@
 #
 ##############################################################################
 
-import travel_rental
-import travel_passenger
+{
+    'name': 'Travel - Other services',
+    'version': '0.1',
+    'author': 'Savoir-faire Linux',
+    'maintainer': 'Savoir-faire Linux',
+    'website': 'http://www.savoirfairelinux.com',
+    'category': 'Customer Relationship Management',
+    'description': """
+Travel - Other services
+=======================
+This module adds service rental management for travels.
+
+Contributors
+------------
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
+* EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
+""",
+    'depends': ['travel', 'city'],
+    'external_dependencies': {},
+    'data': ['travel_passenger_view.xml',
+             'travel_service_rental_view.xml'
+             ],
+    'demo': [],
+    'test': [],
+    'installable': True,
+    'active': False,
+}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -10,7 +10,7 @@
       <field name="type">form</field>
       <field name="arch" type="xml">
         <notebook name="Info" position="inside">
-          <page string="Rental">
+          <page string="Travel - Other services">
             <field name="rental_ids">
               <tree name="PassengerRentalTree" version="7.0">
                 <field name="location"/>
