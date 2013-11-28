@@ -3,8 +3,8 @@
   <data>
     <!-- Views -->
     <record model="ir.ui.view" id="travel_rental_form_view">
-      <field name="name">Passenger Rental Form View</field>
-      <field name="model">travel.rental</field>
+      <field name="name">Travel - Other services Form View</field>
+      <field name="model">travel.service.rental</field>
       <field name="type">form</field>
       <field name="arch" type="xml">
         <form string="Rentals" version="7.0">
