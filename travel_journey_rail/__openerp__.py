@@ -21,28 +21,25 @@
 ##############################################################################
 
 {
-    'name': 'Travel Journey',
+    'name': 'Travel Journey by Rail',
     'version': '0.1',
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
     'description': """
-Travel journey
-==============
-This module allows to add a starting point and destination to a travel.
+Travel journey Rail
+===================
+This module allows to create a travel by rail.
 
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 * EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
 """,
-    'depends': ['travel', 'city', 'product', ],
+    'depends': ['travel_journey', 'railwaystation'],
     'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_journey_view.xml',
-             'travel_journey_data.xml',
-             'wizard/travel_journey_import_view.xml'
+    'data': ['travel_journey_view.xml',
              ],
     'demo': [],
     'test': [],

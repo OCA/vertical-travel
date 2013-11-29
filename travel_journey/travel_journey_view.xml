@@ -9,10 +9,11 @@
       <field name="arch" type="xml">
         <form string="Passenger Journeys" version="7.0">
           <sheet string="Journeys">
+            <field name="passenger_id" required="0" invisible="1"/>
             <group col="4">
-              <group colspan="4" attrs="{'invisible': [('passenger_id', '!=', False)]}">
-                <field name="passenger_id" required="0" invisible="1"/>
-                <field name="is_return"/>
+              <group col="4" colspan="4">
+                <field name="type"/>
+                <field name="is_return" attrs="{'invisible': [('passenger_id', '!=', False)]}"/>
               </group>
               <group string="Cities" col="2" colspan="2">
                 <field name="origin"
@@ -58,5 +59,6 @@
         </form>
       </field>
     </record>
+
   </data>
 </openerp>

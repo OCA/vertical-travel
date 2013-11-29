@@ -23,6 +23,7 @@
 import travel_journey
 import travel_journey_class
 import travel_passenger
+import travel_journey_type
 import wizard
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
