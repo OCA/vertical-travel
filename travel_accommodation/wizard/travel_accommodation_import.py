@@ -60,4 +60,19 @@ class travel_accommodation_import(orm.TransientModel):
             'context': context,
         }
 
+    def cancel(self, cr, uid, ids, context=None):
+        tai_pool = self.pool.get('travel.accommodation.import')
+        passenger_id = False
+        for obj in tai_pool.browse(cr, uid, ids, context=context):
+            passenger_id = obj.cur_passenger_id.id
+        return {
+            'name': 'Passengers',
+            'res_model': 'travel.passenger',
+            'view_mode': 'form',
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'res_id': passenger_id,
+            'context': context,
+        }
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

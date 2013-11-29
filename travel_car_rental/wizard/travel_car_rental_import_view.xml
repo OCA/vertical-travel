@@ -15,9 +15,9 @@
             <field name="passenger_id" domain="[('travel_id.id', '=', travel_id), ('id', '!=', cur_passenger_id)]"/>
           </group>
           <footer>
-            <button string="Import" name="data_import" type="object" class="oe_highlight"/>
+            <button string="Import" name="data_import" type="object" class="oe_highlight" accesskey="I"/>
             or
-            <button string="Cancel" class="oe_link" special="cancel"/>
+            <button string="Cancel" name="cancel" type="object" class="oe_link" accesskey="C"/>
           </footer>
         </form>
       </field>
