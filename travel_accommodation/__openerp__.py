@@ -39,7 +39,8 @@ Contributors
     'depends': ['travel', 'city', 'product', ],
     'external_dependencies': {},
     'data': ['travel_passenger_view.xml',
-             'travel_accommodation_view.xml'
+             'travel_accommodation_view.xml',
+             'wizard/travel_accommodation_import_view.xml',
              ],
     'demo': [],
     'test': [],

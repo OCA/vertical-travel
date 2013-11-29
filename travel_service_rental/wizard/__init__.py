@@ -20,32 +20,6 @@
 #
 ##############################################################################
 
-{
-    'name': 'Travel Car Rentals',
-    'version': '0.1',
-    'author': 'Savoir-faire Linux',
-    'maintainer': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'category': 'Customer Relationship Management',
-    'description': """
- Travel Car Rentals
-===================
-This module adds car rental management for travels.
-
-Contributors
-------------
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
-""",
-    'depends': ['travel', 'city', 'motor_vehicle', ],
-    'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_car_rental_view.xml',
-             'wizard/travel_car_rental_import_view.xml',
-             ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'active': False,
-}
+import travel_service_rental_import
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

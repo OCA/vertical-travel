@@ -27,7 +27,7 @@
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
-    'description': """\
+    'description': """
  Travel journey
 ===============
 This module allows to add a starting point and destination to a travel.
@@ -41,6 +41,7 @@ Contributors
     'data': ['travel_passenger_view.xml',
              'travel_journey_view.xml',
              'travel_journey_data.xml',
+             'wizard/travel_journey_import_view.xml'
              ],
     'demo': [],
     'test': [],

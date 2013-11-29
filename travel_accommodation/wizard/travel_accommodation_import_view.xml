@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <!-- Views -->
+
+    <record id="view_travel_accommodation_import" model="ir.ui.view">
+      <field name="name">Import from other passengers form</field>
+      <field name="model">travel.accommodation.import</field>
+      <field name="arch" type="xml">
+        <form string="Import from other passengers" version="7.0">
+          <field name="travel_id" invisible="1"/>
+          <field name="cur_passenger_id" invisible="1"/>
+          <group name="options">
+            <field name="passenger_id" domain="[('travel_id.id', '=', travel_id), ('id', '!=', cur_passenger_id)]"/>
+          </group>
+          <footer>
+            <button string="Import" name="data_import" type="object" class="oe_highlight" accesskey="I"/>
+            or
+            <button string="Cancel" name="cancel" type="object" class="oe_link" accesskey="C"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <!-- Actions -->
+
+    <record id="action_travel_accommodation_import" model="ir.actions.act_window">
+      <field name="name">Import from other passengers</field>
+      <field name="res_model">travel.accommodation.import</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="view_travel_accommodation_import"/>
+      <field name="target">new</field>
+    </record>
+
+  </data>
+</openerp>
