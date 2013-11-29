@@ -13,6 +13,9 @@
     <record id="travel_journey_class_business" model="travel.journey.class">
       <field name="name">Business</field>
     </record>
+    <record id="travel_journey_class_premium" model="travel.journey.class">
+      <field name="name">Premium</field>
+    </record>
     <record id="travel_journey_type_plane" model="travel.journey.type">
       <field name="code">plane</field>
       <field name="name">Plane</field>
