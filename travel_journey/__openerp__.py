@@ -27,14 +27,15 @@
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
-    'description': """\
- Travel journey
-===============
+    'description': """
+Travel journey
+==============
 This module allows to add a starting point and destination to a travel.
 
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
+* EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
 """,
     'depends': ['travel', 'city', 'product', ],
     'external_dependencies': {},

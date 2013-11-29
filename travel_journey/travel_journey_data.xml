@@ -13,8 +13,13 @@
     <record id="travel_journey_class_business" model="travel.journey.class">
       <field name="name">Business</field>
     </record>
-    <record id="travel_journey_class_premium" model="travel.journey.class">
-      <field name="name">Premium</field>
+    <record id="travel_journey_type_plane" model="travel.journey.type">
+      <field name="code">plane</field>
+      <field name="name">Plane</field>
+    </record>
+    <record id="travel_journey_type_rail" model="travel.journey.type">
+      <field name="code">rail</field>
+      <field name="name">Rail</field>
     </record>
   </data>
 </openerp>

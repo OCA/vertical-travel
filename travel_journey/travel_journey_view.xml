@@ -16,9 +16,8 @@
               <group string="Cities" col="2" colspan="2">
                 <field name="origin" on_change="on_change_location(origin)"/>
                 <field name="destination" />
-
                 <group string="Cities" col="2" colspan="2"
-                       attrs="{'invisible': [('return', '=', False)]}">
+                       attrs="{'invisible': [('return', '=', False)], 'required': [('return', '=', False)]}">
                   <field name="return_origin"/>
                   <field name="origin"/>
                 </group>
@@ -51,6 +50,21 @@
             <group name="Info"/>
           </sheet>
         </form>
+      </field>
+    </record>
+    <!--Add travel journey type -->
+    <record model="ir.ui.view" id="travel_journey_form_view_inherit_type">
+      <field name="name">Travel Passenger Type Form View</field>
+      <field name="model">travel.journey</field>
+      <field name="inherit_id" ref="travel_journey_form_view"/>
+      <field name="priority" eval="3.0"/>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <field name="return" position="before">
+          <group colspan="4">
+            <field name="type"/>
+          </group>
+        </field>
       </field>
     </record>
   </data>

@@ -43,6 +43,7 @@ Contributors
     'external_dependencies': {},
     'data': [
         'data/airport_data.xml',
+        'res_partner_view.xml'
     ],
     'demo': [],
     'test': [],

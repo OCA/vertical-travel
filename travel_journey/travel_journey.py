@@ -23,6 +23,13 @@
 from openerp.osv import fields, orm
 
 
+def _get_type(self, cr, uid, context=None):
+    acc_type_obj = self.pool.get('travel.journey.type')
+    ids = acc_type_obj.search(cr, uid, [])
+    res = acc_type_obj.read(cr, uid, ids, ['code', 'name'], context)
+    return [(r['code'], r['name']) for r in res]
+
+
 class travel_journey(orm.Model):
     _description = 'Journey of travel'
     _name = 'travel.journey'
@@ -57,6 +64,13 @@ class travel_journey(orm.Model):
         'comment': fields.text('Comments'),
         'passenger_id': fields.many2one('travel.passenger', 'Passenger', required=True,
                                         help='Passenger on this journey.'),
+        #'type': fields.many2one('travel.journey.type', 'Travel journey type',
+        #                        help='Travel journey type.'),
+        'type': fields.selection(_get_type, 'Travel journey type',
+        help='Travel journey type.'),
+        'reservation': fields.char('Reservation Number', size=256,
+                                   help="Number of the ticket reservation."),
+        'cancellation': fields.text('Cancellation', help='Notes on cancellation.'),
     }
 
     def _default_class(self, cr, uid, context=None):

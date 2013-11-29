@@ -39,7 +39,9 @@ Contributors
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
     'depends': ['crm', 'travel', ],
-    'data': [],
+    'data': [
+        'res_partner_view.xml'
+    ],
     'demo': [],
     'test': [],
     'installable': True,

@@ -7,21 +7,21 @@
       <field name="model">travel.journey</field>
       <field name="inherit_id" ref="travel_journey.travel_journey_form_view"/>
       <field name="arch" type="xml">
-        <group name="Info">
-          <group string="Plane" col="4">
-            <field name="airline"/>
-            <field name="reservation"/>
-            <group string="Airports" col="2" colspan="2">
-              <field name="airport_from"/>
-              <field name="airport_to"/>
-            </group>
-            <group string="Times" col="2" colspan="2">
-              <field name="fight_departure"/>
-              <field name="fight_arrival"/>
-            </group>
-            <group string="Cancellation" colspan="4">
-              <field name="cancellation" nolabel="1"/>
-            </group>
+        <group name="Info" position="inside">
+          <group string="Plane" col="4" attrs="{'invisible': ['|',('type', '=', 'rail'), ('type', '=', False)]}">
+              <field name="airline"/>
+              <field name="reservation"/>
+              <group string="Airports" col="2" colspan="2">
+                <field name="airport_from"/>
+                <field name="airport_to"/>
+              </group>
+              <group string="Time" col="2" colspan="2">
+                <field name="fight_departure"/>
+                <field name="fight_arrival"/>
+              </group>
+              <group string="Cancellation" colspan="4">
+                <field name="cancellation" nolabel="1"/>
+              </group>
           </group>
         </group>
       </field>

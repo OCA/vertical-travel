@@ -28,18 +28,18 @@
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
     'description': """
- Travel journey Plane
-=====================
+Travel journey Plane
+====================
 This module allows to create a travel by plane.
 
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
+* EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
 """,
     'depends': ['travel_journey', 'airport', 'airline'],
     'external_dependencies': {},
     'data': ['travel_journey_view.xml',
-             'travel_passenger_view.xml',
              ],
     'demo': [],
     'test': [],

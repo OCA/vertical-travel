@@ -17,37 +17,9 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
 ##############################################################################
 
-{
-    'name': 'Partner airline',
-    'version': '0.1',
-    'category': 'Customer Relationship Management',
-    'description': """
-Partner airline
-===============
-This module allows to add :
-* airline : boolean
-
-Contributors
-------------
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
-* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
-    """,
-    'author': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'license': 'AGPL-3',
-    'depends': ['crm', ],
-    'external_dependencies': {},
-    'data': [
-        'data/airline_data.xml'
-        'res_partner_view.xml'
-    ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'auto_install': False,
-    'images': [],
-}
+import travel_journey
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
