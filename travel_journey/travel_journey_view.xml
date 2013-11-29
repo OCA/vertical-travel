@@ -11,7 +11,7 @@
           <sheet string="Journeys">
             <group col="4">
               <group colspan="4" attrs="{'invisible': [('passenger_id', '!=', False)]}">
-                <field name="passenger_id" invisible="1"/>
+                <field name="passenger_id" required="0" invisible="1"/>
                 <field name="is_return"/>
               </group>
               <group string="Cities" col="2" colspan="2">
