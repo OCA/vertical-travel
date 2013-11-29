@@ -17,19 +17,17 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
 ##############################################################################
 
 {
-    'name': 'Partner airport',
+    'name': 'Transportation',
     'version': '0.1',
     'category': 'Customer Relationship Management',
     'description': """
-Partner airport
-===============
+Transportation
+==============
 This module allows to add :
-* airport : boolean
-* iata_code : char, size=3
+* transportation notebook
 
 Contributors
 ------------
@@ -39,10 +37,9 @@ Contributors
     'author': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['crm', 'transportation', ],
+    'depends': ['crm', ],
     'external_dependencies': {},
     'data': [
-        'data/airport_data.xml',
         'res_partner_view.xml',
     ],
     'demo': [],

@@ -38,8 +38,10 @@ Contributors
     'author': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['crm', 'travel', ],
-    'data': [],
+    'depends': ['crm', 'transportation', ],
+    'data': [
+        'res_partner_view.xml',
+    ],
     'demo': [],
     'test': [],
     'installable': True,

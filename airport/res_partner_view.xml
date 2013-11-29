@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="view_partner_airport_form" model="ir.ui.view">
+      <field name="name">res.partner.airport.form.inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="transportation.view_travel_form"/>
+      <field name="arch" type="xml">
+        <page string="Travel" position="inside">
+          <group string="Airport">
+            <field name="airport" />
+            <field name="iata_code"  attrs="{'invisible': [('airport','=',False)]}"/>
+          </group>
+        </page>
+      </field>
+    </record>
+  </data>
+</openerp>

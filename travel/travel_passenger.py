@@ -29,7 +29,7 @@ class travel_passenger(orm.Model):
     _inherit = ['mail.thread']
     _columns = {
         'partner_id': fields.many2one('res.partner', 'Name', required=True, ondelete='cascade',
-                                        help="Name of Passenger."),
+                                      help="Name of Passenger."),
         'travel_id': fields.many2one('travel.travel', 'Travel',
                                      help='Travel on which the passenger is going.'),
         'department_id': fields.many2one('hr.department', 'Department'),
