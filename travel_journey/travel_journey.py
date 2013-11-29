@@ -88,7 +88,7 @@ class travel_journey(orm.Model):
             return_vals['arrival'] = vals['return_arrival']
             super(travel_journey, self).create(cr, uid, return_vals, context=context)
         clear_return_vals(vals)
-        super(travel_journey, self).create(cr, uid, vals, context=context)
+        return super(travel_journey, self).create(cr, uid, vals, context=context)
 
     def on_change_return(self, cr, uid, ids, key, location, context=None):
         return {'value': {key: location}}

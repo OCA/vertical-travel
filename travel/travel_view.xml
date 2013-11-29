@@ -46,7 +46,7 @@
               <group name="Passengers" string="Passengers" col="1" colspan="4">
                 <field name="passenger_ids" nolabel="1">
                   <tree name="TravelPassengerTree" version="7.0" editable="1">
-                    <field name="partner_id"/>
+                    <field name="partner_id" domain="[('is_company', '=', False)]"/>
                     <field name="department_id"/>
                     <button name="action_passenger_form_view"
                             type="object"
