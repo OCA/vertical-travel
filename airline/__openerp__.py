@@ -40,7 +40,7 @@ Contributors
     'depends': ['crm', 'transportation', ],
     'external_dependencies': {},
     'data': [
-        #'data/airline_data.xml',
+        'data/airline_data.xml',
         'res_partner_view.xml',
     ],
     'demo': [],
