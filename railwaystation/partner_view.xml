@@ -4,11 +4,10 @@
     <record id="view_partner_railwaystation_form" model="ir.ui.view">
       <field name="name">res.partner.railwaystation.form.inherit</field>
       <field name="model">res.partner</field>
-      <field name="inherit_id" ref="travel.view_travel_form"/>
+      <field name="inherit_id" ref="transportation.view_travel_form"/>
       <field name="arch" type="xml">
         <page string="Travel" position="inside">
-          <group>
-            <separator string="Railway station" colspan="2"/>
+          <group string="Railway station">
             <field name="railwaystation" />
           </group>
         </page>
