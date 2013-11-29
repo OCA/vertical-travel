@@ -38,4 +38,16 @@ class travel_passenger(orm.Model):
     def name_get(self, cr, uid, ids, context=None):
         return [(i.id, i.partner_id.name) for i in self.browse(cr, uid, ids, context=context)]
 
+    def action_passenger_form_view(self, cr, uid, ids, context=None):
+        return {
+            'name': 'Passengers',
+            'res_model': 'travel.passenger',
+            'view_mode': 'form',
+            'type': 'ir.actions.act_window',
+            # TODO: new but with save button
+            'target': 'new',
+            'res_id': ids[0],
+        }
+
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
