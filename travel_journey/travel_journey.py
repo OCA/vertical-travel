@@ -26,22 +26,22 @@ from openerp.osv import fields, orm
 class travel_journey(orm.Model):
     _description = 'Journey of travel'
     _name = 'travel.journey'
-
-    def on_change_location(self, cr, uid, ids, location, context=None):
-        return {'value': {'return_origin': location}}
-
     _columns = {
         'origin': fields.many2one('res.country.city', 'Origin', required='True',
                                   help='Source city of travel.'),
         'destination': fields.many2one('res.country.city', 'Destination', required='True',
                                        help='Destination city of travel.'),
         'return_origin': fields.many2one('res.country.city', 'Origin (return)', readonly=True),
-        'return': fields.boolean('Return Trip', help='Generate a return trip'),
+        'return_destination': fields.many2one('res.country.city', 'Destination (return)',
+                                              readonly=True),
+        'is_return': fields.boolean('Return Trip', help='Generate a return trip'),
         # TODO: One and only one of the following two has to be filled
         'departure': fields.datetime('Desired Departure',
                                      help='Desired date and time of departure.'),
         'arrival': fields.datetime('Desired Arrival',
                                    help='Desired date and time of Arrival.'),
+        'return_departure': fields.datetime('Desired Departure (return)'),
+        'return_arrival': fields.datetime('Desired Arrival (return)'),
         'visa': fields.boolean('Visa Required',
                                help='Is a visa required to visit destination city?'),
         # TODO: make following field only visible if previous field is true
@@ -67,5 +67,30 @@ class travel_journey(orm.Model):
     _defaults = {
         'class_id': _default_class
     }
+
+    def create(self, cr, uid, vals, context=None):
+        """If is_return is checked, create a return trip as well"""
+        def clear_return_vals(mVals):
+            mVals = mVals.copy()
+            if mVals['is_return']:
+                mVals['is_return'] = False
+                mVals['return_origin'] = False
+                mVals['return_destination'] = False
+                mVals['return_departure'] = False
+                mVals['return_arrival'] = False
+            return mVals
+        if vals['is_return']:
+            return_vals = clear_return_vals(vals.copy())
+            return_vals['is_return'] = False
+            return_vals['origin'] = vals['destination']
+            return_vals['destination'] = vals['origin']
+            return_vals['departure'] = vals['return_departure']
+            return_vals['arrival'] = vals['return_arrival']
+            super(travel_journey, self).create(cr, uid, return_vals, context=context)
+        clear_return_vals(vals)
+        super(travel_journey, self).create(cr, uid, vals, context=context)
+
+    def on_change_return(self, cr, uid, ids, key, location, context=None):
+        return {'value': {key: location}}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

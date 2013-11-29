@@ -10,22 +10,27 @@
         <form string="Passenger Journeys" version="7.0">
           <sheet string="Journeys">
             <group col="4">
-              <group colspan="4">
-                <field name="return"/>
+              <group colspan="4" attrs="{'invisible': [('passenger_id', '!=', False)]}">
+                <field name="passenger_id" invisible="1"/>
+                <field name="is_return"/>
               </group>
               <group string="Cities" col="2" colspan="2">
-                <field name="origin" on_change="on_change_location(origin)"/>
-                <field name="destination" />
-
-                <group string="Cities" col="2" colspan="2"
-                       attrs="{'invisible': [('return', '=', False)]}">
-                  <field name="return_origin"/>
-                  <field name="origin"/>
-                </group>
+                <field name="origin"
+                       on_change="on_change_return('return_destination', origin)"/>
+                <field name="destination"
+                       on_change="on_change_return('return_origin', destination)"/>
+                <field name="return_origin"
+                       attrs="{'invisible': [('is_return', '=', False)]}"/>
+                <field name="return_destination"
+                       attrs="{'invisible': [('is_return', '=', False)]}"/>
               </group>
               <group string="Times" col="2" colspan="2">
                 <field name="departure"/>
                 <field name="arrival"/>
+                <field name="return_departure"
+                       attrs="{'invisible': [('is_return', '=', False)]}"/>
+                <field name="return_arrival"
+                       attrs="{'invisible': [('is_return', '=', False)]}"/>
               </group>
               <separator string="Visa" colspan="4"/>
               <field name="visa"/>
