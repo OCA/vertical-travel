@@ -44,9 +44,9 @@ class travel_passenger(orm.Model):
             'res_model': 'travel.passenger',
             'view_mode': 'form',
             'type': 'ir.actions.act_window',
-            # TODO: new but with save button
             'target': 'new',
             'res_id': ids[0],
+            'context': context,
         }
 
 

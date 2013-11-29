@@ -44,10 +44,19 @@ class travel_car_rental_import(orm.TransientModel):
         for tcri_obj in tcri_pool.browse(cr, uid, ids, context=context):
             cur_passenger_obj = tcri_obj.cur_passenger_id
             other_passenger_obj = tcri_obj.passenger_id
+            passenger_id = cur_passenger_obj.id
             for rental_obj in other_passenger_obj.car_rental_ids:
                 new_rental_id = tcr_pool.copy(cr, uid, rental_obj.id, context=context)
                 tcr_pool.write(cr, uid, new_rental_id,
                                {'passenger_id': cur_passenger_obj.id}, context=context)
-        return {'type': 'ir.actions.act_window_close'}
+        return {
+            'name': 'Passengers',
+            'res_model': 'travel.passenger',
+            'view_mode': 'form',
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'res_id': passenger_id,
+            'context': context,
+        }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

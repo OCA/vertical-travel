@@ -41,13 +41,23 @@ class travel_accommodation_import(orm.TransientModel):
         """
         tai_pool = self.pool.get('travel.accommodation.import')
         ta_pool = self.pool.get('travel.accommodation')
+        passenger_id = False
         for tai_obj in tai_pool.browse(cr, uid, ids, context=context):
             cur_passenger_obj = tai_obj.cur_passenger_id
             other_passenger_obj = tai_obj.passenger_id
+            passenger_id = cur_passenger_obj.id
             for acc_obj in other_passenger_obj.accommodation_ids:
                 new_acc_id = ta_pool.copy(cr, uid, acc_obj.id, context=context)
                 ta_pool.write(cr, uid, new_acc_id,
-                              {'passenger_id': cur_passenger_obj.id}, context=context)
-        return {'type': 'ir.actions.act_window_close'}
+                              {'passenger_id': passenger_id}, context=context)
+        return {
+            'name': 'Passengers',
+            'res_model': 'travel.passenger',
+            'view_mode': 'form',
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'res_id': passenger_id,
+            'context': context,
+        }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

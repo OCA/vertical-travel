@@ -44,10 +44,19 @@ class travel_journey_import(orm.TransientModel):
         for tji_obj in tji_pool.browse(cr, uid, ids, context=context):
             cur_passenger_obj = tji_obj.cur_passenger_id
             other_passenger_obj = tji_obj.passenger_id
+            passenger_id = cur_passenger_obj.id
             for journey_obj in other_passenger_obj.journey_ids:
                 new_journey_id = tj_pool.copy(cr, uid, journey_obj.id, context=context)
                 tj_pool.write(cr, uid, new_journey_id,
                               {'passenger_id': cur_passenger_obj.id}, context=context)
-        return {'type': 'ir.actions.act_window_close'}
+        return {
+            'name': 'Passengers',
+            'res_model': 'travel.passenger',
+            'view_mode': 'form',
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'res_id': passenger_id,
+            'context': context,
+        }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
