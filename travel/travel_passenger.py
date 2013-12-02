@@ -21,6 +21,7 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.tools.translate import _
 
 
 class travel_passenger(orm.Model):
@@ -40,7 +41,7 @@ class travel_passenger(orm.Model):
 
     def action_passenger_form_view(self, cr, uid, ids, context=None):
         return {
-            'name': 'Passengers',
+            'name': _('Passengers'),
             'res_model': 'travel.passenger',
             'view_mode': 'form',
             'type': 'ir.actions.act_window',

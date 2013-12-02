@@ -29,7 +29,8 @@ class travel_journey_type(orm.Model):
     _columns = {
         'code': fields.char('Code', size=10, required=True,
                             help='Code of travel journey type.'),
-        'name': fields.char('Name', size=256, required=True, select=True,
+        'name': fields.char('Name', size=256, required=True,
+                            select=True, translate=True,
                             help='Name of travel journey type.'),
     }
 

@@ -118,7 +118,7 @@ msgstr "Hébergement"
 #: model:ir.actions.act_window,name:travel_accommodation.action_travel_accommodation_import
 #: view:travel.accommodation.import:0
 msgid "Import from other passengers"
-msgstr "Importe les données d'autres voyageurs"
+msgstr "Importer les données d'autre voyageurs"
 
 #. module: travel_accommodation
 #: field:travel.accommodation,passenger_id:0

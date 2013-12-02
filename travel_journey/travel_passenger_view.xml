@@ -17,6 +17,7 @@
                 <field name="destination"/>
                 <field name="departure"/>
                 <field name="arrival"/>
+                <field name="type"/>
               </tree>
             </field>
             <center>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 19:04+0000\n"
-"PO-Revision-Date: 2013-12-02 14:32-0500\n"
+"POT-Creation-Date: 2013-12-02 21:49+0000\n"
+"PO-Revision-Date: 2013-12-02 16:50-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -32,6 +32,11 @@ msgstr "Départ souhaité"
 #: help:travel.journey,cancellation:0
 msgid "Notes on cancellation."
 msgstr "Notes au sujet d'annulation."
+
+#. module: travel_journey
+#: model:travel.journey.type,name:travel_journey.travel_journey_type_plane
+msgid "Plane"
+msgstr "Avion"
 
 #. module: travel_journey
 #: help:travel.journey,visa_country:0
@@ -101,13 +106,18 @@ msgstr "Premium"
 #. module: travel_journey
 #: model:travel.journey.class,name:travel_journey.travel_journey_class_business
 msgid "Business"
-msgstr "Affaire"
+msgstr "Affaires"
 
 #. module: travel_journey
 #: field:travel.journey.import,cur_passenger_id:0
 #: field:travel.journey.import,travel_id:0
 msgid "unknown"
 msgstr "inconnue"
+
+#. module: travel_journey
+#: model:travel.journey.type,name:travel_journey.travel_journey_type_rail
+msgid "Rail"
+msgstr "Train"
 
 #. module: travel_journey
 #: model:travel.journey.class,name:travel_journey.travel_journey_class_directive
@@ -168,7 +178,7 @@ msgstr "Classe"
 #: model:ir.actions.act_window,name:travel_journey.action_travel_journey_import
 #: view:travel.journey.import:0
 msgid "Import from other passengers"
-msgstr "Importe les données d'autres voyageurs"
+msgstr "Importer les données d'autre voyageurs"
 
 #. module: travel_journey
 #: field:travel.journey,baggage_weight_uom:0
@@ -244,7 +254,7 @@ msgstr "Arrivée souhaité"
 #. module: travel_journey
 #: field:travel.journey.import,passenger_id:0
 msgid "Import Journey information from"
-msgstr "Formulaire d'import de déplacement"
+msgstr "Importer les données de déplacement de"
 
 #. module: travel_journey
 #: field:travel.journey,cancellation:0

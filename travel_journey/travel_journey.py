@@ -82,7 +82,7 @@ class travel_journey(orm.Model):
     }
 
     def create(self, cr, uid, vals, context=None):
-        """If is_return is checked, create a return trip as well"""
+        """If is_return is checked, create a return trip after."""
         def clear_return_vals(mVals):
             mVals = mVals.copy()
             if mVals['is_return']:
@@ -92,6 +92,7 @@ class travel_journey(orm.Model):
                 mVals['return_departure'] = False
                 mVals['return_arrival'] = False
             return mVals
+        return_vals = None
         if vals['is_return']:
             return_vals = clear_return_vals(vals.copy())
             return_vals['is_return'] = False
@@ -99,9 +100,11 @@ class travel_journey(orm.Model):
             return_vals['destination'] = vals['origin']
             return_vals['departure'] = vals['return_departure']
             return_vals['arrival'] = vals['return_arrival']
-            super(travel_journey, self).create(cr, uid, return_vals, context=context)
         clear_return_vals(vals)
-        return super(travel_journey, self).create(cr, uid, vals, context=context)
+        res = super(travel_journey, self).create(cr, uid, vals, context=context)
+        if return_vals:
+            super(travel_journey, self).create(cr, uid, return_vals, context=context)
+        return res
 
     def on_change_return(self, cr, uid, ids, key, location, context=None):
         return {'value': {key: location}}

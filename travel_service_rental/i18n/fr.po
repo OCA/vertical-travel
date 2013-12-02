@@ -51,7 +51,7 @@ msgstr "Location"
 #. module: travel_service_rental
 #: help:travel.passenger,service_rental_ids:0
 msgid "List of service rentals."
-msgstr "Liste de location de services."
+msgstr "Liste d'autre prestations."
 
 #. module: travel_service_rental
 #: view:travel.service.rental.import:0
@@ -77,13 +77,13 @@ msgstr "Voyageur en déplacement"
 #. module: travel_service_rental
 #: field:travel.service.rental.import,passenger_id:0
 msgid "Import Service Rental information from"
-msgstr "Importer les données de location des service de"
+msgstr "Importer les données d'autre préstations de"
 
 #. module: travel_service_rental
 #: model:ir.actions.act_window,name:travel_service_rental.action_travel_service_rental_import
 #: view:travel.service.rental.import:0
 msgid "Import from other passengers"
-msgstr "Importe les données d'autres voyageurs"
+msgstr "Importer les données d'autre voyageurs"
 
 #. module: travel_service_rental
 #: help:travel.service.rental,location:0
@@ -158,7 +158,7 @@ msgstr "Pays de location."
 #. module: travel_service_rental
 #: field:travel.passenger,service_rental_ids:0
 msgid "Service Rentals"
-msgstr "Location de services"
+msgstr "Autre prestations"
 
 #. module: travel_service_rental
 #: view:travel.passenger:0
@@ -178,7 +178,7 @@ msgstr "ou"
 #. module: travel_service_rental
 #: model:ir.model,name:travel_service_rental.model_travel_service_rental_import
 msgid "Service Rental information import"
-msgstr "Importation de location de services"
+msgstr "Importation d'autre préstations"
 
 #~ msgid "Rentals for travel"
 #~ msgstr "Locations pour le déplacement"

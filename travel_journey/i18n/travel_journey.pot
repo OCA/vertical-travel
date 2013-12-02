@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 19:04+0000\n"
-"PO-Revision-Date: 2013-12-02 19:04+0000\n"
+"POT-Creation-Date: 2013-12-02 21:49+0000\n"
+"PO-Revision-Date: 2013-12-02 21:49+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,11 @@ msgstr ""
 #. module: travel_journey
 #: help:travel.journey,cancellation:0
 msgid "Notes on cancellation."
+msgstr ""
+
+#. module: travel_journey
+#: model:travel.journey.type,name:travel_journey.travel_journey_type_plane
+msgid "Plane"
 msgstr ""
 
 #. module: travel_journey
@@ -105,6 +110,11 @@ msgstr ""
 #: field:travel.journey.import,cur_passenger_id:0
 #: field:travel.journey.import,travel_id:0
 msgid "unknown"
+msgstr ""
+
+#. module: travel_journey
+#: model:travel.journey.type,name:travel_journey.travel_journey_type_rail
+msgid "Rail"
 msgstr ""
 
 #. module: travel_journey

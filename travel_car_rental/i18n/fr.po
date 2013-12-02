@@ -81,7 +81,7 @@ msgstr "Lieu de prise en charge de l'auto."
 #: model:ir.actions.act_window,name:travel_car_rental.action_travel_car_rental_import
 #: view:travel.car.rental.import:0
 msgid "Import from other passengers"
-msgstr "Importe les données d'autres voyageurs"
+msgstr "Importer les données d'autre voyageurs"
 
 #. module: travel_car_rental
 #: help:travel.car.rental.import,passenger_id:0
