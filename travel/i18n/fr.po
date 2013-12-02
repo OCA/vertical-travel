@@ -6,15 +6,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-18 21:06+0000\n"
-"PO-Revision-Date: 2013-11-18 16:29-0500\n"
+"POT-Creation-Date: 2013-12-02 19:02+0000\n"
+"PO-Revision-Date: 2013-12-02 14:22-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: travel
 #: field:travel.travel,city_id:0
@@ -27,15 +29,12 @@ msgid "Confirmed"
 msgstr "Confirmé"
 
 #. module: travel
-#: view:travel.passenger:0
-#: view:travel.travel:0
-#: field:travel.travel,passenger_ids:0
+#: view:travel.travel:0 field:travel.travel,passenger_ids:0
 msgid "Passengers"
 msgstr "Voyageurs"
 
 #. module: travel
 #: model:ir.model,name:travel.model_travel_travel
-#: view:res.partner:0
 #: field:travel.passenger,travel_id:0
 msgid "Travel"
 msgstr "Déplacement"
@@ -47,14 +46,20 @@ msgid "Administration"
 msgstr "Administration"
 
 #. module: travel
-#: field:travel.passenger,department_id:0
-msgid "Department"
-msgstr "Unité d'administration"
+#: view:travel.passenger:0
+msgid "Update"
+msgstr "Mettre à jour"
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "Draft"
-msgstr "Nouveau"
+#: help:travel.passenger,partner_id:0
+msgid "Name of Passenger."
+msgstr "Nom du voyageur."
+
+#. module: travel
+#: field:travel.passenger,message_follower_ids:0
+#: field:travel.travel,message_follower_ids:0
+msgid "Followers"
+msgstr "Abonnés"
 
 #. module: travel
 #: selection:travel.travel,state:0
@@ -67,9 +72,9 @@ msgid "Closed"
 msgstr "Terminée"
 
 #. module: travel
-#: help:travel.passenger,name:0
-msgid "Name of Passenger."
-msgstr "Nom du voyageur."
+#: field:travel.passenger,department_id:0
+msgid "Department"
+msgstr "Unité d'administration"
 
 #. module: travel
 #: view:travel.travel:0
@@ -82,9 +87,15 @@ msgid "Status"
 msgstr "État"
 
 #. module: travel
-#: help:travel.passenger,date:0
-msgid "Time of departure."
-msgstr "Heure de départ"
+#: field:travel.passenger,message_unread:0
+#: field:travel.travel,message_unread:0
+msgid "Unread Messages"
+msgstr "Messages non-lus"
+
+#. module: travel
+#: view:travel.passenger:0
+msgid "Save and Close"
+msgstr "Enregistrer et fermer"
 
 #. module: travel
 #: model:ir.model,name:travel.model_travel_passenger
@@ -92,12 +103,22 @@ msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
 
 #. module: travel
+#: help:travel.passenger,message_unread:0 help:travel.travel,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Si coché, les nouveaux messages demanderont votre attention."
+
+#. module: travel
+#: field:travel.passenger,message_is_follower:0
+#: field:travel.travel,message_is_follower:0
+msgid "Is a Follower"
+msgstr "Est abonné"
+
+#. module: travel
 #: help:travel.travel,name:0
 msgid "Name of travel."
 msgstr "Nom du déplacement."
 
 #. module: travel
-#: field:travel.passenger,date:0
 #: view:travel.travel:0
 msgid "Date"
 msgstr "Date"
@@ -113,8 +134,7 @@ msgid "Travel on which the passenger is going."
 msgstr "Déplacements du voyageur."
 
 #. module: travel
-#: field:travel.passenger,name:0
-#: field:travel.travel,name:0
+#: field:travel.passenger,partner_id:0 field:travel.travel,name:0
 msgid "Name"
 msgstr "Nom"
 
@@ -124,16 +144,36 @@ msgid "Country"
 msgstr "Pays"
 
 #. module: travel
+#: field:travel.passenger,message_ids:0 field:travel.travel,message_ids:0
+msgid "Messages"
+msgstr "Messages"
+
+#. module: travel
+#: field:travel.passenger,message_summary:0
+#: field:travel.travel,message_summary:0
+msgid "Summary"
+msgstr "Résumé"
+
+#. module: travel
 #: model:ir.actions.act_window,name:travel.action_travels_tree_list
-#: model:ir.ui.menu,name:travel.menu_travels
-#: view:travel.travel:0
+#: model:ir.ui.menu,name:travel.menu_travels view:travel.travel:0
 msgid "Travels"
 msgstr "Déplacements"
 
 #. module: travel
-#: help:travel.travel,country_id:0
-msgid "Destination country of travel."
+#: help:travel.travel,city_id:0
+msgid "Destination city of travel."
 msgstr "Ville d'arrivée."
+
+#. module: travel
+#: view:travel.passenger:0
+msgid "Discard"
+msgstr "Annuler"
+
+#. module: travel
+#: help:travel.passenger,message_ids:0 help:travel.travel,message_ids:0
+msgid "Messages and communication history"
+msgstr "Historique des messages et des communications"
 
 #. module: travel
 #: view:travel.passenger:0
@@ -151,14 +191,29 @@ msgid "TravelsForm"
 msgstr ""
 
 #. module: travel
-#: help:travel.travel,city_id:0
-msgid "Destination city of travel."
+#: help:travel.travel,country_id:0
+msgid "Destination country of travel."
 msgstr "Ville d'arrivée."
+
+#. module: travel
+#: help:travel.passenger,message_summary:0
+#: help:travel.travel,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"Contient le résumé de la discussion (nombre de messages, ...). Ce résumé est "
+"au format HTML pour permettre son utilisation dans les vues kanban."
 
 #. module: travel
 #: help:travel.travel,passenger_ids:0
 msgid "List of passengers."
 msgstr "Liste de voyageurs."
+
+#. module: travel
+#: selection:travel.travel,state:0
+msgid "Draft"
+msgstr "Nouveau"
 
 #. module: travel
 #: field:travel.travel,date_start:0
@@ -171,6 +226,14 @@ msgid "Saved"
 msgstr "Enregistré"
 
 #. module: travel
+#: view:travel.passenger:0
+msgid "or"
+msgstr "ou"
+
+#. module: travel
 #: view:travel.travel:0
 msgid "Location"
 msgstr "Lieu"
+
+#~ msgid "Time of departure."
+#~ msgstr "Heure de départ"

@@ -28,8 +28,8 @@
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
     'description': """
-Travel journey Rail
-===================
+Travel Journey by Rail
+======================
 This module allows to create a travel by rail.
 
 Contributors

@@ -21,15 +21,15 @@
 ###############################################################################
 
 {
-    'name': 'Partner Railwaystation',
+    'name': 'Partner Railway Station',
     'version': '1.0',
     'category': 'Customer Relationship Management',
     'description': """
 
-Partner Railwaystation
+Partner Railway Station
 =======================
 This module allows to add :
--- railwaystation : boolean
+-- railway_station : boolean
 
 Contributors
 ------------

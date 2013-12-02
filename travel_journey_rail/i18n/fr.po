@@ -1,0 +1,92 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* travel_journey_rail
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-02 19:41+0000\n"
+"PO-Revision-Date: 2013-12-02 14:57-0500\n"
+"Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. module: travel_journey_rail
+#: field:travel.journey,railway_station_arrival:0
+msgid "Arrival"
+msgstr "Arrivée"
+
+#. module: travel_journey_rail
+#: help:travel.journey,railway_station_to:0
+msgid "Destination Railway Station."
+msgstr "Gare de destination."
+
+#. module: travel_journey_rail
+#: help:travel.journey,railway_station_arrival:0
+msgid "Date and time of the arrival of the train."
+msgstr "L'heure et la date d'arrivée du train."
+
+#. module: travel_journey_rail
+#: field:travel.journey,railway_station_from:0
+msgid "Origin"
+msgstr "Origine"
+
+#. module: travel_journey_rail
+#: field:travel.journey,railway_station_to:0
+msgid "Destination"
+msgstr "Destination"
+
+#. module: travel_journey_rail
+#: field:travel.journey,railway_station_departure:0
+msgid "Departure"
+msgstr "Départ"
+
+#. module: travel_journey_rail
+#: help:travel.journey,railway_station:0
+msgid "Railway Station."
+msgstr "Gare."
+
+#. module: travel_journey_rail
+#: model:ir.model,name:travel_journey_rail.model_travel_journey
+msgid "Journey of Travel"
+msgstr "Déplacement"
+
+#. module: travel_journey_rail
+#: view:travel.journey:0
+msgid "Times"
+msgstr "Heures et dates"
+
+#. module: travel_journey_rail
+#: field:travel.journey,railway_station:0
+msgid "Railway Station"
+msgstr "Gare"
+
+#. module: travel_journey_rail
+#: help:travel.journey,railway_station_from:0
+msgid "Departure Railway Station."
+msgstr "Gare d'origine."
+
+#. module: travel_journey_rail
+#: view:travel.journey:0
+msgid "Cancellation"
+msgstr "Annulation"
+
+#. module: travel_journey_rail
+#: help:travel.journey,railway_station_departure:0
+msgid "Date and time of the departure of the train."
+msgstr "L'heure et la date du départ du train."
+
+#, fuzzy
+#~ msgid "Railway station"
+#~ msgstr "Gare"
+
+#, fuzzy
+#~ msgid "Airline company."
+#~ msgstr "Compagnie aérienne."

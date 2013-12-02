@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-20 18:05+0000\n"
-"PO-Revision-Date: 2013-11-20 18:05+0000\n"
+"POT-Creation-Date: 2013-12-02 19:05+0000\n"
+"PO-Revision-Date: 2013-12-02 19:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,9 @@ msgid "Journey of travel"
 msgstr ""
 
 #. module: travel_journey_plane
-#: help:travel.journey,reservation:0
-msgid "Number of the ticket reservation."
+#: field:travel.journey,terminal_from:0
+#: field:travel.journey,terminal_to:0
+msgid "Terminal"
 msgstr ""
 
 #. module: travel_journey_plane
@@ -56,18 +57,13 @@ msgid "Airline company."
 msgstr ""
 
 #. module: travel_journey_plane
+#: view:travel.journey:0
+msgid "Time"
+msgstr ""
+
+#. module: travel_journey_plane
 #: help:travel.journey,airport_from:0
 msgid "Departure airport."
-msgstr ""
-
-#. module: travel_journey_plane
-#: help:travel.journey,cancellation:0
-msgid "Notes on cancellation."
-msgstr ""
-
-#. module: travel_journey_plane
-#: field:travel.journey,reservation:0
-msgid "Reservation Number"
 msgstr ""
 
 #. module: travel_journey_plane
@@ -77,18 +73,7 @@ msgstr ""
 
 #. module: travel_journey_plane
 #: view:travel.journey:0
-#: field:travel.journey,cancellation:0
-msgid "Cancellation"
-msgstr ""
-
-#. module: travel_journey_plane
-#: view:travel.passenger:0
-msgid "Airport from"
-msgstr ""
-
-#. module: travel_journey_plane
-#: view:travel.journey:0
-msgid "Times"
+msgid "Plane"
 msgstr ""
 
 #. module: travel_journey_plane
@@ -108,11 +93,5 @@ msgstr ""
 
 #. module: travel_journey_plane
 #: view:travel.journey:0
-msgid "Plane"
+msgid "Cancellation"
 msgstr ""
-
-#. module: travel_journey_plane
-#: view:travel.passenger:0
-msgid "Airport to"
-msgstr ""
-

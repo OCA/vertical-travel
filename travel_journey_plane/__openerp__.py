@@ -28,8 +28,8 @@
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
     'description': """
-Travel journey Plane
-====================
+Travel Journey by Plane
+=======================
 This module allows to create a travel by plane.
 
 Contributors

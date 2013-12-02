@@ -26,19 +26,19 @@ from openerp.osv import fields, orm
 class travel_journey_rail(orm.Model):
     _inherit = 'travel.journey'
     _columns = {
-        'railwaystation': fields.many2one('res.partner', 'Railway station',
-                                          domain="[('railwaystation','=',True)]",
-                                          help="Airline company."),
-        'railwaystation_from': fields.many2one('res.partner', 'Origin',
-                                               domain="[('railwaystation','=',True)]",
-                                               help="Departure Railway station."),
-        'railwaystation_to': fields.many2one('res.partner', 'Destination',
-                                             domain="[('railwaystation','=',True)]",
-                                             help="Destination Railway station."),
-        'railwaystation_departure': fields.datetime('Departure',
-                                                    help='Date and time of the departure of the rail.'),
-        'railwaystation_arrival': fields.datetime('Arrival',
-                                                  help='Date and time of the arrival of the rail.'),
+        'railway_station': fields.many2one('res.partner', 'Railway Station',
+                                           domain="[('railway_station','=',True)]",
+                                           help="Railway Station."),
+        'railway_station_from': fields.many2one('res.partner', 'Origin',
+                                                domain="[('railway_station','=',True)]",
+                                                help="Departure Railway Station."),
+        'railway_station_to': fields.many2one('res.partner', 'Destination',
+                                              domain="[('railway_station','=',True)]",
+                                              help="Destination Railway Station."),
+        'railway_station_departure': fields.datetime('Departure',
+                                                     help='Date and time of the departure of the train.'),
+        'railway_station_arrival': fields.datetime('Arrival',
+                                                   help='Date and time of the arrival of the train.'),
     }
 
 

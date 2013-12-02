@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#   * travel
+#	* travel
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-18 23:30+0000\n"
-"PO-Revision-Date: 2013-11-18 23:30+0000\n"
+"POT-Creation-Date: 2013-12-02 19:02+0000\n"
+"PO-Revision-Date: 2013-12-02 19:02+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,6 @@ msgstr ""
 
 #. module: travel
 #: model:ir.model,name:travel.model_travel_travel
-#: view:res.partner:0
 #: field:travel.passenger,travel_id:0
 msgid "Travel"
 msgstr ""
@@ -45,13 +44,19 @@ msgid "Administration"
 msgstr ""
 
 #. module: travel
-#: field:travel.passenger,department_id:0
-msgid "Department"
+#: view:travel.passenger:0
+msgid "Update"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "Draft"
+#: help:travel.passenger,partner_id:0
+msgid "Name of Passenger."
+msgstr ""
+
+#. module: travel
+#: field:travel.passenger,message_follower_ids:0
+#: field:travel.travel,message_follower_ids:0
+msgid "Followers"
 msgstr ""
 
 #. module: travel
@@ -65,8 +70,8 @@ msgid "Closed"
 msgstr ""
 
 #. module: travel
-#: help:travel.passenger,name:0
-msgid "Name of Passenger."
+#: field:travel.passenger,department_id:0
+msgid "Department"
 msgstr ""
 
 #. module: travel
@@ -80,8 +85,14 @@ msgid "Status"
 msgstr ""
 
 #. module: travel
-#: help:travel.passenger,date:0
-msgid "Time of departure."
+#: field:travel.passenger,message_unread:0
+#: field:travel.travel,message_unread:0
+msgid "Unread Messages"
+msgstr ""
+
+#. module: travel
+#: view:travel.passenger:0
+msgid "Save and Close"
 msgstr ""
 
 #. module: travel
@@ -90,12 +101,23 @@ msgid "Passenger on travel"
 msgstr ""
 
 #. module: travel
+#: help:travel.passenger,message_unread:0
+#: help:travel.travel,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: travel
+#: field:travel.passenger,message_is_follower:0
+#: field:travel.travel,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: travel
 #: help:travel.travel,name:0
 msgid "Name of travel."
 msgstr ""
 
 #. module: travel
-#: field:travel.passenger,date:0
 #: view:travel.travel:0
 msgid "Date"
 msgstr ""
@@ -111,7 +133,7 @@ msgid "Travel on which the passenger is going."
 msgstr ""
 
 #. module: travel
-#: field:travel.passenger,name:0
+#: field:travel.passenger,partner_id:0
 #: field:travel.travel,name:0
 msgid "Name"
 msgstr ""
@@ -119,6 +141,18 @@ msgstr ""
 #. module: travel
 #: field:travel.travel,country_id:0
 msgid "Country"
+msgstr ""
+
+#. module: travel
+#: field:travel.passenger,message_ids:0
+#: field:travel.travel,message_ids:0
+msgid "Messages"
+msgstr ""
+
+#. module: travel
+#: field:travel.passenger,message_summary:0
+#: field:travel.travel,message_summary:0
+msgid "Summary"
 msgstr ""
 
 #. module: travel
@@ -131,6 +165,17 @@ msgstr ""
 #. module: travel
 #: help:travel.travel,city_id:0
 msgid "Destination city of travel."
+msgstr ""
+
+#. module: travel
+#: view:travel.passenger:0
+msgid "Discard"
+msgstr ""
+
+#. module: travel
+#: help:travel.passenger,message_ids:0
+#: help:travel.travel,message_ids:0
+msgid "Messages and communication history"
 msgstr ""
 
 #. module: travel
@@ -154,8 +199,19 @@ msgid "Destination country of travel."
 msgstr ""
 
 #. module: travel
+#: help:travel.passenger,message_summary:0
+#: help:travel.travel,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: travel
 #: help:travel.travel,passenger_ids:0
 msgid "List of passengers."
+msgstr ""
+
+#. module: travel
+#: selection:travel.travel,state:0
+msgid "Draft"
 msgstr ""
 
 #. module: travel
@@ -166,6 +222,11 @@ msgstr ""
 #. module: travel
 #: selection:travel.travel,state:0
 msgid "Saved"
+msgstr ""
+
+#. module: travel
+#: view:travel.passenger:0
+msgid "or"
 msgstr ""
 
 #. module: travel

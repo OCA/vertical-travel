@@ -6,15 +6,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-20 18:04+0000\n"
-"PO-Revision-Date: 2013-11-20 13:38-0500\n"
+"POT-Creation-Date: 2013-12-02 19:03+0000\n"
+"PO-Revision-Date: 2013-12-02 14:25-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
-"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: travel_accommodation
 #: help:travel.accommodation,passenger_id:0
@@ -42,14 +44,35 @@ msgid "Location"
 msgstr "Lieu"
 
 #. module: travel_accommodation
+#: view:travel.accommodation.import:0
+msgid "Import"
+msgstr "Importer"
+
+#. module: travel_accommodation
+#: model:ir.model,name:travel_accommodation.model_travel_accommodation_import
+msgid "Accommodation information import"
+msgstr "Import de données d'hébergement"
+
+#. module: travel_accommodation
 #: field:travel.accommodation,arrival:0
 msgid "Arrival"
 msgstr "Arrivée"
 
 #. module: travel_accommodation
+#: field:travel.accommodation.import,passenger_id:0
+msgid "Import Accommodation information from"
+msgstr "Formulaire d'importation de données d'hébergement"
+
+#. module: travel_accommodation
 #: help:travel.accommodation,breakfast:0
 msgid "Is breakfast included?"
 msgstr "Si le petit déjeuner est inclut."
+
+#. module: travel_accommodation
+#: field:travel.accommodation.import,cur_passenger_id:0
+#: field:travel.accommodation.import,travel_id:0
+msgid "unknown"
+msgstr "inconnue"
 
 #. module: travel_accommodation
 #: model:ir.model,name:travel_accommodation.model_travel_accommodation
@@ -87,14 +110,25 @@ msgid "Location of Accommodation."
 msgstr "Emplacement de l'hébergement"
 
 #. module: travel_accommodation
-#: view:travel.accommodation:0
-msgid "Meals"
-msgstr "Repas"
+#: view:travel.accommodation:0 view:travel.passenger:0
+msgid "Accommodation"
+msgstr "Hébergement"
+
+#. module: travel_accommodation
+#: model:ir.actions.act_window,name:travel_accommodation.action_travel_accommodation_import
+#: view:travel.accommodation.import:0
+msgid "Import from other passengers"
+msgstr "Importe les données d'autres voyageurs"
 
 #. module: travel_accommodation
 #: field:travel.accommodation,passenger_id:0
 msgid "Passenger"
 msgstr "Voyageur"
+
+#. module: travel_accommodation
+#: help:travel.accommodation.import,passenger_id:0
+msgid "Other passengers on the same journey."
+msgstr "Autre voyageurs du déplacement."
 
 #. module: travel_accommodation
 #: field:travel.accommodation,departure:0
@@ -105,6 +139,11 @@ msgstr "Départ"
 #: view:travel.accommodation:0
 msgid "Times"
 msgstr "Heures et dates"
+
+#. module: travel_accommodation
+#: view:travel.accommodation.import:0
+msgid "Cancel"
+msgstr "Annuler"
 
 #. module: travel_accommodation
 #: field:travel.accommodation,dinner:0
@@ -127,14 +166,19 @@ msgid "Accommodations"
 msgstr "Hébergement"
 
 #. module: travel_accommodation
-#: view:travel.accommodation:0 view:travel.passenger:0
-msgid "Accommodation"
-msgstr "Hébergement"
+#: view:travel.accommodation:0
+msgid "Meals"
+msgstr "Repas"
 
 #. module: travel_accommodation
 #: help:travel.passenger,accommodation_ids:0
 msgid "List of accommodations."
 msgstr "Liste d'hébergementsé"
+
+#. module: travel_accommodation
+#: view:travel.passenger:0
+msgid "Copy from other Passengers"
+msgstr "Copier les données d'autres voyageurs"
 
 #. module: travel_accommodation
 #: field:travel.accommodation,breakfast:0
@@ -145,6 +189,11 @@ msgstr "Petit déjeuner"
 #: view:travel.accommodation:0
 msgid "Passenger Accommodation"
 msgstr "Hébergement du voyageur"
+
+#. module: travel_accommodation
+#: view:travel.accommodation.import:0
+msgid "or"
+msgstr "ou"
 
 #. module: travel_accommodation
 #: field:travel.accommodation,close_to:0

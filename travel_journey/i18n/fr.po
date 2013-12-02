@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-20 21:19+0000\n"
-"PO-Revision-Date: 2013-11-25 14:42-0500\n"
+"POT-Creation-Date: 2013-12-02 19:04+0000\n"
+"PO-Revision-Date: 2013-12-02 14:32-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -15,11 +15,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. module: travel_journey
+#: help:travel.journey,reservation:0
+msgid "Number of the ticket reservation."
+msgstr "Numéro de réservation."
 
 #. module: travel_journey
 #: field:travel.journey,departure:0
 msgid "Desired Departure"
 msgstr "Départ souhaité"
+
+#. module: travel_journey
+#: help:travel.journey,cancellation:0
+msgid "Notes on cancellation."
+msgstr "Notes au sujet d'annulation."
 
 #. module: travel_journey
 #: help:travel.journey,visa_country:0
@@ -30,6 +42,11 @@ msgstr "Ville pour laquelle un visa est requis"
 #: field:travel.journey,destination:0
 msgid "Destination"
 msgstr "Destination"
+
+#. module: travel_journey
+#: field:travel.journey,is_return:0
+msgid "Return Trip"
+msgstr "Aller-retour"
 
 #. module: travel_journey
 #: view:travel.journey:0 field:travel.journey,comment:0
@@ -52,6 +69,21 @@ msgid "List of journeys."
 msgstr "Liste de déplacements."
 
 #. module: travel_journey
+#: field:travel.journey,return_arrival:0
+msgid "Desired Arrival (return)"
+msgstr "Arrivée souhaité (retour)"
+
+#. module: travel_journey
+#: view:travel.journey.import:0
+msgid "Import"
+msgstr "Importer"
+
+#. module: travel_journey
+#: model:travel.journey.class,name:travel_journey.travel_journey_class_economy
+msgid "Economy"
+msgstr "Économie"
+
+#. module: travel_journey
 #: model:ir.model,name:travel_journey.model_travel_journey_class
 msgid "Passenger Class for Journey"
 msgstr "Classe du voyageur pour le déplacement"
@@ -60,6 +92,22 @@ msgstr "Classe du voyageur pour le déplacement"
 #: help:travel.journey,arrival:0
 msgid "Desired date and time of Arrival."
 msgstr "L'heure et la date d'arrivée."
+
+#. module: travel_journey
+#: model:travel.journey.class,name:travel_journey.travel_journey_class_premium
+msgid "Premium"
+msgstr "Premium"
+
+#. module: travel_journey
+#: model:travel.journey.class,name:travel_journey.travel_journey_class_business
+msgid "Business"
+msgstr "Affaire"
+
+#. module: travel_journey
+#: field:travel.journey.import,cur_passenger_id:0
+#: field:travel.journey.import,travel_id:0
+msgid "unknown"
+msgstr "inconnue"
 
 #. module: travel_journey
 #: model:travel.journey.class,name:travel_journey.travel_journey_class_directive
@@ -72,14 +120,39 @@ msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
 
 #. module: travel_journey
+#: field:travel.journey,reservation:0
+msgid "Reservation Number"
+msgstr "Numéro de réservation"
+
+#. module: travel_journey
 #: help:travel.journey,class_id:0
 msgid "Desired class of voyage."
 msgstr "Classe désirée pour le déplacement."
 
 #. module: travel_journey
-#: view:travel.passenger:0
-msgid "Journey"
-msgstr "Déplacement"
+#: field:travel.journey,return_destination:0
+msgid "Destination (return)"
+msgstr "Destination (retour)"
+
+#. module: travel_journey
+#: help:travel.journey,type:0
+msgid "Travel journey type."
+msgstr "Type de déplacement"
+
+#. module: travel_journey
+#: help:travel.journey.type,name:0
+msgid "Name of travel journey type."
+msgstr "Nom du type de déplacement."
+
+#. module: travel_journey
+#: help:travel.journey,is_return:0
+msgid "Generate a return trip"
+msgstr "Créer un déplacement de retour"
+
+#. module: travel_journey
+#: help:travel.journey.type,code:0
+msgid "Code of travel journey type."
+msgstr "Code du type de déplacement."
 
 #. module: travel_journey
 #: view:travel.journey:0
@@ -92,14 +165,31 @@ msgid "Class"
 msgstr "Classe"
 
 #. module: travel_journey
+#: model:ir.actions.act_window,name:travel_journey.action_travel_journey_import
+#: view:travel.journey.import:0
+msgid "Import from other passengers"
+msgstr "Importe les données d'autres voyageurs"
+
+#. module: travel_journey
 #: field:travel.journey,baggage_weight_uom:0
 msgid "Baggage Weight Unit of Measure"
 msgstr "'Unité de mesure' est l'unité de mesure pour le poids"
 
 #. module: travel_journey
-#: field:travel.journey.class,name:0
+#: model:ir.model,name:travel_journey.model_travel_journey_type
+#: field:travel.journey,type:0
+msgid "Travel journey type"
+msgstr "Type de déplacement"
+
+#. module: travel_journey
+#: field:travel.journey.class,name:0 field:travel.journey.type,name:0
 msgid "Name"
 msgstr "Nom"
+
+#. module: travel_journey
+#: help:travel.journey.import,passenger_id:0
+msgid "Other passengers on the same journey."
+msgstr "Autre voyageurs du déplacement."
 
 #. module: travel_journey
 #: view:travel.journey:0
@@ -107,19 +197,24 @@ msgid "Visa"
 msgstr "Visa"
 
 #. module: travel_journey
+#: field:travel.journey,return_departure:0
+msgid "Desired Departure (return)"
+msgstr "Départ souhaité (retour)"
+
+#. module: travel_journey
 #: field:travel.journey,visa_country:0
 msgid "Country Visa"
 msgstr "Pays visa"
 
 #. module: travel_journey
-#: model:travel.journey.class,name:travel_journey.travel_journey_class_economy
-msgid "Economy"
-msgstr "Économie"
+#: view:travel.journey:0
+msgid "Times"
+msgstr "Heures et dates"
 
 #. module: travel_journey
-#: help:travel.journey,destination:0
-msgid "Destination city of travel."
-msgstr "Ville d'arrivée."
+#: view:travel.journey.import:0
+msgid "Cancel"
+msgstr "Annuler"
 
 #. module: travel_journey
 #: help:travel.journey,visa:0
@@ -127,19 +222,19 @@ msgid "Is a visa required to visit destination city?"
 msgstr "Si le pays destinataire requière un visa."
 
 #. module: travel_journey
-#: field:travel.journey,visa:0
-msgid "Visa Required"
-msgstr "Visa requis"
+#: model:ir.model,name:travel_journey.model_travel_journey_import
+msgid "Journey information import"
+msgstr "Import de données de déplacement"
 
 #. module: travel_journey
-#: view:travel.journey:0
-msgid "Class and Baggage"
-msgstr "Classe et bagage"
+#: field:travel.journey,baggage_weight:0
+msgid "Baggage Weight"
+msgstr "Poids du bagage"
 
 #. module: travel_journey
-#: view:travel.journey:0
-msgid "Passenger Journeys"
-msgstr "Déplacements du passagers"
+#: view:travel.passenger:0
+msgid "Journey"
+msgstr "Déplacement"
 
 #. module: travel_journey
 #: field:travel.journey,arrival:0
@@ -147,9 +242,14 @@ msgid "Desired Arrival"
 msgstr "Arrivée souhaité"
 
 #. module: travel_journey
-#: view:travel.journey:0
-msgid "Times"
-msgstr "Heures et dates"
+#: field:travel.journey.import,passenger_id:0
+msgid "Import Journey information from"
+msgstr "Formulaire d'import de déplacement"
+
+#. module: travel_journey
+#: field:travel.journey,cancellation:0
+msgid "Cancellation"
+msgstr "Annulation"
 
 #. module: travel_journey
 #: field:travel.journey,origin:0
@@ -167,9 +267,14 @@ msgid "Number of articles in baggage."
 msgstr "Nombre d'articles du bagage."
 
 #. module: travel_journey
-#: view:travel.journey:0 field:travel.passenger,journey_ids:0
-msgid "Journeys"
-msgstr "Déplacements"
+#: field:travel.journey.type,code:0
+msgid "Code"
+msgstr "Code"
+
+#. module: travel_journey
+#: help:travel.journey,destination:0
+msgid "Destination city of travel."
+msgstr "Ville d'arrivée."
 
 #. module: travel_journey
 #: help:travel.journey,departure:0
@@ -177,9 +282,9 @@ msgid "Desired date and time of departure."
 msgstr "L'heure et la date du départ."
 
 #. module: travel_journey
-#: field:travel.journey,baggage_weight:0
-msgid "Baggage Weight"
-msgstr "Poids du bagage"
+#: view:travel.journey:0 field:travel.passenger,journey_ids:0
+msgid "Journeys"
+msgstr "Déplacements"
 
 #. module: travel_journey
 #: help:travel.journey.class,name:0
@@ -187,9 +292,14 @@ msgid "Name of passenger class."
 msgstr "Nom de la classe du voyageur."
 
 #. module: travel_journey
-#: help:travel.journey,baggage_weight:0
-msgid "Weight of baggage."
-msgstr "Poids du bagage."
+#: field:travel.journey,return_origin:0
+msgid "Origin (return)"
+msgstr "Origine (retour)"
+
+#. module: travel_journey
+#: field:travel.journey,visa:0
+msgid "Visa Required"
+msgstr "Visa requis"
 
 #. module: travel_journey
 #: help:travel.journey,baggage_weight_uom:0
@@ -202,11 +312,31 @@ msgid "Baggage Quantity"
 msgstr "Quantité de bagages"
 
 #. module: travel_journey
-#: model:travel.journey.class,name:travel_journey.travel_journey_class_business
-msgid "Business"
-msgstr "Affaire"
+#: view:travel.passenger:0
+msgid "Copy from other Passengers"
+msgstr "Copier les données d'autres voyageurs"
+
+#. module: travel_journey
+#: view:travel.journey:0
+msgid "Class and Baggage"
+msgstr "Classe et bagage"
 
 #. module: travel_journey
 #: help:travel.journey,origin:0
 msgid "Source city of travel."
 msgstr "Ville d'origine du déplacement."
+
+#. module: travel_journey
+#: help:travel.journey,baggage_weight:0
+msgid "Weight of baggage."
+msgstr "Poids du bagage."
+
+#. module: travel_journey
+#: view:travel.journey.import:0
+msgid "or"
+msgstr "ou"
+
+#. module: travel_journey
+#: view:travel.journey:0
+msgid "Passenger Journeys"
+msgstr "Déplacements du passagers"

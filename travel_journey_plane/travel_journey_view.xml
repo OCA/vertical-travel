@@ -8,12 +8,14 @@
       <field name="inherit_id" ref="travel_journey.travel_journey_form_view"/>
       <field name="arch" type="xml">
         <group name="Info" position="inside">
-          <group string="Plane" col="4" attrs="{'invisible': ['|',('type', '=', 'rail'), ('type', '=', False)]}">
+          <group string="Plane" col="4" attrs="{'invisible': [('type', '!=', 'plane')]}">
               <field name="airline"/>
               <field name="reservation"/>
-              <group string="Airports" col="2" colspan="2">
+              <group string="Airports" col="4" colspan="2">
                 <field name="airport_from"/>
+                <b><label string="Terminal"/></b><field name="terminal_from" nolabel="1"/>
                 <field name="airport_to"/>
+                <b><label string="Terminal"/></b><field name="terminal_to" nolabel="1"/>
               </group>
               <group string="Time" col="2" colspan="2">
                 <field name="fight_departure"/>

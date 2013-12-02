@@ -7,8 +7,8 @@
       <field name="inherit_id" ref="transportation.view_travel_form"/>
       <field name="arch" type="xml">
         <page string="Travel" position="inside">
-          <group string="Railway station">
-            <field name="railwaystation" />
+          <group string="Railway Station">
+            <field name="railway_station" />
           </group>
         </page>
       </field>

@@ -21,15 +21,15 @@
 ##############################################################################
 
 {
-    'name': 'Travel - Other services',
+    'name': 'Travel Other Services Rentals',
     'version': '0.1',
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
     'description': """
-Travel - Other services
-=======================
+Travel Other Services Rentals
+=============================
 This module adds service rental management for travels.
 
 Contributors

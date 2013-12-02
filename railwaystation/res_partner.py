@@ -24,10 +24,10 @@ class res_partner(orm.Model):
     """ Inherits partner and adds airport and iata_code fields  in the partner form """
     _inherit = 'res.partner'
     _columns = {
-        'railwaystation': fields.boolean('Railwaystation'),
+        'railway_station': fields.boolean('Railway Station'),
     }
     _defaults = {
-        'railwaystation': 0,
+        'railway_station': 0,
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -8,16 +8,16 @@
       <field name="inherit_id" ref="travel_journey.travel_journey_form_view"/>
       <field name="arch" type="xml">
         <group name="Info" position="inside">
-          <group string="Railway station" col="4" attrs="{'invisible': ['|',('type', '=', 'plane'), ('type', '=', False)]}">
-            <field name="railwaystation"/>
+          <group string="Railway Station" col="4" attrs="{'invisible': [('type', '!=', 'rail')]}">
+            <field name="railway_station"/>
             <field name="reservation"/>
-            <group string="Railway station" col="2" colspan="2">
-              <field name="railwaystation_from"/>
-              <field name="railwaystation_to"/>
+            <group string="Railway Station" col="2" colspan="2">
+              <field name="railway_station_from"/>
+              <field name="railway_station_to"/>
             </group>
             <group string="Times" col="2" colspan="2">
-              <field name="railwaystation_departure"/>
-              <field name="railwaystation_arrival"/>
+              <field name="railway_station_departure"/>
+              <field name="railway_station_arrival"/>
             </group>
              <group string="Cancellation" colspan="4">
               <field name="cancellation" nolabel="1"/>
