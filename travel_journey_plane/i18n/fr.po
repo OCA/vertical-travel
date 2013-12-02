@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 19:05+0000\n"
-"PO-Revision-Date: 2013-12-02 14:54-0500\n"
+"POT-Creation-Date: 2013-12-02 22:08+0000\n"
+"PO-Revision-Date: 2013-12-02 17:16-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: français <>\n"
 "Language: fr\n"
@@ -29,7 +29,7 @@ msgid "Journey of travel"
 msgstr "Nom du déplacement"
 
 #. module: travel_journey_plane
-#: field:travel.journey,terminal_from:0 field:travel.journey,terminal_to:0
+#: view:travel.journey:0
 msgid "Terminal"
 msgstr "Terminal"
 
@@ -69,12 +69,23 @@ msgid "Departure airport."
 msgstr "Aéroport d'origine."
 
 #. module: travel_journey_plane
+#: help:travel.journey,terminal_from:0
+msgid "Terminal number at departure airport"
+msgstr "Numéro du terminal aéroportuaire à l'origine"
+
+#. module: travel_journey_plane
+#: field:travel.journey,terminal_to:0
+msgid "Terminal (destination)"
+msgstr "Terminal (destination)"
+
+#. module: travel_journey_plane
 #: help:travel.journey,fight_arrival:0
 msgid "Date and time of the arrival of the flight."
 msgstr "L'heure et la date d'arrivée du vol."
 
 #. module: travel_journey_plane
 #: view:travel.journey:0
+#: model:travel.journey.type,name:travel_journey_plane.travel_journey_type_plane
 msgid "Plane"
 msgstr "Avion"
 
@@ -89,6 +100,11 @@ msgid "Date and time of the departure of the flight."
 msgstr "L'heure et la date du départ du vol."
 
 #. module: travel_journey_plane
+#: field:travel.journey,terminal_from:0
+msgid "Terminal (origin)"
+msgstr "Terminal (origine)"
+
+#. module: travel_journey_plane
 #: field:travel.journey,fight_arrival:0
 msgid "Flight Arrival"
 msgstr "Arrivée du vol"
@@ -98,17 +114,7 @@ msgstr "Arrivée du vol"
 msgid "Cancellation"
 msgstr "Annulation"
 
-#~ msgid "Number of the ticket reservation."
-#~ msgstr "Numéro de réservation."
-
-#~ msgid "Notes on cancellation."
-#~ msgstr "Notes au sujet d'annulation."
-
-#~ msgid "Reservation Number"
-#~ msgstr "Numéro de réservation"
-
-#~ msgid "Airport from"
-#~ msgstr "Aéroport d'origine"
-
-#~ msgid "Airport to"
-#~ msgstr "Aéroport destinaire"
+#. module: travel_journey_plane
+#: help:travel.journey,terminal_to:0
+msgid "Terminal number at destination airport"
+msgstr "Numéro du terminal aéroportuaire à destination"

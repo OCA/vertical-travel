@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 19:41+0000\n"
-"PO-Revision-Date: 2013-12-02 14:57-0500\n"
+"POT-Creation-Date: 2013-12-02 22:07+0000\n"
+"PO-Revision-Date: 2013-12-02 17:34-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -44,6 +44,12 @@ msgid "Destination"
 msgstr "Destination"
 
 #. module: travel_journey_rail
+#: model:travel.journey.type,name:travel_journey_rail.travel_journey_type_rail
+#, fuzzy
+msgid "Rail"
+msgstr "Train"
+
+#. module: travel_journey_rail
 #: field:travel.journey,railway_station_departure:0
 msgid "Departure"
 msgstr "Départ"
@@ -55,8 +61,8 @@ msgstr "Gare."
 
 #. module: travel_journey_rail
 #: model:ir.model,name:travel_journey_rail.model_travel_journey
-msgid "Journey of Travel"
-msgstr "Déplacement"
+msgid "Journey of travel"
+msgstr "Nom du déplacement"
 
 #. module: travel_journey_rail
 #: view:travel.journey:0
@@ -64,7 +70,7 @@ msgid "Times"
 msgstr "Heures et dates"
 
 #. module: travel_journey_rail
-#: field:travel.journey,railway_station:0
+#: view:travel.journey:0 field:travel.journey,railway_station:0
 msgid "Railway Station"
 msgstr "Gare"
 
@@ -82,11 +88,3 @@ msgstr "Annulation"
 #: help:travel.journey,railway_station_departure:0
 msgid "Date and time of the departure of the train."
 msgstr "L'heure et la date du départ du train."
-
-#, fuzzy
-#~ msgid "Railway station"
-#~ msgstr "Gare"
-
-#, fuzzy
-#~ msgid "Airline company."
-#~ msgstr "Compagnie aérienne."

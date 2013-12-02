@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 19:05+0000\n"
-"PO-Revision-Date: 2013-12-02 19:05+0000\n"
+"POT-Creation-Date: 2013-12-02 22:08+0000\n"
+"PO-Revision-Date: 2013-12-02 22:08+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,7 @@ msgid "Journey of travel"
 msgstr ""
 
 #. module: travel_journey_plane
-#: field:travel.journey,terminal_from:0
-#: field:travel.journey,terminal_to:0
+#: view:travel.journey:0
 msgid "Terminal"
 msgstr ""
 
@@ -67,12 +66,23 @@ msgid "Departure airport."
 msgstr ""
 
 #. module: travel_journey_plane
+#: help:travel.journey,terminal_from:0
+msgid "Terminal number at departure airport"
+msgstr ""
+
+#. module: travel_journey_plane
+#: field:travel.journey,terminal_to:0
+msgid "Terminal (destination)"
+msgstr ""
+
+#. module: travel_journey_plane
 #: help:travel.journey,fight_arrival:0
 msgid "Date and time of the arrival of the flight."
 msgstr ""
 
 #. module: travel_journey_plane
 #: view:travel.journey:0
+#: model:travel.journey.type,name:travel_journey_plane.travel_journey_type_plane
 msgid "Plane"
 msgstr ""
 
@@ -87,6 +97,11 @@ msgid "Date and time of the departure of the flight."
 msgstr ""
 
 #. module: travel_journey_plane
+#: field:travel.journey,terminal_from:0
+msgid "Terminal (origin)"
+msgstr ""
+
+#. module: travel_journey_plane
 #: field:travel.journey,fight_arrival:0
 msgid "Flight Arrival"
 msgstr ""
@@ -94,4 +109,9 @@ msgstr ""
 #. module: travel_journey_plane
 #: view:travel.journey:0
 msgid "Cancellation"
+msgstr ""
+
+#. module: travel_journey_plane
+#: help:travel.journey,terminal_to:0
+msgid "Terminal number at destination airport"
 msgstr ""

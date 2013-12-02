@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data noupdate="1">
+    <record id="travel_journey_type_plane" model="travel.journey.type">
+      <field name="code">plane</field>
+      <field name="name">Plane</field>
+    </record>
+  </data>
+</openerp>

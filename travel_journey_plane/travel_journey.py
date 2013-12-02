@@ -23,7 +23,7 @@
 from openerp.osv import fields, orm
 
 
-class travel_journey_plane(orm.Model):
+class travel_journey(orm.Model):
     _inherit = 'travel.journey'
     _columns = {
         'airline': fields.many2one('res.partner', 'Airline',

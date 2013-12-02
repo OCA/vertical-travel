@@ -40,6 +40,7 @@ Contributors
     'depends': ['travel_journey', 'airport', 'airline'],
     'external_dependencies': {},
     'data': ['travel_journey_view.xml',
+             'travel_journey_data.xml',
              ],
     'demo': [],
     'test': [],

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 19:41+0000\n"
-"PO-Revision-Date: 2013-12-02 19:41+0000\n"
+"POT-Creation-Date: 2013-12-02 22:07+0000\n"
+"PO-Revision-Date: 2013-12-02 22:07+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -41,6 +41,11 @@ msgid "Destination"
 msgstr ""
 
 #. module: travel_journey_rail
+#: model:travel.journey.type,name:travel_journey_rail.travel_journey_type_rail
+msgid "Rail"
+msgstr ""
+
+#. module: travel_journey_rail
 #: field:travel.journey,railway_station_departure:0
 msgid "Departure"
 msgstr ""
@@ -52,7 +57,7 @@ msgstr ""
 
 #. module: travel_journey_rail
 #: model:ir.model,name:travel_journey_rail.model_travel_journey
-msgid "Journey of Travel"
+msgid "Journey of travel"
 msgstr ""
 
 #. module: travel_journey_rail
@@ -61,6 +66,7 @@ msgid "Times"
 msgstr ""
 
 #. module: travel_journey_rail
+#: view:travel.journey:0
 #: field:travel.journey,railway_station:0
 msgid "Railway Station"
 msgstr ""

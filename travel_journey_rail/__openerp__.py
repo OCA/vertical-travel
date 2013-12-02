@@ -40,6 +40,7 @@ Contributors
     'depends': ['travel_journey', 'railwaystation'],
     'external_dependencies': {},
     'data': ['travel_journey_view.xml',
+             'travel_journey_data.xml',
              ],
     'demo': [],
     'test': [],
