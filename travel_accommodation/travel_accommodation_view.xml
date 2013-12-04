@@ -5,7 +5,6 @@
     <record model="ir.ui.view" id="travel_accommodation_form_view">
       <field name="name">Passenger Accommodation Form View</field>
       <field name="model">travel.accommodation</field>
-      <field name="type">form</field>
       <field name="arch" type="xml">
         <form string="Passenger Accommodation" version="7.0">
           <sheet string="Accommodation">
