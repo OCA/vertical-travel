@@ -71,7 +71,7 @@ msgstr "Liste de déplacements."
 #. module: travel_journey
 #: field:travel.journey,return_arrival:0
 msgid "Desired Arrival (return)"
-msgstr "Arrivée souhaité (retour)"
+msgstr "Arrivée souhaitée (retour)"
 
 #. module: travel_journey
 #: view:travel.journey.import:0
@@ -239,7 +239,7 @@ msgstr "Déplacement"
 #. module: travel_journey
 #: field:travel.journey,arrival:0
 msgid "Desired Arrival"
-msgstr "Arrivée souhaité"
+msgstr "Arrivée souhaitée"
 
 #. module: travel_journey
 #: field:travel.journey.import,passenger_id:0
