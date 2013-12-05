@@ -20,32 +20,19 @@
 #
 ##############################################################################
 
-{
-    'name': 'Travel Journey by Rail',
-    'version': '0.1',
-    'author': 'Savoir-faire Linux',
-    'maintainer': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'category': 'Customer Relationship Management',
-    'description': """
-Travel Journey by Rail
-======================
-This module allows to create a travel by rail.
+from openerp.osv import orm, fields
 
-Contributors
-------------
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
-* EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
-""",
-    'depends': ['travel_journey', 'railway_station', 'railway_company', ],
-    'external_dependencies': {},
-    'data': ['travel_journey_view.xml',
-             'travel_journey_data.xml',
-             ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'active': False,
-}
+
+class res_partner(orm.Model):
+    """
+    Inherits partner and adds railway_company : boolean in the partner form
+    """
+    _inherit = 'res.partner'
+    _columns = {
+        'railway_company': fields.boolean('Railway Company'),
+    }
+    _defaults = {
+        'railway_company': 0,
+    }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

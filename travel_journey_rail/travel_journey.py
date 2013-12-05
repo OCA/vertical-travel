@@ -26,9 +26,9 @@ from openerp.osv import fields, orm
 class travel_journey(orm.Model):
     _inherit = 'travel.journey'
     _columns = {
-        'railway_station': fields.many2one('res.partner', 'Railway Station',
-                                           domain="[('railway_station','=',True)]",
-                                           help="Railway Station."),
+        'railway_company': fields.many2one('res.partner', 'Railway Company',
+                                           domain="[('railway_company','=',True)]",
+                                           help="Railway Company."),
         'railway_station_from': fields.many2one('res.partner', 'Origin',
                                                 domain="[('railway_station','=',True)]",
                                                 help="Departure Railway Station."),

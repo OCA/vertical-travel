@@ -17,35 +17,35 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
 ##############################################################################
 
 {
-    'name': 'Travel Journey by Rail',
+    'name': 'Partner Railway Company',
     'version': '0.1',
-    'author': 'Savoir-faire Linux',
-    'maintainer': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
     'description': """
-Travel Journey by Rail
-======================
-This module allows to create a travel by rail.
+Partner Railway Company
+=======================
+This module allows to add :
+* railway_company : boolean
 
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
-* EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
-""",
-    'depends': ['travel_journey', 'railway_station', 'railway_company', ],
+    """,
+    'author': 'Savoir-faire Linux',
+    'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
+    'depends': ['crm', 'transportation', ],
     'external_dependencies': {},
-    'data': ['travel_journey_view.xml',
-             'travel_journey_data.xml',
-             ],
+    'data': [
+        'res_partner_view.xml',
+    ],
     'demo': [],
     'test': [],
     'installable': True,
-    'active': False,
+    'auto_install': False,
+    'images': [],
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

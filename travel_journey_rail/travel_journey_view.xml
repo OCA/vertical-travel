@@ -8,8 +8,8 @@
       <field name="inherit_id" ref="travel_journey.travel_journey_form_view"/>
       <field name="arch" type="xml">
         <group name="Info" position="inside">
-          <group string="Railway Station" col="4" attrs="{'invisible': [('type', '!=', 'rail')]}">
-            <field name="railway_station"/>
+          <group string="Rail" col="4" attrs="{'invisible': [('type', '!=', 'rail')]}">
+            <field name="railway_company"/>
             <field name="reservation"/>
             <group string="Railway Station" col="2" colspan="2">
               <field name="railway_station_from"/>
