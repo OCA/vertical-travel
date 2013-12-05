@@ -98,7 +98,7 @@ class travel_journey(orm.Model):
             return_vals['destination'] = vals['origin']
             return_vals['departure'] = vals['return_departure']
             return_vals['arrival'] = vals['return_arrival']
-        clear_return_vals(vals)
+        vals = clear_return_vals(vals)
         res = super(travel_journey, self).create(cr, uid, vals, context=context)
         if return_vals:
             super(travel_journey, self).create(cr, uid, return_vals, context=context)
