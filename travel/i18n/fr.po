@@ -74,7 +74,7 @@ msgstr "Terminé"
 #. module: travel
 #: field:travel.passenger,department_id:0
 msgid "Department"
-msgstr "Unité d'administration"
+msgstr "Unité administrative"
 
 #. module: travel
 #: view:travel.travel:0
