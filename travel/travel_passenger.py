@@ -41,7 +41,7 @@ class travel_passenger(orm.Model):
 
     def action_passenger_form_view(self, cr, uid, ids, context=None):
         return {
-            'name': _('Passengers'),
+            'name': _('Passenger'),
             'res_model': 'travel.passenger',
             'view_mode': 'form',
             'type': 'ir.actions.act_window',
