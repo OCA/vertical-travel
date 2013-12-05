@@ -21,15 +21,15 @@
 ##############################################################################
 
 {
-    'name': 'Partner Airport',
+    'name': 'Partner Airport: Module Data',
     'version': '0.1',
     'category': 'Customer Relationship Management',
     'description': """
-Partner Airport
-===============
-This module allows to add :
-* airport : boolean
-* iata_code : char, size=3
+Partner Airport: Module Data
+============================
+
+Core Data for Partner Airport, is kept as a separate module to overcome the need
+to localize core data as well as to avoid long load times.
 
 Contributors
 ------------
@@ -39,10 +39,10 @@ Contributors
     'author': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['crm', 'transportation', ],
+    'depends': ['airport', ],
     'external_dependencies': {},
     'data': [
-        'res_partner_view.xml',
+        'data/airport_data.xml',
     ],
     'demo': [],
     'test': [],

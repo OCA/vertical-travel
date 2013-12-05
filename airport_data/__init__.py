@@ -20,35 +20,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Partner Airport',
-    'version': '0.1',
-    'category': 'Customer Relationship Management',
-    'description': """
-Partner Airport
-===============
-This module allows to add :
-* airport : boolean
-* iata_code : char, size=3
-
-Contributors
-------------
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
-* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
-    """,
-    'author': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'license': 'AGPL-3',
-    'depends': ['crm', 'transportation', ],
-    'external_dependencies': {},
-    'data': [
-        'res_partner_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'auto_install': False,
-    'images': [],
-}
-
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

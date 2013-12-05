@@ -20,11 +20,11 @@
 ##############################################################################
 
 {
-    'name': 'Partner airline',
+    'name': 'Partner Airline',
     'version': '0.1',
     'category': 'Customer Relationship Management',
     'description': """
-Partner airline
+Partner Airline
 ===============
 This module allows to add :
 * airline : boolean
@@ -40,7 +40,6 @@ Contributors
     'depends': ['crm', 'transportation', ],
     'external_dependencies': {},
     'data': [
-        'data/airline_data.xml',
         'res_partner_view.xml',
     ],
     'demo': [],
