@@ -37,7 +37,7 @@ Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
-    'depends': ['mail', 'city', 'hr_department_sequence', ],
+    'depends': ['mail', 'city', ],
     'external_dependencies': {},
     'data': ['travel_view.xml',
              'travel_passenger_view.xml',

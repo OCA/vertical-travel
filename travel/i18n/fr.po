@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-12 17:37+0000\n"
-"PO-Revision-Date: 2013-12-12 12:38-0500\n"
+"POT-Creation-Date: 2013-12-12 21:14+0000\n"
+"PO-Revision-Date: 2013-12-12 16:14-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -35,7 +35,6 @@ msgstr "Voyageurs"
 
 #. module: travel
 #: model:ir.model,name:travel.model_travel_travel
-#: model:ir.ui.menu,name:travel.menu_top_travel
 #: model:ir.ui.menu,name:travel.menu_travel_main_form
 #: field:travel.passenger,travel_id:0
 msgid "Travel"
@@ -45,11 +44,6 @@ msgstr "Déplacement"
 #: view:travel.passenger:0
 msgid "Update"
 msgstr "Mettre à jour"
-
-#. module: travel
-#: field:travel.passenger,department_id:0
-msgid "Department"
-msgstr "Unité administrative"
 
 #. module: travel
 #: field:travel.passenger,message_follower_ids:0
@@ -152,13 +146,13 @@ msgstr "Résumé"
 
 #. module: travel
 #: model:ir.actions.act_window,name:travel.action_travels_tree_list
-#: model:ir.ui.menu,name:travel.menu_travels view:travel.travel:0
+#: view:travel.travel:0
 msgid "Travels"
 msgstr "Déplacements"
 
 #. module: travel
-#: help:travel.travel,city_id:0
-msgid "Destination city of travel."
+#: help:travel.travel,country_id:0
+msgid "Destination country of travel."
 msgstr "Ville d'arrivée."
 
 #. module: travel
@@ -177,7 +171,7 @@ msgid "Travel Passengers"
 msgstr "Voyageurs"
 
 #. module: travel
-#: code:addons/travel/travel_passenger.py:44
+#: code:addons/travel/travel_passenger.py:43
 #, python-format
 msgid "Passenger"
 msgstr "Voyageur"
@@ -193,8 +187,8 @@ msgid "TravelsForm"
 msgstr ""
 
 #. module: travel
-#: help:travel.travel,country_id:0
-msgid "Destination country of travel."
+#: help:travel.travel,city_id:0
+msgid "Destination city of travel."
 msgstr "Ville d'arrivée."
 
 #. module: travel
@@ -236,9 +230,3 @@ msgstr "ou"
 #: view:travel.travel:0
 msgid "Location"
 msgstr "Lieu"
-
-#~ msgid "Administration"
-#~ msgstr "Administration"
-
-#~ msgid "Time of departure."
-#~ msgstr "Heure de départ"

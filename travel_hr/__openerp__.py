@@ -20,34 +20,36 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
-from openerp.tools.translate import _
+{
+    'name': 'Travel - HR Bindings',
+    'version': '0.1',
+    'author': 'Savoir-faire Linux',
+    'maintainer': 'Savoir-faire Linux',
+    'website': 'http://www.savoirfairelinux.com',
+    'category': 'Customer Relationship Management',
+    'summary': "HR bindings for Travel",
+    'description': """
+Travel - HR Bindings
+====================
 
+Adds HR department to passenger view
 
-class travel_passenger(orm.Model):
-    _description = 'Passenger on travel'
-    _name = 'travel.passenger'
-    _inherit = ['mail.thread']
-    _columns = {
-        'partner_id': fields.many2one('res.partner', 'Name', required=True, ondelete='cascade',
-                                      help="Name of Passenger."),
-        'travel_id': fields.many2one('travel.travel', 'Travel',
-                                     help='Travel on which the passenger is going.'),
-    }
-
-    def name_get(self, cr, uid, ids, context=None):
-        return [(i.id, i.partner_id.name) for i in self.browse(cr, uid, ids, context=context)]
-
-    def action_passenger_form_view(self, cr, uid, ids, context=None):
-        return {
-            'name': _('Passenger'),
-            'res_model': 'travel.passenger',
-            'view_mode': 'form',
-            'type': 'ir.actions.act_window',
-            'target': 'new',
-            'res_id': ids[0],
-            'context': context,
-        }
-
+Contributors
+------------
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
+""",
+    'depends': ['travel', 'hr_department_sequence', ],
+    'external_dependencies': {
+        'python': [],
+    },
+    'data': [
+        'travel_passenger_view.xml',
+        'travel_view.xml',
+    ],
+    'demo': [],
+    'test': [],
+    'installable': True,
+    'auto_install': True,
+}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

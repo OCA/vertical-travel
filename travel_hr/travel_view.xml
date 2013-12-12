@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="travel_form_view">
+      <field name="name">Travel Form HR View</field>
+      <field name="model">travel.travel</field>
+      <field name="inherit_id" ref="travel.travel_form_view" />
+      <field name="arch" type="xml">
+
+        <field name="partner_id" position="after">
+          <field name="department_id"/>
+        </field>
+
+      </field>
+    </record>
+
+  </data>
+</openerp>
