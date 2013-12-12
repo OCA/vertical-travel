@@ -37,7 +37,7 @@ Contributors
     'author': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['crm', ],
+    'depends': ['base', ],
     'external_dependencies': {},
     'data': [
         'partner_view.xml',
