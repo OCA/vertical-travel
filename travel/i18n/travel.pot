@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-05 22:47+0000\n"
-"PO-Revision-Date: 2013-12-05 22:47+0000\n"
+"POT-Creation-Date: 2013-12-12 17:37+0000\n"
+"PO-Revision-Date: 2013-12-12 17:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,14 +33,10 @@ msgstr ""
 
 #. module: travel
 #: model:ir.model,name:travel.model_travel_travel
+#: model:ir.ui.menu,name:travel.menu_top_travel
+#: model:ir.ui.menu,name:travel.menu_travel_main_form
 #: field:travel.passenger,travel_id:0
 msgid "Travel"
-msgstr ""
-
-#. module: travel
-#: model:ir.ui.menu,name:travel.menu_administration
-#: model:ir.ui.menu,name:travel.menu_administration_mainform
-msgid "Administration"
 msgstr ""
 
 #. module: travel
@@ -49,8 +45,8 @@ msgid "Update"
 msgstr ""
 
 #. module: travel
-#: help:travel.passenger,partner_id:0
-msgid "Name of Passenger."
+#: field:travel.passenger,department_id:0
+msgid "Department"
 msgstr ""
 
 #. module: travel
@@ -70,8 +66,8 @@ msgid "Closed"
 msgstr ""
 
 #. module: travel
-#: field:travel.passenger,department_id:0
-msgid "Department"
+#: help:travel.passenger,partner_id:0
+msgid "Name of Passenger."
 msgstr ""
 
 #. module: travel

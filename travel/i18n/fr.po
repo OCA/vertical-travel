@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-05 22:47+0000\n"
-"PO-Revision-Date: 2013-12-05 17:48-0500\n"
+"POT-Creation-Date: 2013-12-12 17:37+0000\n"
+"PO-Revision-Date: 2013-12-12 12:38-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -35,15 +35,11 @@ msgstr "Voyageurs"
 
 #. module: travel
 #: model:ir.model,name:travel.model_travel_travel
+#: model:ir.ui.menu,name:travel.menu_top_travel
+#: model:ir.ui.menu,name:travel.menu_travel_main_form
 #: field:travel.passenger,travel_id:0
 msgid "Travel"
 msgstr "Déplacement"
-
-#. module: travel
-#: model:ir.ui.menu,name:travel.menu_administration
-#: model:ir.ui.menu,name:travel.menu_administration_mainform
-msgid "Administration"
-msgstr "Administration"
 
 #. module: travel
 #: view:travel.passenger:0
@@ -51,9 +47,9 @@ msgid "Update"
 msgstr "Mettre à jour"
 
 #. module: travel
-#: help:travel.passenger,partner_id:0
-msgid "Name of Passenger."
-msgstr "Nom du voyageur."
+#: field:travel.passenger,department_id:0
+msgid "Department"
+msgstr "Unité administrative"
 
 #. module: travel
 #: field:travel.passenger,message_follower_ids:0
@@ -72,9 +68,9 @@ msgid "Closed"
 msgstr "Terminé"
 
 #. module: travel
-#: field:travel.passenger,department_id:0
-msgid "Department"
-msgstr "Unité administrative"
+#: help:travel.passenger,partner_id:0
+msgid "Name of Passenger."
+msgstr "Nom du voyageur."
 
 #. module: travel
 #: view:travel.travel:0
@@ -240,6 +236,9 @@ msgstr "ou"
 #: view:travel.travel:0
 msgid "Location"
 msgstr "Lieu"
+
+#~ msgid "Administration"
+#~ msgstr "Administration"
 
 #~ msgid "Time of departure."
 #~ msgstr "Heure de départ"

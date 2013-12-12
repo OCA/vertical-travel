@@ -72,14 +72,14 @@
     </record>
 
     <!-- Menus -->
-    <menuitem name="Administration"
-              id="menu_administration"/>
-    <menuitem name="Administration"
-              id="menu_administration_mainform"
-              parent="menu_administration" />
+    <menuitem name="Travel"
+              id="menu_top_travel"/>
+    <menuitem name="Travel"
+              id="menu_travel_main_form"
+              parent="menu_top_travel" />
     <menuitem name="Travels"
               id="menu_travels"
-              parent="menu_administration_mainform"
+              parent="menu_travel_main_form"
               action="action_travels_tree_list"/>
   </data>
 </openerp>
