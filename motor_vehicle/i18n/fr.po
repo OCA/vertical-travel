@@ -6,22 +6,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 17:21+0000\n"
-"PO-Revision-Date: 2013-12-02 14:15-0500\n"
+"POT-Creation-Date: 2013-12-17 21:40+0000\n"
+"PO-Revision-Date: 2013-12-17 16:42-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: Savoir-faire Linux\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.5.7\n"
-"Language: fr\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-
-#. module: motor_vehicle
-#: model:ir.model,name:motor_vehicle.model_travel_car_rental
-msgid "Car Rentals for travel"
-msgstr "Location d'autos pour déplacement"
 
 #. module: motor_vehicle
 #: field:motor.vehicle,name:0
@@ -29,7 +24,9 @@ msgid "Name"
 msgstr "Nom"
 
 #. module: motor_vehicle
+#: code:addons/motor_vehicle/motor_vehicle.py:28
 #: model:ir.model,name:motor_vehicle.model_motor_vehicle
+#, python-format
 msgid "Motor vehicle"
 msgstr "Véhicule"
 

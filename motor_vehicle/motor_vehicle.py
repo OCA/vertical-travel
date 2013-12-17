@@ -21,10 +21,11 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.tools.translate import _
 
 
 class motor_vehicle(orm.Model):
-    _description = 'Motor vehicle'
+    _description = _('Motor vehicle')
     _name = 'motor.vehicle'
     _columns = {
         'name': fields.char('Name', size=256, required=True, select=True,

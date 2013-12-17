@@ -24,7 +24,6 @@ from openerp.osv import fields, orm
 
 
 class travel_passenger(orm.Model):
-    _description = 'Passenger on travel'
     _inherit = 'travel.passenger'
     _columns = {
         'department_id': fields.many2one('hr.department', 'Department'),

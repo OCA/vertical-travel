@@ -21,10 +21,11 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.tools.translate import _
 
 
 class travel_travel(orm.Model):
-    _description = 'Travel'
+    _description = _('Travel')
     _name = 'travel.travel'
     _inherit = ['mail.thread']
     _columns = {

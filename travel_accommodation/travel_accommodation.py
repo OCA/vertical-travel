@@ -21,13 +21,14 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.tools.translate import _
 from datetime import datetime
 
 import openerp.addons.decimal_precision as dp
 
 
 class travel_accommodation(orm.Model):
-    _description = 'Accommodation of travel'
+    _description = _('Accommodation of travel')
     _name = 'travel.accommodation'
 
     @staticmethod

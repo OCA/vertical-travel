@@ -25,7 +25,7 @@ from openerp.tools.translate import _
 
 
 class travel_passenger(orm.Model):
-    _description = 'Passenger on travel'
+    _description = _('Passenger on travel')
     _name = 'travel.passenger'
     _inherit = ['mail.thread']
     _columns = {

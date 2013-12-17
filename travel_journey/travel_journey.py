@@ -21,6 +21,7 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.tools.translate import _
 
 
 def _get_type(self, cr, uid, context=None):
@@ -31,7 +32,7 @@ def _get_type(self, cr, uid, context=None):
 
 
 class travel_journey(orm.Model):
-    _description = 'Journey of travel'
+    _description = _('Journey of travel')
     _name = 'travel.journey'
     _columns = {
         'origin': fields.many2one('res.country.city', 'Origin', required='True',

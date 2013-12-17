@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 22:13+0000\n"
-"PO-Revision-Date: 2013-12-02 22:13+0000\n"
+"POT-Creation-Date: 2013-12-17 21:53+0000\n"
+"PO-Revision-Date: 2013-12-17 21:53+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,9 @@ msgid "Comments"
 msgstr ""
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:35
 #: model:ir.model,name:travel_journey.model_travel_journey
+#, python-format
 msgid "Journey of travel"
 msgstr ""
 
@@ -82,7 +84,9 @@ msgid "Economy"
 msgstr ""
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey_class.py:29
 #: model:ir.model,name:travel_journey.model_travel_journey_class
+#, python-format
 msgid "Passenger Class for Journey"
 msgstr ""
 
@@ -174,8 +178,10 @@ msgid "Baggage Weight Unit of Measure"
 msgstr ""
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey_type.py:28
 #: model:ir.model,name:travel_journey.model_travel_journey_type
 #: field:travel.journey,type:0
+#, python-format
 msgid "Travel journey type"
 msgstr ""
 

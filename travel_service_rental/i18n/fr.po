@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 19:09+0000\n"
-"PO-Revision-Date: 2013-12-02 14:56-0500\n"
+"POT-Creation-Date: 2013-12-17 21:55+0000\n"
+"PO-Revision-Date: 2013-12-17 16:56-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.5.7\n"
-"Language: fr\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: travel_service_rental
@@ -166,7 +166,9 @@ msgid "Copy from other Passengers"
 msgstr "Copier les données d'autres voyageurs"
 
 #. module: travel_service_rental
+#: code:addons/travel_service_rental/travel_service_rental.py:30
 #: model:ir.model,name:travel_service_rental.model_travel_service_rental
+#, python-format
 msgid "Service rentals for travel"
 msgstr "Service de locations pour le déplacement"
 

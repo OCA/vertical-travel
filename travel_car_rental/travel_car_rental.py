@@ -21,13 +21,13 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
-from datetime import datetime
+from openerp.tools.translate import _
 
 import openerp.addons.decimal_precision as dp
 
 
 class travel_car_rental(orm.Model):
-    _description = 'Car Rentals for travel'
+    _description = _('Car Rentals for travel')
     _name = 'travel.car.rental'
 
     _columns = {

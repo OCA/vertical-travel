@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 19:03+0000\n"
-"PO-Revision-Date: 2013-12-02 14:25-0500\n"
+"POT-Creation-Date: 2013-12-17 21:48+0000\n"
+"PO-Revision-Date: 2013-12-17 16:48-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -75,7 +75,9 @@ msgid "unknown"
 msgstr "inconnue"
 
 #. module: travel_accommodation
+#: code:addons/travel_accommodation/travel_accommodation.py:31
 #: model:ir.model,name:travel_accommodation.model_travel_accommodation
+#, python-format
 msgid "Accommodation of travel"
 msgstr "Hébergement du déplacement"
 

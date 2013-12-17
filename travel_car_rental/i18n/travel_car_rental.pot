@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 19:03+0000\n"
-"PO-Revision-Date: 2013-12-02 19:03+0000\n"
+"POT-Creation-Date: 2013-12-17 21:49+0000\n"
+"PO-Revision-Date: 2013-12-17 21:49+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -108,7 +108,9 @@ msgid "Car Rental"
 msgstr ""
 
 #. module: travel_car_rental
+#: code:addons/travel_car_rental/travel_car_rental.py:30
 #: model:ir.model,name:travel_car_rental.model_travel_car_rental
+#, python-format
 msgid "Car Rentals for travel"
 msgstr ""
 

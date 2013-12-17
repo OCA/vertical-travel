@@ -21,10 +21,11 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.tools.translate import _
 
 
 class travel_journey_type(orm.Model):
-    _description = 'Travel journey type'
+    _description = _('Travel journey type')
     _name = 'travel.journey.type'
     _columns = {
         'code': fields.char('Code', size=10, required=True,
