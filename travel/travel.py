@@ -51,4 +51,34 @@ class travel_travel(orm.Model):
         'state': 'draft',
     }
 
+    def travel_open(self, cr, uid, ids, context=None):
+        """Put the state of the travel into open"""
+        for travel in self.browse(cr, uid, ids, context=context):
+            self.write(cr, uid, [travel.id], {'state': 'open'})
+        return True
+
+    def travel_book(self, cr, uid, ids, context=None):
+        """Put the state of the travel into booking"""
+        for travel in self.browse(cr, uid, ids, context=context):
+            self.write(cr, uid, [travel.id], {'state': 'booking'})
+        return True
+
+    def travel_reserve(self, cr, uid, ids, context=None):
+        """Put the state of the travel into reserved"""
+        for travel in self.browse(cr, uid, ids, context=context):
+            self.write(cr, uid, [travel.id], {'state': 'reserved'})
+        return True
+
+    def travel_confirm(self, cr, uid, ids, context=None):
+        """Put the state of the travel into confirmed"""
+        for travel in self.browse(cr, uid, ids, context=context):
+            self.write(cr, uid, [travel.id], {'state': 'confirmed'})
+        return True
+
+    def travel_close(self, cr, uid, ids, context=None):
+        """Put the state of the travel into done"""
+        for travel in self.browse(cr, uid, ids, context=context):
+            self.write(cr, uid, [travel.id], {'state': 'done'})
+        return True
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

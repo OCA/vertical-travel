@@ -23,6 +23,11 @@
       <field name="arch" type="xml">
         <form string="TravelsForm" version="7.0">
           <header>
+            <button name="travel_open" string="Open" states="draft" type="object" class="oe_highlight"/>
+            <button name="travel_book" string="Book" states="open" type="object" class="oe_highlight"/>
+            <button name="travel_reserve" string="Reserve" states="booking" type="object" class="oe_highlight"/>
+            <button name="travel_confirm" string="Confirm" states="reserved" type="object" class="oe_highlight"/>
+            <button name="travel_close" string="Close" states="confirmed" type="object" class="oe_highlight"/>
             <field name="state" widget="statusbar"
                    statusbar_visible="draft,open,booking,reserved,confirmed,done"/>
           </header>
