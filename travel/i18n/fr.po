@@ -50,7 +50,7 @@ msgstr "Mettre à jour"
 #. module: travel
 #: view:travel.travel:0
 msgid "Book"
-msgstr "Mettre en réservaion"
+msgstr "Mettre en réservation"
 
 #. module: travel
 #: field:travel.passenger,message_follower_ids:0
