@@ -19,7 +19,7 @@ msgstr ""
 #. module: railway_station
 #: model:ir.model,name:railway_station.model_res_partner
 msgid "Partner"
-msgstr "Partnaire"
+msgstr "Partenaire"
 
 #. module: railway_station
 #: view:res.partner:0
