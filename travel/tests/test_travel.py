@@ -46,7 +46,7 @@ class Base_Test_travel(TransactionCase):
         res_country_city = self.registry('res.country.city')
         self.vals['city_id'] = res_country_city.create(self.cr, self.uid, {
             'name': 'Test City',
-            'state_id': 1, }, context=None)
+            'country_id': 1, }, context=None)
         # Overwrite vals if needed
         self.vals = dict(self.vals.items() + vals.items())
         # Create the travel object; we will be testing this, so store in self
