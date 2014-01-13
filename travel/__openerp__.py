@@ -41,6 +41,7 @@ Contributors
     'external_dependencies': {},
     'data': ['travel_view.xml',
              'travel_passenger_view.xml',
+             'security/ir.model.access.csv',
              ],
     'demo': [],
     'test': [],

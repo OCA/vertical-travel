@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_travel","travel_user","model_travel_travel","base.group_user",1,1,1,1
+"access_travel_passenger","travel_passenger_user","model_travel_passenger","base.group_user",1,1,1,1

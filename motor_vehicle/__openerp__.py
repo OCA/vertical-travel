@@ -39,7 +39,9 @@ Contributors
 """,
     'depends': [],
     'external_dependencies': {},
-    'data': [],
+    'data': [
+        'security/ir.model.access.csv',
+    ],
     'demo': [],
     'test': [],
     'installable': True,

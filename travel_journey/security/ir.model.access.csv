@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_travel_journey","travel_journey_user","model_travel_journey","base.group_user",1,1,1,1
+"access_travel_journey_class","travel_journey_class_user","model_travel_journey_class","base.group_user",1,1,1,1
+"access_travel_journey_type","travel_journey_type_user","model_travel_journey_type","base.group_user",1,1,1,1

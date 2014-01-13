@@ -42,7 +42,8 @@ Contributors
     'data': ['travel_passenger_view.xml',
              'travel_journey_view.xml',
              'travel_journey_data.xml',
-             'wizard/travel_journey_import_view.xml'
+             'wizard/travel_journey_import_view.xml',
+             'security/ir.model.access.csv',
              ],
     'demo': [],
     'test': [],

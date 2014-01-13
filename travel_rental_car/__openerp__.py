@@ -41,6 +41,7 @@ Contributors
     'data': ['travel_passenger_view.xml',
              'travel_car_rental_view.xml',
              'wizard/travel_car_rental_import_view.xml',
+             'security/ir.model.access.csv',
              ],
     'demo': [],
     'test': [],
