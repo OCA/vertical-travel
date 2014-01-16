@@ -49,11 +49,6 @@ class travel_journey(orm.Model):
                                    help='Desired date and time of Arrival.'),
         'return_departure': fields.datetime('Desired Departure (return)'),
         'return_arrival': fields.datetime('Desired Arrival (return)'),
-        'visa': fields.boolean('Visa Required',
-                               help='Is a visa required to visit destination city?'),
-        # TODO: make following field only visible if previous field is true
-        'visa_country': fields.many2one('res.country', 'Country Visa',
-                                        help='Country for which a visa is needed'),
         'class_id': fields.many2one('travel.journey.class', 'Class', required=True,
                                     help='Desired class of voyage.'),
         'baggage_qty': fields.integer('Baggage Quantity', help='Number of articles in baggage.'),

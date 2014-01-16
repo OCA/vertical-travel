@@ -32,9 +32,6 @@
                 <field name="return_arrival"
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
               </group>
-              <separator string="Visa" colspan="4"/>
-              <field name="visa"/>
-              <field name="visa_country"/>
 
               <separator string="Class and Baggage" colspan="4"/>
               <field name="class_id" colspan="4"/>
