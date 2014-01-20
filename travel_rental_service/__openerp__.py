@@ -37,7 +37,7 @@ Contributors
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 * EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
 """,
-    'depends': ['travel', 'city'],
+    'depends': ['travel', ],
     'external_dependencies': {},
     'data': ['travel_passenger_view.xml',
              'travel_service_rental_view.xml',

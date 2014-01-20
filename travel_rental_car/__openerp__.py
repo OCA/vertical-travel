@@ -36,7 +36,7 @@ Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
-    'depends': ['travel', 'city', 'motor_vehicle', ],
+    'depends': ['travel', 'motor_vehicle', ],
     'external_dependencies': {},
     'data': ['travel_passenger_view.xml',
              'travel_car_rental_view.xml',

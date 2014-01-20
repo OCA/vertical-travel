@@ -35,12 +35,12 @@ class travel_journey(orm.Model):
     _description = _('Journey of travel')
     _name = 'travel.journey'
     _columns = {
-        'origin': fields.many2one('res.country.city', 'Origin', required='True',
+        'origin': fields.many2one('res.better.zip', 'Origin', required='True',
                                   help='Source city of travel.'),
-        'destination': fields.many2one('res.country.city', 'Destination', required='True',
+        'destination': fields.many2one('res.better.zip', 'Destination', required='True',
                                        help='Destination city of travel.'),
-        'return_origin': fields.many2one('res.country.city', 'Origin (return)'),
-        'return_destination': fields.many2one('res.country.city', 'Destination (return)'),
+        'return_origin': fields.many2one('res.better.zip', 'Origin (return)'),
+        'return_destination': fields.many2one('res.better.zip', 'Destination (return)'),
         'is_return': fields.boolean('Return Trip', help='Generate a return trip'),
         # TODO: One and only one of the following two has to be filled
         'departure': fields.datetime('Desired Departure',
