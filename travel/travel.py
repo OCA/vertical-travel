@@ -31,11 +31,8 @@ class travel_travel(orm.Model):
     _columns = {
         'name': fields.char('Name', size=256, required=True, select=True,
                             help='Name of travel.'),
-        'city_id': fields.many2one('res.better.zip', 'City', required='True',
-                                   help='Destination city of travel.'),
-        'country_id': fields.related('city_id', 'country_id', type='many2one',
-                                     relation='res.country', string="Country",
-                                     readonly=True, help="Destination country of travel."),
+        'city_ids': fields.many2many('res.better.zip', string='Locations',
+                                     help='Destination cities of travel.'),
         'date_start': fields.date('Start Date', required=True),
         'date_stop': fields.date('End Date', required=True),
         'passenger_ids': fields.one2many('travel.passenger', 'travel_id', 'Passengers',

@@ -8,8 +8,6 @@
       <field name="arch" type="xml">
         <tree string="TravelsTree" version="7.0">
           <field name="name"/>
-          <field name="city_id"/>
-          <field name="country_id"/>
           <field name="date_start"/>
           <field name="date_stop"/>
           <field name="state"/>
@@ -37,10 +35,13 @@
                 <field name="name"/>
               </group>
               <group name="Details">
-                <group string="Location">
-                  <field name="country_id"/>
-                  <field name="city_id"
-                         options='{"create_name_field": "city"}'/>
+                <group string="Locations">
+                  <field name="city_ids" nolabel="1">
+                    <tree version="7.0">
+                      <field name="city"/>
+                      <field name="country_id"/>
+                    </tree>
+                  </field>
                 </group>
                 <group string="Date">
                   <field name="date_start"/>
