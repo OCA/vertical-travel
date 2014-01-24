@@ -21,7 +21,7 @@
 ##############################################################################
 
 {
-    'name': 'Travel - Partner Multi Passport Bindings',
+    'name': 'Travel - Passport Management Bindings',
     'version': '0.1',
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
@@ -30,8 +30,8 @@
     'summary': 'Select passenger passport from list',
     'license': 'AGPL-3',
     'description': """
-Travel - Partner Multi Passport Bindings
-========================================
+Travel - Passport Management Bindings
+=====================================
 
 Adds option to select passport from passenger's passport list
 
@@ -39,7 +39,7 @@ Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
-    'depends': ['travel', 'partner_multi_passport', ],
+    'depends': ['travel', 'passport', ],
     'external_dependencies': {
         'python': {
         }
