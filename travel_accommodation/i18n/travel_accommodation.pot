@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 21:48+0000\n"
-"PO-Revision-Date: 2013-12-17 21:48+0000\n"
+"POT-Creation-Date: 2014-01-28 00:58+0000\n"
+"PO-Revision-Date: 2014-01-28 00:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -142,11 +142,6 @@ msgid "Times"
 msgstr ""
 
 #. module: travel_accommodation
-#: view:travel.accommodation.import:0
-msgid "Cancel"
-msgstr ""
-
-#. module: travel_accommodation
 #: field:travel.accommodation,dinner:0
 msgid "Dinner"
 msgstr ""
@@ -159,6 +154,11 @@ msgstr ""
 #. module: travel_accommodation
 #: help:travel.accommodation,lunch:0
 msgid "Is lunch included?"
+msgstr ""
+
+#. module: travel_accommodation
+#: view:travel.passenger:0
+msgid "Copy Accommodation from other Passengers"
 msgstr ""
 
 #. module: travel_accommodation
@@ -177,8 +177,8 @@ msgid "List of accommodations."
 msgstr ""
 
 #. module: travel_accommodation
-#: view:travel.passenger:0
-msgid "Copy from other Passengers"
+#: view:travel.accommodation.import:0
+msgid "Cancel"
 msgstr ""
 
 #. module: travel_accommodation
@@ -200,3 +200,4 @@ msgstr ""
 #: field:travel.accommodation,close_to:0
 msgid "Close to"
 msgstr ""
+

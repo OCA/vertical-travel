@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 21:53+0000\n"
-"PO-Revision-Date: 2013-12-17 21:53+0000\n"
+"POT-Creation-Date: 2014-01-28 00:59+0000\n"
+"PO-Revision-Date: 2014-01-28 00:59+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -31,8 +31,8 @@ msgid "Notes on cancellation."
 msgstr ""
 
 #. module: travel_journey
-#: help:travel.journey,visa_country:0
-msgid "Country for which a visa is needed"
+#: help:travel.journey,is_return:0
+msgid "Generate a return trip"
 msgstr ""
 
 #. module: travel_journey
@@ -112,6 +112,11 @@ msgid "unknown"
 msgstr ""
 
 #. module: travel_journey
+#: view:travel.passenger:0
+msgid "Copy Journey from other Passengers"
+msgstr ""
+
+#. module: travel_journey
 #: model:travel.journey.class,name:travel_journey.travel_journey_class_directive
 msgid "Meet Travel Directive"
 msgstr ""
@@ -119,11 +124,6 @@ msgstr ""
 #. module: travel_journey
 #: model:ir.model,name:travel_journey.model_travel_passenger
 msgid "Passenger on travel"
-msgstr ""
-
-#. module: travel_journey
-#: field:travel.journey,reservation:0
-msgid "Reservation Number"
 msgstr ""
 
 #. module: travel_journey
@@ -144,11 +144,6 @@ msgstr ""
 #. module: travel_journey
 #: help:travel.journey.type,name:0
 msgid "Name of travel journey type."
-msgstr ""
-
-#. module: travel_journey
-#: help:travel.journey,is_return:0
-msgid "Generate a return trip"
 msgstr ""
 
 #. module: travel_journey
@@ -197,18 +192,8 @@ msgid "Other passengers on the same journey."
 msgstr ""
 
 #. module: travel_journey
-#: view:travel.journey:0
-msgid "Visa"
-msgstr ""
-
-#. module: travel_journey
 #: field:travel.journey,return_departure:0
 msgid "Desired Departure (return)"
-msgstr ""
-
-#. module: travel_journey
-#: field:travel.journey,visa_country:0
-msgid "Country Visa"
 msgstr ""
 
 #. module: travel_journey
@@ -217,13 +202,13 @@ msgid "Times"
 msgstr ""
 
 #. module: travel_journey
-#: view:travel.journey.import:0
-msgid "Cancel"
+#: help:travel.journey,destination:0
+msgid "Destination city of travel."
 msgstr ""
 
 #. module: travel_journey
-#: help:travel.journey,visa:0
-msgid "Is a visa required to visit destination city?"
+#: help:travel.journey.class,name:0
+msgid "Name of passenger class."
 msgstr ""
 
 #. module: travel_journey
@@ -277,8 +262,9 @@ msgid "Code"
 msgstr ""
 
 #. module: travel_journey
-#: help:travel.journey,destination:0
-msgid "Destination city of travel."
+#: view:travel.journey:0
+#: field:travel.passenger,journey_ids:0
+msgid "Journeys"
 msgstr ""
 
 #. module: travel_journey
@@ -287,14 +273,8 @@ msgid "Desired date and time of departure."
 msgstr ""
 
 #. module: travel_journey
-#: view:travel.journey:0
-#: field:travel.passenger,journey_ids:0
-msgid "Journeys"
-msgstr ""
-
-#. module: travel_journey
-#: help:travel.journey.class,name:0
-msgid "Name of passenger class."
+#: field:travel.journey,reservation:0
+msgid "Reservation Number"
 msgstr ""
 
 #. module: travel_journey
@@ -303,8 +283,8 @@ msgid "Origin (return)"
 msgstr ""
 
 #. module: travel_journey
-#: field:travel.journey,visa:0
-msgid "Visa Required"
+#: help:travel.journey,baggage_weight:0
+msgid "Weight of baggage."
 msgstr ""
 
 #. module: travel_journey
@@ -318,8 +298,8 @@ msgid "Baggage Quantity"
 msgstr ""
 
 #. module: travel_journey
-#: view:travel.passenger:0
-msgid "Copy from other Passengers"
+#: view:travel.journey.import:0
+msgid "Cancel"
 msgstr ""
 
 #. module: travel_journey
@@ -333,11 +313,6 @@ msgid "Source city of travel."
 msgstr ""
 
 #. module: travel_journey
-#: help:travel.journey,baggage_weight:0
-msgid "Weight of baggage."
-msgstr ""
-
-#. module: travel_journey
 #: view:travel.journey.import:0
 msgid "or"
 msgstr ""
@@ -346,3 +321,4 @@ msgstr ""
 #: view:travel.journey:0
 msgid "Passenger Journeys"
 msgstr ""
+

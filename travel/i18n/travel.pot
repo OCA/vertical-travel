@@ -6,19 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 21:43+0000\n"
-"PO-Revision-Date: 2013-12-17 21:43+0000\n"
+"POT-Creation-Date: 2014-01-28 00:58+0000\n"
+"PO-Revision-Date: 2014-01-28 00:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: travel
-#: field:travel.travel,city_id:0
-msgid "City"
-msgstr ""
 
 #. module: travel
 #: selection:travel.travel,state:0
@@ -33,6 +28,7 @@ msgstr ""
 #. module: travel
 #: code:addons/travel/travel.py:28
 #: model:ir.model,name:travel.model_travel_travel
+#: model:ir.ui.menu,name:travel.menu_top_travel
 #: model:ir.ui.menu,name:travel.menu_travel_main_form
 #: field:travel.passenger,travel_id:0
 #, python-format
@@ -116,13 +112,13 @@ msgid "Travel Passengers"
 msgstr ""
 
 #. module: travel
-#: help:travel.travel,name:0
-msgid "Name of travel."
+#: view:travel.travel:0
+msgid "Date"
 msgstr ""
 
 #. module: travel
-#: view:travel.travel:0
-msgid "Date"
+#: help:travel.travel,city_ids:0
+msgid "Destination cities of travel."
 msgstr ""
 
 #. module: travel
@@ -142,8 +138,8 @@ msgid "Name"
 msgstr ""
 
 #. module: travel
-#: field:travel.travel,country_id:0
-msgid "Country"
+#: help:travel.travel,name:0
+msgid "Name of travel."
 msgstr ""
 
 #. module: travel
@@ -160,13 +156,9 @@ msgstr ""
 
 #. module: travel
 #: model:ir.actions.act_window,name:travel.action_travels_tree_list
+#: model:ir.ui.menu,name:travel.menu_travels
 #: view:travel.travel:0
 msgid "Travels"
-msgstr ""
-
-#. module: travel
-#: help:travel.travel,city_id:0
-msgid "Destination city of travel."
 msgstr ""
 
 #. module: travel
@@ -213,13 +205,14 @@ msgid "TravelsForm"
 msgstr ""
 
 #. module: travel
-#: help:travel.travel,country_id:0
-msgid "Destination country of travel."
+#: selection:travel.travel,state:0
+msgid "Saved"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "Saved"
+#: view:travel.travel:0
+#: field:travel.travel,city_ids:0
+msgid "Locations"
 msgstr ""
 
 #. module: travel
@@ -253,7 +246,3 @@ msgstr ""
 msgid "or"
 msgstr ""
 
-#. module: travel
-#: view:travel.travel:0
-msgid "Location"
-msgstr ""
