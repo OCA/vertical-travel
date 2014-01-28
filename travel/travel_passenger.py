@@ -49,5 +49,6 @@ class travel_passenger(orm.Model):
             'context': context,
         }
 
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    def on_change_partner_id(self, cr, uid, ids, partner_id, context=None):
+        res = {}
+        return res

@@ -9,7 +9,7 @@
       <field name="arch" type="xml">
 
         <field name="partner_id" position="after">
-          <field name="department_id"/>
+          <field name="department_id" readonly="1"/>
         </field>
 
       </field>

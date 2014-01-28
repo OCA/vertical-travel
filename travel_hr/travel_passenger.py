@@ -29,5 +29,70 @@ class travel_passenger(orm.Model):
         'department_id': fields.many2one('hr.department', 'Department'),
     }
 
+    def get_employees_from_partner_ids(self, cr, uid, partner_ids, context=None):
+        """
+        Given a list of partner_id find the hr.employee who have it in their
+        related user's partner_id.
+        """
+        if type(partner_ids) in (int, long):
+            partner_ids = [partner_ids]
+        hr_employee_pool = self.pool.get('hr.employee')
+        res = []
+        for partner_id in partner_ids:
+            employee_id = hr_employee_pool.search(
+                cr, uid, [('user_id.partner_id', '=', partner_id)], limit=1,
+                context=context)
+            if len(employee_id) == 1:
+                employee = hr_employee_pool.browse(
+                    cr, uid, employee_id[0], context=context)
+                res.append(employee)
+        return res
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    def get_departments_from_partner_ids(self, cr, uid, partner_ids, context=None):
+        if type(partner_ids) in (int, long):
+            partner_ids = [partner_ids]
+        employees = self.get_employees_from_partner_ids(
+            cr, uid, partner_ids, context=context)
+        res = [o.department_id.id for o in employees
+               if o and o.department_id]
+        return res
+
+    def on_change_partner_id(self, cr, uid, ids, partner_id, context=None):
+        """Try and get an hr.department from the res.partner"""
+        res = super(travel_passenger, self).on_change_partner_id(
+            cr, uid, ids, partner_id, context=context)
+        # Find department related to res.partner through employee's user
+        department_ids = self.get_departments_from_partner_ids(
+            cr, uid, partner_id, context=context)
+        department_id = department_ids[0] if department_ids else False
+        # Fill in and return found values
+        value = res.get('value', {})
+        value['department_id'] = department_id
+        res['value'] = value
+        return res
+
+    def create(self, cr, uid, vals, context=None):
+        """
+        Try and get an hr.department added manually as the field is readonly
+        """
+        partner_id = vals.get('partner_id')
+        if partner_id:
+            department_ids = self.get_departments_from_partner_ids(
+                cr, uid, partner_id, context=context)
+            if department_ids:
+                vals['department_id'] = department_ids[0]
+        return super(travel_passenger, self).create(
+            cr, uid, vals, context=context)
+
+    def write(self, cr, uid, ids, vals, context=None):
+        """
+        Try and get an hr.department added manually as the field is readonly
+        """
+        partner_id = vals.get('partner_id')
+        if partner_id:
+            department_ids = self.get_departments_from_partner_ids(
+                cr, uid, partner_id, context=context)
+            if department_ids:
+                vals['department_id'] = department_ids[0]
+        return super(travel_passenger, self).write(
+            cr, uid, ids, vals, context=context)
