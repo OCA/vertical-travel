@@ -23,9 +23,9 @@
 from openerp.osv import fields, orm
 
 
-class travel_car_rental_import(orm.TransientModel):
+class travel_rental_car_import(orm.TransientModel):
     """Import data from other passengers"""
-    _name = "travel.car.rental.import"
+    _name = "travel.rental.car.import"
     _description = "Car rental information import"
     _columns = {
         'travel_id': fields.many2one('travel.travel'),
@@ -39,15 +39,15 @@ class travel_car_rental_import(orm.TransientModel):
         """
         Import car rental information from other passenger
         """
-        tcri_pool = self.pool.get('travel.car.rental.import')
-        tcr_pool = self.pool.get('travel.car.rental')
-        for tcri_obj in tcri_pool.browse(cr, uid, ids, context=context):
+        trci_pool = self.pool.get('travel.rental.car.import')
+        trc_pool = self.pool.get('travel.rental.car')
+        for tcri_obj in trci_pool.browse(cr, uid, ids, context=context):
             cur_passenger_obj = tcri_obj.cur_passenger_id
             other_passenger_obj = tcri_obj.passenger_id
             passenger_id = cur_passenger_obj.id
             for rental_obj in other_passenger_obj.car_rental_ids:
-                new_rental_id = tcr_pool.copy(cr, uid, rental_obj.id, context=context)
-                tcr_pool.write(cr, uid, new_rental_id,
+                new_rental_id = trc_pool.copy(cr, uid, rental_obj.id, context=context)
+                trc_pool.write(cr, uid, new_rental_id,
                                {'passenger_id': cur_passenger_obj.id}, context=context)
         return {
             'name': 'Passengers',
@@ -60,9 +60,9 @@ class travel_car_rental_import(orm.TransientModel):
         }
 
     def cancel(self, cr, uid, ids, context=None):
-        tcri_pool = self.pool.get('travel.car.rental.import')
+        trci_pool = self.pool.get('travel.rental.car.import')
         passenger_id = False
-        for obj in tcri_pool.browse(cr, uid, ids, context=context):
+        for obj in trci_pool.browse(cr, uid, ids, context=context):
             passenger_id = obj.cur_passenger_id.id
         return {
             'name': 'Passengers',

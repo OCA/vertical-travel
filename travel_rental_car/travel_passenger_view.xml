@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <!-- Views -->
-    <record model="ir.ui.view" id="travel_passenger_car_rental_form_view">
+    <record model="ir.ui.view" id="travel_passenger_form_view">
       <field name="name">Travel Passenger Form View</field>
       <field name="model">travel.passenger</field>
       <field name="inherit_id" ref="travel.travel_passenger_form_view"/>
@@ -10,7 +10,7 @@
       <field name="arch" type="xml">
         <notebook name="Info" position="inside">
           <page string="Car Rental">
-            <field name="car_rental_ids">
+            <field name="rental_car_ids">
               <tree name="PassengerCarRentalTree" version="7.0">
                 <field name="pickup_loc"/>
                 <field name="dropoff_loc"/>
@@ -23,7 +23,7 @@
             <center>
               <!-- Import from other passengers with widget TODO: filter by state='draft'? -->
               <button string="Copy from other Passengers"
-                      name="travel_car_rental.action_travel_car_rental_import"
+                      name="travel_rental_car.action_travel_rental_car_import"
                       type="action"
                       context="{'default_travel_id': travel_id, 'default_cur_passenger_id': id}"/>
             </center>

@@ -4,7 +4,7 @@
     <!-- Views -->
     <record model="ir.ui.view" id="travel_car_rental_form_view">
       <field name="name">Passenger Rental Form View</field>
-      <field name="model">travel.car.rental</field>
+      <field name="model">travel.rental.car</field>
       <field name="arch" type="xml">
         <form string="Car Rentals" version="7.0">
           <sheet string="Car Rentals">

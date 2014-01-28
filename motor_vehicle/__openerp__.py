@@ -26,6 +26,7 @@
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
     'category': 'Customer Relationship Management',
     'summary': 'Motor vehicle',
     'description': """
@@ -35,7 +36,7 @@ This module adds type of motor vehicle.
 
 Contributors
 ------------
-* EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
+* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
 """,
     'depends': [],
     'external_dependencies': {},
@@ -45,7 +46,6 @@ Contributors
     'demo': [],
     'test': [],
     'installable': True,
-    'active': False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

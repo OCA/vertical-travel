@@ -20,7 +20,7 @@
 #
 ##############################################################################
 
-import travel_car_rental
+import travel_rental_car
 import travel_passenger
 import wizard
 

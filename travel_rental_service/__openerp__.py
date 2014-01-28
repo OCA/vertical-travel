@@ -26,7 +26,9 @@
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
     'category': 'Customer Relationship Management',
+    'summary': 'Renting Services on Travel',
     'description': """
 Travel Other Services Rentals
 =============================
@@ -35,19 +37,21 @@ This module adds service rental management for travels.
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
-* EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
+* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
 """,
     'depends': ['travel', ],
-    'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_service_rental_view.xml',
-             'wizard/travel_service_rental_import_view.xml',
-             'security/ir.model.access.csv',
-             ],
+    'external_dependencies': {
+        'python': [],
+    },
+    'data': [
+        'travel_passenger_view.xml',
+        'travel_rental_service_view.xml',
+        'security/ir.model.access.csv',
+        'wizard/travel_rental_service_import_view.xml',
+    ],
     'demo': [],
     'test': [],
     'installable': True,
-    'active': False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

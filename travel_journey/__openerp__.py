@@ -26,7 +26,9 @@
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
     'category': 'Customer Relationship Management',
+    'summary': 'Starting point and destinations of Travel',
     'description': """
 Travel journey
 ==============
@@ -35,20 +37,20 @@ This module allows to add a starting point and destination to a travel.
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
-* EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
+* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
 """,
     'depends': ['travel', 'product', ],
     'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_journey_view.xml',
-             'travel_journey_data.xml',
-             'wizard/travel_journey_import_view.xml',
-             'security/ir.model.access.csv',
-             ],
+    'data': [
+        'travel_passenger_view.xml',
+        'travel_journey_view.xml',
+        'travel_journey_data.xml',
+        'security/ir.model.access.csv',
+        'wizard/travel_journey_import_view.xml',
+    ],
     'demo': [],
     'test': [],
     'installable': True,
-    'active': False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

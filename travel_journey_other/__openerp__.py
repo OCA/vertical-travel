@@ -25,8 +25,10 @@
     'version': '0.1',
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
+    'license': 'AGPL-3',
     'website': 'http://www.savoirfairelinux.com',
     'category': 'Customer Relationship Management',
+    'summary': 'Generic Travels',
     'description': """
 Travel Journey by Other Methods
 ===============================
@@ -38,13 +40,13 @@ Contributors
 """,
     'depends': ['travel_journey', ],
     'external_dependencies': {},
-    'data': ['travel_journey_view.xml',
-             'travel_journey_data.xml',
-             ],
+    'data': [
+        'travel_journey_view.xml',
+        'travel_journey_data.xml',
+    ],
     'demo': [],
     'test': [],
     'installable': True,
-    'active': False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

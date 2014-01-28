@@ -26,7 +26,9 @@
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
     'category': 'Customer Relationship Management',
+    'summary': 'Travel Management',
     'description': """
 Travel
 ======
@@ -39,14 +41,14 @@ Contributors
 """,
     'depends': ['mail', 'base_location', ],
     'external_dependencies': {},
-    'data': ['travel_view.xml',
-             'travel_passenger_view.xml',
-             'security/ir.model.access.csv',
-             ],
+    'data': [
+        'travel_view.xml',
+        'travel_passenger_view.xml',
+        'security/ir.model.access.csv',
+    ],
     'demo': [],
     'test': [],
     'installable': True,
-    'active': False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

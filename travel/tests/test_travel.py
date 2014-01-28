@@ -42,8 +42,6 @@ class Base_Test_travel(TransactionCase):
                      'date_stop': date(2013, 11, 21),
                      }
         super(Base_Test_travel, self).setUp()
-        # Create the city; we're not testing city, so we don't store in self
-        res_better_zip = self.registry('res.better.zip')
         # Overwrite vals if needed
         self.vals = dict(self.vals.items() + vals.items())
         # Create the travel object; we will be testing this, so store in self

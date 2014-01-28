@@ -23,9 +23,9 @@
 from openerp.osv import fields, orm
 
 
-class travel_service_rental_import(orm.TransientModel):
+class travel_rental_service_import(orm.TransientModel):
     """Import data from other passengers"""
-    _name = "travel.service.rental.import"
+    _name = "travel.rental.service.import"
     _description = "Service Rental information import"
     _columns = {
         'travel_id': fields.many2one('travel.travel'),
@@ -39,15 +39,15 @@ class travel_service_rental_import(orm.TransientModel):
         """
         Import service rental information from other passenger
         """
-        tsri_pool = self.pool.get('travel.service.rental.import')
-        tsr_pool = self.pool.get('travel.service.rental')
-        for tsri_obj in tsri_pool.browse(cr, uid, ids, context=context):
+        trsi_pool = self.pool.get('travel.rental.service.import')
+        trs_pool = self.pool.get('travel.service.rental')
+        for tsri_obj in trsi_pool.browse(cr, uid, ids, context=context):
             cur_passenger_obj = tsri_obj.cur_passenger_id
             other_passenger_obj = tsri_obj.passenger_id
             passenger_id = cur_passenger_obj.id
             for rental_obj in other_passenger_obj.service_rental_ids:
-                new_rental_id = tsr_pool.copy(cr, uid, rental_obj.id, context=context)
-                tsr_pool.write(cr, uid, new_rental_id,
+                new_rental_id = trs_pool.copy(cr, uid, rental_obj.id, context=context)
+                trs_pool.write(cr, uid, new_rental_id,
                                {'passenger_id': cur_passenger_obj.id}, context=context)
         return {
             'name': 'Passengers',
@@ -60,9 +60,9 @@ class travel_service_rental_import(orm.TransientModel):
         }
 
     def cancel(self, cr, uid, ids, context=None):
-        tsri_pool = self.pool.get('travel.service.rental.import')
+        trsi_pool = self.pool.get('travel.rental.service.import')
         passenger_id = False
-        for obj in tsri_pool.browse(cr, uid, ids, context=context):
+        for obj in trsi_pool.browse(cr, uid, ids, context=context):
             passenger_id = obj.cur_passenger_id.id
         return {
             'name': 'Passengers',

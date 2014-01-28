@@ -23,31 +23,22 @@
 from openerp.osv import fields, orm
 from openerp.tools.translate import _
 
-import openerp.addons.decimal_precision as dp
 
-
-class travel_service_rental(orm.Model):
-    _description = _('Service rentals for travel')
-    _name = 'travel.service.rental'
+class travel_car_rental(orm.Model):
+    _description = _('Car Rentals for travel')
+    _name = 'travel.rental.car'
 
     _columns = {
-        # TODO: hotel/other support
-        'location': fields.many2one('res.partner', 'Location', required=True,
-                                    help='Location of rental supplier.'),
-        'country_id': fields.related('city_id', 'country_id', type='many2one',
-                                     relation='res.country', string="Country",
-                                     readonly=True, help='Country of rental.'),
-        'city_id': fields.many2one('res.better.zip', 'City', required='True',
-                                   help='City of rental.'),
+        'pickup_loc': fields.char('Pick-up Location', help="Location of car pick-up."),
+        'dropoff_loc': fields.char('Drop-off Location', help="Location of car drop-off."),
+        'type': fields.many2one('motor.vehicle', 'Vehicle type', help="Make and model of the car."),
         'start': fields.datetime('Start', required=True,
-                                 help='Start date and time of rental.'),
+                                 help='Start date and time of car rental.'),
         'end': fields.datetime('End', required=True,
-                               help='End date and time of rental.'),
-        'capacity': fields.integer('Capacity', help='Maximum capacity of people in room.'),
-        'equipment': fields.text('Desired equipment'),
-        'services': fields.text('Desired services'),
+                               help='End date and time of car rental.'),
+        'driver': fields.boolean('With Chauffeur', help='Will the car rental require a driver.'),
         'passenger_id': fields.many2one('travel.passenger', 'Passenger', required=True,
-                                        help='Passenger of this rental.'),
+                                        help='Passenger on this car rental.'),
 
     }
 

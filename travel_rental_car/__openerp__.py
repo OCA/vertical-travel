@@ -26,7 +26,9 @@
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
     'category': 'Customer Relationship Management',
+    'summary': 'Renting Cars on a Travel',
     'description': """
  Travel Car Rentals
 ===================
@@ -37,16 +39,18 @@ Contributors
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
     'depends': ['travel', 'motor_vehicle', ],
-    'external_dependencies': {},
-    'data': ['travel_passenger_view.xml',
-             'travel_car_rental_view.xml',
-             'wizard/travel_car_rental_import_view.xml',
-             'security/ir.model.access.csv',
-             ],
+    'external_dependencies': {
+        'python': [],
+    },
+    'data': [
+        'travel_passenger_view.xml',
+        'travel_rental_car_view.xml',
+        'security/ir.model.access.csv',
+        'wizard/travel_rental_car_import_view.xml',
+    ],
     'demo': [],
     'test': [],
     'installable': True,
-    'active': False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

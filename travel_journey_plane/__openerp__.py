@@ -26,7 +26,9 @@
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
     'category': 'Customer Relationship Management',
+    'summary': 'Travel by Plane',
     'description': """
 Travel Journey by Plane
 =======================
@@ -35,17 +37,17 @@ This module allows to create a travel by plane.
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
-* EL HADJI DEM (elhadji.dem@savoirfairelinux.com)
+* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
 """,
     'depends': ['travel_journey', 'airport', 'airline'],
     'external_dependencies': {},
-    'data': ['travel_journey_view.xml',
-             'travel_journey_data.xml',
-             ],
+    'data': [
+        'travel_journey_view.xml',
+        'travel_journey_data.xml',
+    ],
     'demo': [],
     'test': [],
     'installable': True,
-    'active': False,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
