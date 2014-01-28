@@ -55,10 +55,12 @@ class travel_accommodation(orm.Model):
                                 help='Location in proximity to Accommodations.'),
         'budget': fields.float('Budget per Night', digits_compute=dp.get_precision('Product Price'),
                                help='Budget to allocate per night spent at Accommodations.'),
-        'arrival': fields.date('Arrival', required=True,
-                               help='Date of arrival at Accommodations.'),
-        'departure': fields.date('Departure', required=True,
-                                 help='Date of departure from Accommodations.'),
+        'arrival': fields.datetime(
+            'Arrival', required=True,
+            help='Date and Time of arrival at Accommodations.'),
+        'departure': fields.datetime(
+            'Departure', required=True,
+            help='Date and Time of departure from Accommodations.'),
         # TODO: calculate next when previous two are changed
         'nights': fields.function(_get_nights, string='Nights', type='float', digits=(1, 0)),
         'breakfast': fields.boolean('Breakfast', help='Is breakfast included?'),

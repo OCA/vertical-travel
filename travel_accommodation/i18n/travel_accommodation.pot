@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-28 00:58+0000\n"
-"PO-Revision-Date: 2014-01-28 00:58+0000\n"
+"POT-Creation-Date: 2014-01-28 15:59+0000\n"
+"PO-Revision-Date: 2014-01-28 15:59+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,6 +33,11 @@ msgstr ""
 #. module: travel_accommodation
 #: field:travel.accommodation,budget:0
 msgid "Budget per Night"
+msgstr ""
+
+#. module: travel_accommodation
+#: help:travel.accommodation,departure:0
+msgid "Date and Time of departure from Accommodations."
 msgstr ""
 
 #. module: travel_accommodation
@@ -77,11 +82,6 @@ msgstr ""
 #: model:ir.model,name:travel_accommodation.model_travel_accommodation
 #, python-format
 msgid "Accommodation of travel"
-msgstr ""
-
-#. module: travel_accommodation
-#: help:travel.accommodation,departure:0
-msgid "Date of departure from Accommodations."
 msgstr ""
 
 #. module: travel_accommodation
@@ -147,13 +147,13 @@ msgid "Dinner"
 msgstr ""
 
 #. module: travel_accommodation
-#: help:travel.accommodation,arrival:0
-msgid "Date of arrival at Accommodations."
+#: help:travel.accommodation,lunch:0
+msgid "Is lunch included?"
 msgstr ""
 
 #. module: travel_accommodation
-#: help:travel.accommodation,lunch:0
-msgid "Is lunch included?"
+#: help:travel.accommodation,arrival:0
+msgid "Date and Time of arrival at Accommodations."
 msgstr ""
 
 #. module: travel_accommodation
