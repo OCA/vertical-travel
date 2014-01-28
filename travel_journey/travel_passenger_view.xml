@@ -21,7 +21,7 @@
             </field>
             <center>
               <!-- Import from other passengers with widget TODO: filter by state='draft'? -->
-              <button string="Copy from other Passengers"
+              <button string="Copy Journey from other Passengers"
                       name="travel_journey.action_travel_journey_import"
                       type="action"
                       context="{'default_travel_id': travel_id, 'default_cur_passenger_id': id}"/>
