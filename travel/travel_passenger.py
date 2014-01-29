@@ -36,11 +36,18 @@ class travel_passenger(orm.Model):
     }
 
     def name_get(self, cr, uid, ids, context=None):
-        return [(i.id, i.partner_id.name) for i in self.browse(cr, uid, ids, context=context)]
+        return [(i.id, i.partner_id.name_get()[0][1])
+                for i in self.browse(cr, uid, ids, context=context)]
 
     def action_passenger_form_view(self, cr, uid, ids, context=None):
+        """Call action, if there is a travel, put it in the name."""
+        travels = self.browse(cr, uid, ids, context=context)
+        travel_name = ('%s / %s ' % (travels[0].travel_id.name,
+                                     travels[0].name_get()[0][1])
+                       if len(travels) == 1 else False)
+        name = travel_name or _('Passenger')
         return {
-            'name': _('Passenger'),
+            'name': name,
             'res_model': 'travel.passenger',
             'view_mode': 'form',
             'type': 'ir.actions.act_window',
