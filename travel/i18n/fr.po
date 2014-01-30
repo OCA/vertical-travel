@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 21:43+0000\n"
-"PO-Revision-Date: 2013-12-17 16:46-0500\n"
-"Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
+"POT-Creation-Date: 2014-01-28 00:58+0000\n"
+"PO-Revision-Date: 2014-01-30 14:04-0500\n"
+"Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -17,11 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-
-#. module: travel
-#: field:travel.travel,city_id:0
-msgid "City"
-msgstr "Ville"
 
 #. module: travel
 #: selection:travel.travel,state:0
@@ -36,6 +31,7 @@ msgstr "Confirmer"
 #. module: travel
 #: code:addons/travel/travel.py:28
 #: model:ir.model,name:travel.model_travel_travel
+#: model:ir.ui.menu,name:travel.menu_top_travel
 #: model:ir.ui.menu,name:travel.menu_travel_main_form
 #: field:travel.passenger,travel_id:0
 #, python-format
@@ -102,7 +98,8 @@ msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
 
 #. module: travel
-#: help:travel.passenger,message_unread:0 help:travel.travel,message_unread:0
+#: help:travel.passenger,message_unread:0
+#: help:travel.travel,message_unread:0
 msgid "If checked new messages require your attention."
 msgstr "Si coché, les nouveaux messages demanderont votre attention."
 
@@ -118,14 +115,14 @@ msgid "Travel Passengers"
 msgstr "Voyageurs"
 
 #. module: travel
-#: help:travel.travel,name:0
-msgid "Name of travel."
-msgstr "Nom du déplacement."
-
-#. module: travel
 #: view:travel.travel:0
 msgid "Date"
 msgstr "Date"
+
+#. module: travel
+#: help:travel.travel,city_ids:0
+msgid "Destination cities of travel."
+msgstr "Ville d'arrivée."
 
 #. module: travel
 #: field:travel.travel,date_stop:0
@@ -138,17 +135,19 @@ msgid "Travel on which the passenger is going."
 msgstr "Déplacements du voyageur."
 
 #. module: travel
-#: field:travel.passenger,partner_id:0 field:travel.travel,name:0
+#: field:travel.passenger,partner_id:0
+#: field:travel.travel,name:0
 msgid "Name"
 msgstr "Nom"
 
 #. module: travel
-#: field:travel.travel,country_id:0
-msgid "Country"
-msgstr "Pays"
+#: help:travel.travel,name:0
+msgid "Name of travel."
+msgstr "Nom du déplacement."
 
 #. module: travel
-#: field:travel.passenger,message_ids:0 field:travel.travel,message_ids:0
+#: field:travel.passenger,message_ids:0
+#: field:travel.travel,message_ids:0
 msgid "Messages"
 msgstr "Messages"
 
@@ -160,14 +159,10 @@ msgstr "Résumé"
 
 #. module: travel
 #: model:ir.actions.act_window,name:travel.action_travels_tree_list
+#: model:ir.ui.menu,name:travel.menu_travels
 #: view:travel.travel:0
 msgid "Travels"
 msgstr "Déplacements"
-
-#. module: travel
-#: help:travel.travel,city_id:0
-msgid "Destination city of travel."
-msgstr "Ville d'arrivée."
 
 #. module: travel
 #: view:travel.travel:0
@@ -180,12 +175,14 @@ msgid "Discard"
 msgstr "Annuler"
 
 #. module: travel
-#: help:travel.passenger,message_ids:0 help:travel.travel,message_ids:0
+#: help:travel.passenger,message_ids:0
+#: help:travel.travel,message_ids:0
 msgid "Messages and communication history"
 msgstr "Historique des messages et des communications"
 
 #. module: travel
-#: view:travel.travel:0 field:travel.travel,passenger_ids:0
+#: view:travel.travel:0
+#: field:travel.travel,passenger_ids:0
 msgid "Passengers"
 msgstr "Voyageurs"
 
@@ -211,24 +208,21 @@ msgid "TravelsForm"
 msgstr ""
 
 #. module: travel
-#: help:travel.travel,country_id:0
-msgid "Destination country of travel."
-msgstr "Ville d'arrivée."
-
-#. module: travel
 #: selection:travel.travel,state:0
 msgid "Saved"
 msgstr "Enregistré"
 
 #. module: travel
+#: view:travel.travel:0
+#: field:travel.travel,city_ids:0
+msgid "Locations"
+msgstr "Lieux"
+
+#. module: travel
 #: help:travel.passenger,message_summary:0
 #: help:travel.travel,message_summary:0
-msgid ""
-"Holds the Chatter summary (number of messages, ...). This summary is "
-"directly in html format in order to be inserted in kanban views."
-msgstr ""
-"Contient le résumé de la discussion (nombre de messages, ...). Ce résumé est "
-"au format HTML pour permettre son utilisation dans les vues kanban."
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr "Contient le résumé de la discussion (nombre de messages, ...). Ce résumé est au format HTML pour permettre son utilisation dans les vues kanban."
 
 #. module: travel
 #: help:travel.travel,passenger_ids:0
@@ -255,7 +249,11 @@ msgstr "Enregistrer"
 msgid "or"
 msgstr "ou"
 
-#. module: travel
-#: view:travel.travel:0
-msgid "Location"
-msgstr "Lieu"
+#~ msgid "City"
+#~ msgstr "Ville"
+
+#~ msgid "Country"
+#~ msgstr "Pays"
+
+#~ msgid "Destination country of travel."
+#~ msgstr "Ville d'arrivée."
