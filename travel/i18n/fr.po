@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-28 00:58+0000\n"
-"PO-Revision-Date: 2014-01-30 14:04-0500\n"
+"PO-Revision-Date: 2014-01-30 16:31-0500\n"
 "Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -101,7 +101,7 @@ msgstr "Voyageur en déplacement"
 #: help:travel.passenger,message_unread:0
 #: help:travel.travel,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr "Si coché, les nouveaux messages demanderont votre attention."
+msgstr "Si coché, les nouveaux messages seront portés à votre attention."
 
 #. module: travel
 #: field:travel.passenger,message_is_follower:0

@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 21:48+0000\n"
-"PO-Revision-Date: 2013-12-17 16:48-0500\n"
-"Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
+"POT-Creation-Date: 2014-01-28 15:59+0000\n"
+"PO-Revision-Date: 2014-01-30 16:35-0500\n"
+"Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,13 @@ msgid "Budget per Night"
 msgstr "Budget approximatif par nuit"
 
 #. module: travel_accommodation
-#: view:travel.accommodation:0 field:travel.accommodation,location:0
+#: help:travel.accommodation,departure:0
+msgid "Date and Time of departure from Accommodations."
+msgstr "Date et heure de départ de l'hébergement."
+
+#. module: travel_accommodation
+#: view:travel.accommodation:0
+#: field:travel.accommodation,location:0
 msgid "Location"
 msgstr "Lieu"
 
@@ -66,7 +72,7 @@ msgstr "Formulaire d'importation de données d'hébergement"
 #. module: travel_accommodation
 #: help:travel.accommodation,breakfast:0
 msgid "Is breakfast included?"
-msgstr "Si le petit déjeuner est inclut."
+msgstr "Si le petit déjeuner est inclus."
 
 #. module: travel_accommodation
 #: field:travel.accommodation.import,cur_passenger_id:0
@@ -82,11 +88,6 @@ msgid "Accommodation of travel"
 msgstr "Hébergement du déplacement"
 
 #. module: travel_accommodation
-#: help:travel.accommodation,departure:0
-msgid "Date of departure from Accommodations."
-msgstr "Date de départ de l'hébergement."
-
-#. module: travel_accommodation
 #: model:ir.model,name:travel_accommodation.model_travel_passenger
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
@@ -94,7 +95,7 @@ msgstr "Voyageur en déplacement"
 #. module: travel_accommodation
 #: help:travel.accommodation,dinner:0
 msgid "Is dinner included?"
-msgstr "Si le déjeuner est inclut."
+msgstr "Si le déjeuner est inclus."
 
 #. module: travel_accommodation
 #: field:travel.accommodation,lunch:0
@@ -104,7 +105,7 @@ msgstr "Déjeuner"
 #. module: travel_accommodation
 #: help:travel.accommodation,close_to:0
 msgid "Location in proximity to Accommodations."
-msgstr "Un emplacement en proximité de l'hébergement."
+msgstr "Un emplacement à proximité de l'hébergement."
 
 #. module: travel_accommodation
 #: help:travel.accommodation,location:0
@@ -112,7 +113,8 @@ msgid "Location of Accommodation."
 msgstr "Emplacement de l'hébergement"
 
 #. module: travel_accommodation
-#: view:travel.accommodation:0 view:travel.passenger:0
+#: view:travel.accommodation:0
+#: view:travel.passenger:0
 msgid "Accommodation"
 msgstr "Hébergement"
 
@@ -143,24 +145,24 @@ msgid "Times"
 msgstr "Heures et dates"
 
 #. module: travel_accommodation
-#: view:travel.accommodation.import:0
-msgid "Cancel"
-msgstr "Annuler"
-
-#. module: travel_accommodation
 #: field:travel.accommodation,dinner:0
 msgid "Dinner"
 msgstr "Dîner"
 
 #. module: travel_accommodation
-#: help:travel.accommodation,arrival:0
-msgid "Date of arrival at Accommodations."
-msgstr "Date d'arrivée à l'hébergement"
-
-#. module: travel_accommodation
 #: help:travel.accommodation,lunch:0
 msgid "Is lunch included?"
-msgstr "Si le dîner est inclut."
+msgstr "Si le dîner est inclus."
+
+#. module: travel_accommodation
+#: help:travel.accommodation,arrival:0
+msgid "Date and Time of arrival at Accommodations."
+msgstr "Date et heure d'arrivée à l'hébergement."
+
+#. module: travel_accommodation
+#: view:travel.passenger:0
+msgid "Copy Accommodation from other Passengers"
+msgstr "Copier les hébergements d'autres voyageurs"
 
 #. module: travel_accommodation
 #: field:travel.passenger,accommodation_ids:0
@@ -175,12 +177,12 @@ msgstr "Repas"
 #. module: travel_accommodation
 #: help:travel.passenger,accommodation_ids:0
 msgid "List of accommodations."
-msgstr "Liste d'hébergementsé"
+msgstr "Liste d'hébergements."
 
 #. module: travel_accommodation
-#: view:travel.passenger:0
-msgid "Copy from other Passengers"
-msgstr "Copier les données d'autres voyageurs"
+#: view:travel.accommodation.import:0
+msgid "Cancel"
+msgstr "Annuler"
 
 #. module: travel_accommodation
 #: field:travel.accommodation,breakfast:0
@@ -201,3 +203,4 @@ msgstr "ou"
 #: field:travel.accommodation,close_to:0
 msgid "Close to"
 msgstr "À proximité de"
+

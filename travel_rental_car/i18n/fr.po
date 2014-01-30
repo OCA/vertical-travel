@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 21:49+0000\n"
-"PO-Revision-Date: 2013-12-17 16:49-0500\n"
-"Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
+"POT-Creation-Date: 2014-01-28 00:59+0000\n"
+"PO-Revision-Date: 2014-01-30 16:41-0500\n"
+"Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -16,156 +16,158 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
 
-#. module: travel_car_rental
-#: field:travel.car.rental,end:0
+#. module: travel_rental_car
+#: field:travel.rental.car,end:0
 msgid "End"
 msgstr "Fin"
 
-#. module: travel_car_rental
-#: field:travel.car.rental,start:0
+#. module: travel_rental_car
+#: field:travel.rental.car,start:0
 msgid "Start"
 msgstr "Début"
 
-#. module: travel_car_rental
-#: view:travel.car.rental:0
+#. module: travel_rental_car
+#: view:travel.rental.car:0
 msgid "Location"
 msgstr "Lieu"
 
-#. module: travel_car_rental
-#: help:travel.car.rental,type:0
+#. module: travel_rental_car
+#: help:travel.rental.car,type:0
 msgid "Make and model of the car."
 msgstr "Marque et modèle de l'auto."
 
-#. module: travel_car_rental
-#: view:travel.car.rental.import:0
+#. module: travel_rental_car
+#: view:travel.rental.car.import:0
 msgid "Import"
 msgstr "Importer"
 
-#. module: travel_car_rental
-#: field:travel.car.rental.import,passenger_id:0
+#. module: travel_rental_car
+#: field:travel.rental.car.import,passenger_id:0
 msgid "Import Car Rental information from"
 msgstr "Importer les données de location d'autos de"
 
-#. module: travel_car_rental
-#: field:travel.car.rental,type:0
+#. module: travel_rental_car
+#: field:travel.rental.car,type:0
 msgid "Vehicle type"
 msgstr "Type de véhicule"
 
-#. module: travel_car_rental
-#: model:ir.model,name:travel_car_rental.model_travel_car_rental_import
+#. module: travel_rental_car
+#: model:ir.model,name:travel_rental_car.model_travel_rental_car_import
 msgid "Car rental information import"
 msgstr "Importation de location d'autos"
 
-#. module: travel_car_rental
-#: field:travel.car.rental.import,cur_passenger_id:0
-#: field:travel.car.rental.import,travel_id:0
+#. module: travel_rental_car
+#: field:travel.rental.car.import,cur_passenger_id:0
+#: field:travel.rental.car.import,travel_id:0
 msgid "unknown"
 msgstr "inconnue"
 
-#. module: travel_car_rental
-#: help:travel.passenger,car_rental_ids:0
+#. module: travel_rental_car
+#: help:travel.passenger,rental_car_ids:0
 msgid "List of car rentals."
 msgstr "Liste de location d'autos."
 
-#. module: travel_car_rental
-#: model:ir.model,name:travel_car_rental.model_travel_passenger
+#. module: travel_rental_car
+#: model:ir.model,name:travel_rental_car.model_travel_passenger
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
 
-#. module: travel_car_rental
-#: help:travel.car.rental,pickup_loc:0
+#. module: travel_rental_car
+#: help:travel.rental.car,pickup_loc:0
 msgid "Location of car pick-up."
 msgstr "Lieu de prise en charge de l'auto."
 
-#. module: travel_car_rental
-#: model:ir.actions.act_window,name:travel_car_rental.action_travel_car_rental_import
-#: view:travel.car.rental.import:0
+#. module: travel_rental_car
+#: model:ir.actions.act_window,name:travel_rental_car.action_travel_rental_car_import
+#: view:travel.rental.car.import:0
 msgid "Import from other passengers"
 msgstr "Importer les données d'autre voyageurs"
 
-#. module: travel_car_rental
-#: help:travel.car.rental.import,passenger_id:0
+#. module: travel_rental_car
+#: help:travel.rental.car.import,passenger_id:0
 msgid "Other passengers on the same journey."
-msgstr "Autre voyageurs du déplacement."
+msgstr "Autres voyageurs du déplacement."
 
-#. module: travel_car_rental
-#: help:travel.car.rental,passenger_id:0
+#. module: travel_rental_car
+#: help:travel.rental.car,passenger_id:0
 msgid "Passenger on this car rental."
 msgstr "Voyageurs qui louent une auto."
 
-#. module: travel_car_rental
-#: view:travel.car.rental:0
+#. module: travel_rental_car
+#: view:travel.rental.car:0
 msgid "Times"
 msgstr "Heures et dates"
 
-#. module: travel_car_rental
-#: view:travel.car.rental.import:0
-msgid "Cancel"
-msgstr "Annuler"
-
-#. module: travel_car_rental
+#. module: travel_rental_car
 #: view:travel.passenger:0
 msgid "Car Rental"
 msgstr "Location auto"
 
-#. module: travel_car_rental
-#: code:addons/travel_car_rental/travel_car_rental.py:30
-#: model:ir.model,name:travel_car_rental.model_travel_car_rental
+#. module: travel_rental_car
+#: code:addons/travel_rental_car/travel_rental_car.py:28
+#: model:ir.model,name:travel_rental_car.model_travel_rental_car
 #, python-format
 msgid "Car Rentals for travel"
 msgstr "Locations d'auto pour le déplacement"
 
-#. module: travel_car_rental
-#: help:travel.car.rental,dropoff_loc:0
+#. module: travel_rental_car
+#: help:travel.rental.car,dropoff_loc:0
 msgid "Location of car drop-off."
 msgstr "Lieu de restitution de l'auto."
 
-#. module: travel_car_rental
-#: help:travel.car.rental,driver:0
+#. module: travel_rental_car
+#: help:travel.rental.car,driver:0
 msgid "Will the car rental require a driver."
 msgstr "Si un chauffeur est requis."
 
-#. module: travel_car_rental
-#: field:travel.car.rental,driver:0
+#. module: travel_rental_car
+#: field:travel.rental.car,driver:0
 msgid "With Chauffeur"
 msgstr "Avec chauffeur"
 
-#. module: travel_car_rental
-#: field:travel.car.rental,passenger_id:0
+#. module: travel_rental_car
+#: field:travel.rental.car,passenger_id:0
 msgid "Passenger"
 msgstr "Voyageur"
 
-#. module: travel_car_rental
-#: field:travel.car.rental,dropoff_loc:0
+#. module: travel_rental_car
+#: field:travel.rental.car,dropoff_loc:0
 msgid "Drop-off Location"
-msgstr "Lieu restitution"
+msgstr "Lieu de restitution"
 
-#. module: travel_car_rental
-#: view:travel.car.rental:0 field:travel.passenger,car_rental_ids:0
+#. module: travel_rental_car
+#: field:travel.passenger,rental_car_ids:0
+#: view:travel.rental.car:0
 msgid "Car Rentals"
 msgstr "Location d'auto"
 
-#. module: travel_car_rental
-#: help:travel.car.rental,start:0
+#. module: travel_rental_car
+#: help:travel.rental.car,start:0
 msgid "Start date and time of car rental."
 msgstr "Heure et date de la location d'auto."
 
-#. module: travel_car_rental
-#: view:travel.passenger:0
-msgid "Copy from other Passengers"
-msgstr "Copier les données d'autres voyageurs"
+#. module: travel_rental_car
+#: view:travel.rental.car.import:0
+msgid "Cancel"
+msgstr "Annuler"
 
-#. module: travel_car_rental
-#: field:travel.car.rental,pickup_loc:0
+#. module: travel_rental_car
+#: view:travel.passenger:0
+msgid "Copy Car Rental from other Passengers"
+msgstr "Copier les locations d'auto d'autres voyageurs"
+
+#. module: travel_rental_car
+#: field:travel.rental.car,pickup_loc:0
 msgid "Pick-up Location"
 msgstr "Lieu prise en charge"
 
-#. module: travel_car_rental
-#: view:travel.car.rental.import:0
+#. module: travel_rental_car
+#: view:travel.rental.car.import:0
 msgid "or"
 msgstr "ou"
 
-#. module: travel_car_rental
-#: help:travel.car.rental,end:0
+#. module: travel_rental_car
+#: help:travel.rental.car,end:0
 msgid "End date and time of car rental."
 msgstr "Heure et date de location d'auto"
+

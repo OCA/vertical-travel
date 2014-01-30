@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-08 18:53+0000\n"
-"PO-Revision-Date: 2014-01-08 13:53-0500\n"
-"Last-Translator: EL Hadji DEM <elhadji.dem@savoirfairelinux.com>\n"
+"POT-Creation-Date: 2014-01-28 00:58+0000\n"
+"PO-Revision-Date: 2014-01-30 16:18-0500\n"
+"Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,6 +28,8 @@ msgid "Travel"
 msgstr "Déplacement"
 
 #. module: railway_station
-#: view:res.partner:0 field:res.partner,railway_station:0
+#: view:res.partner:0
+#: field:res.partner,railway_station:0
 msgid "Railway Station"
 msgstr "Gare"
+

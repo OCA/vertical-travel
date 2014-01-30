@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 21:53+0000\n"
-"PO-Revision-Date: 2013-12-17 16:54-0500\n"
-"Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
+"POT-Creation-Date: 2014-01-28 00:59+0000\n"
+"PO-Revision-Date: 2014-01-30 16:38-0500\n"
+"Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -31,12 +31,12 @@ msgstr "Départ souhaité"
 #. module: travel_journey
 #: help:travel.journey,cancellation:0
 msgid "Notes on cancellation."
-msgstr "Notes au sujet d'annulation."
+msgstr "Notes au sujet de l'annulation."
 
 #. module: travel_journey
-#: help:travel.journey,visa_country:0
-msgid "Country for which a visa is needed"
-msgstr "Ville pour laquelle un visa est requis"
+#: help:travel.journey,is_return:0
+msgid "Generate a return trip"
+msgstr "Créer un déplacement de retour"
 
 #. module: travel_journey
 #: field:travel.journey,destination:0
@@ -49,7 +49,8 @@ msgid "Return Trip"
 msgstr "Aller-retour"
 
 #. module: travel_journey
-#: view:travel.journey:0 field:travel.journey,comment:0
+#: view:travel.journey:0
+#: field:travel.journey,comment:0
 msgid "Comments"
 msgstr "Commentaires"
 
@@ -114,6 +115,11 @@ msgid "unknown"
 msgstr "inconnue"
 
 #. module: travel_journey
+#: view:travel.passenger:0
+msgid "Copy Journey from other Passengers"
+msgstr "Copier les déplacements d'autres voyageurs"
+
+#. module: travel_journey
 #: model:travel.journey.class,name:travel_journey.travel_journey_class_directive
 msgid "Meet Travel Directive"
 msgstr "Conforme à la directive"
@@ -122,11 +128,6 @@ msgstr "Conforme à la directive"
 #: model:ir.model,name:travel_journey.model_travel_passenger
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
-
-#. module: travel_journey
-#: field:travel.journey,reservation:0
-msgid "Reservation Number"
-msgstr "Numéro de réservation"
 
 #. module: travel_journey
 #: help:travel.journey,class_id:0
@@ -147,11 +148,6 @@ msgstr "Type de déplacement"
 #: help:travel.journey.type,name:0
 msgid "Name of travel journey type."
 msgstr "Nom du type de déplacement."
-
-#. module: travel_journey
-#: help:travel.journey,is_return:0
-msgid "Generate a return trip"
-msgstr "Créer un déplacement de retour"
 
 #. module: travel_journey
 #: help:travel.journey.type,code:0
@@ -188,19 +184,15 @@ msgid "Travel journey type"
 msgstr "Type de déplacement"
 
 #. module: travel_journey
-#: field:travel.journey.class,name:0 field:travel.journey.type,name:0
+#: field:travel.journey.class,name:0
+#: field:travel.journey.type,name:0
 msgid "Name"
 msgstr "Nom"
 
 #. module: travel_journey
 #: help:travel.journey.import,passenger_id:0
 msgid "Other passengers on the same journey."
-msgstr "Autre voyageurs du déplacement."
-
-#. module: travel_journey
-#: view:travel.journey:0
-msgid "Visa"
-msgstr "Visa"
+msgstr "Autres voyageurs du déplacement."
 
 #. module: travel_journey
 #: field:travel.journey,return_departure:0
@@ -208,24 +200,19 @@ msgid "Desired Departure (return)"
 msgstr "Départ souhaité (retour)"
 
 #. module: travel_journey
-#: field:travel.journey,visa_country:0
-msgid "Country Visa"
-msgstr "Pays visa"
-
-#. module: travel_journey
 #: view:travel.journey:0
 msgid "Times"
 msgstr "Heures et dates"
 
 #. module: travel_journey
-#: view:travel.journey.import:0
-msgid "Cancel"
-msgstr "Annuler"
+#: help:travel.journey,destination:0
+msgid "Destination city of travel."
+msgstr "Ville d'arrivée."
 
 #. module: travel_journey
-#: help:travel.journey,visa:0
-msgid "Is a visa required to visit destination city?"
-msgstr "Si le pays destinataire requière un visa."
+#: help:travel.journey.class,name:0
+msgid "Name of passenger class."
+msgstr "Nom de la classe du voyageur."
 
 #. module: travel_journey
 #: model:ir.model,name:travel_journey.model_travel_journey_import
@@ -278,9 +265,10 @@ msgid "Code"
 msgstr "Code"
 
 #. module: travel_journey
-#: help:travel.journey,destination:0
-msgid "Destination city of travel."
-msgstr "Ville d'arrivée."
+#: view:travel.journey:0
+#: field:travel.passenger,journey_ids:0
+msgid "Journeys"
+msgstr "Déplacements"
 
 #. module: travel_journey
 #: help:travel.journey,departure:0
@@ -288,14 +276,9 @@ msgid "Desired date and time of departure."
 msgstr "L'heure et la date du départ."
 
 #. module: travel_journey
-#: view:travel.journey:0 field:travel.passenger,journey_ids:0
-msgid "Journeys"
-msgstr "Déplacements"
-
-#. module: travel_journey
-#: help:travel.journey.class,name:0
-msgid "Name of passenger class."
-msgstr "Nom de la classe du voyageur."
+#: field:travel.journey,reservation:0
+msgid "Reservation Number"
+msgstr "Numéro de réservation"
 
 #. module: travel_journey
 #: field:travel.journey,return_origin:0
@@ -303,9 +286,9 @@ msgid "Origin (return)"
 msgstr "Origine (retour)"
 
 #. module: travel_journey
-#: field:travel.journey,visa:0
-msgid "Visa Required"
-msgstr "Visa requis"
+#: help:travel.journey,baggage_weight:0
+msgid "Weight of baggage."
+msgstr "Poids du bagage."
 
 #. module: travel_journey
 #: help:travel.journey,baggage_weight_uom:0
@@ -318,9 +301,9 @@ msgid "Baggage Quantity"
 msgstr "Quantité de bagages"
 
 #. module: travel_journey
-#: view:travel.passenger:0
-msgid "Copy from other Passengers"
-msgstr "Copier les données d'autres voyageurs"
+#: view:travel.journey.import:0
+msgid "Cancel"
+msgstr "Annuler"
 
 #. module: travel_journey
 #: view:travel.journey:0
@@ -333,11 +316,6 @@ msgid "Source city of travel."
 msgstr "Ville d'origine du déplacement."
 
 #. module: travel_journey
-#: help:travel.journey,baggage_weight:0
-msgid "Weight of baggage."
-msgstr "Poids du bagage."
-
-#. module: travel_journey
 #: view:travel.journey.import:0
 msgid "or"
 msgstr "ou"
@@ -345,4 +323,19 @@ msgstr "ou"
 #. module: travel_journey
 #: view:travel.journey:0
 msgid "Passenger Journeys"
-msgstr "Déplacements du passagers"
+msgstr "Déplacements du passager"
+
+#~ msgid "Country for which a visa is needed"
+#~ msgstr "Ville pour laquelle un visa est requis"
+
+#~ msgid "Visa"
+#~ msgstr "Visa"
+
+#~ msgid "Country Visa"
+#~ msgstr "Pays visa"
+
+#~ msgid "Is a visa required to visit destination city?"
+#~ msgstr "Si le pays destinataire requière un visa."
+
+#~ msgid "Visa Required"
+#~ msgstr "Visa requis"
