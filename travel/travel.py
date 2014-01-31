@@ -29,7 +29,7 @@ class travel_travel(orm.Model):
     _name = 'travel.travel'
     _inherit = ['mail.thread']
     _columns = {
-        'name': fields.char('Name', size=256, required=True, select=True,
+        'name': fields.char('Name of travel', size=256, required=True, select=True,
                             help='Name of travel.'),
         'city_ids': fields.many2many('res.better.zip', string='Locations',
                                      help='Destination cities of travel.'),
