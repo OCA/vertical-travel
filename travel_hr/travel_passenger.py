@@ -34,10 +34,12 @@ class travel_passenger(orm.Model):
         Given a list of partner_id find the hr.employee who have it in their
         related user's partner_id.
         """
+        res = []
         if type(partner_ids) in (int, long):
             partner_ids = [partner_ids]
+        elif partner_ids is False:
+            return res
         hr_employee_pool = self.pool.get('hr.employee')
-        res = []
         for partner_id in partner_ids:
             employee_id = hr_employee_pool.search(
                 cr, uid, [('user_id.partner_id', '=', partner_id)], limit=1,
