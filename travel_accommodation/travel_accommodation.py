@@ -34,7 +34,7 @@ class travel_accommodation(orm.Model):
     @staticmethod
     def str_to_date_difference(lhs, rhs):
         def str_to_date(string):
-            return datetime.strptime(string, '%Y-%m-%d').date()
+            return datetime.strptime(string, '%Y-%m-%d %H:%M:%S').date()
         return (str_to_date(lhs) - str_to_date(rhs)).days
 
     def on_change_times(self, cr, uid, ids, arrival, departure, context=None):
