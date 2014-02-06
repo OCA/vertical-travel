@@ -21,7 +21,7 @@
 ##############################################################################
 
 from openerp.tests.common import TransactionCase
-from openerp.osv.orm import browse_record
+from openerp.osv.orm import browse_record, browse_record_list
 from datetime import date
 
 
@@ -56,7 +56,17 @@ class Base_Test_travel(TransactionCase):
         travel_obj = travel_travel.browse(self.cr, self.uid, self.travel_id, context=None)
         for field in self.vals:
             val = travel_obj[field]
-            if type(val) == browse_record:
+            if type(val) in (list, browse_record_list):
+                for i, j in zip(val, self.vals[field]):
+                    if type(i) is browse_record:
+                        self.assertEquals(j[1], i.id,
+                                          "IDs for %s don't match: (%i != %i)" %
+                                          (field, j[1], i.id))
+                    else:
+                        self.assertEquals(str(j), str(i),
+                                          "Values for %s don't match: (%s != %s)" %
+                                          (field, str(j), str(i)))
+            elif type(val) is browse_record:
                 self.assertEquals(self.vals[field], val.id,
                                   "IDs for %s don't match: (%i != %i)" %
                                   (field, self.vals[field], val.id))
