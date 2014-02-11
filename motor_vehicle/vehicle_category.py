@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2013 Savoir-faire Linux
+#    This module copyright (C) 2014 Savoir-faire Linux
 #    (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -16,9 +16,19 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program. If not, see <http://www.gnu.org/licenses/>.
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
-from . import vehicle
-from . import vehicle_category
+from openerp.osv import fields, orm
+from openerp.tools.translate import _
+
+
+class vehicle_category(orm.Model):
+    """Vehicle Category"""
+    _description = _(__doc__)
+    _name = 'vehicle.category'
+    _columns = {
+        'name': fields.char('Name', required=True, select=True,
+                            help='Name of motor vehicle category.'),
+    }

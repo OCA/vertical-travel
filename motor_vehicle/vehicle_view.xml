@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openerp SYSTEM "openerp.dtd">
+
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="vehicle_tree_view">
+      <field name="name">Vehicle Tree View</field>
+      <field name="model">vehicle.vehicle</field>
+      <field name="arch" type="xml">
+
+        <tree string="Passport Tree" version="7.0">
+          <field name="name"/>
+          <field name="category"/>
+        </tree>
+
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="vehicle_form_view">
+      <field name="name">Vehicle Form View</field>
+      <field name="model">vehicle.vehicle</field>
+      <field name="arch" type="xml">
+
+        <form string="Passport Form" version="7.0">
+          <field name="name"/>
+          <field name="category"/>
+        </form>
+
+      </field>
+    </record>
+
+
+  </data>
+</openerp>

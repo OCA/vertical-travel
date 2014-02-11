@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 21:40+0000\n"
-"PO-Revision-Date: 2013-12-17 16:42-0500\n"
+"POT-Creation-Date: 2014-02-11 20:44+0000\n"
+"PO-Revision-Date: 2014-02-11 15:46-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: Savoir-faire Linux\n"
 "Language: fr\n"
@@ -15,22 +15,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: motor_vehicle
-#: field:motor.vehicle,name:0
+#: field:vehicle.vehicle,category:0
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: motor_vehicle
+#: help:vehicle.category,name:0
+msgid "Name of motor vehicle category."
+msgstr "Nom de la catégorie du véhicule."
+
+#. module: motor_vehicle
+#: field:vehicle.category,name:0 field:vehicle.vehicle,name:0
 msgid "Name"
 msgstr "Nom"
 
 #. module: motor_vehicle
-#: code:addons/motor_vehicle/motor_vehicle.py:28
-#: model:ir.model,name:motor_vehicle.model_motor_vehicle
-#, python-format
-msgid "Motor vehicle"
+#: model:ir.model,name:motor_vehicle.model_vehicle_category
+msgid "Vehicle Category"
+msgstr "Catégorie du véhicule"
+
+#. module: motor_vehicle
+#: help:vehicle.vehicle,name:0
+msgid "Name of motor vehicle."
+msgstr "Nom du véhicule."
+
+#. module: motor_vehicle
+#: model:ir.model,name:motor_vehicle.model_vehicle_vehicle
+msgid "Motor Vehicle"
 msgstr "Véhicule"
 
 #. module: motor_vehicle
-#: help:motor.vehicle,name:0
-msgid "Name of motor vehicle."
-msgstr "Nom du véhicule."
+#: help:vehicle.vehicle,category:0
+msgid "Category of the vehicle."
+msgstr "Catégorie du véhicule."
+
+#. module: motor_vehicle
+#: view:vehicle.vehicle:0
+msgid "Passport Tree"
+msgstr ""
+
+#. module: motor_vehicle
+#: view:vehicle.vehicle:0
+msgid "Passport Form"
+msgstr ""

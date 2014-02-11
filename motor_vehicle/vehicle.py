@@ -24,12 +24,14 @@ from openerp.osv import fields, orm
 from openerp.tools.translate import _
 
 
-class motor_vehicle(orm.Model):
-    _description = _('Motor vehicle')
-    _name = 'motor.vehicle'
+class vehicle(orm.Model):
+    """Motor Vehicle"""
+    _description = _(__doc__)
+    _name = 'vehicle.vehicle'
     _columns = {
-        'name': fields.char('Name', size=256, required=True, select=True,
-                            help='Name of motor vehicle.'),
+        'name': fields.char(
+            'Name', required=True, select=True, help='Name of motor vehicle.'),
+        'category': fields.many2one(
+            'vehicle.category', 'Category', required=True,
+            help='Category of the vehicle.')
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

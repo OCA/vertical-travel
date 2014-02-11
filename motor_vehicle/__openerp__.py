@@ -37,11 +37,13 @@ This module adds type of motor vehicle.
 Contributors
 ------------
 * El Hadji Dem (elhadji.dem@savoirfairelinux.com)
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
     'depends': [],
     'external_dependencies': {},
     'data': [
         'security/ir.model.access.csv',
+        'vehicle_view.xml',
     ],
     'demo': [],
     'test': [],

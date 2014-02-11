@@ -1,2 +1,3 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_motor_vehicle","motor_vehicle_user","model_motor_vehicle","base.group_user",1,1,1,1
+"access_vehicle_vehicle","vehicle_vehicle_user","model_vehicle_vehicle","base.group_user",1,1,1,1
+"access_vehicle_category","vehicle_category_user","model_vehicle_category","base.group_user",1,1,1,1
