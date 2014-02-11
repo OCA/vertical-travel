@@ -99,11 +99,6 @@ msgid "Other passengers on the same journey."
 msgstr ""
 
 #. module: travel_rental_service
-#: field:travel.rental.service,country_id:0
-msgid "Country"
-msgstr ""
-
-#. module: travel_rental_service
 #: view:travel.rental.service:0
 #: field:travel.rental.service,equipment:0
 msgid "Desired equipment"

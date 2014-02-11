@@ -32,9 +32,6 @@ class travel_rental_service(orm.Model):
         # TODO: hotel/other support
         'location': fields.many2one('res.partner', 'Location', required=True,
                                     help='Location of rental supplier.'),
-        'country_id': fields.related('city_id', 'country_id', type='many2one',
-                                     relation='res.country', string="Country",
-                                     readonly=True, help='Country of rental.'),
         'city_id': fields.many2one('res.better.zip', 'City', required='True',
                                    help='City of rental.'),
         'start': fields.datetime('Start', required=True,

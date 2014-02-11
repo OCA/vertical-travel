@@ -13,7 +13,6 @@
                 <field name="location"/>
                 <field name="city_id"
                        options='{"create_name_field": "city"}'/>
-                <field name="country_id"/>
               </group>
               <group string="Times" col="2" colspan="2">
                 <field name="start"/>

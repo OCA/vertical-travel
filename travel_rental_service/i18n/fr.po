@@ -26,7 +26,7 @@ msgstr "Ville"
 #. module: travel_rental_service
 #: field:travel.rental.service,capacity:0
 msgid "Capacity"
-msgstr "Capacité"
+msgstr "Capacité de la salle"
 
 #. module: travel_rental_service
 #: help:travel.rental.service,city_id:0
@@ -47,7 +47,7 @@ msgstr "Fin"
 #: view:travel.rental.service:0
 #: field:travel.rental.service,location:0
 msgid "Location"
-msgstr "Location"
+msgstr "Lieu"
 
 #. module: travel_rental_service
 #: help:travel.passenger,rental_service_ids:0
@@ -100,11 +100,6 @@ msgstr "Copier les prestations d'autres voyageurs"
 #: help:travel.rental.service.import,passenger_id:0
 msgid "Other passengers on the same journey."
 msgstr "Autres voyageurs du déplacement."
-
-#. module: travel_rental_service
-#: field:travel.rental.service,country_id:0
-msgid "Country"
-msgstr "Pays"
 
 #. module: travel_rental_service
 #: view:travel.rental.service:0
