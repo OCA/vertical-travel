@@ -38,9 +38,10 @@ Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
-    'depends': ['travel', 'product', ],
+    'depends': ['travel', 'product', 'transportation'],
     'external_dependencies': {},
     'data': [
+        'res_partner_view.xml',
         'travel_passenger_view.xml',
         'travel_accommodation_view.xml',
         'security/ir.model.access.csv',

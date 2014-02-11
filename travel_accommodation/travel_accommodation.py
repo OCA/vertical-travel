@@ -49,7 +49,7 @@ class travel_accommodation(orm.Model):
 
     _columns = {
         # TODO: hotel/other support
-        'location': fields.many2one('res.partner', 'Location', required=True,
+        'location': fields.many2one('res.partner', 'Location',
                                     help='Location of Accommodation.'),
         'close_to': fields.char('Close to', size=256,
                                 help='Location in proximity to Accommodations.'),

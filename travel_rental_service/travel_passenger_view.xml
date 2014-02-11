@@ -12,7 +12,7 @@
           <page string="Travel - Other services">
             <field name="rental_service_ids">
               <tree name="PassengerRentalTree" version="7.0">
-                <field name="location"/>
+                <field name="location" domain="[('is_company', '=', True)]"/>
                 <field name="city_id"/>
                 <field name="start"/>
                 <field name="end"/>

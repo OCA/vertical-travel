@@ -10,7 +10,7 @@
           <sheet string="Accommodation">
             <group col="4">
               <group string="Location" col="2" colspan="2">
-                <field name="location"/>
+                <field name="location" domain="[('is_accommodation', '=', True)]"/>
                 <field name="close_to"/>
                 <field name="budget"/>
               </group>

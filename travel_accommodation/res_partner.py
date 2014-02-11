@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2013 Savoir-faire Linux
+#    This module copyright (C) 2014 Savoir-faire Linux
 #    (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,14 @@
 #
 ##############################################################################
 
-from . import res_partner
-from . import travel_accommodation
-from . import travel_passenger
-from . import wizard
+from openerp.osv import orm, fields
+
+
+class res_partner(orm.Model):
+    """
+    Inherits partner and adds accommodation : boolean in the partner form
+    """
+    _inherit = 'res.partner'
+    _columns = {
+        'is_accommodation': fields.boolean('Accommodation'),
+    }
