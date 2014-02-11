@@ -82,6 +82,7 @@ class Test_vehicle_bad(Base_Test_vehicle):
         super(Test_vehicle_bad, self).setUp()
         # Change vals to something wrong
         self.vals['name'] = 'This is the wrong motor vehicle name'
+        self.vals['category'] = -1
 
     def test_vehicle(self):
         """
