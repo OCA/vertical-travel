@@ -30,9 +30,12 @@
               </group>
               <group string="Times" col="2" colspan="2">
                 <field name="departure"/>
+                <b colspan="2">or</b>
                 <field name="arrival"/>
                 <field name="return_departure"
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
+                <b colspan="2"
+                   attrs="{'invisible': [('is_return', '=', False)]}">or</b>
                 <field name="return_arrival"
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
               </group>

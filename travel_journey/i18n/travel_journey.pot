@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-28 00:59+0000\n"
-"PO-Revision-Date: 2014-01-28 00:59+0000\n"
+"POT-Creation-Date: 2014-02-12 15:19+0000\n"
+"PO-Revision-Date: 2014-02-12 15:19+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -313,6 +313,7 @@ msgid "Source city of travel."
 msgstr ""
 
 #. module: travel_journey
+#: view:travel.journey:0
 #: view:travel.journey.import:0
 msgid "or"
 msgstr ""
