@@ -8,6 +8,7 @@
       <field name="arch" type="xml">
         <tree string="TravelsTree" version="7.0">
           <field name="name"/>
+          <field name="city_ids"/>
           <field name="date_start"/>
           <field name="date_stop"/>
           <field name="state"/>
