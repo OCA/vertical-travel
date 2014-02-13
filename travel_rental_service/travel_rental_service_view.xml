@@ -10,7 +10,7 @@
           <sheet string="Rentals">
             <group col="4">
               <group string="Location" col="2" colspan="2">
-                <field name="location"/>
+                <field name="location" domain="[('is_company', '=', True)]"/>
                 <field name="city_id"
                        options='{"create_name_field": "city"}'/>
               </group>

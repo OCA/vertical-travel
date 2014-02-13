@@ -8,7 +8,8 @@
       <field name="arch" type="xml">
 
         <field name="partner_id" position="after">
-          <field name="passport_id" domain="[('partner_id', '=', partner_id)]"/>
+          <field name="passport_id" domain="[('partner_id', '=', partner_id)]"
+                 context="{'default_partner_id': partner_id}"/>
         </field>
 
       </field>
