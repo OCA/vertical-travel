@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-31 15:50+0000\n"
-"PO-Revision-Date: 2014-01-31 15:50+0000\n"
+"POT-Creation-Date: 2014-02-17 23:00+0000\n"
+"PO-Revision-Date: 2014-02-17 23:00+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,6 +33,11 @@ msgstr ""
 #: field:travel.passenger,travel_id:0
 #, python-format
 msgid "Travel"
+msgstr ""
+
+#. module: travel
+#: help:travel.passenger,travel_id:0
+msgid "Travel on which the passenger is going."
 msgstr ""
 
 #. module: travel
@@ -127,8 +132,8 @@ msgid "End Date"
 msgstr ""
 
 #. module: travel
-#: help:travel.passenger,travel_id:0
-msgid "Travel on which the passenger is going."
+#: constraint:travel.travel:0
+msgid "Start date cannot be after departure date."
 msgstr ""
 
 #. module: travel

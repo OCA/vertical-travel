@@ -49,6 +49,18 @@ class travel_travel(orm.Model):
         'state': 'draft',
     }
 
+    def check_date(self, cr, uid, ids, context=None):
+        if not ids:
+            return False
+        travel = self.browse(cr, uid, ids[0], context=context)
+        return travel.date_start <= travel.date_stop
+
+    _constraints = [
+        (check_date,
+         'Start date cannot be after departure date.',
+         ['date_start', 'date_stop']),
+    ]
+
     def travel_open(self, cr, uid, ids, context=None):
         """Put the state of the travel into open"""
         for travel in self.browse(cr, uid, ids, context=context):
@@ -78,5 +90,3 @@ class travel_travel(orm.Model):
         for travel in self.browse(cr, uid, ids, context=context):
             self.write(cr, uid, [travel.id], {'state': 'done'})
         return True
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

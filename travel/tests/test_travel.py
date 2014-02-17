@@ -21,7 +21,7 @@
 ##############################################################################
 
 from openerp.tests.common import TransactionCase
-from openerp.osv.orm import browse_record, browse_record_list
+from openerp.osv.orm import browse_record, browse_record_list, except_orm
 from datetime import date
 
 
@@ -109,30 +109,22 @@ class Test_travel_bad(Base_Test_travel):
                                     "Values for %s don't match: (%s != %s)" %
                                     (field, str(self.vals[field]), str(val)))
 
-# TODO: uncomment this test after implementation of date checking
-#
-# class Test_travel_bad_dates(Base_Test_travel):
-#     """
-#     Testing a date_stop that happens before a date_start
-#     """
-#
-#     def setUp(self, vals={}):
-#         """
-#         Setting up travel.
-#         """
-#         vals = {'name': 'This is a test travel with a date stop before the date start',
-#                 'date_start': date(2013, 11, 21),
-#                 'date_stop': date(2013, 11, 14),
-#                 }
-#         super(Test_travel_bad_dates, self).setUp(vals)
-#
-#     def test_travel(self):
-#         """
-#         Checking the travel dates creation.
-#         """
-#         travel_travel = self.registry('travel.travel')
-#         travel_obj = travel_travel.browse(self.cr, self.uid, self.travel_id, context=None)
-#         self.assertLessEqual(travel_obj['date_start'], travel_obj['date_stop'],
-#                              "date_stop cannot be before date_start.")
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+class Test_travel_bad_dates(Base_Test_travel):
+    """
+    Testing a date_stop that happens before a date_start
+    """
+
+    def setUp(self, vals={}):
+        """
+        Setting up travel.
+        """
+        vals = {
+            'name': 'This is a test travel with a date stop before the date start',
+            'date_start': date(2013, 11, 21),
+            'date_stop': date(2013, 11, 14),
+        }
+        self.assertRaises(except_orm, super(Test_travel_bad_dates, self).setUp, vals)
+
+    def test_travel(self):
+        pass
