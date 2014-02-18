@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-28 00:59+0000\n"
-"PO-Revision-Date: 2014-01-28 00:59+0000\n"
+"POT-Creation-Date: 2014-02-18 18:16+0000\n"
+"PO-Revision-Date: 2014-02-18 18:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,11 @@ msgstr ""
 #. module: travel_rental_service
 #: field:travel.rental.service,capacity:0
 msgid "Capacity"
+msgstr ""
+
+#. module: travel_rental_service
+#: view:res.partner:0
+msgid "Travel"
 msgstr ""
 
 #. module: travel_rental_service
@@ -116,6 +121,11 @@ msgid "Times"
 msgstr ""
 
 #. module: travel_rental_service
+#: model:ir.model,name:travel_rental_service.model_travel_rental_service
+msgid "Service rentals for travel"
+msgstr ""
+
+#. module: travel_rental_service
 #: view:travel.rental.service:0
 msgid "Rentals"
 msgstr ""
@@ -123,6 +133,12 @@ msgstr ""
 #. module: travel_rental_service
 #: field:travel.rental.service,passenger_id:0
 msgid "Passenger"
+msgstr ""
+
+#. module: travel_rental_service
+#: view:res.partner:0
+#: field:res.partner,is_rental_service:0
+msgid "Rental Service"
 msgstr ""
 
 #. module: travel_rental_service
@@ -146,8 +162,8 @@ msgid "End date and time of rental."
 msgstr ""
 
 #. module: travel_rental_service
-#: help:travel.rental.service,country_id:0
-msgid "Country of rental."
+#: view:travel.rental.service.import:0
+msgid "or"
 msgstr ""
 
 #. module: travel_rental_service
@@ -161,19 +177,16 @@ msgid "Cancel"
 msgstr ""
 
 #. module: travel_rental_service
-#: code:addons/travel_rental_service/travel_rental_service.py:28
-#: model:ir.model,name:travel_rental_service.model_travel_rental_service
-#, python-format
-msgid "Service rentals for travel"
+#: model:ir.model,name:travel_rental_service.model_res_partner
+msgid "Partner"
 msgstr ""
 
 #. module: travel_rental_service
-#: view:travel.rental.service.import:0
-msgid "or"
+#: constraint:travel.rental.service:0
+msgid "End date cannot be after Start date."
 msgstr ""
 
 #. module: travel_rental_service
 #: model:ir.model,name:travel_rental_service.model_travel_rental_service_import
 msgid "Service Rental information import"
 msgstr ""
-

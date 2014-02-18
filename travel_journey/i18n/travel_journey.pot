@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 15:19+0000\n"
-"PO-Revision-Date: 2014-02-12 15:19+0000\n"
+"POT-Creation-Date: 2014-02-18 18:20+0000\n"
+"PO-Revision-Date: 2014-02-18 18:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -52,9 +52,7 @@ msgid "Comments"
 msgstr ""
 
 #. module: travel_journey
-#: code:addons/travel_journey/travel_journey.py:35
 #: model:ir.model,name:travel_journey.model_travel_journey
-#, python-format
 msgid "Journey of travel"
 msgstr ""
 
@@ -81,6 +79,11 @@ msgstr ""
 #. module: travel_journey
 #: model:travel.journey.class,name:travel_journey.travel_journey_class_economy
 msgid "Economy"
+msgstr ""
+
+#. module: travel_journey
+#: constraint:travel.journey:0
+msgid "A desired date of arrival or departure must be set."
 msgstr ""
 
 #. module: travel_journey
@@ -124,6 +127,11 @@ msgstr ""
 #. module: travel_journey
 #: model:ir.model,name:travel_journey.model_travel_passenger
 msgid "Passenger on travel"
+msgstr ""
+
+#. module: travel_journey
+#: constraint:travel.journey:0
+msgid "Arrival date cannot be after departure date."
 msgstr ""
 
 #. module: travel_journey
@@ -184,6 +192,11 @@ msgstr ""
 #: field:travel.journey.class,name:0
 #: field:travel.journey.type,name:0
 msgid "Name"
+msgstr ""
+
+#. module: travel_journey
+#: constraint:travel.journey:0
+msgid "Arrival date cannot be after departure date for return."
 msgstr ""
 
 #. module: travel_journey
@@ -273,8 +286,8 @@ msgid "Desired date and time of departure."
 msgstr ""
 
 #. module: travel_journey
-#: field:travel.journey,reservation:0
-msgid "Reservation Number"
+#: constraint:travel.journey:0
+msgid "A desired date of arrival or departure must be set for return."
 msgstr ""
 
 #. module: travel_journey
@@ -313,6 +326,11 @@ msgid "Source city of travel."
 msgstr ""
 
 #. module: travel_journey
+#: field:travel.journey,reservation:0
+msgid "Reservation Number"
+msgstr ""
+
+#. module: travel_journey
 #: view:travel.journey:0
 #: view:travel.journey.import:0
 msgid "or"
@@ -322,4 +340,3 @@ msgstr ""
 #: view:travel.journey:0
 msgid "Passenger Journeys"
 msgstr ""
-

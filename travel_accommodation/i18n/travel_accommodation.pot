@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-28 15:59+0000\n"
-"PO-Revision-Date: 2014-01-28 15:59+0000\n"
+"POT-Creation-Date: 2014-02-18 18:19+0000\n"
+"PO-Revision-Date: 2014-02-18 18:19+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,6 +33,11 @@ msgstr ""
 #. module: travel_accommodation
 #: field:travel.accommodation,budget:0
 msgid "Budget per Night"
+msgstr ""
+
+#. module: travel_accommodation
+#: view:res.partner:0
+msgid "Travel"
 msgstr ""
 
 #. module: travel_accommodation
@@ -78,9 +83,7 @@ msgid "unknown"
 msgstr ""
 
 #. module: travel_accommodation
-#: code:addons/travel_accommodation/travel_accommodation.py:31
 #: model:ir.model,name:travel_accommodation.model_travel_accommodation
-#, python-format
 msgid "Accommodation of travel"
 msgstr ""
 
@@ -110,6 +113,8 @@ msgid "Location of Accommodation."
 msgstr ""
 
 #. module: travel_accommodation
+#: view:res.partner:0
+#: field:res.partner,is_accommodation:0
 #: view:travel.accommodation:0
 #: view:travel.passenger:0
 msgid "Accommodation"
@@ -144,6 +149,11 @@ msgstr ""
 #. module: travel_accommodation
 #: field:travel.accommodation,dinner:0
 msgid "Dinner"
+msgstr ""
+
+#. module: travel_accommodation
+#: constraint:travel.accommodation:0
+msgid "Arrival date cannot be after departure date."
 msgstr ""
 
 #. module: travel_accommodation
@@ -182,6 +192,11 @@ msgid "Cancel"
 msgstr ""
 
 #. module: travel_accommodation
+#: model:ir.model,name:travel_accommodation.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: travel_accommodation
 #: field:travel.accommodation,breakfast:0
 msgid "Breakfast"
 msgstr ""
@@ -200,4 +215,3 @@ msgstr ""
 #: field:travel.accommodation,close_to:0
 msgid "Close to"
 msgstr ""
-
