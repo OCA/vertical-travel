@@ -39,11 +39,12 @@ Contributors
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 * El Hadji Dem (elhadji.dem@savoirfairelinux.com)
 """,
-    'depends': ['travel', ],
+    'depends': ['travel', 'transportation', ],
     'external_dependencies': {
         'python': [],
     },
     'data': [
+        'res_partner_view.xml',
         'travel_passenger_view.xml',
         'travel_rental_service_view.xml',
         'security/ir.model.access.csv',
@@ -53,5 +54,3 @@ Contributors
     'test': [],
     'installable': True,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
