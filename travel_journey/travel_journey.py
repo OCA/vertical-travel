@@ -24,56 +24,25 @@ from openerp.osv import fields, orm
 from openerp.tools.translate import _
 
 
-def _get_type(self, cr, uid, context=None):
-    acc_type_obj = self.pool.get('travel.journey.type')
-    ids = acc_type_obj.search(cr, uid, [])
-    res = acc_type_obj.read(cr, uid, ids, ['code', 'name'], context)
-    return [(r['code'], r['name']) for r in res]
-
-
 class travel_journey(orm.Model):
-    _description = _('Journey of travel')
+    """Journey of travel"""
     _name = 'travel.journey'
-    _columns = {
-        'origin': fields.many2one('res.better.zip', 'Origin', required='True',
-                                  help='Source city of travel.'),
-        'destination': fields.many2one('res.better.zip', 'Destination', required='True',
-                                       help='Destination city of travel.'),
-        'return_origin': fields.many2one('res.better.zip', 'Origin (return)'),
-        'return_destination': fields.many2one('res.better.zip', 'Destination (return)'),
-        'is_return': fields.boolean('Return Trip', help='Generate a return trip'),
-        # TODO: One and only one of the following two has to be filled
-        'departure': fields.datetime('Desired Departure',
-                                     help='Desired date and time of departure.'),
-        'arrival': fields.datetime('Desired Arrival',
-                                   help='Desired date and time of Arrival.'),
-        'return_departure': fields.datetime('Desired Departure (return)'),
-        'return_arrival': fields.datetime('Desired Arrival (return)'),
-        'class_id': fields.many2one('travel.journey.class', 'Class', required=True,
-                                    help='Desired class of voyage.'),
-        'baggage_qty': fields.integer('Baggage Quantity', help='Number of articles in baggage.'),
-        'baggage_weight': fields.float('Baggage Weight', help='Weight of baggage.'),
-        # TODO: change the previous when the following changes
-        'baggage_weight_uom': fields.many2one('product.uom', 'Baggage Weight Unit of Measure',
-                                              help='Unit of Measure for Baggage Weight'),
-        'comment': fields.text('Comments'),
-        'passenger_id': fields.many2one('travel.passenger', 'Passenger', required=True,
-                                        help='Passenger on this journey.'),
-        'type': fields.selection(_get_type, 'Travel journey type',
-                                 help='Travel journey type.'),
-        'reservation': fields.char('Reservation Number', size=256,
-                                   help="Number of the ticket reservation."),
-        'cancellation': fields.text('Cancellation', help='Notes on cancellation.'),
-    }
+    _description = _(__doc__)
+
+    @staticmethod
+    def _check_dep_arr_dates(departure, arrival):
+        return not departure or not arrival or departure <= arrival
 
     def _default_class(self, cr, uid, context=None):
         ir_model_data = self.pool.get('ir.model.data')
-        return ir_model_data.get_object_reference(cr, uid, 'travel_journey',
-                                                  'travel_journey_class_directive',)[1]
+        return ir_model_data.get_object_reference(
+            cr, uid, 'travel_journey', 'travel_journey_class_directive',)[1]
 
-    _defaults = {
-        'class_id': _default_class
-    }
+    def _get_type(self, cr, uid, context=None):
+        acc_type_obj = self.pool.get('travel.journey.type')
+        ids = acc_type_obj.search(cr, uid, [])
+        res = acc_type_obj.read(cr, uid, ids, ['code', 'name'], context)
+        return [(r['code'], r['name']) for r in res]
 
     def create(self, cr, uid, vals, context=None):
         """If is_return is checked, create a return trip after."""
@@ -97,10 +66,110 @@ class travel_journey(orm.Model):
         vals = clear_return_vals(vals)
         res = super(travel_journey, self).create(cr, uid, vals, context=context)
         if return_vals:
-            super(travel_journey, self).create(cr, uid, return_vals, context=context)
+            super(travel_journey, self).create(cr, uid, return_vals,
+                                               context=context)
         return res
 
     def on_change_return(self, cr, uid, ids, key, location, context=None):
         return {'value': {key: location}}
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    def on_change_times(self, cr, uid, ids, departure, arrival,
+                        return_trip=False, context=None):
+        if self._check_dep_arr_dates(departure, arrival):
+            return {}
+        return {
+            'value': {
+                'return_arrival' if return_trip else 'arrival': False,
+            },
+            'warning': {
+                'title': 'Arrival after Departure',
+                'message': ('Departure (%s) cannot be before Arrival (%s).' %
+                            (departure, arrival)),
+            },
+        }
+
+    def check_date_exists(self, cr, uid, ids, context=None):
+        if not ids:
+            return False
+        journey = self.browse(cr, uid, ids[0], context=context)
+        return journey.departure or journey.arrival
+
+    def check_date_exists_return(self, cr, uid, ids, context=None):
+        if not ids:
+            return False
+        journey = self.browse(cr, uid, ids[0], context=context)
+        return (not journey.is_return or
+                journey.return_departure or journey.return_arrival)
+
+    def check_date(self, cr, uid, ids, context=None):
+        if not ids:
+            return False
+        journey = self.browse(cr, uid, ids[0], context=context)
+        return self._check_dep_arr_dates(journey.departure, journey.arrival)
+
+    def check_date_return(self, cr, uid, ids, context=None):
+        if not ids:
+            return False
+        journey = self.browse(cr, uid, ids[0], context=context)
+        return self._check_dep_arr_dates(journey.return_departure,
+                                         journey.return_arrival)
+
+    _columns = {
+        'origin': fields.many2one(
+            'res.better.zip', 'Origin', required='True',
+            help='Source city of travel.'),
+        'destination': fields.many2one(
+            'res.better.zip', 'Destination', required='True',
+            help='Destination city of travel.'),
+        'return_origin': fields.many2one('res.better.zip', 'Origin (return)'),
+        'return_destination': fields.many2one(
+            'res.better.zip', 'Destination (return)'),
+        'is_return': fields.boolean(
+            'Return Trip', help='Generate a return trip'),
+        'departure': fields.datetime(
+            'Desired Departure', help='Desired date and time of departure.'),
+        'arrival': fields.datetime(
+            'Desired Arrival', help='Desired date and time of Arrival.'),
+        'return_departure': fields.datetime('Desired Departure (return)'),
+        'return_arrival': fields.datetime('Desired Arrival (return)'),
+        'class_id': fields.many2one(
+            'travel.journey.class', 'Class', required=True,
+            help='Desired class of voyage.'),
+        'baggage_qty': fields.integer(
+            'Baggage Quantity', help='Number of articles in baggage.'),
+        'baggage_weight': fields.float(
+            'Baggage Weight', help='Weight of baggage.'),
+        'baggage_weight_uom': fields.many2one(
+            'product.uom', 'Baggage Weight Unit of Measure',
+            help='Unit of Measure for Baggage Weight'),
+        'comment': fields.text('Comments'),
+        'passenger_id': fields.many2one(
+            'travel.passenger', 'Passenger', required=True,
+            help='Passenger on this journey.'),
+        'type': fields.selection(
+            _get_type, 'Travel journey type', help='Travel journey type.'),
+        'reservation': fields.char(
+            'Reservation Number', size=256,
+            help="Number of the ticket reservation."),
+        'cancellation': fields.text(
+            'Cancellation', help='Notes on cancellation.'),
+    }
+
+    _defaults = {
+        'class_id': _default_class
+    }
+
+    _constraints = [
+        (check_date_exists,
+         'A desired date of arrival or departure must be set.',
+         ['departure', 'arrival']),
+        (check_date_exists_return,
+         'A desired date of arrival or departure must be set for return.',
+         ['return_departure', 'return_arrival']),
+        (check_date,
+         'Arrival date cannot be after departure date.',
+         ['departure', 'arrival']),
+        (check_date_return,
+         'Arrival date cannot be after departure date for return.',
+         ['return_departure', 'return_arrival']),
+    ]

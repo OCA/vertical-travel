@@ -15,8 +15,10 @@
                        options='{"create_name_field": "city"}'/>
               </group>
               <group string="Times" col="2" colspan="2">
-                <field name="start"/>
-                <field name="end"/>
+                <field name="start"
+                       on_change="on_change_times(start, end)"/>
+                <field name="end"
+                       on_change="on_change_times(start, end)"/>
                 <field name="capacity"/>
               </group>
               <group string="Desired equipment" col="1" colspan="2">

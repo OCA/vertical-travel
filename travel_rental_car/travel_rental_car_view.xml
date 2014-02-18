@@ -15,8 +15,10 @@
                 <field name="type"/>
               </group>
               <group string="Times" col="2" colspan="2">
-                <field name="start"/>
-                <field name="end"/>
+                <field name="start"
+                       on_change="on_change_times(start, end)"/>
+                <field name="end"
+                       on_change="on_change_times(start, end)"/>
                 <field name="driver"/>
               </group>
             </group>

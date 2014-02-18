@@ -25,11 +25,35 @@ from openerp.tools.translate import _
 
 
 class travel_rental_service(orm.Model):
-    _description = _('Service rentals for travel')
+    """Service rentals for travel"""
     _name = 'travel.rental.service'
+    _description = _(__doc__)
+
+    @staticmethod
+    def _check_dep_arr_dates(start, end):
+        return not start or not end or start <= end
+
+    def on_change_times(self, cr, uid, ids, start, end, context=None):
+        if self._check_dep_arr_dates(start, end):
+            return {}
+        return {
+            'value': {
+                'end': False,
+            },
+            'warning': {
+                'title': 'Arrival after Departure',
+                'message': ('End of rental (%s) cannot be before Start (%s).' %
+                            (start, end)),
+            },
+        }
+
+    def check_date(self, cr, uid, ids, context=None):
+        if not ids:
+            return False
+        rental = self.browse(cr, uid, ids[0], context=context)
+        return self._check_dep_arr_dates(rental.start, rental.end)
 
     _columns = {
-        # TODO: hotel/other support
         'location': fields.many2one('res.partner', 'Location', required=True,
                                     help='Location of rental supplier.'),
         'city_id': fields.many2one('res.better.zip', 'City', required='True',
@@ -38,12 +62,16 @@ class travel_rental_service(orm.Model):
                                  help='Start date and time of rental.'),
         'end': fields.datetime('End', required=True,
                                help='End date and time of rental.'),
-        'capacity': fields.integer('Capacity', help='Maximum capacity of people in room.'),
+        'capacity': fields.integer('Capacity',
+                                   help='Maximum capacity of people in room.'),
         'equipment': fields.text('Desired equipment'),
         'services': fields.text('Desired services'),
-        'passenger_id': fields.many2one('travel.passenger', 'Passenger', required=True,
-                                        help='Passenger of this rental.'),
+        'passenger_id': fields.many2one(
+            'travel.passenger', 'Passenger', required=True,
+            help='Passenger of this rental.'),
 
     }
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    _constraints = [
+        (check_date, 'End date cannot be after Start date.', ['start', 'end']),
+    ]

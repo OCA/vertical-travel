@@ -29,13 +29,17 @@
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
               </group>
               <group string="Times" col="3" colspan="2">
-                <field name="departure"/>
+                <field name="departure"
+                       on_change="on_change_times(departure, arrival, False)"/>
                 <b>or</b>
-                <field name="arrival" colspan="3"/>
+                <field name="arrival" colspan="3"
+                       on_change="on_change_times(departure, arrival, False)"/>
                 <field name="return_departure"
+                       on_change="on_change_times(return_departure, return_arrival, True)"
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
                 <b attrs="{'invisible': [('is_return', '=', False)]}">or</b>
                 <field name="return_arrival" colspan="3"
+                       on_change="on_change_times(return_departure, return_arrival, True)"
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
               </group>
 

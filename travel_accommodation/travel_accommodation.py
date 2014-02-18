@@ -28,7 +28,8 @@ import openerp.addons.decimal_precision as dp
 
 
 class travel_accommodation(orm.Model):
-    _description = _('Accommodation of travel')
+    """Accommodation of travel"""
+    _description = _(__doc__)
     _name = 'travel.accommodation'
 
     @staticmethod
@@ -37,38 +38,67 @@ class travel_accommodation(orm.Model):
             return datetime.strptime(string, '%Y-%m-%d %H:%M:%S').date()
         return (str_to_date(lhs) - str_to_date(rhs)).days
 
+    @staticmethod
+    def _check_dep_arr_dates(departure, arrival):
+        return not departure or not arrival or departure <= arrival
+
     def on_change_times(self, cr, uid, ids, arrival, departure, context=None):
-        nights = 0
         if arrival and departure:
             nights = self.str_to_date_difference(departure, arrival)
-        return {'value': {'nights': nights}}
+            if nights >= 0:
+                return {'value': {'nights': nights}}
+            return {
+                'value': {
+                    'departure': False,
+                    'nights': False,
+                },
+                'warning': {
+                    'title': 'Arrival after Departure',
+                    'message': ('Departure (%s) cannot be before Arrival (%s).'
+                                % (departure, arrival)),
+                },
+            }
+        return {}
 
     def _get_nights(self, cr, uid, ids, fieldnames, args, context=None):
         return {obj.id: self.str_to_date_difference(obj.departure, obj.arrival)
                 for obj in self.browse(cr, uid, ids, context=context)}
 
+    def check_date(self, cr, uid, ids, context=None):
+        if not ids:
+            return False
+        accommodation = self.browse(cr, uid, ids[0], context=context)
+        return self._check_dep_arr_dates(accommodation.departure,
+                                         accommodation.arrival)
+
     _columns = {
-        # TODO: hotel/other support
         'location': fields.many2one('res.partner', 'Location',
                                     help='Location of Accommodation.'),
-        'close_to': fields.char('Close to', size=256,
-                                help='Location in proximity to Accommodations.'),
-        'budget': fields.float('Budget per Night', digits_compute=dp.get_precision('Product Price'),
-                               help='Budget to allocate per night spent at Accommodations.'),
+        'close_to': fields.char(
+            'Close to', help='Location in proximity to Accommodations.'),
+        'budget': fields.float(
+            'Budget per Night',
+            digits_compute=dp.get_precision('Product Price'),
+            help='Budget to allocate per night spent at Accommodations.'),
         'arrival': fields.datetime(
             'Arrival', required=True,
             help='Date and Time of arrival at Accommodations.'),
         'departure': fields.datetime(
             'Departure', required=True,
             help='Date and Time of departure from Accommodations.'),
-        # TODO: calculate next when previous two are changed
-        'nights': fields.function(_get_nights, string='Nights', type='float', digits=(1, 0)),
+        'nights': fields.function(_get_nights, string='Nights', type='float',
+                                  digits=(1, 0)),
         'breakfast': fields.boolean('Breakfast', help='Is breakfast included?'),
         'lunch': fields.boolean('Lunch', help='Is lunch included?'),
         'dinner': fields.boolean('Dinner', help='Is dinner included?'),
-        'passenger_id': fields.many2one('travel.passenger', 'Passenger', required=True,
-                                        help='Passenger on this accommodation.'),
+        'passenger_id': fields.many2one(
+            'travel.passenger', 'Passenger', required=True,
+            help='Passenger on this accommodation.'),
 
     }
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    _constraints = [
+        (check_date,
+         'Arrival date cannot be after departure date.',
+         ['departure', 'arrival']),
+    ]

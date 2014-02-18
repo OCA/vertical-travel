@@ -25,21 +25,52 @@ from openerp.tools.translate import _
 
 
 class travel_car_rental(orm.Model):
-    _description = _('Car Rentals for travel')
+    """Car Rentals for travel"""
     _name = 'travel.rental.car'
+    _description = _(__doc__)
+
+    @staticmethod
+    def _check_dep_arr_dates(start, end):
+        return not start or not end or start <= end
+
+    def on_change_times(self, cr, uid, ids, start, end, context=None):
+        if self._check_dep_arr_dates(start, end):
+            return {}
+        return {
+            'value': {
+                'end': False,
+            },
+            'warning': {
+                'title': 'Arrival after Departure',
+                'message': ('End of rental (%s) cannot be before Start (%s).' %
+                            (start, end)),
+            },
+        }
+
+    def check_date(self, cr, uid, ids, context=None):
+        if not ids:
+            return False
+        rental = self.browse(cr, uid, ids[0], context=context)
+        return self._check_dep_arr_dates(rental.start, rental.end)
 
     _columns = {
-        'pickup_loc': fields.char('Pick-up Location', help="Location of car pick-up."),
-        'dropoff_loc': fields.char('Drop-off Location', help="Location of car drop-off."),
-        'type': fields.many2one('vehicle.vehicle', 'Vehicle type', help="Make and model of the car."),
+        'pickup_loc': fields.char('Pick-up Location',
+                                  help="Location of car pick-up."),
+        'dropoff_loc': fields.char('Drop-off Location',
+                                   help="Location of car drop-off."),
+        'type': fields.many2one('vehicle.vehicle', 'Vehicle type',
+                                help="Make and model of the car."),
         'start': fields.datetime('Start', required=True,
                                  help='Start date and time of car rental.'),
         'end': fields.datetime('End', required=True,
                                help='End date and time of car rental.'),
-        'driver': fields.boolean('With Chauffeur', help='Will the car rental require a driver.'),
-        'passenger_id': fields.many2one('travel.passenger', 'Passenger', required=True,
+        'driver': fields.boolean('With Chauffeur',
+                                 help='Will the car rental require a driver.'),
+        'passenger_id': fields.many2one('travel.passenger', 'Passenger',
+                                        required=True,
                                         help='Passenger on this car rental.'),
-
     }
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    _constraints = [
+        (check_date, 'End date cannot be after Start date.', ['start', 'end']),
+    ]
