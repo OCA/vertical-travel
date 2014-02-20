@@ -161,15 +161,16 @@ class travel_journey(orm.Model):
 
     _constraints = [
         (check_date_exists,
-         'A desired date of arrival or departure must be set.',
+         'A desired date of arrival or departure must be set on journey.',
          ['departure', 'arrival']),
         (check_date_exists_return,
-         'A desired date of arrival or departure must be set for return.',
+         'A desired date of arrival or departure must be set on journey for '
+         'return.',
          ['return_departure', 'return_arrival']),
         (check_date,
-         'Arrival date cannot be after departure date.',
+         'Arrival date cannot be after departure date on journey.',
          ['departure', 'arrival']),
         (check_date_return,
-         'Arrival date cannot be after departure date for return.',
+         'Arrival date cannot be after departure date on journey for return.',
          ['return_departure', 'return_arrival']),
     ]

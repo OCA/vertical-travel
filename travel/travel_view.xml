@@ -1,4 +1,5 @@
 <?xml version = "1.0" encoding="utf-8"?>
+<!DOCTYPE openerp SYSTEM "openerp.dtd">
 <openerp>
   <data>
     <!-- Views -->
@@ -22,11 +23,11 @@
       <field name="arch" type="xml">
         <form string="TravelsForm" version="7.0">
           <header>
-            <button name="travel_open" string="Open" states="draft" type="object" class="oe_highlight"/>
-            <button name="travel_book" string="Book" states="open" type="object" class="oe_highlight"/>
-            <button name="travel_reserve" string="Reserve" states="booking" type="object" class="oe_highlight"/>
-            <button name="travel_confirm" string="Confirm" states="reserved" type="object" class="oe_highlight"/>
-            <button name="travel_close" string="Close" states="confirmed" type="object" class="oe_highlight"/>
+            <button name="travel_open" string="Open" states="draft" type="object" class="oe_highlight" groups="travel.group_authorized_travel_user"/>
+            <button name="travel_book" string="Book" states="open" type="object" class="oe_highlight" groups="travel.group_authorized_travel_user"/>
+            <button name="travel_reserve" string="Reserve" states="booking" type="object" class="oe_highlight" groups="travel.group_authorized_travel_user"/>
+            <button name="travel_confirm" string="Confirm" states="reserved" type="object" class="oe_highlight" groups="travel.group_authorized_travel_user"/>
+            <button name="travel_close" string="Close" states="confirmed" type="object" class="oe_highlight" groups="travel.group_authorized_travel_user"/>
             <field name="state" widget="statusbar"
                    statusbar_visible="draft,open,booking,reserved,confirmed,done"/>
           </header>
@@ -51,7 +52,7 @@
               </group>
               <group name="Passengers" string="Passengers" col="1" colspan="4">
                 <field name="passenger_ids" nolabel="1">
-                  <tree name="TravelPassengerTree" version="7.0" editable="1">
+                  <tree name="TravelPassengerTree" version="7.0" editable="bottom">
                     <field name="partner_id" domain="[('is_company', '=', False)]"
                            on_change="on_change_partner_id(partner_id)"/>
                     <button name="action_passenger_form_view"
@@ -81,12 +82,15 @@
 
     <!-- Menus -->
     <menuitem name="Travel"
-              id="menu_top_travel"/>
+              id="menu_top_travel"
+              groups="travel.group_basic_travel_user"/>
     <menuitem name="Travel"
               id="menu_travel_main_form"
+              groups="travel.group_basic_travel_user"
               parent="menu_top_travel" />
     <menuitem name="Travels"
               id="menu_travels"
+              groups="travel.group_basic_travel_user"
               parent="menu_travel_main_form"
               action="action_travels_tree_list"/>
   </data>

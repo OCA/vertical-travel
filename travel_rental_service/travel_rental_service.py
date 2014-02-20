@@ -73,5 +73,6 @@ class travel_rental_service(orm.Model):
     }
 
     _constraints = [
-        (check_date, 'End date cannot be after Start date.', ['start', 'end']),
+        (check_date, 'End date cannot be after Start date for service rental.',
+         ['start', 'end']),
     ]

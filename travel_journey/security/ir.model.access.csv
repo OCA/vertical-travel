@@ -1,4 +1,5 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_travel_journey","travel_journey_user","model_travel_journey","base.group_user",1,1,1,1
-"access_travel_journey_class","travel_journey_class_user","model_travel_journey_class","base.group_user",1,1,1,1
-"access_travel_journey_type","travel_journey_type_user","model_travel_journey_type","base.group_user",1,1,1,1
+access_travel_journey,travel_journey_user,model_travel_journey,travel.group_basic_travel_user,1,1,1,1
+access_travel_journey_class_ro,travel_journey_class_user_ro,model_travel_journey_class,travel.group_basic_travel_user,1,0,0,0
+access_travel_journey_class,travel_journey_class_user,model_travel_journey_class,travel.group_travel_manager,1,1,1,1
+access_travel_journey_type,travel_journey_type_user,model_travel_journey_type,travel.group_basic_travel_user,1,1,1,1

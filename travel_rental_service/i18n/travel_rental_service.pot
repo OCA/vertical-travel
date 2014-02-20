@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-18 18:16+0000\n"
-"PO-Revision-Date: 2014-02-18 18:16+0000\n"
+"POT-Creation-Date: 2014-02-20 00:20+0000\n"
+"PO-Revision-Date: 2014-02-20 00:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -121,6 +121,11 @@ msgid "Times"
 msgstr ""
 
 #. module: travel_rental_service
+#: constraint:travel.rental.service:0
+msgid "End date cannot be after Start date for service rental."
+msgstr ""
+
+#. module: travel_rental_service
 #: model:ir.model,name:travel_rental_service.model_travel_rental_service
 msgid "Service rentals for travel"
 msgstr ""
@@ -162,11 +167,6 @@ msgid "End date and time of rental."
 msgstr ""
 
 #. module: travel_rental_service
-#: view:travel.rental.service.import:0
-msgid "or"
-msgstr ""
-
-#. module: travel_rental_service
 #: field:travel.passenger,rental_service_ids:0
 msgid "Service Rentals"
 msgstr ""
@@ -182,8 +182,8 @@ msgid "Partner"
 msgstr ""
 
 #. module: travel_rental_service
-#: constraint:travel.rental.service:0
-msgid "End date cannot be after Start date."
+#: view:travel.rental.service.import:0
+msgid "or"
 msgstr ""
 
 #. module: travel_rental_service

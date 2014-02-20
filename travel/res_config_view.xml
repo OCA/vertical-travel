@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <record id="view_travel_configuration" model="ir.ui.view">
+      <field name="name">travel settings</field>
+      <field name="model">travel.config.settings</field>
+      <field name="arch" type="xml">
+        <form string="Configure Travels" class="oe_form_configuration" version="7.0">
+          <header>
+            <button string="Apply" type="object" name="execute"
+                    class="oe_highlight"/>
+            or
+            <button string="Cancel" type="object" name="cancel"
+                    class="oe_link"/>
+          </header>
+          <group string="Security">
+            <field name="basic_passenger_limit"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_travel_config" model="ir.actions.act_window">
+      <field name="name">Configure Travel</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">travel.config.settings</field>
+      <field name="view_mode">form</field>
+      <field name="target">inline</field>
+    </record>
+
+    <menuitem id="menu_travel_config"
+              name="Travel"
+              parent="base.menu_config"
+              sequence="10"
+              action="action_travel_config"/>
+
+  </data>
+</openerp>

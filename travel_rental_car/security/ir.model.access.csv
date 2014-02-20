@@ -1,2 +1,2 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_travel_rental_car","travel_rental_car_user","model_travel_rental_car","base.group_user",1,1,1,1
+access_travel_rental_car,travel_rental_car_user,model_travel_rental_car,travel.group_basic_travel_user,1,1,1,1

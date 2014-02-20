@@ -21,22 +21,37 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.osv.osv import except_osv
 from openerp.tools.translate import _
+from res_config import get_basic_passenger_limit
 
 
 class travel_travel(orm.Model):
-    _description = _('Travel')
+    """Travel"""
+    _description = _(__doc__)
     _name = 'travel.travel'
     _inherit = ['mail.thread']
+
+    def is_manager_only(self, cr, user, ids, name, args, context=None):
+        limit = get_basic_passenger_limit(self.pool.get("ir.config_parameter"),
+                                          cr, user, context=context)
+        return {t.id: len(t.passenger_ids) > limit
+                for t in self.browse(cr, user, ids, context=context)}
+
     _columns = {
-        'name': fields.char('Name of travel', size=256, required=True, select=True,
+        'name': fields.char('Name of travel', required=True,
                             help='Name of travel.'),
         'city_ids': fields.many2many('res.better.zip', string='Locations',
                                      help='Destination cities of travel.'),
         'date_start': fields.date('Start Date', required=True),
         'date_stop': fields.date('End Date', required=True),
-        'passenger_ids': fields.one2many('travel.passenger', 'travel_id', 'Passengers',
+        'passenger_ids': fields.one2many('travel.passenger', 'travel_id',
+                                         'Passengers',
                                          help='List of passengers.'),
+        'manager_only': fields.function(is_manager_only,
+                                        store=True,
+                                        type='boolean',
+                                        string='Manager'),
         'state': fields.selection([('draft', 'Draft'),
                                    ('open', 'Saved'),
                                    ('booking', 'In Reservation'),
@@ -60,6 +75,68 @@ class travel_travel(orm.Model):
          'Start date cannot be after departure date.',
          ['date_start', 'date_stop']),
     ]
+
+    def create(self, cr, user, vals, context=None):
+        """
+        Warn if user tried to create travel with too many passengers for
+        according to his security role.
+        """
+        users_pool = self.pool.get('res.users')
+        limit = get_basic_passenger_limit(self.pool.get("ir.config_parameter"),
+                                          cr, user, context=context)
+        if (len(vals.get('passenger_ids', [])) > limit and not
+                users_pool.has_group(cr, user, 'travel.group_travel_manager')):
+            raise except_osv(
+                _('Warning!'),
+                _('Only members of the Travel Managers group have the right to '
+                  'create a Travel with more than %d passengers.') % limit)
+        return super(travel_travel, self).create(
+            cr, user, vals, context=context)
+
+    def write(self, cr, user, ids, vals, context=None):
+        """
+        Warn if user does not have rights to modify travel with current number
+        of  passengers or to add more than the limit.
+        """
+        users_pool = self.pool.get('res.users')
+        limit = get_basic_passenger_limit(self.pool.get("ir.config_parameter"),
+                                          cr, user, context=context)
+        if (len(vals.get('passenger_ids', [])) > limit and not
+                users_pool.has_group(cr, user, 'travel.group_travel_manager')):
+            raise except_osv(
+                _('Warning!'),
+                _('Only members of the Travel Managers group have the rights '
+                  'to add more than %d passengers to a travel.') % limit)
+        for travel in self.browse(cr, user, ids, context=context):
+            if (len(travel.passenger_ids) > limit and not
+                    users_pool.has_group(cr, user,
+                                         'travel.group_travel_manager')):
+                raise except_osv(
+                    _('Warning!'),
+                    _('Only members of the Travel Managers group have the '
+                      'rights to modify a Travel with more than %d passengers '
+                      '(%s).') % (limit, travel.name))
+        return super(travel_travel, self).write(cr, user, ids, vals,
+                                                context=context)
+
+    def unlink(self, cr, user, ids, context=None):
+        """
+        Warn if ids being deleted contain a travel which has too many
+        passengers for the current user to delete.
+        """
+        users_pool = self.pool.get('res.users')
+        limit = get_basic_passenger_limit(self.pool.get("ir.config_parameter"),
+                                          cr, user, context=context)
+        for travel in self.browse(cr, user, ids, context=context):
+            if (len(travel.passenger_ids) > limit and not
+                    users_pool.has_group(cr, user,
+                                         'travel.group_travel_manager')):
+                raise except_osv(
+                    _('Warning!'),
+                    _('Only members of the Travel Managers group have the '
+                      'rights to delete a Travel with more than %d passengers '
+                      '(%s).') % (limit, travel.name))
+        return super(travel_travel, self).unlink(cr, user, ids, context=context)
 
     def travel_open(self, cr, uid, ids, context=None):
         """Put the state of the travel into open"""

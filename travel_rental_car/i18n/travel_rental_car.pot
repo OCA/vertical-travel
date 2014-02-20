@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-18 18:17+0000\n"
-"PO-Revision-Date: 2014-02-18 18:17+0000\n"
+"POT-Creation-Date: 2014-02-20 00:17+0000\n"
+"PO-Revision-Date: 2014-02-20 00:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -108,6 +108,11 @@ msgid "Car Rentals for travel"
 msgstr ""
 
 #. module: travel_rental_car
+#: constraint:travel.rental.car:0
+msgid "End date cannot be after Start date for car rental."
+msgstr ""
+
+#. module: travel_rental_car
 #: help:travel.rental.car,dropoff_loc:0
 msgid "Location of car drop-off."
 msgstr ""
@@ -130,11 +135,6 @@ msgstr ""
 #. module: travel_rental_car
 #: field:travel.rental.car,dropoff_loc:0
 msgid "Drop-off Location"
-msgstr ""
-
-#. module: travel_rental_car
-#: view:travel.rental.car.import:0
-msgid "or"
 msgstr ""
 
 #. module: travel_rental_car
@@ -164,11 +164,12 @@ msgid "Pick-up Location"
 msgstr ""
 
 #. module: travel_rental_car
-#: constraint:travel.rental.car:0
-msgid "End date cannot be after Start date."
+#: view:travel.rental.car.import:0
+msgid "or"
 msgstr ""
 
 #. module: travel_rental_car
 #: help:travel.rental.car,end:0
 msgid "End date and time of car rental."
 msgstr ""
+

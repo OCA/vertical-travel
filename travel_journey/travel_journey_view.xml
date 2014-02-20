@@ -60,7 +60,7 @@
             <group string="Comments">
               <field name="comment" nolabel="1"/>
             </group>
-            <group name="Info"/>
+            <group name="Info" groups="travel.group_authorized_travel_user"/>
           </sheet>
         </form>
       </field>

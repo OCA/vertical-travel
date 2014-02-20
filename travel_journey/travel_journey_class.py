@@ -25,11 +25,11 @@ from openerp.tools.translate import _
 
 
 class travel_journey_class(orm.Model):
+    """Passenger Class for Journey"""
     _name = 'travel.journey.class'
-    _description = _('Passenger Class for Journey')
+    _description = _(__doc__)
     _columns = {
-        'name': fields.char('Name', size=255, help="Name of passenger class.", translate=True)
+        'name': fields.char(
+            'Name', help="Name of passenger class.", translate=True)
 
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

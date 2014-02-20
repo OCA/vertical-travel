@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-17 23:00+0000\n"
-"PO-Revision-Date: 2014-02-17 23:00+0000\n"
+"POT-Creation-Date: 2014-02-20 00:11+0000\n"
+"PO-Revision-Date: 2014-02-20 00:11+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: travel
+#: model:ir.actions.act_window,name:travel.action_travel_config
+msgid "Configure Travel"
+msgstr ""
+
+#. module: travel
 #: selection:travel.travel,state:0
 msgid "Confirmed"
+msgstr ""
+
+#. module: travel
+#: view:travel.config.settings:0
+msgid "Apply"
 msgstr ""
 
 #. module: travel
@@ -26,23 +36,45 @@ msgid "Confirm"
 msgstr ""
 
 #. module: travel
-#: code:addons/travel/travel.py:28
 #: model:ir.model,name:travel.model_travel_travel
+#: model:ir.module.category,name:travel.module_category_travel
 #: model:ir.ui.menu,name:travel.menu_top_travel
+#: model:ir.ui.menu,name:travel.menu_travel_config
 #: model:ir.ui.menu,name:travel.menu_travel_main_form
 #: field:travel.passenger,travel_id:0
-#, python-format
 msgid "Travel"
 msgstr ""
 
 #. module: travel
-#: help:travel.passenger,travel_id:0
-msgid "Travel on which the passenger is going."
+#: model:ir.model,name:travel.model_travel_config_settings
+msgid "travel.config.settings"
+msgstr ""
+
+#. module: travel
+#: code:addons/travel/travel.py:91
+#, python-format
+msgid "Only members of the Travel Managers group have the right to create a Travel with more than %d passengers."
+msgstr ""
+
+#. module: travel
+#: constraint:travel.travel:0
+msgid "Start date cannot be after departure date."
 msgstr ""
 
 #. module: travel
 #: view:travel.passenger:0
 msgid "Update"
+msgstr ""
+
+#. module: travel
+#: model:res.groups,name:travel.group_travel_manager
+#: field:travel.travel,manager_only:0
+msgid "Manager"
+msgstr ""
+
+#. module: travel
+#: field:travel.config.settings,basic_passenger_limit:0
+msgid "Basic Passenger Limit"
 msgstr ""
 
 #. module: travel
@@ -77,6 +109,12 @@ msgid "TravelsTree"
 msgstr ""
 
 #. module: travel
+#: code:addons/travel/travel.py:108
+#, python-format
+msgid "Only members of the Travel Managers group have the rights to add more than %d passengers to a travel."
+msgstr ""
+
+#. module: travel
 #: field:travel.travel,state:0
 msgid "Status"
 msgstr ""
@@ -88,21 +126,30 @@ msgid "Unread Messages"
 msgstr ""
 
 #. module: travel
-#: view:travel.passenger:0
-msgid "Save and Close"
+#: code:addons/travel/travel.py:136
+#, python-format
+msgid "Only members of the Travel Managers group have the rights to delete a Travel with more than %d passengers (%s)."
 msgstr ""
 
 #. module: travel
-#: code:addons/travel/travel_passenger.py:28
+#: model:res.groups,name:travel.group_basic_travel_user
+msgid "Basic User"
+msgstr ""
+
+#. module: travel
 #: model:ir.model,name:travel.model_travel_passenger
-#, python-format
 msgid "Passenger on travel"
 msgstr ""
 
 #. module: travel
-#: help:travel.passenger,message_unread:0
-#: help:travel.travel,message_unread:0
-msgid "If checked new messages require your attention."
+#: help:travel.passenger,message_ids:0
+#: help:travel.travel,message_ids:0
+msgid "Messages and communication history"
+msgstr ""
+
+#. module: travel
+#: model:res.groups,name:travel.group_authorized_travel_user
+msgid "Authorized User"
 msgstr ""
 
 #. module: travel
@@ -122,6 +169,16 @@ msgid "Date"
 msgstr ""
 
 #. module: travel
+#: view:travel.travel:0
+msgid "Reserve"
+msgstr ""
+
+#. module: travel
+#: selection:travel.travel,state:0
+msgid "Saved"
+msgstr ""
+
+#. module: travel
 #: help:travel.travel,city_ids:0
 msgid "Destination cities of travel."
 msgstr ""
@@ -132,13 +189,14 @@ msgid "End Date"
 msgstr ""
 
 #. module: travel
-#: constraint:travel.travel:0
-msgid "Start date cannot be after departure date."
+#: view:travel.travel:0
+msgid "Open"
 msgstr ""
 
 #. module: travel
-#: field:travel.passenger,partner_id:0
-msgid "Name"
+#: code:addons/travel/travel_passenger.py:51
+#, python-format
+msgid "Passenger"
 msgstr ""
 
 #. module: travel
@@ -166,6 +224,16 @@ msgid "Travels"
 msgstr ""
 
 #. module: travel
+#: view:travel.config.settings:0
+msgid "Configure Travels"
+msgstr ""
+
+#. module: travel
+#: help:travel.passenger,travel_id:0
+msgid "Travel for which the passenger is participating."
+msgstr ""
+
+#. module: travel
 #: view:travel.travel:0
 msgid "Close"
 msgstr ""
@@ -176,9 +244,14 @@ msgid "Discard"
 msgstr ""
 
 #. module: travel
-#: help:travel.passenger,message_ids:0
-#: help:travel.travel,message_ids:0
-msgid "Messages and communication history"
+#: view:travel.config.settings:0
+msgid "Security"
+msgstr ""
+
+#. module: travel
+#: help:travel.passenger,message_unread:0
+#: help:travel.travel,message_unread:0
+msgid "If checked new messages require your attention."
 msgstr ""
 
 #. module: travel
@@ -188,14 +261,13 @@ msgid "Passengers"
 msgstr ""
 
 #. module: travel
-#: view:travel.travel:0
-msgid "Reserve"
+#: model:res.groups,comment:travel.group_authorized_travel_user
+msgid "Full view under 10 passengers"
 msgstr ""
 
 #. module: travel
-#: code:addons/travel/travel_passenger.py:48
-#, python-format
-msgid "Passenger"
+#: help:travel.config.settings,basic_passenger_limit:0
+msgid "Limit number of passengers to organize travels by non-managers."
 msgstr ""
 
 #. module: travel
@@ -209,14 +281,25 @@ msgid "TravelsForm"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "Saved"
+#: code:addons/travel/travel.py:116
+#, python-format
+msgid "Only members of the Travel Managers group have the rights to modify a Travel with more than %d passengers (%s)."
+msgstr ""
+
+#. module: travel
+#: model:res.groups,comment:travel.group_basic_travel_user
+msgid "Minimal view of travel forms"
 msgstr ""
 
 #. module: travel
 #: view:travel.travel:0
 #: field:travel.travel,city_ids:0
 msgid "Locations"
+msgstr ""
+
+#. module: travel
+#: view:travel.passenger:0
+msgid "Save and Close"
 msgstr ""
 
 #. module: travel
@@ -231,8 +314,27 @@ msgid "List of passengers."
 msgstr ""
 
 #. module: travel
+#: code:addons/travel/travel.py:90
+#: code:addons/travel/travel.py:107
+#: code:addons/travel/travel.py:115
+#: code:addons/travel/travel.py:135
+#, python-format
+msgid "Warning!"
+msgstr ""
+
+#. module: travel
 #: field:travel.travel,name:0
 msgid "Name of travel"
+msgstr ""
+
+#. module: travel
+#: field:travel.passenger,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: travel
+#: view:travel.config.settings:0
+msgid "Cancel"
 msgstr ""
 
 #. module: travel
@@ -246,11 +348,12 @@ msgid "Start Date"
 msgstr ""
 
 #. module: travel
-#: view:travel.travel:0
-msgid "Open"
+#: model:res.groups,comment:travel.group_travel_manager
+msgid "Full view for any number of passengers"
 msgstr ""
 
 #. module: travel
+#: view:travel.config.settings:0
 #: view:travel.passenger:0
 msgid "or"
 msgstr ""

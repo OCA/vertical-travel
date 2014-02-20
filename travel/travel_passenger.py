@@ -25,14 +25,17 @@ from openerp.tools.translate import _
 
 
 class travel_passenger(orm.Model):
-    _description = _('Passenger on travel')
+    """Passenger on travel"""
+    _description = _(__doc__)
     _name = 'travel.passenger'
     _inherit = ['mail.thread']
     _columns = {
-        'partner_id': fields.many2one('res.partner', 'Name', required=True, ondelete='cascade',
-                                      help="Name of Passenger."),
-        'travel_id': fields.many2one('travel.travel', 'Travel',
-                                     help='Travel on which the passenger is going.'),
+        'partner_id': fields.many2one(
+            'res.partner', 'Partner', required=True, ondelete='cascade',
+            help="Name of Passenger."),
+        'travel_id': fields.many2one(
+            'travel.travel', 'Travel',
+            help='Travel for which the passenger is participating.'),
     }
 
     def name_get(self, cr, uid, ids, context=None):
@@ -57,5 +60,6 @@ class travel_passenger(orm.Model):
         }
 
     def on_change_partner_id(self, cr, uid, ids, partner_id, context=None):
+        """Placeholder function to be inherited"""
         res = {}
         return res
