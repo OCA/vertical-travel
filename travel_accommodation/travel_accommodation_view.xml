@@ -13,7 +13,15 @@
                 <field name="location" domain="[('is_accommodation', '=', True)]"
                        context="{'default_is_accommodation': True, 'default_is_company': True}"/>
                 <field name="close_to"/>
-                <field name="budget"/>
+                <group col="3" colspan="2">
+                  <label for="budget"/>
+                  <field name="budget" nolabel="1"/>
+                  <div style="width:25%%">
+                    <field name="budget_currency"
+                           nolabel='1'
+                           class="oe_inline"/>
+                  </div>
+                </group>
               </group>
               <group string="Times" col="2" colspan="2">
                 <field name="arrival"

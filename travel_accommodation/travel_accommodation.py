@@ -68,8 +68,15 @@ class travel_accommodation(orm.Model):
         if not ids:
             return False
         accommodation = self.browse(cr, uid, ids[0], context=context)
-        return self._check_dep_arr_dates(accommodation.departure,
-                                         accommodation.arrival)
+        return not self._check_dep_arr_dates(accommodation.departure,
+                                             accommodation.arrival)
+
+    def check_currency(self, cr, uid, ids, context=None):
+        if not ids:
+            return False
+        accommodation = self.browse(cr, uid, ids[0], context=context)
+        return not (bool(accommodation.budget) ^
+                    bool(accommodation.budget_currency))
 
     _columns = {
         'location': fields.many2one('res.partner', 'Location',
@@ -80,6 +87,8 @@ class travel_accommodation(orm.Model):
             'Budget per Night',
             digits_compute=dp.get_precision('Product Price'),
             help='Budget to allocate per night spent at Accommodations.'),
+        'budget_currency': fields.many2one(
+            'res.currency', 'Currency of budget', help='Currency of budget.'),
         'arrival': fields.datetime(
             'Arrival', required=True,
             help='Date and Time of arrival at Accommodations.'),
@@ -101,4 +110,7 @@ class travel_accommodation(orm.Model):
         (check_date,
          'Arrival date cannot be after departure date.',
          ['departure', 'arrival']),
+        (check_currency,
+         'Currency not specified for budget.',
+         ['budget', 'budget_currency', ])
     ]

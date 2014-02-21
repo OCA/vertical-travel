@@ -70,7 +70,8 @@ class travel_journey(orm.Model):
                                                context=context)
         return res
 
-    def on_change_return(self, cr, uid, ids, key, location, context=None):
+    @staticmethod
+    def on_change_return(cr, uid, ids, key, location, context=None):
         return {'value': {key: location}}
 
     def on_change_times(self, cr, uid, ids, departure, arrival,
@@ -113,6 +114,13 @@ class travel_journey(orm.Model):
         journey = self.browse(cr, uid, ids[0], context=context)
         return self._check_dep_arr_dates(journey.return_departure,
                                          journey.return_arrival)
+
+    def check_uom(self, cr, uid, ids, context=None):
+        if not ids:
+            return False
+        journey = self.browse(cr, uid, ids[0], context=context)
+        return not (bool(journey.baggage_weight) ^
+                    bool(journey.baggage_weight_uom))
 
     _columns = {
         'origin': fields.many2one(
@@ -173,4 +181,7 @@ class travel_journey(orm.Model):
         (check_date_return,
          'Arrival date cannot be after departure date on journey for return.',
          ['return_departure', 'return_arrival']),
+        (check_uom,
+         'Unit of Measure not specified for Baggage Weight.',
+         ['budget', 'budget_currency', ])
     ]
