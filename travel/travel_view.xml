@@ -72,12 +72,22 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="travel_calendar_view">
+      <field name="name">Travel Calendar View</field>
+      <field name="model">travel.travel</field>
+      <field name="arch" type="xml">
+        <calendar string="Travel Schedule" color="state" date_start="date_start" date_stop="date_stop">
+          <field name="name"/>
+        </calendar>
+      </field>
+    </record>
+
     <!-- Actions -->
     <record model="ir.actions.act_window" id="action_travels_tree_list">
         <field name="name">Travels</field>
         <field name="view_id" ref="travel_tree_view"/>
         <field name="res_model">travel.travel</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar</field>
     </record>
 
     <!-- Menus -->
