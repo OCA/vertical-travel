@@ -83,6 +83,7 @@ msgstr "inconnue"
 #. module: travel_accommodation
 #: code:addons/travel_accommodation/travel_accommodation.py:31
 #: model:ir.model,name:travel_accommodation.model_travel_accommodation
+#: code:_description:0
 #, python-format
 msgid "Accommodation of travel"
 msgstr "Hébergement du déplacement"

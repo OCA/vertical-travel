@@ -53,6 +53,7 @@ msgstr ""
 
 #. module: travel_journey
 #: model:ir.model,name:travel_journey.model_travel_journey
+#: code:_description:0
 msgid "Journey of travel"
 msgstr ""
 
@@ -338,4 +339,4 @@ msgstr ""
 #: constraint:travel.journey:0
 msgid "Arrival date cannot be after departure date on journey for return."
 msgstr ""
-
+#: code:_description:0

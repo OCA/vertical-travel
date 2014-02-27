@@ -45,6 +45,7 @@ msgstr "Confirmer"
 #: model:ir.ui.menu,name:travel.menu_travel_config
 #: model:ir.ui.menu,name:travel.menu_travel_main_form
 #: field:travel.passenger,travel_id:0
+#: code:_description:0
 msgid "Travel"
 msgstr "Déplacement"
 
@@ -153,6 +154,7 @@ msgstr "Utilisateur de base"
 
 #. module: travel
 #: model:ir.model,name:travel.model_travel_passenger
+#: code:_description:0
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
 

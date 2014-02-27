@@ -127,6 +127,7 @@ msgstr ""
 
 #. module: travel_rental_service
 #: model:ir.model,name:travel_rental_service.model_travel_rental_service
+#: code:_description:0
 msgid "Service rentals for travel"
 msgstr ""
 

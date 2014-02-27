@@ -106,6 +106,7 @@ msgstr "Location auto"
 #. module: travel_rental_car
 #: code:addons/travel_rental_car/travel_rental_car.py:28
 #: model:ir.model,name:travel_rental_car.model_travel_rental_car
+#: code:_description:0
 #, python-format
 msgid "Car Rentals for travel"
 msgstr "Locations d'auto pour le déplacement"

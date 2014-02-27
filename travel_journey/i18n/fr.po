@@ -56,6 +56,7 @@ msgstr "Commentaires"
 #. module: travel_journey
 #: code:addons/travel_journey/travel_journey.py:35
 #: model:ir.model,name:travel_journey.model_travel_journey
+#: code:_description:0
 #, python-format
 msgid "Journey of travel"
 msgstr "Nom du déplacement."

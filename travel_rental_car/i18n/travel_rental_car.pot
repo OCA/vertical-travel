@@ -104,6 +104,7 @@ msgstr ""
 
 #. module: travel_rental_car
 #: model:ir.model,name:travel_rental_car.model_travel_rental_car
+#: code:_description:0
 msgid "Car Rentals for travel"
 msgstr ""
 

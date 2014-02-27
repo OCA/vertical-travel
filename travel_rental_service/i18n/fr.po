@@ -166,6 +166,7 @@ msgstr "Annuler"
 #. module: travel_rental_service
 #: code:addons/travel_rental_service/travel_rental_service.py:28
 #: model:ir.model,name:travel_rental_service.model_travel_rental_service
+#: code:_description:0
 #, python-format
 msgid "Service rentals for travel"
 msgstr "Location de services pour le déplacement"

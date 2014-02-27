@@ -84,6 +84,7 @@ msgstr ""
 
 #. module: travel_accommodation
 #: model:ir.model,name:travel_accommodation.model_travel_accommodation
+#: code:_description:0
 msgid "Accommodation of travel"
 msgstr ""
 
