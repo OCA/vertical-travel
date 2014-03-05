@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-20 00:20+0000\n"
-"PO-Revision-Date: 2014-02-20 00:20+0000\n"
+"POT-Creation-Date: 2014-03-05 15:35+0000\n"
+"PO-Revision-Date: 2014-03-05 15:35+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -73,6 +73,7 @@ msgid "Travel - Other services"
 msgstr ""
 
 #. module: travel_rental_service
+#: model:_description:0
 #: model:ir.model,name:travel_rental_service.model_travel_passenger
 msgid "Passenger on travel"
 msgstr ""
@@ -121,13 +122,15 @@ msgid "Times"
 msgstr ""
 
 #. module: travel_rental_service
+#: code:addons/travel_rental_service/travel_rental_service.py:77
 #: constraint:travel.rental.service:0
+#, python-format
 msgid "End date cannot be after Start date for service rental."
 msgstr ""
 
 #. module: travel_rental_service
+#: model:_description:0
 #: model:ir.model,name:travel_rental_service.model_travel_rental_service
-#: code:_description:0
 msgid "Service rentals for travel"
 msgstr ""
 
@@ -178,6 +181,7 @@ msgid "Cancel"
 msgstr ""
 
 #. module: travel_rental_service
+#: model:_description:0
 #: model:ir.model,name:travel_rental_service.model_res_partner
 msgid "Partner"
 msgstr ""
@@ -188,6 +192,8 @@ msgid "or"
 msgstr ""
 
 #. module: travel_rental_service
+#: model:_description:0
 #: model:ir.model,name:travel_rental_service.model_travel_rental_service_import
 msgid "Service Rental information import"
 msgstr ""
+

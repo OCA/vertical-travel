@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-20 00:17+0000\n"
-"PO-Revision-Date: 2014-02-20 00:17+0000\n"
+"POT-Creation-Date: 2014-03-05 15:34+0000\n"
+"PO-Revision-Date: 2014-03-05 15:34+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -52,8 +52,8 @@ msgid "Comments"
 msgstr ""
 
 #. module: travel_journey
+#: model:_description:0
 #: model:ir.model,name:travel_journey.model_travel_journey
-#: code:_description:0
 msgid "Journey of travel"
 msgstr ""
 
@@ -78,7 +78,9 @@ msgid "Import"
 msgstr ""
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:179
 #: constraint:travel.journey:0
+#, python-format
 msgid "Arrival date cannot be after departure date on journey."
 msgstr ""
 
@@ -88,6 +90,7 @@ msgid "Economy"
 msgstr ""
 
 #. module: travel_journey
+#: model:_description:0
 #: model:ir.model,name:travel_journey.model_travel_journey_class
 msgid "Passenger Class for Journey"
 msgstr ""
@@ -114,7 +117,9 @@ msgid "unknown"
 msgstr ""
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:175
 #: constraint:travel.journey:0
+#, python-format
 msgid "A desired date of arrival or departure must be set on journey for return."
 msgstr ""
 
@@ -129,6 +134,7 @@ msgid "Meet Travel Directive"
 msgstr ""
 
 #. module: travel_journey
+#: model:_description:0
 #: model:ir.model,name:travel_journey.model_travel_passenger
 msgid "Passenger on travel"
 msgstr ""
@@ -175,11 +181,19 @@ msgid "Import from other passengers"
 msgstr ""
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:185
+#: constraint:travel.journey:0
+#, python-format
+msgid "Unit of Measure not specified for Baggage Weight."
+msgstr ""
+
+#. module: travel_journey
 #: field:travel.journey,baggage_weight_uom:0
 msgid "Baggage Weight Unit of Measure"
 msgstr ""
 
 #. module: travel_journey
+#: model:_description:0
 #: code:addons/travel_journey/travel_journey_type.py:28
 #: model:ir.model,name:travel_journey.model_travel_journey_type
 #: field:travel.journey,type:0
@@ -219,6 +233,7 @@ msgid "Name of passenger class."
 msgstr ""
 
 #. module: travel_journey
+#: model:_description:0
 #: model:ir.model,name:travel_journey.model_travel_journey_import
 msgid "Journey information import"
 msgstr ""
@@ -285,7 +300,9 @@ msgid "Reservation Number"
 msgstr ""
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:172
 #: constraint:travel.journey:0
+#, python-format
 msgid "A desired date of arrival or departure must be set on journey."
 msgstr ""
 
@@ -336,7 +353,9 @@ msgid "or"
 msgstr ""
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:182
 #: constraint:travel.journey:0
+#, python-format
 msgid "Arrival date cannot be after departure date on journey for return."
 msgstr ""
-#: code:_description:0
+

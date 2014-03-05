@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-27 22:59+0000\n"
-"PO-Revision-Date: 2014-02-27 22:59+0000\n"
+"POT-Creation-Date: 2014-03-05 15:35+0000\n"
+"PO-Revision-Date: 2014-03-05 15:35+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -36,17 +36,18 @@ msgid "Confirm"
 msgstr ""
 
 #. module: travel
+#: model:_description:0
 #: model:ir.model,name:travel.model_travel_travel
 #: model:ir.module.category,name:travel.module_category_travel
 #: model:ir.ui.menu,name:travel.menu_top_travel
 #: model:ir.ui.menu,name:travel.menu_travel_config
 #: model:ir.ui.menu,name:travel.menu_travel_main_form
 #: field:travel.passenger,travel_id:0
-#: code:_description:0
 msgid "Travel"
 msgstr ""
 
 #. module: travel
+#: model:_description:0
 #: model:ir.model,name:travel.model_travel_config_settings
 msgid "travel.config.settings"
 msgstr ""
@@ -58,7 +59,9 @@ msgid "Only members of the Travel Managers group have the right to create a Trav
 msgstr ""
 
 #. module: travel
+#: code:addons/travel/travel.py:75
 #: constraint:travel.travel:0
+#, python-format
 msgid "Start date cannot be after departure date."
 msgstr ""
 
@@ -138,8 +141,8 @@ msgid "Basic User"
 msgstr ""
 
 #. module: travel
+#: model:_description:0
 #: model:ir.model,name:travel.model_travel_passenger
-#: code:_description:0
 msgid "Passenger on travel"
 msgstr ""
 

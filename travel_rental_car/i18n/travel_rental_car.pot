@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-20 00:17+0000\n"
-"PO-Revision-Date: 2014-02-20 00:17+0000\n"
+"POT-Creation-Date: 2014-03-05 15:35+0000\n"
+"PO-Revision-Date: 2014-03-05 15:35+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -51,6 +51,7 @@ msgid "Vehicle type"
 msgstr ""
 
 #. module: travel_rental_car
+#: model:_description:0
 #: model:ir.model,name:travel_rental_car.model_travel_rental_car_import
 msgid "Car rental information import"
 msgstr ""
@@ -67,6 +68,7 @@ msgid "List of car rentals."
 msgstr ""
 
 #. module: travel_rental_car
+#: model:_description:0
 #: model:ir.model,name:travel_rental_car.model_travel_passenger
 msgid "Passenger on travel"
 msgstr ""
@@ -103,13 +105,15 @@ msgid "Car Rental"
 msgstr ""
 
 #. module: travel_rental_car
+#: model:_description:0
 #: model:ir.model,name:travel_rental_car.model_travel_rental_car
-#: code:_description:0
 msgid "Car Rentals for travel"
 msgstr ""
 
 #. module: travel_rental_car
+#: code:addons/travel_rental_car/travel_rental_car.py:75
 #: constraint:travel.rental.car:0
+#, python-format
 msgid "End date cannot be after Start date for car rental."
 msgstr ""
 

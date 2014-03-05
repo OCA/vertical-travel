@@ -108,9 +108,9 @@ class travel_accommodation(orm.Model):
 
     _constraints = [
         (check_date,
-         'Arrival date cannot be after departure date.',
+         _('Arrival date cannot be after departure date.'),
          ['departure', 'arrival']),
         (check_currency,
-         'Currency not specified for budget.',
+         _('Currency not specified for budget.'),
          ['budget', 'budget_currency', ])
     ]

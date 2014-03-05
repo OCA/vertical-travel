@@ -72,7 +72,7 @@ class travel_travel(orm.Model):
 
     _constraints = [
         (check_date,
-         'Start date cannot be after departure date.',
+         _('Start date cannot be after departure date.'),
          ['date_start', 'date_stop']),
     ]
 
