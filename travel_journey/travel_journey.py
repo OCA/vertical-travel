@@ -22,16 +22,82 @@
 
 from openerp.osv import fields, orm
 from openerp.tools.translate import _
+import logging
+_logger = logging.getLogger(__name__)
 
 
 class travel_journey(orm.Model):
     """Journey of travel"""
     _name = 'travel.journey'
     _description = _(__doc__)
+    _journey_type_classes = {}
 
     @staticmethod
     def _check_dep_arr_dates(departure, arrival):
         return not departure or not arrival or departure <= arrival
+
+    def _gantt_date(self, cr, uid, ids, field_name, arg, context=None):
+        """If there is no start date from journey, get it from travel"""
+        if type(ids) in (int, long):
+            ids = [ids]
+        res = {}
+        for journey in self.browse(cr, uid, ids, context=context):
+            date = False
+            if journey.type:
+                try:
+                    journey_class = self._journey_type_classes[journey.type]
+                    date = journey_class._gantt_typed_date(
+                        self, journey, field_name)
+                except KeyError:
+                    _logger.error(
+                        _('Transportation type "%s" has not registered its '
+                          'class in _journey_types, skipping its dates')
+                        % journey.type)
+                except AttributeError:
+                    _logger.error(
+                        _('Transportation type "%s" has not registered a '
+                          '_gatt_typed_date() function, skipping its dates')
+                        % journey.type)
+            if field_name == 'gantt_date_start':
+                date = (date or journey.departure or
+                        journey.passenger_id.travel_id.date_start)
+            elif field_name == 'gantt_date_stop':
+                date = (date or journey.arrival or
+                        journey.passenger_id.travel_id.date_stop)
+            res[journey.id] = date
+        return res
+
+    def _inv_gantt_date(self, cr, uid, ids, field_name, val, arg, context=None):
+        """If there is no start date in journey, set it in travel"""
+        if type(ids) in (int, long):
+            ids = [ids]
+        for journey in self.browse(cr, uid, ids, context=context):
+            if journey.type:
+                try:
+                    journey_class = self._journey_type_classes[journey.type]
+                    if (journey_class._inv_gantt_typed_date(
+                            self, journey, field_name, val)):
+                        continue
+                except KeyError:
+                    _logger.error(
+                        _('Transportation type "%s" has not registered its '
+                          'class in _journey_types, skipping its dates')
+                        % journey.type)
+                except AttributeError:
+                    _logger.error(
+                        _('Transportation type "%s" has not registered a '
+                          '_inv_gantt_typed_date() function, skipping its '
+                          'dates') % journey.type)
+            if field_name == 'gantt_date_start':
+                if journey.departure:
+                    journey.write({'departure': val})
+                elif journey.passenger_id.travel_id.date_start:
+                    journey.passenger_id.travel_id.write({'date_start': val})
+            elif field_name == 'gantt_date_stop':
+                if journey.arrival:
+                    journey.write({'arrival': val})
+                elif journey.passenger_id.travel_id.date_stop:
+                    journey.passenger_id.travel_id.write({'date_stop': val})
 
     def _default_class(self, cr, uid, context=None):
         ir_model_data = self.pool.get('ir.model.data')
@@ -122,6 +188,15 @@ class travel_journey(orm.Model):
         return not (bool(journey.baggage_weight) ^
                     bool(journey.baggage_weight_uom))
 
+    def name_get(self, cr, uid, ids, context=None):
+        return [
+            (journey.id,
+             "%s (%s -> %s)" % (journey.passenger_id.partner_id.name,
+                                journey.origin.name_get()[0][1],
+                                journey.destination.name_get()[0][1]))
+            for journey in self.browse(cr, uid, ids, context=context)
+        ]
+
     _columns = {
         'origin': fields.many2one(
             'res.better.zip', 'Origin', required='True',
@@ -154,6 +229,8 @@ class travel_journey(orm.Model):
         'passenger_id': fields.many2one(
             'travel.passenger', 'Passenger', required=True,
             help='Passenger on this journey.'),
+        'travel': fields.related(
+            'passenger_id', 'travel_name', type='char', string='Travel'),
         'type': fields.selection(
             _get_type, 'Travel journey type', help='Travel journey type.'),
         'reservation': fields.char(
@@ -161,6 +238,10 @@ class travel_journey(orm.Model):
             help="Number of the ticket reservation."),
         'cancellation': fields.text(
             'Cancellation', help='Notes on cancellation.'),
+        'gantt_date_start': fields.function(
+            _gantt_date, fnct_inv=_inv_gantt_date, type="datetime"),
+        'gantt_date_stop': fields.function(
+            _gantt_date, fnct_inv=_inv_gantt_date, type="datetime"),
     }
 
     _defaults = {

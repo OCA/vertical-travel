@@ -36,6 +36,8 @@ class travel_passenger(orm.Model):
         'travel_id': fields.many2one(
             'travel.travel', 'Travel',
             help='Travel for which the passenger is participating.'),
+        'travel_name': fields.related(
+            'travel_id', 'name', type='char', string='Travel'),
     }
 
     def name_get(self, cr, uid, ids, context=None):

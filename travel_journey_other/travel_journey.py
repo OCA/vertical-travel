@@ -26,21 +26,37 @@ from openerp.osv import fields, orm
 class travel_journey(orm.Model):
     _inherit = 'travel.journey'
     _columns = {
-        'other_from': fields.char('Origin', 256),
-        'other_to': fields.char('Destination', 256),
-        'other_departure': fields.datetime('Departure',
-                                           help='Date and time of the '
-                                                'departure of the special '
-                                                'transportation type.'),
-        'other_arrival': fields.datetime('Arrival',
-                                         help='Date and time of the '
-                                              'arrival of the special '
-                                              'transportation type.'),
-        'other_capacity': fields.integer('Capacity',
-                                         help='Number of passengers who can '
-                                              'take this mode of transport'),
+        'other_from': fields.char('Origin'),
+        'other_to': fields.char('Destination'),
+        'other_departure': fields.datetime(
+            'Departure', help='Date and time of the  departure of the special '
+                              'transportation type.'),
+        'other_arrival': fields.datetime(
+            'Arrival', help='Date and time of the arrival of the special '
+                            'transportation type.'),
+        'other_capacity': fields.integer(
+            'Capacity', help='Number of passengers who can take this mode of '
+                             'transport'),
         'other_description': fields.text('Description'),
     }
 
+    def init(self, cr):
+        """Register this class to be able to do polymorphic things"""
+        self._journey_type_classes['other'] = travel_journey
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    def _gantt_typed_date(self, journey, field_name):
+        """If there is a start date from flight, use it"""
+        if field_name == 'gantt_date_start':
+            return journey.other_departure
+        elif field_name == 'gantt_date_stop':
+            return journey.other_arrival
+
+    def _inv_gantt_typed_date(self, journey, field_name, val):
+        """If there is no start date in flight, set it in base"""
+        if field_name == 'gantt_date_start' and journey.other_departure:
+            journey.write({'other_departure': val})
+        elif field_name == 'gantt_date_stop' and journey.other_arrival:
+            journey.write({'other_arrival': val})
+        else:
+            return False
+        return True

@@ -26,24 +26,46 @@ from openerp.osv import fields, orm
 class travel_journey(orm.Model):
     _inherit = 'travel.journey'
     _columns = {
-        'airline': fields.many2one('res.partner', 'Airline',
-                                   domain="[('airline','=',True)]",
-                                   help="Airline company."),
-        'airport_from': fields.many2one('res.partner', 'Origin',
-                                        domain="[('airport','=',True)]",
-                                        help="Departure airport."),
-        'airport_to': fields.many2one('res.partner', 'Destination',
-                                      domain="[('airport','=',True)]",
-                                      help="Destination airport."),
-        'terminal_from': fields.char('Terminal (origin)', 256,
-                                     help="Terminal number at departure airport"),
-        'terminal_to': fields.char('Terminal (destination)', 256,
-                                   help="Terminal number at destination airport"),
-        'fight_departure': fields.datetime('Flight Departure',
-                                           help='Date and time of the departure of the flight.'),
-        'fight_arrival': fields.datetime('Flight Arrival',
-                                         help='Date and time of the arrival of the flight.'),
+        'airline': fields.many2one(
+            'res.partner', 'Airline', domain="[('airline','=',True)]",
+            help="Airline company."),
+        'airport_from': fields.many2one(
+            'res.partner', 'Origin', domain="[('airport','=',True)]",
+            help="Departure airport."),
+        'airport_to': fields.many2one(
+            'res.partner', 'Destination', domain="[('airport','=',True)]",
+            help="Destination airport."),
+        'terminal_from': fields.char(
+            'Terminal (origin)',
+            help="Terminal number at departure airport"),
+        'terminal_to': fields.char(
+            'Terminal (destination)',
+            help="Terminal number at destination airport"),
+        'fight_departure': fields.datetime(
+            'Flight Departure',
+            help='Date and time of the departure of the flight.'),
+        'fight_arrival': fields.datetime(
+            'Flight Arrival',
+            help='Date and time of the arrival of the flight.'),
     }
 
+    def init(self, cr):
+        """Register this class to be able to do polymorphic things"""
+        self._journey_type_classes['plane'] = travel_journey
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    def _gantt_typed_date(self, journey, field_name):
+        """If there is a start date from flight, use it"""
+        if field_name == 'gantt_date_start':
+            return journey.fight_departure
+        elif field_name == 'gantt_date_stop':
+            return journey.fight_arrival
+
+    def _inv_gantt_typed_date(self, journey, field_name, val):
+        """If there is no start date in flight, set it in base"""
+        if field_name == 'gantt_date_start' and journey.fight_departure:
+            journey.write({'fight_departure': val})
+        elif field_name == 'gantt_date_stop' and journey.fight_arrival:
+            journey.write({'fight_arrival': val})
+        else:
+            return False
+        return True

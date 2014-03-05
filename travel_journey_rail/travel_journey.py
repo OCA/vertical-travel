@@ -26,20 +26,42 @@ from openerp.osv import fields, orm
 class travel_journey(orm.Model):
     _inherit = 'travel.journey'
     _columns = {
-        'railway_company': fields.many2one('res.partner', 'Railway Company',
-                                           domain="[('railway_company','=',True)]",
-                                           help="Railway Company."),
-        'railway_station_from': fields.many2one('res.partner', 'Origin',
-                                                domain="[('railway_station','=',True)]",
-                                                help="Departure Railway Station."),
-        'railway_station_to': fields.many2one('res.partner', 'Destination',
-                                              domain="[('railway_station','=',True)]",
-                                              help="Destination Railway Station."),
-        'railway_station_departure': fields.datetime('Departure',
-                                                     help='Date and time of the departure of the train.'),
-        'railway_station_arrival': fields.datetime('Arrival',
-                                                   help='Date and time of the arrival of the train.'),
+        'railway_company': fields.many2one(
+            'res.partner', 'Railway Company',
+            domain="[('railway_company','=',True)]", help="Railway Company."),
+        'railway_station_from': fields.many2one(
+            'res.partner', 'Origin', domain="[('railway_station','=',True)]",
+            help="Departure Railway Station."),
+        'railway_station_to': fields.many2one(
+            'res.partner', 'Destination',
+            domain="[('railway_station','=',True)]",
+            help="Destination Railway Station."),
+        'railway_station_departure': fields.datetime(
+            'Departure', help='Date and time of the departure of the train.'),
+        'railway_station_arrival': fields.datetime(
+            'Arrival', help='Date and time of the arrival of the train.'),
     }
 
+    def init(self, cr):
+        """Register this class to be able to do polymorphic things"""
+        self._journey_type_classes['rail'] = travel_journey
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    def _gantt_typed_date(self, journey, field_name):
+        """If there is a start date from flight, use it"""
+        if field_name == 'gantt_date_start':
+            return journey.railway_station_departure
+        elif field_name == 'gantt_date_stop':
+            return journey.railway_station_arrival
+
+    def _inv_gantt_typed_date(self, journey, field_name, val):
+        """If there is no start date in flight, set it in base"""
+        if (field_name == 'gantt_date_start' and
+                journey.railway_station_departure):
+            journey.write({'railway_station_departure': val})
+        elif (field_name == 'gantt_date_stop' and
+                journey.railway_station_arrival):
+            journey.write({'railway_station_arrival': val})
+        else:
+            return False
+        return True
+

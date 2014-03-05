@@ -1,6 +1,7 @@
 <?xml version = "1.0" encoding="utf-8"?>
 <openerp>
   <data>
+
     <!-- Views -->
     <record model="ir.ui.view" id="travel_journey_form_view">
       <field name="name">Passenger Journey Form View</field>
@@ -65,6 +66,32 @@
         </form>
       </field>
     </record>
+
+    <record model="ir.ui.view" id="travel_gantt_view">
+      <field name="name">Travel Gantt View</field>
+      <field name="model">travel.journey</field>
+      <field name="arch" type="xml">
+        <gantt string="Travel Gantt"
+               date_start="gantt_date_start"
+               date_stop="gantt_date_stop"
+               default_group_by="travel"/>
+      </field>
+    </record>
+
+    <!-- Actions -->
+    <record model="ir.actions.act_window" id="action_travels_journey_gantt_view">
+        <field name="name">Journeys</field>
+        <field name="view_id" ref="travel_gantt_view"/>
+        <field name="res_model">travel.journey</field>
+        <field name="view_mode">gantt</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem name="Journeys"
+              id="menu_journey"
+              groups="travel.group_basic_travel_user"
+              parent="travel.menu_travel_main_form"
+              action="action_travels_journey_gantt_view"/>
 
   </data>
 </openerp>

@@ -2,6 +2,7 @@
 <!DOCTYPE openerp SYSTEM "openerp.dtd">
 <openerp>
   <data>
+
     <!-- Views -->
     <record model="ir.ui.view" id="travel_tree_view">
       <field name="name">Travel Tree View</field>
@@ -94,14 +95,17 @@
     <menuitem name="Travel"
               id="menu_top_travel"
               groups="travel.group_basic_travel_user"/>
+
     <menuitem name="Travel"
               id="menu_travel_main_form"
               groups="travel.group_basic_travel_user"
               parent="menu_top_travel" />
+
     <menuitem name="Travels"
               id="menu_travels"
               groups="travel.group_basic_travel_user"
               parent="menu_travel_main_form"
               action="action_travels_tree_list"/>
+
   </data>
 </openerp>
