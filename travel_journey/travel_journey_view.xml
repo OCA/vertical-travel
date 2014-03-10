@@ -1,4 +1,5 @@
 <?xml version = "1.0" encoding="utf-8"?>
+<!DOCTYPE openerp SYSTEM "openerp.dtd">
 <openerp>
   <data>
 
@@ -67,23 +68,53 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="travel_gantt_view">
-      <field name="name">Travel Gantt View</field>
+    <record model="ir.ui.view" id="travel_journey_list_view">
+      <field name="name">Travel Journey List View</field>
+      <field name="model">travel.journey</field>
+      <field name="arch" type="xml">
+        <tree string="Travel List">
+          <field name="origin"/>
+          <field name="destination"/>
+          <field name="departure"/>
+          <field name="arrival"/>
+          <field name="type"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="travel_journey_gantt_view">
+      <field name="name">Travel Journey Gantt View</field>
       <field name="model">travel.journey</field>
       <field name="arch" type="xml">
         <gantt string="Travel Gantt"
-               date_start="gantt_date_start"
-               date_stop="gantt_date_stop"
+               date_start="date_start"
+               date_stop="date_stop"
                default_group_by="travel"/>
+      </field>
+    </record>
+
+    <!-- Search -->
+    <record id="travel_journey_search" model="ir.ui.view">
+      <field name="name">Travel Journey Search</field>
+      <field name="model">travel.journey</field>
+      <field name="arch" type="xml">
+        <search string="Search Journeys">
+          <group string="Group by..." expand="1">
+            <filter name="travel_group" string="Travel" context="{'group_by': 'travel'}" />
+            <filter name="passenger_group" string="Passenger" context="{'group_by': 'passenger_id'}" />
+          </group>
+        </search>
       </field>
     </record>
 
     <!-- Actions -->
     <record model="ir.actions.act_window" id="action_travels_journey_gantt_view">
-        <field name="name">Journeys</field>
-        <field name="view_id" ref="travel_gantt_view"/>
-        <field name="res_model">travel.journey</field>
-        <field name="view_mode">gantt</field>
+      <field name="name">Journeys</field>
+      <field name="view_id" ref="travel_journey_gantt_view"/>
+      <field name="res_model">travel.journey</field>
+      <field name="view_mode">gantt,tree,form</field>
+      <field name="search_view_id" ref="travel_journey_search" />
+      <field name="context">{'search_default_travel_group': 1, 'search_default_passenger_group': 1}</field>
     </record>
 
     <!-- Menus -->

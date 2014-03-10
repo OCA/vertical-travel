@@ -20,8 +20,14 @@
 #
 ##############################################################################
 
+from datetime import datetime
 from openerp.osv import fields, orm
 from openerp.tools.translate import _
+from openerp.tools.misc import (
+    DEFAULT_SERVER_DATE_FORMAT,
+    DEFAULT_SERVER_DATETIME_FORMAT,
+)
+
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -36,7 +42,7 @@ class travel_journey(orm.Model):
     def _check_dep_arr_dates(departure, arrival):
         return not departure or not arrival or departure <= arrival
 
-    def _gantt_date(self, cr, uid, ids, field_name, arg, context=None):
+    def _estimate_date(self, cr, uid, ids, field_name, arg, context=None):
         """If there is no start date from journey, get it from travel"""
         if type(ids) in (int, long):
             ids = [ids]
@@ -46,7 +52,7 @@ class travel_journey(orm.Model):
             if journey.type:
                 try:
                     journey_class = self._journey_type_classes[journey.type]
-                    date = journey_class._gantt_typed_date(
+                    date = journey_class._estimate_typed_date(
                         self, journey, field_name)
                 except KeyError:
                     _logger.error(
@@ -56,18 +62,26 @@ class travel_journey(orm.Model):
                 except AttributeError:
                     _logger.error(
                         _('Transportation type "%s" has not registered a '
-                          '_gatt_typed_date() function, skipping its dates')
+                          '_estimate_typed_date() function, skipping its dates')
                         % journey.type)
-            if field_name == 'gantt_date_start':
+            if field_name == 'date_start':
                 date = (date or journey.departure or
                         journey.passenger_id.travel_id.date_start)
-            elif field_name == 'gantt_date_stop':
+            elif field_name == 'date_stop':
                 date = (date or journey.arrival or
                         journey.passenger_id.travel_id.date_stop)
+            # Make sure every date is in datetime format and not simply date
+            try:
+                date = datetime.strptime(date, DEFAULT_SERVER_DATETIME_FORMAT)
+            except ValueError:
+                date = datetime.strptime(date, DEFAULT_SERVER_DATE_FORMAT)
+            finally:
+                date = date.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
             res[journey.id] = date
         return res
 
-    def _inv_gantt_date(self, cr, uid, ids, field_name, val, arg, context=None):
+    def _inv_estimate_date(self, cr, uid, ids, field_name, val, arg,
+                           context=None):
         """If there is no start date in journey, set it in travel"""
         if type(ids) in (int, long):
             ids = [ids]
@@ -75,7 +89,7 @@ class travel_journey(orm.Model):
             if journey.type:
                 try:
                     journey_class = self._journey_type_classes[journey.type]
-                    if (journey_class._inv_gantt_typed_date(
+                    if (journey_class._inv_estimate_typed_date(
                             self, journey, field_name, val)):
                         continue
                 except KeyError:
@@ -86,14 +100,14 @@ class travel_journey(orm.Model):
                 except AttributeError:
                     _logger.error(
                         _('Transportation type "%s" has not registered a '
-                          '_inv_gantt_typed_date() function, skipping its '
+                          '_inv_estimate_typed_date() function, skipping its '
                           'dates') % journey.type)
-            if field_name == 'gantt_date_start':
+            if field_name == 'date_start':
                 if journey.departure:
                     journey.write({'departure': val})
                 elif journey.passenger_id.travel_id.date_start:
                     journey.passenger_id.travel_id.write({'date_start': val})
-            elif field_name == 'gantt_date_stop':
+            elif field_name == 'date_stop':
                 if journey.arrival:
                     journey.write({'arrival': val})
                 elif journey.passenger_id.travel_id.date_stop:
@@ -230,7 +244,11 @@ class travel_journey(orm.Model):
             'travel.passenger', 'Passenger', required=True,
             help='Passenger on this journey.'),
         'travel': fields.related(
-            'passenger_id', 'travel_name', type='char', string='Travel'),
+            'passenger_id', 'travel_name', type='char', string='Travel',
+            store=True),
+        'state': fields.related(
+            'passenger_id', 'travel_state', type='selection', string='State',
+            store=True),
         'type': fields.selection(
             _get_type, 'Travel journey type', help='Travel journey type.'),
         'reservation': fields.char(
@@ -238,10 +256,12 @@ class travel_journey(orm.Model):
             help="Number of the ticket reservation."),
         'cancellation': fields.text(
             'Cancellation', help='Notes on cancellation.'),
-        'gantt_date_start': fields.function(
-            _gantt_date, fnct_inv=_inv_gantt_date, type="datetime"),
-        'gantt_date_stop': fields.function(
-            _gantt_date, fnct_inv=_inv_gantt_date, type="datetime"),
+        'date_start': fields.function(
+            _estimate_date, fnct_inv=_inv_estimate_date, type="datetime",
+            help="Best estimate of start date calculated from filled fields."),
+        'date_stop': fields.function(
+            _estimate_date, fnct_inv=_inv_estimate_date, type="datetime",
+            help="Best estimate of end date calculated from filled fields."),
     }
 
     _defaults = {

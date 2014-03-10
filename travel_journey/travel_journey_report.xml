@@ -1,0 +1,200 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <record id="travel_journey_header" model="ir.header_webkit">
+      <field name="name">Travel Journey Header</field>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top" eval="40.0"/>
+      <field name="margin_bottom" eval="25.0"/>
+      <field name="css">
+        <![CDATA[
+/*
+ * Minimal bootstrap-like row and column classes
+ *
+ * Widths are slightly narrower (90%) than their bootstrap counterparts
+ * because of template data in the base_headers_webkit module.
+ */
+
+body {
+  margin: 15em 0em 0em 0em;
+  font-size: 0.75em;
+  line-height: 1.5em;
+}
+
+table {
+  font-size: 1em;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+
+.row:after {
+  clear: both;
+}
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-6, .col-md-8, .col-md-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  float: left;
+}
+
+.col-md-1 {
+  width: 7.5%;
+}
+
+.col-md-2 {
+  width: 14%;
+}
+
+.col-md-3 {
+  width: 22.5%;
+}
+
+.col-md-4 {
+  width: 29%;
+}
+
+.col-md-6 {
+  width: 43.03%;
+}
+
+.col-md-8 {
+  width: 57%;
+}
+
+.col-md-12 {
+  width: 90%;
+}
+
+/* Custom classes for this report */
+h1 {
+  font-size: 1.75em;
+  text-align: center;
+  margin: 0 0 40px 0;
+}
+
+h2 {
+  font-size: 1.25em;
+  margin: 0 0 50px 0;
+}
+
+h3 {
+  font-size: 1em;
+  line-height: 1.5em;
+  font-style: italic;
+}
+
+.header {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font: 400 8pt/10pt sans-serif;
+}
+
+.header img {
+  width: 12em;
+  height: 6em;
+}
+
+.address a {
+  color: black;
+}
+
+.address {
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  font: 400 8pt/10pt sans-serif;
+  margin: 40px 0 40px 40px;
+}
+
+.field_input {
+  border-bottom: 1.75px dashed #999;
+  display: inline;
+  font-style: italic;
+}
+
+.sign_date {
+  margin: 3em 0 0 30em;
+}
+
+.sign_name {
+  margin: 8em 0 0 40em;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+        ]]>
+      </field>
+      <field name="html"><![CDATA[
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <script>
+      function subst() {
+        var vars={};
+        var x=document.location.search.substring(1).split('&');
+        for(var i in x) {
+          var z=x[i].split('=',2);
+          vars[z[0]] = unescape(z[1]);
+        }
+        var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
+        for(var i in x) {
+          var y = document.getElementsByClassName(x[i]);
+          for(var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
+        }
+      }
+    </script>
+    <style type="text/css">
+      ${css}
+    </style>
+  </head>
+  <body style="border:0; margin: 0;" onload="subst()">
+    <div class="header">
+      ${ helper.embed_image('png',company.logo,200,50)|n }
+    </div>
+    <div class="address"><b><i>
+        ${company.partner_id.street or ''}
+        -
+        ${company.partner_id.zip or ''}
+        ${company.partner_id.city or ''}
+        -
+        ${company.partner_id.country_id.name or ''}
+        -
+        ${_('Tel:')}${company.partner_id.phone or ''}
+        <br/>
+        ${_('Fax:')} ${company.partner_id.fax or ''}
+        -
+        ${_('Web:')} <a href="${company.partner_id.website or ''}">${company.partner_id.website or ''}</a>
+      </i></b></div>
+    ${_debug or ''|n}
+  </body>
+</html>
+        ]]>
+      </field>
+    </record>
+
+    <report id="journey_order_report"
+            name="Travel Journey Order Report"
+            string="Journey Order Form"
+            auto="False"
+            model="travel.journey"
+            report_type="webkit"
+            webkit_header="travel_journey_header"
+            file="travel_journey/report/travel_journey.mako"
+            attachment="'Order.pdf'"/>
+
+  </data>
+</openerp>

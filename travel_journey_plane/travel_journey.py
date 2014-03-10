@@ -53,18 +53,18 @@ class travel_journey(orm.Model):
         """Register this class to be able to do polymorphic things"""
         self._journey_type_classes['plane'] = travel_journey
 
-    def _gantt_typed_date(self, journey, field_name):
+    def _estimate_typed_date(self, journey, field_name):
         """If there is a start date from flight, use it"""
-        if field_name == 'gantt_date_start':
+        if field_name == 'date_start':
             return journey.fight_departure
-        elif field_name == 'gantt_date_stop':
+        elif field_name == 'date_stop':
             return journey.fight_arrival
 
-    def _inv_gantt_typed_date(self, journey, field_name, val):
+    def _inv_estimate_typed_date(self, journey, field_name, val):
         """If there is no start date in flight, set it in base"""
-        if field_name == 'gantt_date_start' and journey.fight_departure:
+        if field_name == 'date_start' and journey.fight_departure:
             journey.write({'fight_departure': val})
-        elif field_name == 'gantt_date_stop' and journey.fight_arrival:
+        elif field_name == 'date_stop' and journey.fight_arrival:
             journey.write({'fight_arrival': val})
         else:
             return False

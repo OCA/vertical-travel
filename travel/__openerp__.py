@@ -39,7 +39,10 @@ Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
-    'depends': ['mail', 'base_location', ],
+    'depends': [
+        'mail',
+        'base_location',
+    ],
     'external_dependencies': {},
     'data': [
         'security/travel_security.xml',

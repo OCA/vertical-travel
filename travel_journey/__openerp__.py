@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2013 Savoir-faire Linux
+#    This module copyright (C) 2010 - 2014 Savoir-faire Linux
 #    (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -39,12 +39,17 @@ Contributors
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 * El Hadji Dem (elhadji.dem@savoirfairelinux.com)
 """,
-    'depends': ['travel', 'product', ],
+    'depends': [
+        'travel',
+        'product',  # for product.uom in baggage weight
+        'report_webkit',
+    ],
     'external_dependencies': {},
     'data': [
         'travel_passenger_view.xml',
         'travel_journey_view.xml',
         'travel_journey_data.xml',
+        'travel_journey_report.xml',
         'security/ir.model.access.csv',
         'wizard/travel_journey_import_view.xml',
     ],
@@ -52,5 +57,3 @@ Contributors
     'test': [],
     'installable': True,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

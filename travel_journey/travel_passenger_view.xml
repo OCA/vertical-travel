@@ -10,15 +10,7 @@
       <field name="arch" type="xml">
         <notebook name="Info" position="inside">
           <page string="Journey">
-            <field name="journey_ids">
-              <tree name="PassengerJourneyTree" version="7.0">
-                <field name="origin"/>
-                <field name="destination"/>
-                <field name="departure"/>
-                <field name="arrival"/>
-                <field name="type"/>
-              </tree>
-            </field>
+            <field name="journey_ids"/>
             <center>
               <!-- Import from other passengers with widget TODO: filter by state='draft'? -->
               <button string="Copy Journey from other Passengers"

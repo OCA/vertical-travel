@@ -38,6 +38,8 @@ class travel_passenger(orm.Model):
             help='Travel for which the passenger is participating.'),
         'travel_name': fields.related(
             'travel_id', 'name', type='char', string='Travel'),
+        'travel_state': fields.related(
+            'travel_id', 'state', type='selection', string='State'),
     }
 
     def name_get(self, cr, uid, ids, context=None):
