@@ -62,7 +62,7 @@
           </td>
           <td>
             <p>
-              ${o.comment or ''}
+              ${o.travel or ''}
             </p>
           </td>
         </tr>
