@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <report id="journey_order_report"
+            name="travel.journey.hr.order.webkit"
+            string="Journey Order Form"
+            auto="False"
+            model="travel.journey"
+            report_type="webkit"
+            webkit_header="travel_journey.travel_journey_header"
+            file="travel_journey/report/travel_journey.mako"/>
+
+  </data>
+</openerp>

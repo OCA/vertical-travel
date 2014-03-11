@@ -20,4 +20,4 @@
 #
 ##############################################################################
 
-from . import travel_journey_webkit
+from . import report

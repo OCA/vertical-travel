@@ -6,7 +6,7 @@
       <field name="name">Travel Journey Header</field>
       <field name="format">A4</field>
       <field name="orientation">Portrait</field>
-      <field name="margin_top" eval="40.0"/>
+      <field name="margin_top" eval="60.0"/>
       <field name="margin_bottom" eval="25.0"/>
       <field name="css">
         <![CDATA[
@@ -187,14 +187,13 @@ h3 {
     </record>
 
     <report id="journey_order_report"
-            name="Travel Journey Order Report"
+            name="travel.journey.order.webkit"
             string="Journey Order Form"
             auto="False"
             model="travel.journey"
             report_type="webkit"
             webkit_header="travel_journey_header"
-            file="travel_journey/report/travel_journey.mako"
-            attachment="'Order.pdf'"/>
+            file="travel_journey/report/travel_journey.mako"/>
 
   </data>
 </openerp>

@@ -20,18 +20,34 @@
 #
 ##############################################################################
 
-from openerp.report import report_sxw
+{
+    'name': 'Travel Journey - HR Bindings',
+    'version': '0.1',
+    'author': 'Savoir-faire Linux',
+    'maintainer': 'Savoir-faire Linux',
+    'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
+    'category': 'Customer Relationship Management',
+    'summary': "HR bindings for Travel Journey",
+    'description': """
+Travel Journey - HR Bindings
+============================
 
+Adds HR department to journey reports
 
-class travel_passenger_report(report_sxw.rml_parse):
-    def __init__(self, cr, uid, name, context=None):
-        super(travel_passenger_report, self).__init__(cr, uid, name,
-                                                      context=context)
-
-report_sxw.report_sxw(
-    name='report.travel.passenger.order',
-    table='travel.journey',
-    rml='addons/travel/report/travel_passenger.mako',
-    parser=travel_passenger_report,
-    header='external',
-)
+Contributors
+------------
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
+""",
+    'depends': ['travel_journey', 'hr_department_sequence', ],
+    'external_dependencies': {
+        'python': [],
+    },
+    'data': [
+        'travel_journey_report.xml',
+    ],
+    'demo': [],
+    'test': [],
+    'installable': True,
+    'auto_install': True,
+}
