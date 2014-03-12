@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 22:08+0000\n"
-"PO-Revision-Date: 2013-12-02 22:08+0000\n"
+"POT-Creation-Date: 2014-03-12 20:33+0000\n"
+"PO-Revision-Date: 2014-03-12 20:33+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,7 @@ msgid "Origin"
 msgstr ""
 
 #. module: travel_journey_plane
+#: model:_description:0
 #: model:ir.model,name:travel_journey_plane.model_travel_journey
 msgid "Journey of travel"
 msgstr ""
@@ -115,3 +116,4 @@ msgstr ""
 #: help:travel.journey,terminal_to:0
 msgid "Terminal number at destination airport"
 msgstr ""
+

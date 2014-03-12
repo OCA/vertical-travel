@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 22:44+0000\n"
-"PO-Revision-Date: 2013-12-02 17:48-0500\n"
-"Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
+"POT-Creation-Date: 2014-03-12 20:32+0000\n"
+"PO-Revision-Date: 2014-03-12 19:01-0500\n"
+"Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.7\n"
-"Language: fr\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: travel_journey_other
@@ -54,11 +54,17 @@ msgid "Departure"
 msgstr "Départ"
 
 #. module: travel_journey_other
+#: help:travel.journey,other_departure:0
+msgid "Date and time of the  departure of the special transportation type."
+msgstr "Heure et date de départ du transport générique."
+
+#. module: travel_journey_other
 #: view:travel.journey:0
 msgid "Locations"
 msgstr "Emplacements"
 
 #. module: travel_journey_other
+#: model:_description:0
 #: model:ir.model,name:travel_journey_other.model_travel_journey
 msgid "Journey of travel"
 msgstr "Nom du déplacement"
@@ -74,11 +80,6 @@ msgid "Details"
 msgstr "Détails"
 
 #. module: travel_journey_other
-#: view:travel.journey:0
-msgid "Other Methods"
-msgstr "Autre méthodes"
-
-#. module: travel_journey_other
 #: help:travel.journey,other_capacity:0
 msgid "Number of passengers who can take this mode of transport"
 msgstr "Nombre de passagers qui peuvent prendre ce mode de transport"
@@ -89,6 +90,6 @@ msgid "Times"
 msgstr "Heures et dates"
 
 #. module: travel_journey_other
-#: help:travel.journey,other_departure:0
-msgid "Date and time of the departure of the special transportation type."
-msgstr "Heure et date de départ du transport générique."
+#: view:travel.journey:0
+msgid "Other Methods"
+msgstr "Autre méthodes"

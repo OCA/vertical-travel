@@ -1,6 +1,5 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* railway_station
 #
 msgid ""
 msgstr ""
@@ -15,20 +14,8 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: railway_station
-#: model:_description:0
-#: model:ir.model,name:railway_station.model_res_partner
-msgid "Partner"
-msgstr ""
-
-#. module: railway_station
-#: view:res.partner:0
-msgid "Travel"
-msgstr ""
-
-#. module: railway_station
-#: view:res.partner:0
-#: field:res.partner,railway_station:0
-msgid "Railway Station"
+#. module: travel_journey_hr
+#: model:ir.actions.report.xml,name:travel_journey_hr.journey_order_report
+msgid "Journey Order Form"
 msgstr ""
 

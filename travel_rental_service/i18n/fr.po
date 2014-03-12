@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-28 00:59+0000\n"
-"PO-Revision-Date: 2014-01-30 16:50-0500\n"
+"POT-Creation-Date: 2014-03-05 15:35+0000\n"
+"PO-Revision-Date: 2014-03-12 19:08-0500\n"
 "Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: travel_rental_service
@@ -27,6 +27,11 @@ msgstr "Ville"
 #: field:travel.rental.service,capacity:0
 msgid "Capacity"
 msgstr "Capacité de la salle"
+
+#. module: travel_rental_service
+#: view:res.partner:0
+msgid "Travel"
+msgstr "Déplacement"
 
 #. module: travel_rental_service
 #: help:travel.rental.service,city_id:0
@@ -44,8 +49,7 @@ msgid "End"
 msgstr "Fin"
 
 #. module: travel_rental_service
-#: view:travel.rental.service:0
-#: field:travel.rental.service,location:0
+#: view:travel.rental.service:0 field:travel.rental.service,location:0
 msgid "Location"
 msgstr "Lieu"
 
@@ -71,6 +75,7 @@ msgid "Travel - Other services"
 msgstr "Autres Prestations "
 
 #. module: travel_rental_service
+#: model:_description:0
 #: model:ir.model,name:travel_rental_service.model_travel_passenger
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
@@ -102,14 +107,12 @@ msgid "Other passengers on the same journey."
 msgstr "Autres voyageurs du déplacement."
 
 #. module: travel_rental_service
-#: view:travel.rental.service:0
-#: field:travel.rental.service,equipment:0
+#: view:travel.rental.service:0 field:travel.rental.service,equipment:0
 msgid "Desired equipment"
 msgstr "Équipement souhaité"
 
 #. module: travel_rental_service
-#: view:travel.rental.service:0
-#: field:travel.rental.service,services:0
+#: view:travel.rental.service:0 field:travel.rental.service,services:0
 msgid "Desired services"
 msgstr "Services souhaités"
 
@@ -117,6 +120,21 @@ msgstr "Services souhaités"
 #: view:travel.rental.service:0
 msgid "Times"
 msgstr "Heures et dates"
+
+#. module: travel_rental_service
+#: code:addons/travel_rental_service/travel_rental_service.py:77
+#: constraint:travel.rental.service:0
+#, python-format
+msgid "End date cannot be after Start date for service rental."
+msgstr ""
+"La date de fin ne peut pas être postérieure à la date de début pour une "
+"prestation."
+
+#. module: travel_rental_service
+#: model:_description:0
+#: model:ir.model,name:travel_rental_service.model_travel_rental_service
+msgid "Service rentals for travel"
+msgstr "Location de services pour le déplacement"
 
 #. module: travel_rental_service
 #: view:travel.rental.service:0
@@ -127,6 +145,11 @@ msgstr "Locations"
 #: field:travel.rental.service,passenger_id:0
 msgid "Passenger"
 msgstr "Voyageur"
+
+#. module: travel_rental_service
+#: view:res.partner:0 field:res.partner,is_rental_service:0
+msgid "Rental Service"
+msgstr "Prestation"
 
 #. module: travel_rental_service
 #: field:travel.rental.service,start:0
@@ -149,11 +172,6 @@ msgid "End date and time of rental."
 msgstr "Date et heure de la fin de la location."
 
 #. module: travel_rental_service
-#: help:travel.rental.service,country_id:0
-msgid "Country of rental."
-msgstr "Pays de location."
-
-#. module: travel_rental_service
 #: field:travel.passenger,rental_service_ids:0
 msgid "Service Rentals"
 msgstr "Autres prestations"
@@ -164,12 +182,10 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #. module: travel_rental_service
-#: code:addons/travel_rental_service/travel_rental_service.py:28
-#: model:ir.model,name:travel_rental_service.model_travel_rental_service
-#: code:_description:0
-#, python-format
-msgid "Service rentals for travel"
-msgstr "Location de services pour le déplacement"
+#: model:_description:0
+#: model:ir.model,name:travel_rental_service.model_res_partner
+msgid "Partner"
+msgstr "Partenaire"
 
 #. module: travel_rental_service
 #: view:travel.rental.service.import:0
@@ -177,9 +193,10 @@ msgid "or"
 msgstr "ou"
 
 #. module: travel_rental_service
+#: model:_description:0
 #: model:ir.model,name:travel_rental_service.model_travel_rental_service_import
 msgid "Service Rental information import"
-msgstr "Importation d'autres préstations"
+msgstr "Importation d'autres prestations"
 
-#~ msgid "Rentals for travel"
-#~ msgstr "Locations pour le déplacement"
+#~ msgid "Country of rental."
+#~ msgstr "Pays de location."

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 22:44+0000\n"
-"PO-Revision-Date: 2013-12-02 22:44+0000\n"
+"POT-Creation-Date: 2014-03-12 20:32+0000\n"
+"PO-Revision-Date: 2014-03-12 20:32+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -52,11 +52,17 @@ msgid "Departure"
 msgstr ""
 
 #. module: travel_journey_other
+#: help:travel.journey,other_departure:0
+msgid "Date and time of the  departure of the special transportation type."
+msgstr ""
+
+#. module: travel_journey_other
 #: view:travel.journey:0
 msgid "Locations"
 msgstr ""
 
 #. module: travel_journey_other
+#: model:_description:0
 #: model:ir.model,name:travel_journey_other.model_travel_journey
 msgid "Journey of travel"
 msgstr ""
@@ -72,11 +78,6 @@ msgid "Details"
 msgstr ""
 
 #. module: travel_journey_other
-#: view:travel.journey:0
-msgid "Other Methods"
-msgstr ""
-
-#. module: travel_journey_other
 #: help:travel.journey,other_capacity:0
 msgid "Number of passengers who can take this mode of transport"
 msgstr ""
@@ -87,6 +88,7 @@ msgid "Times"
 msgstr ""
 
 #. module: travel_journey_other
-#: help:travel.journey,other_departure:0
-msgid "Date and time of the departure of the special transportation type."
+#: view:travel.journey:0
+msgid "Other Methods"
 msgstr ""
+

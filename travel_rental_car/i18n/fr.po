@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-28 00:59+0000\n"
-"PO-Revision-Date: 2014-01-30 16:41-0500\n"
+"POT-Creation-Date: 2014-03-05 15:35+0000\n"
+"PO-Revision-Date: 2014-03-12 19:05-0500\n"
 "Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. module: travel_rental_car
 #: field:travel.rental.car,end:0
@@ -52,6 +52,7 @@ msgid "Vehicle type"
 msgstr "Type de véhicule"
 
 #. module: travel_rental_car
+#: model:_description:0
 #: model:ir.model,name:travel_rental_car.model_travel_rental_car_import
 msgid "Car rental information import"
 msgstr "Importation de location d'autos"
@@ -68,6 +69,7 @@ msgid "List of car rentals."
 msgstr "Liste de location d'autos."
 
 #. module: travel_rental_car
+#: model:_description:0
 #: model:ir.model,name:travel_rental_car.model_travel_passenger
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
@@ -104,12 +106,19 @@ msgid "Car Rental"
 msgstr "Location auto"
 
 #. module: travel_rental_car
-#: code:addons/travel_rental_car/travel_rental_car.py:28
+#: model:_description:0
 #: model:ir.model,name:travel_rental_car.model_travel_rental_car
-#: code:_description:0
-#, python-format
 msgid "Car Rentals for travel"
 msgstr "Locations d'auto pour le déplacement"
+
+#. module: travel_rental_car
+#: code:addons/travel_rental_car/travel_rental_car.py:75
+#: constraint:travel.rental.car:0
+#, python-format
+msgid "End date cannot be after Start date for car rental."
+msgstr ""
+"La date de fin ne peut être postérieure à la date de début de la location "
+"d'auto."
 
 #. module: travel_rental_car
 #: help:travel.rental.car,dropoff_loc:0
@@ -137,8 +146,7 @@ msgid "Drop-off Location"
 msgstr "Lieu de restitution"
 
 #. module: travel_rental_car
-#: field:travel.passenger,rental_car_ids:0
-#: view:travel.rental.car:0
+#: field:travel.passenger,rental_car_ids:0 view:travel.rental.car:0
 msgid "Car Rentals"
 msgstr "Location d'auto"
 
@@ -171,4 +179,3 @@ msgstr "ou"
 #: help:travel.rental.car,end:0
 msgid "End date and time of car rental."
 msgstr "Heure et date de location d'auto"
-

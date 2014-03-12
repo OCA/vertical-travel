@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-28 00:59+0000\n"
-"PO-Revision-Date: 2014-01-28 00:59+0000\n"
+"POT-Creation-Date: 2014-03-12 20:32+0000\n"
+"PO-Revision-Date: 2014-03-12 20:32+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,7 @@ msgid "Passport"
 msgstr ""
 
 #. module: travel_passport
+#: model:_description:0
 #: model:ir.model,name:travel_passport.model_travel_passenger
 msgid "Passenger on travel"
 msgstr ""

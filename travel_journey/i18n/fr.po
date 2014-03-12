@@ -6,17 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 15:19+0000\n"
-"PO-Revision-Date: 2014-02-12 10:25-0500\n"
-"Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
+"POT-Creation-Date: 2014-03-12 20:32+0000\n"
+"PO-Revision-Date: 2014-03-12 18:59-0500\n"
+"Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.5.4\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+
+#. module: travel_journey
+#: report:addons/travel_journey/report/travel_journey.mako:19
+msgid "to travel to"
+msgstr "de se rendre à"
 
 #. module: travel_journey
 #: help:travel.journey,reservation:0
@@ -34,9 +39,19 @@ msgid "Notes on cancellation."
 msgstr "Notes au sujet de l'annulation."
 
 #. module: travel_journey
+#: view:travel.journey:0
+msgid "Travel Gantt"
+msgstr "Gantt des déplacements"
+
+#. module: travel_journey
 #: help:travel.journey,is_return:0
 msgid "Generate a return trip"
 msgstr "Créer un déplacement de retour"
+
+#. module: travel_journey
+#: view:travel.journey:0 field:travel.journey,travel:0
+msgid "Travel"
+msgstr "Déplacement"
 
 #. module: travel_journey
 #: field:travel.journey,destination:0
@@ -54,12 +69,26 @@ msgid "Comments"
 msgstr "Commentaires"
 
 #. module: travel_journey
-#: code:addons/travel_journey/travel_journey.py:35
+#: model:_description:0
 #: model:ir.model,name:travel_journey.model_travel_journey
-#: code:_description:0
-#, python-format
 msgid "Journey of travel"
 msgstr "Nom du déplacement."
+
+#. module: travel_journey
+#: report:addons/travel_journey/report/travel_journey.mako:66
+msgid ""
+"thanks civilian and miliary authorities of the countries visited of the "
+"facilities they choose to equip bearer of this order for the smooth running "
+"of the mission."
+msgstr ""
+"remercie les autorités civiles et militaires des pays visités des facilités "
+"qu'elles voudront bien accorder au porteur du présent ordre pour le bon "
+"déroulement de la mission."
+
+#. module: travel_journey
+#: report:addons/travel_journey/report/travel_journey.mako:71
+msgid "Made in %s, the"
+msgstr "Fait à %s, le"
 
 #. module: travel_journey
 #: help:travel.journey,passenger_id:0
@@ -72,6 +101,16 @@ msgid "List of journeys."
 msgstr "Liste de déplacements."
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:64
+#, python-format
+msgid ""
+"Transportation type \"%s\" has not registered a _estimate_typed_date() "
+"function, skipping its dates"
+msgstr ""
+"Le type de transport \"%s\" n'a pas enregistré de fonction "
+"_estimate_typed_date(), ses dates sont ignorées"
+
+#. module: travel_journey
 #: field:travel.journey,return_arrival:0
 msgid "Desired Arrival (return)"
 msgstr "Arrivée souhaitée (retour)"
@@ -82,14 +121,35 @@ msgid "Import"
 msgstr "Importer"
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:280
+#: constraint:travel.journey:0
+#, python-format
+msgid "Arrival date cannot be after departure date on journey."
+msgstr ""
+"La date d'arrivée ne peut pas être postérieure à la date du départ du "
+"déplacement."
+
+#. module: travel_journey
+#: model:_description:0 code:addons/travel_journey/travel_journey_type.py:28
+#: model:ir.model,name:travel_journey.model_travel_journey_type
+#: field:travel.journey,type:0
+#, python-format
+msgid "Travel journey type"
+msgstr "Type de déplacement"
+
+#. module: travel_journey
 #: model:travel.journey.class,name:travel_journey.travel_journey_class_economy
 msgid "Economy"
 msgstr "Économie"
 
 #. module: travel_journey
-#: code:addons/travel_journey/travel_journey_class.py:29
+#: report:addons/travel_journey/report/travel_journey.mako:44
+msgid "means of transport"
+msgstr "moyen de transport utilisé"
+
+#. module: travel_journey
+#: model:_description:0
 #: model:ir.model,name:travel_journey.model_travel_journey_class
-#, python-format
 msgid "Passenger Class for Journey"
 msgstr "Classe du voyageur pour le déplacement"
 
@@ -104,15 +164,47 @@ msgid "Premium"
 msgstr "Premium"
 
 #. module: travel_journey
+#: view:travel.journey:0
+msgid "Travel List"
+msgstr "Liste des déplacements"
+
+#. module: travel_journey
 #: model:travel.journey.class,name:travel_journey.travel_journey_class_business
 msgid "Business"
 msgstr "Affaires"
 
 #. module: travel_journey
+#: view:travel.journey:0
+msgid "Group by..."
+msgstr "Grouper par..."
+
+#. module: travel_journey
+#: field:travel.journey,date_start:0 field:travel.journey,date_stop:0
 #: field:travel.journey.import,cur_passenger_id:0
 #: field:travel.journey.import,travel_id:0
 msgid "unknown"
 msgstr "inconnue"
+
+#. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:59
+#: code:addons/travel_journey/travel_journey.py:97
+#, python-format
+msgid ""
+"Transportation type \"%s\" has not registered its class in _journey_types, "
+"skipping its dates"
+msgstr ""
+"Le type de transport \"%s\"  n'a pas enregistré sa classe dans "
+"_journey_types, ses dates sont ignorées"
+
+#. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:276
+#: constraint:travel.journey:0
+#, python-format
+msgid ""
+"A desired date of arrival or departure must be set on journey for return."
+msgstr ""
+"Une date désirée pour le départ ou l'arrivée doit être renseignée pour le "
+"déplacement du retour."
 
 #. module: travel_journey
 #: view:travel.passenger:0
@@ -125,9 +217,15 @@ msgid "Meet Travel Directive"
 msgstr "Conforme à la directive"
 
 #. module: travel_journey
+#: model:_description:0
 #: model:ir.model,name:travel_journey.model_travel_passenger
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
+
+#. module: travel_journey
+#: report:addons/travel_journey/report/travel_journey.mako:33
+msgid "to"
+msgstr "au"
 
 #. module: travel_journey
 #: help:travel.journey,class_id:0
@@ -155,6 +253,11 @@ msgid "Code of travel journey type."
 msgstr "Code du type de déplacement."
 
 #. module: travel_journey
+#: help:travel.journey,baggage_weight_uom:0
+msgid "Unit of Measure for Baggage Weight"
+msgstr "L'unité de mesure pour le poids du bagage"
+
+#. module: travel_journey
 #: view:travel.journey:0
 msgid "Cities"
 msgstr "Villes"
@@ -171,17 +274,26 @@ msgid "Import from other passengers"
 msgstr "Importer les données d'autre voyageurs"
 
 #. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:286
+#: constraint:travel.journey:0
+#, python-format
+msgid "Unit of Measure not specified for Baggage Weight."
+msgstr "L'unité de mesure pour le poids du bagage n'a pas été spécifié."
+
+#. module: travel_journey
 #: field:travel.journey,baggage_weight_uom:0
 msgid "Baggage Weight Unit of Measure"
 msgstr "'Unité de mesure' est l'unité de mesure pour le poids"
 
 #. module: travel_journey
-#: code:addons/travel_journey/travel_journey_type.py:28
-#: model:ir.model,name:travel_journey.model_travel_journey_type
-#: field:travel.journey,type:0
-#, python-format
-msgid "Travel journey type"
-msgstr "Type de déplacement"
+#: field:travel.journey,return_departure:0
+msgid "Desired Departure (return)"
+msgstr "Départ souhaité (retour)"
+
+#. module: travel_journey
+#: report:addons/travel_journey/report/travel_journey.mako:55
+msgid "purpose of the mission"
+msgstr "objet de la mission"
 
 #. module: travel_journey
 #: field:travel.journey.class,name:0 field:travel.journey.type,name:0
@@ -194,14 +306,29 @@ msgid "Other passengers on the same journey."
 msgstr "Autres voyageurs du déplacement."
 
 #. module: travel_journey
-#: field:travel.journey,return_departure:0
-msgid "Desired Departure (return)"
-msgstr "Départ souhaité (retour)"
+#: help:travel.journey,date_stop:0
+msgid "Best estimate of end date calculated from filled fields."
+msgstr "Estimé de la date de fin calculée à partir des champs remplis."
+
+#. module: travel_journey
+#: help:travel.journey,baggage_qty:0
+msgid "Number of articles in baggage."
+msgstr "Nombre d'articles du bagage."
 
 #. module: travel_journey
 #: view:travel.journey:0
 msgid "Times"
 msgstr "Heures et dates"
+
+#. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:102
+#, python-format
+msgid ""
+"Transportation type \"%s\" has not registered a _inv_estimate_typed_date() "
+"function, skipping its dates"
+msgstr ""
+"Le type de transport \"%s\" n'a pas enregistré de fonction "
+"_inv_estimate_typed_date(), ses dates sont ignorées"
 
 #. module: travel_journey
 #: help:travel.journey,destination:0
@@ -214,6 +341,7 @@ msgid "Name of passenger class."
 msgstr "Nom de la classe du voyageur."
 
 #. module: travel_journey
+#: model:_description:0
 #: model:ir.model,name:travel_journey.model_travel_journey_import
 msgid "Journey information import"
 msgstr "Import de données de déplacement"
@@ -234,9 +362,24 @@ msgid "Desired Arrival"
 msgstr "Arrivée souhaitée"
 
 #. module: travel_journey
+#: report:addons/travel_journey/report/travel_journey.mako:10
+msgid "Mission Manifest"
+msgstr "Ordre de mission"
+
+#. module: travel_journey
 #: field:travel.journey.import,passenger_id:0
 msgid "Import Journey information from"
 msgstr "Importer les données de déplacement de"
+
+#. module: travel_journey
+#: report:addons/travel_journey/report/travel_journey.mako:27
+msgid "from"
+msgstr "du"
+
+#. module: travel_journey
+#: report:addons/travel_journey/report/travel_journey.mako:13
+msgid "prescribed for"
+msgstr "prescrit à"
 
 #. module: travel_journey
 #: field:travel.journey,cancellation:0
@@ -249,14 +392,14 @@ msgid "Origin"
 msgstr "Origine"
 
 #. module: travel_journey
-#: field:travel.journey,passenger_id:0
+#: view:travel.journey:0 field:travel.journey,passenger_id:0
 msgid "Passenger"
 msgstr "Voyageur"
 
 #. module: travel_journey
-#: help:travel.journey,baggage_qty:0
-msgid "Number of articles in baggage."
-msgstr "Nombre d'articles du bagage."
+#: help:travel.journey,date_start:0
+msgid "Best estimate of start date calculated from filled fields."
+msgstr "Estimé de la date de début calculé à partir des champs renseignés."
 
 #. module: travel_journey
 #: field:travel.journey.type,code:0
@@ -264,7 +407,14 @@ msgid "Code"
 msgstr "Code"
 
 #. module: travel_journey
-#: view:travel.journey:0 field:travel.passenger,journey_ids:0
+#: model:ir.actions.report.xml,name:travel_journey.journey_order_report
+msgid "Journey Order Form"
+msgstr "Formulaire d'ordre de mission"
+
+#. module: travel_journey
+#: model:ir.actions.act_window,name:travel_journey.action_travels_journey_gantt_view
+#: model:ir.ui.menu,name:travel_journey.menu_journey view:travel.journey:0
+#: field:travel.passenger,journey_ids:0
 msgid "Journeys"
 msgstr "Déplacements"
 
@@ -279,6 +429,20 @@ msgid "Reservation Number"
 msgstr "Numéro de réservation"
 
 #. module: travel_journey
+#: field:travel.journey,state:0
+msgid "State"
+msgstr "État"
+
+#. module: travel_journey
+#: code:addons/travel_journey/travel_journey.py:273
+#: constraint:travel.journey:0
+#, python-format
+msgid "A desired date of arrival or departure must be set on journey."
+msgstr ""
+"Une date désirée pour le départ ou l'arrivée doit être renseignée pour le "
+"déplacement."
+
+#. module: travel_journey
 #: field:travel.journey,return_origin:0
 msgid "Origin (return)"
 msgstr "Origine (retour)"
@@ -289,9 +453,9 @@ msgid "Weight of baggage."
 msgstr "Poids du bagage."
 
 #. module: travel_journey
-#: help:travel.journey,baggage_weight_uom:0
-msgid "Unit of Measure for Baggage Weight"
-msgstr "L'unité de mesure pour le poids du bagage"
+#: view:travel.journey:0
+msgid "Search Journeys"
+msgstr "Rechercher dans les déplacements"
 
 #. module: travel_journey
 #: field:travel.journey,baggage_qty:0
@@ -314,14 +478,23 @@ msgid "Source city of travel."
 msgstr "Ville d'origine du déplacement."
 
 #. module: travel_journey
+#: view:travel.journey:0
+msgid "Passenger Journeys"
+msgstr "Déplacements du passager"
+
+#. module: travel_journey
 #: view:travel.journey:0 view:travel.journey.import:0
 msgid "or"
 msgstr "ou"
 
 #. module: travel_journey
-#: view:travel.journey:0
-msgid "Passenger Journeys"
-msgstr "Déplacements du passager"
+#: code:addons/travel_journey/travel_journey.py:283
+#: constraint:travel.journey:0
+#, python-format
+msgid "Arrival date cannot be after departure date on journey for return."
+msgstr ""
+"La date d'arrivée ne peut pas être postérieure à la date de départ pour le "
+"déplacement du retour."
 
 #~ msgid "Country for which a visa is needed"
 #~ msgstr "Ville pour laquelle un visa est requis"

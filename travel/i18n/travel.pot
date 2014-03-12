@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 15:35+0000\n"
-"PO-Revision-Date: 2014-03-05 15:35+0000\n"
+"POT-Creation-Date: 2014-03-12 20:32+0000\n"
+"PO-Revision-Date: 2014-03-12 20:32+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -43,6 +43,7 @@ msgstr ""
 #: model:ir.ui.menu,name:travel.menu_travel_config
 #: model:ir.ui.menu,name:travel.menu_travel_main_form
 #: field:travel.passenger,travel_id:0
+#: field:travel.passenger,travel_name:0
 msgid "Travel"
 msgstr ""
 
@@ -204,7 +205,7 @@ msgid "Open"
 msgstr ""
 
 #. module: travel
-#: code:addons/travel/travel_passenger.py:51
+#: code:addons/travel/travel_passenger.py:55
 #, python-format
 msgid "Passenger"
 msgstr ""
@@ -288,6 +289,11 @@ msgstr ""
 #. module: travel
 #: view:travel.travel:0
 msgid "TravelsForm"
+msgstr ""
+
+#. module: travel
+#: field:travel.passenger,travel_state:0
+msgid "State"
 msgstr ""
 
 #. module: travel
