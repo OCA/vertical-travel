@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2013 Savoir-faire Linux
+#    This module copyright (C) 2010 - 2014 Savoir-faire Linux
 #    (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,6 +21,8 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.osv.osv import except_osv
+from openerp.tools.translate import _
 
 
 class travel_accommodation_import(orm.TransientModel):
@@ -30,9 +32,9 @@ class travel_accommodation_import(orm.TransientModel):
     _columns = {
         'travel_id': fields.many2one('travel.travel'),
         'cur_passenger_id': fields.many2one('travel.passenger'),
-        'passenger_id': fields.many2one('travel.passenger',
-                                        string='Import Accommodation information from',
-                                        help='Other passengers on the same journey.'),
+        'passenger_id': fields.many2one(
+            'travel.passenger', string='Import Accommodation information from',
+            help='Other passengers on the same journey.'),
     }
 
     def data_import(self, cr, uid, ids, context=None):
@@ -45,6 +47,8 @@ class travel_accommodation_import(orm.TransientModel):
         for tai_obj in tai_pool.browse(cr, uid, ids, context=context):
             cur_passenger_obj = tai_obj.cur_passenger_id
             other_passenger_obj = tai_obj.passenger_id
+            if not other_passenger_obj:
+                raise except_osv(_('Error'), _('No source passenger selected.'))
             passenger_id = cur_passenger_obj.id
             for acc_obj in other_passenger_obj.accommodation_ids:
                 new_acc_id = ta_pool.copy(cr, uid, acc_obj.id, context=context)
@@ -74,5 +78,3 @@ class travel_accommodation_import(orm.TransientModel):
             'res_id': passenger_id,
             'context': context,
         }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

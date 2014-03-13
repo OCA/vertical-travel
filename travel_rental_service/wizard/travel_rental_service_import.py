@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2013 Savoir-faire Linux
+#    This module copyright (C) 2010 - 2014 Savoir-faire Linux
 #    (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,6 +21,8 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.osv.osv import except_osv
+from openerp.tools.translate import _
 
 
 class travel_rental_service_import(orm.TransientModel):
@@ -30,9 +32,9 @@ class travel_rental_service_import(orm.TransientModel):
     _columns = {
         'travel_id': fields.many2one('travel.travel'),
         'cur_passenger_id': fields.many2one('travel.passenger'),
-        'passenger_id': fields.many2one('travel.passenger',
-                                        string='Import Service Rental information from',
-                                        help='Other passengers on the same journey.'),
+        'passenger_id': fields.many2one(
+            'travel.passenger', string='Import Service Rental information from',
+            help='Other passengers on the same journey.'),
     }
 
     def data_import(self, cr, uid, ids, context=None):
@@ -44,11 +46,15 @@ class travel_rental_service_import(orm.TransientModel):
         for tsri_obj in trsi_pool.browse(cr, uid, ids, context=context):
             cur_passenger_obj = tsri_obj.cur_passenger_id
             other_passenger_obj = tsri_obj.passenger_id
+            if not other_passenger_obj:
+                raise except_osv(_('Error'), _('No source passenger selected.'))
             passenger_id = cur_passenger_obj.id
-            for rental_obj in other_passenger_obj.service_rental_ids:
-                new_rental_id = trs_pool.copy(cr, uid, rental_obj.id, context=context)
-                trs_pool.write(cr, uid, new_rental_id,
-                               {'passenger_id': cur_passenger_obj.id}, context=context)
+            for rental_obj in other_passenger_obj.rental_service_ids:
+                new_rental_id = trs_pool.copy(
+                    cr, uid, rental_obj.id, context=context)
+                trs_pool.write(
+                    cr, uid, new_rental_id,
+                    {'passenger_id': cur_passenger_obj.id}, context=context)
         return {
             'name': 'Passengers',
             'res_model': 'travel.passenger',
@@ -73,5 +79,3 @@ class travel_rental_service_import(orm.TransientModel):
             'res_id': passenger_id,
             'context': context,
         }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
