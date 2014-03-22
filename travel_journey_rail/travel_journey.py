@@ -65,3 +65,5 @@ class travel_journey(orm.Model):
             return False
         return True
 
+    def _company_typed_get(self, journey):
+        return journey.railway_company.name_get()[0][1]

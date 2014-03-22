@@ -21,6 +21,7 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.tools.translate import _
 
 
 class travel_journey(orm.Model):
@@ -60,3 +61,6 @@ class travel_journey(orm.Model):
         else:
             return False
         return True
+
+    def _company_typed_get(self, journey):
+        return _('N/A')

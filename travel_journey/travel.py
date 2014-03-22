@@ -20,7 +20,20 @@
 #
 ##############################################################################
 
-from . import (
-    travel_journey_import,
-    travel_summary,
-)
+from openerp.osv import fields, orm
+
+
+class travel_travel(orm.Model):
+    _inherit = 'travel.travel'
+    _columns = {
+        'journey_ids': fields.related(
+            'passenger_ids', 'journey_ids', relation='travel.journey',
+            type='one2many', string='Journeys'),
+    }
+
+    def action_travel_summary(self, cr, user, ids, context=None):
+        return {
+            'type': 'ir.actions.report.xml',
+            'report_name': 'account.financial.report',
+            'datas': data,
+        }

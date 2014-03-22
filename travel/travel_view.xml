@@ -107,5 +107,10 @@
               parent="menu_travel_main_form"
               action="action_travels_tree_list"/>
 
+    <menuitem id="menu_travel_report"
+              name="Reports"
+              parent="menu_top_travel"
+              groups="travel.group_authorized_travel_user"/>
+
   </data>
 </openerp>

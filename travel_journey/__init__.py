@@ -21,6 +21,7 @@
 ##############################################################################
 
 from . import (
+    travel,
     travel_journey,
     travel_journey_class,
     travel_passenger,

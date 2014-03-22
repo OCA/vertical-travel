@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<!DOCTYPE openerp SYSTEM "openerp.dtd">
+<openerp>
+  <data>
+
+    <record id="action_travel_summary_wizard" model="ir.actions.act_window">
+      <field name="name">Travel Summary</field>
+      <field name="res_model">travel.summary</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="travel_summary_view" />
+      <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_travel_summary"
+              name="Travel Summary"
+              parent="travel.menu_travel_report"
+              action="action_travel_summary_wizard"
+              groups="travel.group_authorized_travel_user"/>
+
+  </data>
+</openerp>

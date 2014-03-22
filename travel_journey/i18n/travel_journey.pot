@@ -167,6 +167,12 @@ msgid "Group by..."
 msgstr ""
 
 #. module: travel_journey
+#: code:addons/travel_journey/wizard/travel_summary.py:165
+#, python-format
+msgid "#,##0.00 [$$-C0C];-#,##0.00 [$$-C0C]"
+msgstr ""
+
+#. module: travel_journey
 #: field:travel.journey,date_start:0
 #: field:travel.journey,date_stop:0
 #: field:travel.journey.import,cur_passenger_id:0

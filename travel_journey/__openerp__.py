@@ -44,7 +44,6 @@ Contributors
         'product',  # for product.uom in baggage weight
         'report_webkit',
     ],
-    'external_dependencies': {},
     'data': [
         'travel_passenger_view.xml',
         'travel_journey_view.xml',
@@ -52,6 +51,8 @@ Contributors
         'travel_journey_report.xml',
         'security/ir.model.access.csv',
         'wizard/travel_journey_import_view.xml',
+        'wizard/travel_summary_view.xml',
+        'travel_view.xml',
     ],
     'demo': [],
     'test': [],

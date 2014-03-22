@@ -26,6 +26,7 @@ from openerp.tools.translate import _
 from openerp.tools.misc import (
     DEFAULT_SERVER_DATE_FORMAT,
     DEFAULT_SERVER_DATETIME_FORMAT,
+    DEFAULT_SERVER_TIME_FORMAT,
 )
 
 import logging
@@ -42,7 +43,7 @@ class travel_journey(orm.Model):
     def _check_dep_arr_dates(departure, arrival):
         return not departure or not arrival or departure <= arrival
 
-    def _estimate_date(self, cr, uid, ids, field_name, arg, context=None):
+    def _estimate_datetime(self, cr, uid, ids, field_name, context=None):
         """If there is no start date from journey, get it from travel"""
         if type(ids) in (int, long):
             ids = [ids]
@@ -75,10 +76,24 @@ class travel_journey(orm.Model):
                 date = datetime.strptime(date, DEFAULT_SERVER_DATE_FORMAT)
             except ValueError:
                 date = datetime.strptime(date, DEFAULT_SERVER_DATETIME_FORMAT)
-            finally:
-                date = date.strftime(DEFAULT_SERVER_DATE_FORMAT)
             res[journey.id] = date
         return res
+
+    def _estimate_date(self, cr, uid, ids, field_name, arg=None, context=None):
+        datetimes = self._estimate_datetime(
+            cr, uid, ids, field_name, context=context)
+        return {
+            i: datetimes[i].strftime(DEFAULT_SERVER_DATE_FORMAT)
+            for i in datetimes
+        }
+
+    def _estimate_time(self, cr, uid, ids, field_name, arg=None, context=None):
+        datetimes = self._estimate_datetime(
+            cr, uid, ids, field_name, context=context)
+        return {
+            i: datetimes[i].strftime(DEFAULT_SERVER_TIME_FORMAT)
+            for i in datetimes
+        }
 
     def _inv_estimate_date(self, cr, uid, ids, field_name, val, arg,
                            context=None):
@@ -211,6 +226,52 @@ class travel_journey(orm.Model):
             for journey in self.browse(cr, uid, ids, context=context)
         ]
 
+    def company_get(self, cr, uid, ids, context=None):
+        res = _("N/A")
+        if type(ids) not in (int, long) and ids:
+            ids = ids[0]
+        journey = self.browse(cr, uid, ids, context=context)
+        try:
+            if journey.type:
+                journey_class = self._journey_type_classes[journey.type]
+                res = journey_class._company_typed_get(self, journey)
+        except KeyError:
+            _logger.error(
+                _('Transportation type "%s" has not registered its '
+                  'class in _journey_types, skipping its company')
+                % journey.type)
+        except AttributeError:
+            _logger.error(
+                _('Transportation type "%s" has not registered a '
+                  '_estimate_typed_date() function, skipping its company')
+                % journey.type)
+        finally:
+            return res
+
+    def origin_get(self, cr, uid, ids, context=None):
+        if ids not in (int, long) and ids:
+            return self.browse(cr, uid, ids[0], context=context).origin
+
+    def destination_get(self, cr, uid, ids, context=None):
+        if ids not in (int, long) and ids:
+            return self.browse(cr, uid, ids[0], context=context).destination
+
+    def departure_date_get(self, cr, uid, ids, context=None):
+        return self._estimate_date(
+            cr, uid, ids, 'date_start', context=context)[ids[0]]
+
+    def arrival_date_get(self, cr, uid, ids, context=None):
+        return self._estimate_date(
+            cr, uid, ids, 'date_stop', context=context)[ids[0]]
+
+    def departure_time_get(self, cr, uid, ids, context=None):
+        return self._estimate_time(
+            cr, uid, ids, 'date_start', context=context)[ids[0]]
+
+    def arrival_time_get(self, cr, uid, ids, context=None):
+        return self._estimate_time(
+            cr, uid, ids, 'date_stop', context=context)[ids[0]]
+
     _columns = {
         'origin': fields.many2one(
             'res.better.zip', 'Origin', required='True',
@@ -277,10 +338,11 @@ class travel_journey(orm.Model):
          'return.'),
          ['return_departure', 'return_arrival']),
         (check_date,
-         _('Arrival date cannot be after departure date on journey.'),
+         _('Departure date cannot be after arrival date on journey.'),
          ['departure', 'arrival']),
         (check_date_return,
-         _('Arrival date cannot be after departure date on journey for return.'),
+         _('Departure date cannot be after arrival date on journey for '
+           'return.'),
          ['return_departure', 'return_arrival']),
         (check_uom,
          _('Unit of Measure not specified for Baggage Weight.'),
