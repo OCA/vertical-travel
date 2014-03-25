@@ -8,7 +8,7 @@
       <field name="arch" type="xml">
         <form string="Travel Summary" version="7.0">
           <group string="Select the Travel for Summary">
-            <field name="travel_id" required="True"/>
+            <field name="travel_id" widget="selection"/>
 
             <group string="Reports">
               <field name="excel_file" filename="export_filename"/>

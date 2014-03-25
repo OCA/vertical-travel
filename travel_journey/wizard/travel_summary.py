@@ -102,7 +102,8 @@ class travel_summary(orm.TransientModel):
     _name = "travel.summary"
     _description = "Travel Journey Summary"
     _columns = {
-        'travel_id': fields.many2one('travel.travel', string="Travel"),
+        'travel_id': fields.many2one(
+            'travel.travel', string="Travel", required=True),
         'excel_file': fields.binary('Report', readonly=True),
         'export_filename': fields.char('Export Filename', size=128),
     }

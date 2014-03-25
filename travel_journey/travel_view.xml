@@ -12,10 +12,25 @@
       <field name="target">new</field>
     </record>
 
+    <record id="action_travel_journey_order_form_wizard" model="ir.actions.act_window">
+      <field name="name">Travel Journey Order Form</field>
+      <field name="res_model">travel.journey.order.form</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="travel_journey_order_form_view" />
+      <field name="target">new</field>
+    </record>
+
     <menuitem id="menu_travel_summary"
               name="Travel Summary"
               parent="travel.menu_travel_report"
               action="action_travel_summary_wizard"
+              groups="travel.group_authorized_travel_user"/>
+
+    <menuitem id="menu_travel_journey_order_form"
+              name="Journey Order Form"
+              parent="travel.menu_travel_report"
+              action="action_travel_journey_order_form_wizard"
               groups="travel.group_authorized_travel_user"/>
 
   </data>

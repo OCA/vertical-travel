@@ -23,10 +23,32 @@
 from openerp.osv import fields, orm
 
 
-class travel_travel(orm.Model):
-    _inherit = 'travel.travel'
+class travel_journey_order_form(orm.TransientModel):
+    _name = "travel.journey.order.form"
+    _description = "Travel Journey Order Form"
     _columns = {
-        'journey_ids': fields.related(
-            'passenger_ids', 'journey_ids', relation='travel.journey',
-            type='one2many', string='Journeys'),
+        'travel_id': fields.many2one(
+            'travel.travel', string="Travel", required=True),
+        'journey_id': fields.many2one(
+            'travel.journey', string="Journey", required=True),
     }
+
+    def print_report(self, cr, uid, ids, data, context=None):
+        wizard = self.browse(cr, uid, ids, context=context)[0]
+        journey = wizard.journey_id
+        data['ids'] = [journey.id]
+        data['model'] = ['travel.journey']
+        return {
+            'type': 'ir.actions.report.xml',
+            'report_name': 'travel.journey.order.webkit',
+            'datas': data,
+        }
+
+    def update_journey_domain(self, cr, uid, ids, travel_id, context=None):
+        travel_pool = self.pool.get('travel.travel')
+        travel = travel_pool.browse(cr, uid, travel_id, context=context)
+        return {
+            'domain': {
+                'budgets': [('id', 'in', [j.id for j in travel.journey_ids])],
+            }
+        }
