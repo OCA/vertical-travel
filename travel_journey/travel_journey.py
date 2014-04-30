@@ -185,33 +185,43 @@ class travel_journey(orm.Model):
         }
 
     def check_date_exists(self, cr, uid, ids, context=None):
-        if not ids:
+        if type(ids) is not list:
+            ids = [ids]
+        if not ids:  # pragma: no cover
             return False
         journey = self.browse(cr, uid, ids[0], context=context)
         return journey.departure or journey.arrival
 
     def check_date_exists_return(self, cr, uid, ids, context=None):
-        if not ids:
+        if type(ids) is not list:
+            ids = [ids]
+        if not ids:  # pragma: no cover
             return False
         journey = self.browse(cr, uid, ids[0], context=context)
         return (not journey.is_return or
                 journey.return_departure or journey.return_arrival)
 
     def check_date(self, cr, uid, ids, context=None):
-        if not ids:
+        if type(ids) is not list:
+            ids = [ids]
+        if not ids:  # pragma: no cover
             return False
         journey = self.browse(cr, uid, ids[0], context=context)
         return self._check_dep_arr_dates(journey.departure, journey.arrival)
 
     def check_date_return(self, cr, uid, ids, context=None):
-        if not ids:
+        if type(ids) is not list:
+            ids = [ids]
+        if not ids:  # pragma: no cover
             return False
         journey = self.browse(cr, uid, ids[0], context=context)
         return self._check_dep_arr_dates(journey.return_departure,
                                          journey.return_arrival)
 
     def check_uom(self, cr, uid, ids, context=None):
-        if not ids:
+        if type(ids) is not list:
+            ids = [ids]
+        if not ids:  # pragma: no cover
             return False
         journey = self.browse(cr, uid, ids[0], context=context)
         return not (bool(journey.baggage_weight) ^
@@ -249,28 +259,44 @@ class travel_journey(orm.Model):
             return res
 
     def origin_get(self, cr, uid, ids, context=None):
-        if ids not in (int, long) and ids:
+        if type(ids) is not list:
+            ids = [ids]
+        if ids:
             return self.browse(cr, uid, ids[0], context=context).origin
 
     def destination_get(self, cr, uid, ids, context=None):
-        if ids not in (int, long) and ids:
+        if type(ids) is not list:
+            ids = [ids]
+        if ids:
             return self.browse(cr, uid, ids[0], context=context).destination
 
     def departure_date_get(self, cr, uid, ids, context=None):
-        return self._estimate_date(
-            cr, uid, ids, 'date_start', context=context)[ids[0]]
+        if type(ids) is not list:
+            ids = [ids]
+        if ids:
+            return self._estimate_date(
+                cr, uid, ids, 'date_start', context=context)[ids[0]]
 
     def arrival_date_get(self, cr, uid, ids, context=None):
-        return self._estimate_date(
-            cr, uid, ids, 'date_stop', context=context)[ids[0]]
+        if type(ids) is not list:
+            ids = [ids]
+        if ids:
+            return self._estimate_date(
+                cr, uid, ids, 'date_stop', context=context)[ids[0]]
 
     def departure_time_get(self, cr, uid, ids, context=None):
-        return self._estimate_time(
-            cr, uid, ids, 'date_start', context=context)[ids[0]]
+        if type(ids) is not list:
+            ids = [ids]
+        if ids:
+            return self._estimate_time(
+                cr, uid, ids, 'date_start', context=context)[ids[0]]
 
     def arrival_time_get(self, cr, uid, ids, context=None):
-        return self._estimate_time(
-            cr, uid, ids, 'date_stop', context=context)[ids[0]]
+        if type(ids) is not list:
+            ids = [ids]
+        if ids:
+            return self._estimate_time(
+                cr, uid, ids, 'date_stop', context=context)[ids[0]]
 
     _columns = {
         'origin': fields.many2one(

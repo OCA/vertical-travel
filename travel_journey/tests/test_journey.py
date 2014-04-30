@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-################################################################################
+###############################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    This module copyright (C) 2013 Savoir-faire Linux
@@ -18,10 +18,12 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-################################################################################
+###############################################################################
 
 from openerp.tests.common import TransactionCase
-from openerp.osv.osv import except_osv
+from openerp.osv.orm import except_orm
+from openerp.tools.misc import DEFAULT_SERVER_DATE_FORMAT
+from openerp.tools.translate import _
 
 
 class test_journey(TransactionCase):
@@ -60,7 +62,6 @@ class test_journey(TransactionCase):
             'destination': city_id,
             'departure': '2014-03-12',
             'passenger_id': self.passenger_id,
-            'class_id': 1,
         }
 
     def test_create_journey(self):
@@ -84,7 +85,7 @@ class test_journey(TransactionCase):
             'cur_passenger_id': self.passenger_id,
         }, context=self.context)
         self.assertRaises(
-            except_osv,
+            except_orm,
             journey_import_model.data_import,
             self.cr, self.uid, [wizard_bad], context=self.context)
 
@@ -102,3 +103,110 @@ class test_journey(TransactionCase):
         }, context=self.context)
         journey_import_model.data_import(
             self.cr, self.uid, [wizard_good], context=self.context)
+
+    def test_estimate_datetime(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        journey_id = self.journey_model.create(
+            cr, uid,
+            dict(vals, departure=None, arrival='2014-05-01'),
+            context=context)
+        dt = self.journey_model._estimate_datetime(
+            cr, uid, journey_id, 'date_start', context=context)
+        date = self.journey_model._estimate_date(
+            cr, uid, journey_id, 'date_start', context=context)
+        time = self.journey_model._estimate_time(
+            cr, uid, journey_id, 'date_start', context=context)
+        self.assertEqual(dt[journey_id].strftime(DEFAULT_SERVER_DATE_FORMAT),
+                         '2014-03-01')
+        self.assertEqual(date[journey_id], '2014-03-01')
+        self.assertEqual(time[journey_id], '00:00:00')
+        journey_id = self.journey_model.create(cr, uid, vals, context=context)
+        dt = self.journey_model._estimate_datetime(
+            cr, uid, journey_id, 'date_stop', context=context)
+        date = self.journey_model._estimate_date(
+            cr, uid, journey_id, 'date_stop', context=context)
+        time = self.journey_model._estimate_time(
+            cr, uid, journey_id, 'date_stop', context=context)
+        self.assertEqual(dt[journey_id].strftime(DEFAULT_SERVER_DATE_FORMAT),
+                         '2014-03-12')
+        self.assertEqual(date[journey_id], '2014-03-12')
+        self.assertEqual(time[journey_id], '00:00:00')
+
+    def test_on_change(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        journey_id = self.journey_model.create(cr, uid, vals, context=context)
+        new_city_id = self.city_model.create(self.cr, self.uid, {
+            'city': 'new_test_city'
+        }, context=self.context)
+        res = self.journey_model.on_change_return(
+            cr, uid, journey_id, key='return_destination',
+            location=new_city_id, context=context)
+        self.assertEqual(res['value']['return_destination'], new_city_id)
+        res = self.journey_model.on_change_times(
+            cr, uid, journey_id, departure='2014-03-01', arrival='2014-03-12',
+            return_trip=False, context=context)
+        self.assertEqual(res, {})
+        res = self.journey_model.on_change_times(
+            cr, uid, journey_id, departure='2014-03-12', arrival='2014-03-01',
+            return_trip=False, context=context)
+        self.assertIn('warning', res)
+
+    def test_checks(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        journey_id = self.journey_model.create(cr, uid, vals, context=context)
+        self.assertTrue(self.journey_model.check_date_exists(
+            cr, uid, journey_id, context=context))
+        self.assertTrue(self.journey_model.check_date_exists_return(
+            cr, uid, journey_id, context=context))
+        self.assertTrue(self.journey_model.check_date(
+            cr, uid, journey_id, context=context))
+        self.assertTrue(self.journey_model.check_date_return(
+            cr, uid, journey_id, context=context))
+        self.assertTrue(self.journey_model.check_uom(
+            cr, uid, journey_id, context=context))
+
+    def test_company_get(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        journey_id = self.journey_model.create(cr, uid, vals, context=context)
+        self.assertEqual(self.journey_model.company_get(
+            cr, uid, [journey_id], context=context), _("N/A"))
+
+    def test_gets(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        journey_id = self.journey_model.create(cr, uid, vals, context=context)
+        self.assertEqual(self.journey_model.origin_get(
+            cr, uid, journey_id, context=context).id, vals['origin'])
+        self.assertEqual(self.journey_model.destination_get(
+            cr, uid, journey_id, context=context).id, vals['destination'])
+        self.assertEqual(self.journey_model.departure_date_get(
+            cr, uid, journey_id, context=context), vals['departure'])
+        self.assertEqual(self.journey_model.arrival_date_get(
+            cr, uid, journey_id, context=context), '2014-03-12')
+        self.assertEqual(self.journey_model.departure_time_get(
+            cr, uid, journey_id, context=context), '00:00:00')
+        self.assertEqual(self.journey_model.arrival_time_get(
+            cr, uid, journey_id, context=context), '00:00:00')
+
+    def test_inv_estimate_date(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        journey_id = self.journey_model.create(cr, uid, vals, context=context)
+        self.journey_model._inv_estimate_date(
+            cr, uid, journey_id,
+            field_name='date_start', val='2014-03-05',
+            arg=None, context=context)
+        self.journey_model._inv_estimate_date(
+            cr, uid, journey_id,
+            field_name='date_stop', val='2014-03-10',
+            arg=None, context=context)
+        journey_id = self.journey_model.create(
+            cr, uid,
+            dict(vals, departure=None, arrival='2014-05-01'),
+            context=context)
+        self.journey_model._inv_estimate_date(
+            cr, uid, journey_id,
+            field_name='date_start', val='2014-03-05',
+            arg=None, context=context)
+        self.journey_model._inv_estimate_date(
+            cr, uid, journey_id,
+            field_name='date_stop', val='2014-03-10',
+            arg=None, context=context)
