@@ -44,11 +44,15 @@ class travel_passenger(orm.Model):
     }
 
     def name_get(self, cr, uid, ids, context=None):
+        if type(ids) is not list:
+            ids = [ids]
         return [(i.id, i.partner_id.name_get()[0][1])
                 for i in self.browse(cr, uid, ids, context=context)]
 
     def action_passenger_form_view(self, cr, uid, ids, context=None):
         """Call action, if there is a travel, put it in the name."""
+        if type(ids) is not list:
+            ids = [ids]
         travels = self.browse(cr, uid, ids, context=context)
         travel_name = ('%s / %s ' % (travels[0].travel_id.name,
                                      travels[0].name_get()[0][1])

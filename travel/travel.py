@@ -21,7 +21,6 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
-from openerp.osv.osv import except_osv
 from openerp.tools.translate import _
 from res_config import get_basic_passenger_limit
 
@@ -65,7 +64,7 @@ class travel_travel(orm.Model):
     }
 
     def check_date(self, cr, uid, ids, context=None):
-        if not ids:
+        if not ids:  # pragma: no cover
             return False
         travel = self.browse(cr, uid, ids[0], context=context)
         return travel.date_start <= travel.date_stop
@@ -86,10 +85,10 @@ class travel_travel(orm.Model):
                                           cr, user, context=context)
         if (len(vals.get('passenger_ids', [])) > limit and not
                 users_pool.has_group(cr, user, 'travel.group_travel_manager')):
-            raise except_osv(
+            raise orm.except_orm(
                 _('Warning!'),
-                _('Only members of the Travel Managers group have the right to '
-                  'create a Travel with more than %d passengers.') % limit)
+                _('Only members of the Travel Managers group have the right '
+                  'to create a Travel with more than %d passengers.') % limit)
         return super(travel_travel, self).create(
             cr, user, vals, context=context)
 
@@ -98,12 +97,14 @@ class travel_travel(orm.Model):
         Warn if user does not have rights to modify travel with current number
         of  passengers or to add more than the limit.
         """
+        if type(ids) is not list:
+            ids = [ids]
         users_pool = self.pool.get('res.users')
         limit = get_basic_passenger_limit(self.pool.get("ir.config_parameter"),
                                           cr, user, context=context)
         if (len(vals.get('passenger_ids', [])) > limit and not
                 users_pool.has_group(cr, user, 'travel.group_travel_manager')):
-            raise except_osv(
+            raise orm.except_orm(
                 _('Warning!'),
                 _('Only members of the Travel Managers group have the rights '
                   'to add more than %d passengers to a travel.') % limit)
@@ -111,7 +112,7 @@ class travel_travel(orm.Model):
             if (len(travel.passenger_ids) > limit and not
                     users_pool.has_group(cr, user,
                                          'travel.group_travel_manager')):
-                raise except_osv(
+                raise orm.except_orm(
                     _('Warning!'),
                     _('Only members of the Travel Managers group have the '
                       'rights to modify a Travel with more than %d passengers '
@@ -124,6 +125,8 @@ class travel_travel(orm.Model):
         Warn if ids being deleted contain a travel which has too many
         passengers for the current user to delete.
         """
+        if type(ids) is not list:
+            ids = [ids]
         users_pool = self.pool.get('res.users')
         limit = get_basic_passenger_limit(self.pool.get("ir.config_parameter"),
                                           cr, user, context=context)
@@ -131,39 +134,50 @@ class travel_travel(orm.Model):
             if (len(travel.passenger_ids) > limit and not
                     users_pool.has_group(cr, user,
                                          'travel.group_travel_manager')):
-                raise except_osv(
+                raise orm.except_orm(
                     _('Warning!'),
                     _('Only members of the Travel Managers group have the '
                       'rights to delete a Travel with more than %d passengers '
                       '(%s).') % (limit, travel.name))
-        return super(travel_travel, self).unlink(cr, user, ids, context=context)
+        return super(travel_travel, self).unlink(
+            cr, user, ids, context=context)
 
     def travel_open(self, cr, uid, ids, context=None):
         """Put the state of the travel into open"""
+        if type(ids) is not list:
+            ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
             self.write(cr, uid, [travel.id], {'state': 'open'})
         return True
 
     def travel_book(self, cr, uid, ids, context=None):
         """Put the state of the travel into booking"""
+        if type(ids) is not list:
+            ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
             self.write(cr, uid, [travel.id], {'state': 'booking'})
         return True
 
     def travel_reserve(self, cr, uid, ids, context=None):
         """Put the state of the travel into reserved"""
+        if type(ids) is not list:
+            ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
             self.write(cr, uid, [travel.id], {'state': 'reserved'})
         return True
 
     def travel_confirm(self, cr, uid, ids, context=None):
         """Put the state of the travel into confirmed"""
+        if type(ids) is not list:
+            ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
             self.write(cr, uid, [travel.id], {'state': 'confirmed'})
         return True
 
     def travel_close(self, cr, uid, ids, context=None):
         """Put the state of the travel into done"""
+        if type(ids) is not list:
+            ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
             self.write(cr, uid, [travel.id], {'state': 'done'})
         return True

@@ -30,7 +30,7 @@ def get_basic_passenger_limit(ir_config_parameter_pool, cr, uid, context=None):
         limit = ir_config_parameter_pool.get_param(
             cr, uid, "travel.basic_passenger_limit", context=context)
         limit = int(limit) or DEFAULT_PASSENGER_LIMIT
-    except (ValueError, TypeError, AttributeError):
+    except (ValueError, TypeError, AttributeError):  # pragma: no cover
         limit = DEFAULT_PASSENGER_LIMIT
     finally:
         return limit
@@ -53,6 +53,8 @@ class travel_configuration(orm.TransientModel):
         }
 
     def set_basic_passenger_limit(self, cr, uid, ids, context=None):
+        if type(ids) is not list:
+            ids = [ids]
         config_parameters = self.pool.get("ir.config_parameter")
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param(

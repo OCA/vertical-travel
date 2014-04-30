@@ -23,9 +23,11 @@
 from . import (
     test_travel,
     test_passenger,
+    test_res_config,
 )
 
 checks = [
     test_travel,
     test_passenger,
+    test_res_config,
 ]

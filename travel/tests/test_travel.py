@@ -21,110 +21,161 @@
 ##############################################################################
 
 from openerp.tests.common import TransactionCase
-from openerp.osv.orm import browse_record, browse_record_list, except_orm
-from datetime import date
+from openerp.osv.orm import except_orm
+import time
 
 
-class Base_Test_travel(TransactionCase):
-    """
-    Simple test creating a travel
-    This is a base class for travel test cases.
-    Inherit from this and setup values.
-    """
+class test_travel(TransactionCase):
 
-    def setUp(self, vals={}):
-        """
-        Setting up travel.
-        """
-        # Default test values
-        self.vals = {'name': 'This is a test travel name',
-                     'date_start': date(2013, 11, 14),
-                     'date_stop': date(2013, 11, 21),
-                     }
-        super(Base_Test_travel, self).setUp()
-        # Overwrite vals if needed
-        self.vals = dict(self.vals.items() + vals.items())
-        # Create the travel object; we will be testing this, so store in self
-        travel_travel = self.registry('travel.travel')
-        self.travel_id = travel_travel.create(self.cr, self.uid, self.vals, context=None)
-
-    def test_travel(self):
-        """
-        Checking the travel creation.
-        """
-        travel_travel = self.registry('travel.travel')
-        travel_obj = travel_travel.browse(self.cr, self.uid, self.travel_id, context=None)
-        for field in self.vals:
-            val = travel_obj[field]
-            if type(val) in (list, browse_record_list):
-                for i, j in zip(val, self.vals[field]):
-                    if type(i) is browse_record:
-                        self.assertEquals(j[1], i.id,
-                                          "IDs for %s don't match: (%i != %i)" %
-                                          (field, j[1], i.id))
-                    else:
-                        self.assertEquals(str(j), str(i),
-                                          "Values for %s don't match: (%s != %s)" %
-                                          (field, str(j), str(i)))
-            elif type(val) is browse_record:
-                self.assertEquals(self.vals[field], val.id,
-                                  "IDs for %s don't match: (%i != %i)" %
-                                  (field, self.vals[field], val.id))
-            else:
-                self.assertEquals(str(self.vals[field]), str(val),
-                                  "Values for %s don't match: (%s != %s)" %
-                                  (field, str(self.vals[field]), str(val)))
-
-
-class Test_travel_bad(Base_Test_travel):
-    """
-    Simple test creating a travel, test against bad values
-    """
     def setUp(self):
-        """
-        Setting up travel, then changing the values to test against.
-        """
-        super(Test_travel_bad, self).setUp()
-        # Change vals to something wrong
+        super(test_travel, self).setUp()
+        # Clean up registries
+        self.registry('ir.model').clear_caches()
+        self.registry('ir.model.data').clear_caches()
+        # Get registries
+        self.user_model = self.registry("res.users")
+        self.travel_model = self.registry("travel.travel")
+        # Get context
+        self.context = self.user_model.context_get(self.cr, self.uid)
+        # Create values for test, travel and partner also created
+        self.year = str(time.localtime(time.time())[0])
         self.vals = {
-            'name': 'This is the wrong travel name',
-            'date_start': date(1999, 11, 14),
-            'date_stop': date(1999, 11, 21),
+            'name': 'This is a test travel name',
+            'date_start': self.year + '-01-01',
+            'date_stop': self.year + '-01-14',
         }
 
-    def test_travel(self):
-        """
-        Checking the travel creation, assertions should all be false.
-        """
-        travel_travel = self.registry('travel.travel')
-        travel_obj = travel_travel.browse(self.cr, self.uid, self.travel_id, context=None)
-        for field in self.vals:
-            val = travel_obj[field]
-            if type(val) == browse_record:
-                self.assertNotEqual(self.vals[field], val.id,
-                                    "IDs for %s don't match: (%i != %i)" %
-                                    (field, self.vals[field], val.id))
-            else:
-                self.assertNotEqual(str(self.vals[field]), str(val),
-                                    "Values for %s don't match: (%s != %s)" %
-                                    (field, str(self.vals[field]), str(val)))
+    def test_create_travel(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        self.assertTrue(self.travel_model.create(
+            cr, uid, vals, context=context))
 
+    def test_write_travel(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        travel_id = self.travel_model.create(cr, uid, vals, context=context)
+        self.travel_model.write(cr, uid, travel_id, {
+            'date_stop': self.year + '-01-21',
+        }, context=context)
 
-class Test_travel_bad_dates(Base_Test_travel):
-    """
-    Testing a date_stop that happens before a date_start
-    """
+    def test_unlink_travel(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        travel_id = self.travel_model.create(cr, uid, vals, context=context)
+        self.travel_model.unlink(cr, uid, travel_id, context=context)
 
-    def setUp(self, vals={}):
-        """
-        Setting up travel.
-        """
+    def test_change_state_travel(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        states = {
+            'open': self.travel_model.travel_open,
+            'booking': self.travel_model.travel_book,
+            'reserved': self.travel_model.travel_reserve,
+            'confirmed': self.travel_model.travel_confirm,
+            'done': self.travel_model.travel_close,
+        }
+        travel_id = self.travel_model.create(cr, uid, vals, context=context)
+        for state, func in states.iteritems():
+            func(cr, uid, travel_id, context=context)
+            travel_obj = self.travel_model.browse(
+                cr, uid, travel_id, context=context)
+            self.assertEqual(travel_obj.state, state)
+
+    def test_create_travel_too_many_passengers(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        partner_model = self.registry("res.partner")
+        group_id = self.registry("ir.model.data").get_object_reference(
+            cr, uid, 'travel', 'group_basic_travel_user')[1]
+        user_id = self.user_model.create(cr, uid, {
+            'login': 'test',
+            'name': 'test',
+            'groups_id': [(4, group_id)],
+        }, context=context)
+        vals = vals.copy()
+        vals["passenger_ids"] = []
+        for i in xrange(12):
+            partner_id = partner_model.create(
+                cr, uid, {'name': 'test_partner_%d' % i}, context=context)
+            vals["passenger_ids"].append(tuple([0, 0,  {
+                "partner_id": partner_id,
+            }]))
+        self.assertRaises(
+            except_orm,
+            self.travel_model.create,
+            cr, user_id, vals, context=context
+        )
+
+    def test_write_travel_too_many_passengers(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        travel_id = self.travel_model.create(cr, uid, vals, context=context)
+        partner_model = self.registry("res.partner")
+        group_id = self.registry("ir.model.data").get_object_reference(
+            cr, uid, 'travel', 'group_basic_travel_user')[1]
+        user_id = self.user_model.create(cr, uid, {
+            'login': 'test',
+            'name': 'test',
+            'groups_id': [(4, group_id)],
+        }, context=context)
         vals = {
-            'name': 'This is a test travel with a date stop before the date start',
-            'date_start': date(2013, 11, 21),
-            'date_stop': date(2013, 11, 14),
+            "passenger_ids": [],
         }
-        self.assertRaises(except_orm, super(Test_travel_bad_dates, self).setUp, vals)
+        for i in xrange(12):
+            partner_id = partner_model.create(
+                cr, uid, {'name': 'test_partner_%d' % i}, context=context)
+            vals["passenger_ids"].append(tuple([0, 0, {
+                "partner_id": partner_id,
+            }]))
+        self.assertRaises(
+            except_orm,
+            self.travel_model.write,
+            cr, user_id, travel_id, vals, context=context
+        )
+        self.travel_model.write(cr, uid, travel_id, vals, context=context)
+        self.assertRaises(
+            except_orm,
+            self.travel_model.write,
+            cr, user_id, travel_id, vals={'name': 'changed'}, context=context
+        )
 
-    def test_travel(self):
-        pass
+    def test_unlink_travel_too_many_passengers(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        partner_model = self.registry("res.partner")
+        group_id = self.registry("ir.model.data").get_object_reference(
+            cr, uid, 'travel', 'group_basic_travel_user')[1]
+        user_id = self.user_model.create(cr, uid, {
+            'login': 'test',
+            'name': 'test',
+            'groups_id': [(4, group_id)],
+        }, context=context)
+        vals = vals.copy()
+        vals["passenger_ids"] = []
+        for i in xrange(12):
+            partner_id = partner_model.create(
+                cr, uid, {'name': 'test_partner_%d' % i}, context=context)
+            vals["passenger_ids"].append(tuple([0, 0, {
+                "partner_id": partner_id,
+            }]))
+        travel_id = self.travel_model.create(cr, uid, vals, context=context)
+        self.assertRaises(
+            except_orm,
+            self.travel_model.unlink,
+            cr, user_id, travel_id, context=context
+        )
+
+    def test_create_travel_bad_date(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        self.assertRaises(
+            except_orm,
+            self.travel_model.create,
+            cr, uid,
+            dict(vals, date_start=self.year+'-01-21'),
+            context=context
+        )
+
+    def test_write_travel_bad_date(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        travel_id = self.travel_model.create(cr, uid, vals, context=context)
+        self.assertRaises(
+            except_orm,
+            self.travel_model.write,
+            cr, uid, travel_id,
+            dict(vals, date_start=self.year+'-01-21'),
+            context=context
+        )

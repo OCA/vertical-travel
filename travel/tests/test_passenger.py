@@ -54,8 +54,34 @@ class test_passenger(TransactionCase):
         self.passenger_model.create(
             self.cr, self.uid, self.vals, context=self.context)
 
-    def test_name_search_passenger(self):
+    def test_name_get(self):
+        passenger_id = self.passenger_model.create(
+            self.cr, self.uid, self.vals, context=self.context)
+        self.assertEquals(self.passenger_model.name_get(
+            self.cr, self.uid, passenger_id,
+            context=self.context)[0][1], 'test_partner')
+
+    def test_name_search(self):
         passenger_id = self.passenger_model.create(
             self.cr, self.uid, self.vals, context=self.context)
         self.assertEquals(passenger_id, self.passenger_model.name_search(
-            self.cr, self.uid, name='test_partner', context=self.context)[0][0])
+            self.cr, self.uid, name='test_partner',
+            context=self.context)[0][0])
+
+    def test_call_action_passenger_form_view(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        passenger_id = self.passenger_model.create(
+            cr, uid, vals, context=context)
+        self.assertTrue(
+            self.passenger_model.action_passenger_form_view(
+                cr, uid, passenger_id, context=context)
+        )
+
+    def test_call_on_change_partner_id(self):
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        passenger_id = self.passenger_model.create(
+            cr, uid, vals, context=context)
+        self.assertIsNotNone(
+            self.passenger_model.on_change_partner_id(
+                cr, uid, passenger_id, uid, context=context)
+        )
