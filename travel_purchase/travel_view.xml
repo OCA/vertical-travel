@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<!DOCTYPE openerp SYSTEM "openerp.dtd">
+<openerp>
+  <data>
+
+    <record id="travel_form_view" model="ir.ui.view">
+      <field name="model">travel.travel</field>
+      <field name="inherit_id" ref="travel.travel_form_view" />
+      <field name="arch" type="xml">
+
+        <notebook name="Info" position="inside">
+          <page name="Expenses" string="Expenses">
+            <field name="purchase_order_ids" widget="many2many" domain="[('travel_id', '=', False)]"/>
+          </page>
+        </notebook>
+
+      </field>
+    </record>
+
+  </data>
+</openerp>
