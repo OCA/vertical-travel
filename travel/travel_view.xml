@@ -51,7 +51,9 @@
                   <field name="date_stop"/>
                 </group>
               </group>
-              <group name="Passengers" string="Passengers" col="1" colspan="4">
+            </group>
+            <notebook name="Info">
+              <page name="Passengers" string="Passengers">
                 <field name="passenger_ids" nolabel="1">
                   <tree name="TravelPassengerTree" version="7.0" editable="bottom">
                     <field name="partner_id" domain="[('is_company', '=', False)]"
@@ -61,8 +63,8 @@
                             icon="gtk-open"/>
                   </tree>
                 </field>
-              </group>
-            </group>
+              </page>
+            </notebook>
           </sheet>
           <div class="oe_chatter">
             <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
