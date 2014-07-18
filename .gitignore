@@ -1,4 +1,4 @@
-# SFL-OpenERP buildout
+# buildout
 tools/.*
 tools/bin
 tools/develop-eggs

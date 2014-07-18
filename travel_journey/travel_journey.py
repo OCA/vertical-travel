@@ -361,7 +361,7 @@ class travel_journey(orm.Model):
          ['departure', 'arrival']),
         (check_date_exists_return,
          _('A desired date of arrival or departure must be set on journey for '
-         'return.'),
+           'return.'),
          ['return_departure', 'return_arrival']),
         (check_date,
          _('Departure date cannot be after arrival date on journey.'),
