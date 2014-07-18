@@ -62,6 +62,7 @@ class test_rental_service(TransactionCase):
             'end': '2014-03-12',
             'passenger_id': self.passenger_id,
         }
+
     def test_create_rental(self):
         self.rental_model.create(
             self.cr, self.uid, self.vals, context=self.context)
