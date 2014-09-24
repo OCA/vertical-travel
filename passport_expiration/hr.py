@@ -25,10 +25,9 @@ from openerp.osv import fields, orm
 
 class hr_employee(orm.Model):
     _inherit = 'hr.employee'
-
     _columns = {
-        'passport_expiration_date': fields.date('Expiration Date',
-                                                help='Expiration date of the passport.'),
+        'passport_expiration_date': fields.date(
+            'Expiration Date',
+            help='Expiration date of the passport.'
+        ),
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
