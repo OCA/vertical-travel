@@ -38,6 +38,7 @@ class travel_journey(orm.Model):
     _name = 'travel.journey'
     _description = _(__doc__)
     _journey_type_classes = {}
+    _rec_name = 'destination'
 
     @staticmethod
     def _check_dep_arr_dates(departure, arrival):

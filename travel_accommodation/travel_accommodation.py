@@ -31,6 +31,7 @@ class travel_accommodation(orm.Model):
     """Accommodation of travel"""
     _description = _(__doc__)
     _name = 'travel.accommodation'
+    _rec_name = 'location'
 
     @staticmethod
     def str_to_date_difference(lhs, rhs):
