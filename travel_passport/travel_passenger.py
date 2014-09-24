@@ -29,6 +29,3 @@ class travel_passenger(orm.Model):
         'passport_id': fields.many2one('res.passport', 'Passport',
                                        help="Passport to use on Travel."),
     }
-
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

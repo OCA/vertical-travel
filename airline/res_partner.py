@@ -34,5 +34,3 @@ class res_partner(orm.Model):
     _defaults = {
         'airline': 0,
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

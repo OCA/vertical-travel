@@ -31,5 +31,3 @@ class travel_passenger(orm.Model):
                                               'Service Rentals',
                                               help='List of service rentals.'),
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

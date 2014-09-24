@@ -20,6 +20,6 @@
 #
 ##############################################################################
 
-import travel_rental_service_import
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+from . import (
+    travel_rental_service_import,
+)

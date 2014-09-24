@@ -20,8 +20,8 @@
 #
 ##############################################################################
 
-import travel_rental_car
-import travel_passenger
-import wizard
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+from . import (
+    travel_rental_car,
+    travel_passenger,
+    wizard,
+)
