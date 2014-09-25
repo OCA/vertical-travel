@@ -347,11 +347,19 @@ class travel_journey(orm.Model):
         'cancellation': fields.text(
             'Cancellation', help='Notes on cancellation.'),
         'date_start': fields.function(
-            _estimate_date, fnct_inv=_inv_estimate_date, type="date",
-            help="Best estimate of start date calculated from filled fields."),
+            _estimate_date,
+            string="Start Date",
+            fnct_inv=_inv_estimate_date,
+            type="date",
+            help="Best estimate of start date calculated from filled fields."
+        ),
         'date_stop': fields.function(
-            _estimate_date, fnct_inv=_inv_estimate_date, type="date",
-            help="Best estimate of end date calculated from filled fields."),
+            _estimate_date,
+            string="Stop Date",
+            fnct_inv=_inv_estimate_date,
+            type="date",
+            help="Best estimate of end date calculated from filled fields.",
+        ),
     }
 
     _defaults = {
