@@ -38,7 +38,7 @@
                 <field name="name"/>
               </group>
               <group name="Details">
-                <group string="Locations">
+                <group string="Cities">
                   <field name="city_ids" nolabel="1">
                     <tree version="7.0">
                       <field name="city"/>
