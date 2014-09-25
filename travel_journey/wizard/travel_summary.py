@@ -111,24 +111,29 @@ class travel_summary(orm.TransientModel):
         'export_filename': _('travel_summary.xls'),
     }
 
-    _excel_columns = [
-        Column(_('#'), left_border=True, width=0x0400),
-        Column(_('NAME'), width=0x1000,
-               func=lambda obj: obj.passenger_id.partner_id.name),
-        Column(_('CO.'), left_border=True, width=0x0700,
-               func=lambda obj: obj.company_get()),
-        Column(_('Departure City'), left_border=True, width=0x1400,
-               func=lambda obj: obj.origin_get().name_get()[0][1]),
-        Column(_('Departure Date'), func=lambda obj: obj.departure_date_get()),
-        Column(_('Departure Time'), func=lambda obj: obj.departure_time_get()),
-        Column(_('Arrival City'), width=0x1400,
-               func=lambda obj: obj.destination_get().name_get()[0][1]),
-        Column(_('Arrival Date'), func=lambda obj: obj.arrival_date_get()),
-        Column(_('Arrival Time'), func=lambda obj: obj.arrival_time_get()),
-        Column(_('TICKET RATE'), left_border=True, use_pattern=True),
-        Column(_('COSTS'), use_pattern=True),
-        Column(_('TOTAL'), right_border=True, use_pattern=True),
-    ]
+    def get_excel_columns(self, context=None):
+        return [
+            Column(_('#'), left_border=True, width=0x0400),
+            Column(_('NAME'), width=0x1000,
+                   func=lambda obj: obj.passenger_id.partner_id.name),
+            Column(_('CO.'), left_border=True, width=0x0700,
+                   func=lambda obj: obj.company_get()),
+            Column(_('Departure City'), left_border=True, width=0x1400,
+                   func=lambda obj: obj.origin_get().name_get()[0][1]),
+            Column(_('Departure Date'),
+                   func=lambda obj: obj.departure_date_get()),
+            Column(_('Departure Time'),
+                   func=lambda obj: obj.departure_time_get()),
+            Column(_('Arrival City'), width=0x1400,
+                   func=lambda obj: obj.destination_get().name_get()[0][1]),
+            Column(_('Arrival Date'),
+                   func=lambda obj: obj.arrival_date_get()),
+            Column(_('Arrival Time'),
+                   func=lambda obj: obj.arrival_time_get()),
+            Column(_('TICKET RATE'), left_border=True, use_pattern=True),
+            Column(_('COSTS'), use_pattern=True),
+            Column(_('TOTAL'), right_border=True, use_pattern=True),
+        ]
 
     def export_excel(self, cr, uid, ids, context=None):
         """Export a journey summary an excel file
@@ -208,25 +213,27 @@ class travel_summary(orm.TransientModel):
         ws.row(4 + len(journeys)).height = 0x0180
         row = 0
         row += 2
+
+        _excel_columns = self.get_excel_columns(context)
         # Write headers
-        for i, col in enumerate(self._excel_columns):
+        for i, col in enumerate(_excel_columns):
             ws.col(i).width = col.width
             ws.write(row, i, col.text, col.style)
         row += 1
         for i, obj in enumerate(journeys):
-            ws.write(row + i, 0, i + 1, self._excel_columns[0].obj_style)
-            for j in xrange(1, len(self._excel_columns)):
+            ws.write(row + i, 0, i + 1, _excel_columns[0].obj_style)
+            for j in xrange(1, len(_excel_columns)):
                 ws.write(row + i, j,
-                         self._excel_columns[j].func(obj),
-                         self._excel_columns[j].obj_style)
+                         _excel_columns[j].func(obj),
+                         _excel_columns[j].obj_style)
 
         row += len(journeys)
-        rate_index = next(i for i, x in enumerate(self._excel_columns)
-                          if x.text == _('TICKET RATE')) - 1
-        cost_index = next(i for i, x in enumerate(self._excel_columns)
-                          if x.text == _('COSTS')) - 1
-        total_index = next(i for i, x in enumerate(self._excel_columns)
-                           if x.text == _('TOTAL')) - 1
+        rate_index = [i for i, x in enumerate(_excel_columns)
+                      if x.text == _('TICKET RATE')][0] - 1
+        cost_index = [i for i, x in enumerate(_excel_columns)
+                      if x.text == _('COSTS')][0] - 1
+        total_index = [i for i, x in enumerate(_excel_columns)
+                       if x.text == _('TOTAL')][0] - 1
         # Sub total label
         ws.write_merge(row, row, 0, rate_index,
                        sub_total_cell_label.text,
