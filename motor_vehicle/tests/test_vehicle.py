@@ -31,11 +31,13 @@ class Base_Test_vehicle(TransactionCase):
     Inherit from this and setup values.
     """
 
-    def setUp(self, vals={}):
+    def setUp(self, vals=None):
         """
         Setting up motor vehicle.
         """
         super(Base_Test_vehicle, self).setUp()
+        if vals is None:
+            vals = {}
         # Default test values
         vehicle_category = self.registry('vehicle.category')
         category_id = vehicle_category.create(

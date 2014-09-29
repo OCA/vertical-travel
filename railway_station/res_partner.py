@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+###############################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    This module copyright (C) 2013 Savoir-faire Linux
@@ -17,6 +18,8 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+###############################################################################
+
 from openerp.osv import orm, fields
 
 
@@ -32,5 +35,3 @@ class res_partner(orm.Model):
     _defaults = {
         'railway_station': 0,
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

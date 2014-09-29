@@ -97,7 +97,10 @@ class travel_accommodation(orm.Model):
             help='Date and Time of departure from Accommodations.'),
         'nights': fields.function(_get_nights, string='Nights', type='float',
                                   digits=(1, 0)),
-        'breakfast': fields.boolean('Breakfast', help='Is breakfast included?'),
+        'breakfast': fields.boolean(
+            'Breakfast',
+            help='Is breakfast included?',
+        ),
         'lunch': fields.boolean('Lunch', help='Is lunch included?'),
         'dinner': fields.boolean('Dinner', help='Is dinner included?'),
         'passenger_id': fields.many2one(

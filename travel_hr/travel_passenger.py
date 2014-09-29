@@ -29,7 +29,8 @@ class travel_passenger(orm.Model):
         'department_id': fields.many2one('hr.department', 'Department'),
     }
 
-    def get_employees_from_partner_ids(self, cr, uid, partner_ids, context=None):
+    def get_employees_from_partner_ids(
+            self, cr, uid, partner_ids, context=None):
         """
         Given a list of partner_id find the hr.employee who have it in their
         related user's partner_id.
@@ -50,7 +51,8 @@ class travel_passenger(orm.Model):
                 res.append(employee)
         return res
 
-    def get_departments_from_partner_ids(self, cr, uid, partner_ids, context=None):
+    def get_departments_from_partner_ids(
+            self, cr, uid, partner_ids, context=None):
         if type(partner_ids) in (int, long):
             partner_ids = [partner_ids]
         employees = self.get_employees_from_partner_ids(

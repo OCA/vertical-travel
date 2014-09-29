@@ -63,7 +63,8 @@ class travel_journey(orm.Model):
                 except AttributeError:
                     _logger.error(
                         _('Transportation type "%s" has not registered a '
-                          '_estimate_typed_date() function, skipping its dates')
+                          '_estimate_typed_date() function, skipping its '
+                          'dates')
                         % journey.type)
             if field_name == 'date_start':
                 date = (date or journey.departure or
@@ -159,7 +160,9 @@ class travel_journey(orm.Model):
             return_vals['departure'] = vals.get('return_departure', False)
             return_vals['arrival'] = vals.get('return_arrival', False)
         vals = clear_return_vals(vals)
-        res = super(travel_journey, self).create(cr, uid, vals, context=context)
+        res = super(travel_journey, self).create(
+            cr, uid, vals, context=context
+        )
         if return_vals:
             super(travel_journey, self).create(cr, uid, return_vals,
                                                context=context)
