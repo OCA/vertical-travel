@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 16:08+0000\n"
-"PO-Revision-Date: 2014-09-25 12:09-0500\n"
+"POT-Creation-Date: 2014-09-29 21:53+0000\n"
+"PO-Revision-Date: 2014-09-29 17:54-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -67,12 +67,6 @@ msgid ""
 msgstr ""
 "Seuls les membres du groupe Gestionnaire des déplacements ont le droit de "
 "créer un Déplacement ayant plus de %d voyageurs."
-
-#. module: travel
-#: code:addons/travel/travel.py:74 constraint:travel.travel:0
-#, python-format
-msgid "Start date cannot be after departure date."
-msgstr "La date de début ne peut pas être postérieure à la date de départ."
 
 #. module: travel
 #: view:travel.passenger:0
@@ -214,9 +208,10 @@ msgid "End Date"
 msgstr "Fin"
 
 #. module: travel
-#: view:travel.travel:0
-msgid "Open"
-msgstr "Enregistrer"
+#: code:addons/travel/travel.py:74 constraint:travel.travel:0
+#, python-format
+msgid "Start date cannot be after departure date."
+msgstr "La date de début ne peut pas être postérieure à la date de départ."
 
 #. module: travel
 #: code:addons/travel/travel_passenger.py:64
@@ -224,6 +219,11 @@ msgstr "Enregistrer"
 #, python-format
 msgid "Passenger"
 msgstr "Voyageur"
+
+#. module: travel
+#: view:travel.travel:0
+msgid "Send to Travel Office"
+msgstr "Envoyer au bureau de voyages"
 
 #. module: travel
 #: help:travel.travel,name:0
@@ -390,6 +390,9 @@ msgstr "Vue complète pour tout nombre de voyageurs"
 #: view:travel.config.settings:0 view:travel.passenger:0
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Open"
+#~ msgstr "Enregistrer"
 
 #~ msgid "Travel Management"
 #~ msgstr "Gestion de déplacements"
