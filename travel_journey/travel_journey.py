@@ -134,8 +134,10 @@ class travel_journey(orm.Model):
         return ir_model_data.get_object_reference(
             cr, uid, 'travel_journey', 'travel_journey_class_directive',)[1]
 
-    def _get_type(self, cr, uid, context=None):
+    def _get_type(self, cr, uid, ids=None, context=None):
         acc_type_obj = self.pool.get('travel.journey.type')
+        if type(ids) is dict and context is None:
+            context = ids
         ids = acc_type_obj.search(cr, uid, [])
         res = acc_type_obj.read(cr, uid, ids, ['code', 'name'], context)
         return [(r['code'], r['name']) for r in res]
