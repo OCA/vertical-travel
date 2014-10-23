@@ -28,6 +28,7 @@ class travel_car_rental(orm.Model):
     """Car Rentals for travel"""
     _name = 'travel.rental.car'
     _description = _(__doc__)
+    _rec_name = 'pickup_loc'
 
     @staticmethod
     def _check_dep_arr_dates(start, end):
