@@ -29,8 +29,8 @@ class travel_journey_import(orm.TransientModel):
     _name = "travel.journey.import"
     _description = "Journey information import"
     _columns = {
-        'travel_id': fields.many2one('travel.travel'),
-        'cur_passenger_id': fields.many2one('travel.passenger'),
+        'travel_id': fields.many2one('travel.travel', 'Travel'),
+        'cur_passenger_id': fields.many2one('travel.passenger', 'Passenger'),
         'passenger_id': fields.many2one(
             'travel.passenger', string='Import Journey information from',
             help='Other passengers on the same journey.'),

@@ -49,7 +49,7 @@ msgstr "Importer les données de location d'autos de"
 #. module: travel_rental_car
 #: field:travel.rental.car,type:0
 msgid "Vehicle type"
-msgstr "Type de véhicule"
+msgstr "Catégories de véhicules"
 
 #. module: travel_rental_car
 #: model:_description:0

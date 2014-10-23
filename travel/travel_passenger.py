@@ -32,8 +32,12 @@ class travel_passenger(orm.Model):
     _rec_name = 'partner_id'
     _columns = {
         'partner_id': fields.many2one(
-            'res.partner', 'Partner', required=True, ondelete='cascade',
-            help="Name of Passenger."),
+            'res.partner',
+            'Passenger',
+            required=True,
+            ondelete='cascade',
+            help="Name of Passenger.",
+        ),
         'travel_id': fields.many2one(
             'travel.travel', 'Travel',
             help='Travel for which the passenger is participating.'),

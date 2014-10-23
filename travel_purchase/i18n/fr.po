@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-16 21:46+0000\n"
-"PO-Revision-Date: 2014-06-16 17:47-0500\n"
+"POT-Creation-Date: 2014-09-25 15:30+0000\n"
+"PO-Revision-Date: 2014-09-25 11:31-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: Savoir-faire Linux\n"
 "Language: fr\n"
@@ -15,14 +15,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: travel_purchase
-#: model:_description:0
 #: model:ir.model,name:travel_purchase.model_travel_travel
+#: field:purchase.order,travel_id:0
 msgid "Travel"
 msgstr "Déplacement"
+
+#. module: travel_purchase
+#: model:ir.model,name:travel_purchase.model_purchase_order
+msgid "Purchase Order"
+msgstr "Bons de commande"
+
+#. module: travel_purchase
+#: field:travel.travel,purchase_order_ids:0
+msgid "Purchase Orders"
+msgstr "Bons de commande"
 
 #. module: travel_purchase
 #: view:travel.travel:0

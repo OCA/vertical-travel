@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-12 20:32+0000\n"
-"PO-Revision-Date: 2014-03-12 18:23-0500\n"
-"Last-Translator: Davin Baragiotta <davin.baragiotta@savoirfairelinux.com>\n"
+"POT-Creation-Date: 2014-09-29 21:53+0000\n"
+"PO-Revision-Date: 2014-09-29 17:54-0500\n"
+"Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: travel
@@ -35,11 +35,16 @@ msgstr "Appliquer"
 
 #. module: travel
 #: view:travel.travel:0
+msgid "Reserve"
+msgstr "Réserver"
+
+#. module: travel
+#: view:travel.travel:0
 msgid "Confirm"
 msgstr "Confirmer"
 
 #. module: travel
-#: model:_description:0 model:ir.model,name:travel.model_travel_travel
+#: model:ir.model,name:travel.model_travel_travel
 #: model:ir.module.category,name:travel.module_category_travel
 #: model:ir.ui.menu,name:travel.menu_top_travel
 #: model:ir.ui.menu,name:travel.menu_travel_config
@@ -49,13 +54,12 @@ msgid "Travel"
 msgstr "Déplacement"
 
 #. module: travel
-#: model:_description:0
 #: model:ir.model,name:travel.model_travel_config_settings
 msgid "travel.config.settings"
 msgstr "travel.config.settings"
 
 #. module: travel
-#: code:addons/travel/travel.py:91
+#: code:addons/travel/travel.py:90
 #, python-format
 msgid ""
 "Only members of the Travel Managers group have the right to create a Travel "
@@ -63,12 +67,6 @@ msgid ""
 msgstr ""
 "Seuls les membres du groupe Gestionnaire des déplacements ont le droit de "
 "créer un Déplacement ayant plus de %d voyageurs."
-
-#. module: travel
-#: code:addons/travel/travel.py:75 constraint:travel.travel:0
-#, python-format
-msgid "Start date cannot be after departure date."
-msgstr "La date de début ne peut pas être postérieure à la date de départ."
 
 #. module: travel
 #: view:travel.passenger:0
@@ -118,7 +116,7 @@ msgid "TravelsTree"
 msgstr "TravelsTree"
 
 #. module: travel
-#: code:addons/travel/travel.py:108
+#: code:addons/travel/travel.py:109
 #, python-format
 msgid ""
 "Only members of the Travel Managers group have the rights to add more than "
@@ -139,7 +137,7 @@ msgid "Unread Messages"
 msgstr "Messages non-lus"
 
 #. module: travel
-#: code:addons/travel/travel.py:136
+#: code:addons/travel/travel.py:139
 #, python-format
 msgid ""
 "Only members of the Travel Managers group have the rights to delete a Travel "
@@ -154,7 +152,7 @@ msgid "Basic User"
 msgstr "Utilisateur de base"
 
 #. module: travel
-#: model:_description:0 model:ir.model,name:travel.model_travel_passenger
+#: model:ir.model,name:travel.model_travel_passenger
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
 
@@ -191,8 +189,8 @@ msgstr "Calendrier des déplacements"
 
 #. module: travel
 #: view:travel.travel:0
-msgid "Reserve"
-msgstr "Réserver"
+msgid "Cities"
+msgstr "Villes"
 
 #. module: travel
 #: selection:travel.travel,state:0
@@ -210,15 +208,22 @@ msgid "End Date"
 msgstr "Fin"
 
 #. module: travel
-#: view:travel.travel:0
-msgid "Open"
-msgstr "Enregistrer"
+#: code:addons/travel/travel.py:74 constraint:travel.travel:0
+#, python-format
+msgid "Start date cannot be after departure date."
+msgstr "La date de début ne peut pas être postérieure à la date de départ."
 
 #. module: travel
-#: code:addons/travel/travel_passenger.py:55
+#: code:addons/travel/travel_passenger.py:64
+#: field:travel.passenger,partner_id:0
 #, python-format
 msgid "Passenger"
 msgstr "Voyageur"
+
+#. module: travel
+#: view:travel.travel:0
+msgid "Send to Travel Office"
+msgstr "Envoyer au bureau de voyages"
 
 #. module: travel
 #: help:travel.travel,name:0
@@ -229,6 +234,11 @@ msgstr "Nom du déplacement."
 #: field:travel.passenger,message_ids:0 field:travel.travel,message_ids:0
 msgid "Messages"
 msgstr "Messages"
+
+#. module: travel
+#: model:ir.ui.menu,name:travel.menu_travel_report
+msgid "Reports"
+msgstr "Rapports des trajets"
 
 #. module: travel
 #: field:travel.passenger,message_summary:0
@@ -305,7 +315,7 @@ msgid "State"
 msgstr "État"
 
 #. module: travel
-#: code:addons/travel/travel.py:116
+#: code:addons/travel/travel.py:117
 #, python-format
 msgid ""
 "Only members of the Travel Managers group have the rights to modify a Travel "
@@ -320,7 +330,7 @@ msgid "Minimal view of travel forms"
 msgstr "Vue minimale des formulaires de déplacement"
 
 #. module: travel
-#: view:travel.travel:0 field:travel.travel,city_ids:0
+#: field:travel.travel,city_ids:0
 msgid "Locations"
 msgstr "Lieux"
 
@@ -345,8 +355,8 @@ msgid "List of passengers."
 msgstr "Liste de voyageurs."
 
 #. module: travel
-#: code:addons/travel/travel.py:90 code:addons/travel/travel.py:107
-#: code:addons/travel/travel.py:115 code:addons/travel/travel.py:135
+#: code:addons/travel/travel.py:89 code:addons/travel/travel.py:108
+#: code:addons/travel/travel.py:116 code:addons/travel/travel.py:138
 #, python-format
 msgid "Warning!"
 msgstr "Attention!"
@@ -355,11 +365,6 @@ msgstr "Attention!"
 #: field:travel.travel,name:0
 msgid "Name of travel"
 msgstr "Nom du déplacement"
-
-#. module: travel
-#: field:travel.passenger,partner_id:0
-msgid "Partner"
-msgstr "Partenaire"
 
 #. module: travel
 #: view:travel.config.settings:0
@@ -385,6 +390,15 @@ msgstr "Vue complète pour tout nombre de voyageurs"
 #: view:travel.config.settings:0 view:travel.passenger:0
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Open"
+#~ msgstr "Enregistrer"
+
+#~ msgid "Travel Management"
+#~ msgstr "Gestion de déplacements"
+
+#~ msgid "Partner"
+#~ msgstr "Partenaire"
 
 #~ msgid "Name"
 #~ msgstr "Nom"

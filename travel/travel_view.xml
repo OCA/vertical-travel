@@ -24,7 +24,7 @@
       <field name="arch" type="xml">
         <form string="TravelsForm" version="7.0">
           <header>
-            <button name="travel_open" string="Open" states="draft" type="object" class="oe_highlight" groups="travel.group_authorized_travel_user"/>
+            <button name="travel_open" string="Send to Travel Office" states="draft" type="object" class="oe_highlight" groups="travel.group_authorized_travel_user"/>
             <button name="travel_book" string="Book" states="open" type="object" class="oe_highlight" groups="travel.group_authorized_travel_user"/>
             <button name="travel_reserve" string="Reserve" states="booking" type="object" class="oe_highlight" groups="travel.group_authorized_travel_user"/>
             <button name="travel_confirm" string="Confirm" states="reserved" type="object" class="oe_highlight" groups="travel.group_authorized_travel_user"/>
@@ -38,7 +38,7 @@
                 <field name="name"/>
               </group>
               <group name="Details">
-                <group string="Locations">
+                <group string="Cities">
                   <field name="city_ids" nolabel="1">
                     <tree version="7.0">
                       <field name="city"/>
