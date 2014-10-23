@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2013 Savoir-faire Linux
+#    This module copyright (C) 2014 Savoir-faire Linux
 #    (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,11 @@
 #
 ##############################################################################
 
-from . import (
-    travel_travel,
-    travel_passenger,
-)
+from openerp.osv import fields, orm
+
+
+class travel_travel(orm.Model):
+    _inherit = 'travel.travel'
+    _columns = {
+        'department_id': fields.many2one('hr.department', 'Department'),
+    }

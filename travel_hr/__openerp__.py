@@ -22,7 +22,7 @@
 
 {
     'name': 'Travel - HR Bindings',
-    'version': '0.1',
+    'version': '1.2',
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
@@ -39,7 +39,7 @@ Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 """,
-    'depends': ['travel', 'hr_department_sequence', ],
+    'depends': ['travel', 'hr', ],
     'external_dependencies': {
         'python': [],
     },
