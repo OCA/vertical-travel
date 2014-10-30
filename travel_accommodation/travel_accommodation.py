@@ -22,6 +22,11 @@
 
 from openerp.osv import fields, orm
 from openerp.tools.translate import _
+from openerp.tools import (
+    DEFAULT_SERVER_DATETIME_FORMAT,
+    DEFAULT_SERVER_DATE_FORMAT,
+)
+
 from datetime import datetime
 
 import openerp.addons.decimal_precision as dp
@@ -36,7 +41,14 @@ class travel_accommodation(orm.Model):
     @staticmethod
     def str_to_date_difference(lhs, rhs):
         def str_to_date(string):
-            return datetime.strptime(string, '%Y-%m-%d %H:%M:%S').date()
+            try:
+                return datetime.strptime(
+                    string, DEFAULT_SERVER_DATETIME_FORMAT
+                ).date()
+            except ValueError:
+                return datetime.strptime(
+                    string, DEFAULT_SERVER_DATE_FORMAT
+                ).date()
         return (str_to_date(lhs) - str_to_date(rhs)).days
 
     @staticmethod

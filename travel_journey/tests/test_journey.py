@@ -171,22 +171,6 @@ class test_journey(TransactionCase):
         self.assertEqual(self.journey_model.company_get(
             cr, uid, [journey_id], context=context), _("N/A"))
 
-    def test_gets(self):
-        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
-        journey_id = self.journey_model.create(cr, uid, vals, context=context)
-        self.assertEqual(self.journey_model.origin_get(
-            cr, uid, journey_id, context=context).id, vals['origin'])
-        self.assertEqual(self.journey_model.destination_get(
-            cr, uid, journey_id, context=context).id, vals['destination'])
-        self.assertEqual(self.journey_model.departure_date_get(
-            cr, uid, journey_id, context=context), vals['departure'])
-        self.assertEqual(self.journey_model.arrival_date_get(
-            cr, uid, journey_id, context=context), '2014-03-12')
-        self.assertEqual(self.journey_model.departure_time_get(
-            cr, uid, journey_id, context=context), '00:00:00')
-        self.assertEqual(self.journey_model.arrival_time_get(
-            cr, uid, journey_id, context=context), '00:00:00')
-
     def test_inv_estimate_date(self):
         cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
         journey_id = self.journey_model.create(cr, uid, vals, context=context)
