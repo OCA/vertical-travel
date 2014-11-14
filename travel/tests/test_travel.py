@@ -165,7 +165,7 @@ class test_travel(TransactionCase):
             except_orm,
             self.travel_model.create,
             cr, uid,
-            dict(vals, date_start=self.year+'-01-21'),
+            dict(vals, date_start=self.year + '-01-21'),
             context=context
         )
 
@@ -176,6 +176,6 @@ class test_travel(TransactionCase):
             except_orm,
             self.travel_model.write,
             cr, uid, travel_id,
-            dict(vals, date_start=self.year+'-01-21'),
+            dict(vals, date_start=self.year + '-01-21'),
             context=context
         )

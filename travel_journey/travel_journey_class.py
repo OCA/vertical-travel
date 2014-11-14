@@ -25,6 +25,7 @@ from openerp.tools.translate import _
 
 
 class travel_journey_class(orm.Model):
+
     """Passenger Class for Journey"""
     _name = 'travel.journey.class'
     _description = _(__doc__)

@@ -29,6 +29,7 @@ from openerp.tools.translate import _
 
 
 class Cell(object):
+
     def __init__(self, text, font, alignment, border, pattern,
                  number_format_str='General', width=0x0E00, ):
         self.text = text

@@ -25,6 +25,7 @@ from openerp.tools.translate import _
 
 
 class travel_rental_service_import(orm.TransientModel):
+
     """Import data from other passengers"""
     _name = "travel.rental.service.import"
     _description = "Service Rental information import"
