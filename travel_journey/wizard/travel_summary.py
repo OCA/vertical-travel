@@ -142,11 +142,11 @@ class travel_summary(orm.TransientModel):
         This reopens the current wizard with a download link to the gathered
         data, instead of populating the tree view.
         """
-        travel_summary_id = ids[0] if type(ids) is list else ids
-        travel_summary_pool = self.pool.get('travel.summary')
-        travel_summary = travel_summary_pool.browse(
-            cr, uid, travel_summary_id, context=context)
-        travel = travel_summary.travel_id
+        travel_smry_id = ids[0] if type(ids) is list else ids
+        travel_smry_pool = self.pool.get('travel.summary')
+        travel_smry = travel_smry_pool.browse(
+            cr, uid, travel_smry_id, context=context)
+        travel = travel_smry.travel_id
         output = StringIO()
         try:
             workbook = self.produce_summary(cr, uid, travel, context=context)
@@ -162,7 +162,7 @@ class travel_summary(orm.TransientModel):
             'res_model': 'travel.summary',
             'view_mode': 'form',
             'view_type': 'form',
-            'res_id': travel_summary_id,
+            'res_id': travel_smry_id,
             'views': [(False, 'form')],
             'target': 'new',
         }
