@@ -25,6 +25,7 @@ from openerp.tools.translate import _
 
 
 class travel_rental_service(orm.Model):
+
     """Service rentals for travel"""
     _name = 'travel.rental.service'
     _description = _(__doc__)

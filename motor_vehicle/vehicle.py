@@ -25,6 +25,7 @@ from openerp.tools.translate import _
 
 
 class vehicle(orm.Model):
+
     """Motor Vehicle"""
     _description = _(__doc__)
     _name = 'vehicle.vehicle'

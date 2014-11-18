@@ -34,6 +34,7 @@ _logger = logging.getLogger(__name__)
 
 
 class travel_journey(orm.Model):
+
     """Journey of travel"""
     _name = 'travel.journey'
     _description = _(__doc__)

@@ -33,6 +33,7 @@ import openerp.addons.decimal_precision as dp
 
 
 class travel_accommodation(orm.Model):
+
     """Accommodation of travel"""
     _description = _(__doc__)
     _name = 'travel.accommodation'

@@ -25,6 +25,7 @@ from openerp.osv.orm import browse_record
 
 
 class Base_Test_vehicle(TransactionCase):
+
     """
     Simple test creating a motor vehicle
     This is a base class for motor vehicle test cases.
@@ -74,9 +75,11 @@ class Base_Test_vehicle(TransactionCase):
 
 
 class Test_vehicle_bad(Base_Test_vehicle):
+
     """
     Simple test creating a motor vehicle, test against bad values
     """
+
     def setUp(self):
         """
         Setting up motor vehicle, then changing the values to test against.
