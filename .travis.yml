@@ -18,7 +18,7 @@ install:
   - git clone https://github.com/OCA/hr ${HOME}/hr -b ${VERSION}
 
 script:
-  - travis_run_tests ${VERSION} ${HOME}/partner-contact ${HOME}/hr
+  - travis_run_tests
 
 after_success:
   coveralls
