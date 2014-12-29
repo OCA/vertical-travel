@@ -112,7 +112,7 @@
     <menuitem id="menu_travel_report"
               name="Reports"
               parent="menu_top_travel"
-              groups="travel.group_authorized_travel_user"/>
+              groups="travel.group_basic_travel_user"/>
 
   </data>
 </openerp>
