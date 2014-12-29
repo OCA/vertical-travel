@@ -74,8 +74,7 @@ class travel_travel(orm.Model):
     _columns = {
         'department_id': fields.many2one(
             'hr.department',
-            'Department',
-            required=True
+            'Department'
         ),
         'department_rule': fields.function(
             _department_rule,
