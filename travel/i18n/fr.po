@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-29 17:33+0000\n"
-"PO-Revision-Date: 2014-12-29 12:41-0500\n"
+"PO-Revision-Date: 2014-12-29 15:56-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -152,7 +152,7 @@ msgstr "Seuls les membres du groupe Gestionnaire des déplacements ont le droit 
 #. module: travel
 #: model:res.groups,name:travel.group_basic_travel_user
 msgid "Basic User"
-msgstr "Utilisateur de base"
+msgstr "Utilisateur"
 
 #. module: travel
 #: model:ir.model,name:travel.model_travel_passenger
