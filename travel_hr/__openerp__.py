@@ -38,12 +38,14 @@ Adds HR department to passenger view
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
+* Joao Alfredo Gama Batista (joao.gama@savoirfairelinux.com)
 """,
     'depends': ['travel', 'hr', ],
     'external_dependencies': {
         'python': [],
     },
     'data': [
+        'security/travel_hr_security.xml',
         'travel_passenger_view.xml',
         'travel_view.xml',
     ],
