@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-29 17:33+0000\n"
-"PO-Revision-Date: 2014-12-29 15:56-0500\n"
+"PO-Revision-Date: 2014-12-30 11:02-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -56,7 +56,7 @@ msgstr "Déplacement"
 #: code:addons/travel/travel.py:146
 #, python-format
 msgid "Only draft travels can be unlinked"
-msgstr "Seulement les déplacements en mode brouillon peuvent être supprimés"
+msgstr "Seuls les déplacements en mode brouillon peuvent être supprimés"
 
 #. module: travel
 #: code:addons/travel/travel.py:91
