@@ -7,7 +7,6 @@
       <field name="name">Department Filter</field>
       <field name="category_id" ref="travel.module_category_travel" />
       <field name="comment">Full view for travels linked to all departments</field>
-      <field name="users" eval="[(4, ref('base.user_root'))]" />
     </record>
   </data>
 
@@ -21,6 +20,7 @@
       <field name="perm_unlink" eval="False"/>
       <field name="groups" eval="[(4, ref('travel.group_basic_travel_user'))]"/>
       <field name="domain_force">[('department_rule', '=', user.id)]</field>
+      <field name="active" eval="False" />
     </record>
     <record id="travel_all_departments_rule" model="ir.rule">
       <field name="name">Travel department all</field>
@@ -31,6 +31,7 @@
       <field name="perm_unlink" eval="False"/>
       <field name="groups" eval="[(4, ref('group_travel_all_departments'))]"/>
       <field name="domain_force">[(1,'=',1)]</field>
+      <field name="active" eval="False" />
     </record>
   </data>
 </openerp>

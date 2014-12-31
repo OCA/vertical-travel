@@ -35,6 +35,11 @@ Travel - HR Bindings
 
 Adds HR department to passenger view
 
+Attention: This module install rules to filter travels by department
+but the rules are not active by default to not conflict with the tests
+in the travel module. The user should activate then in Settings -> Technical
+-> Security -> Record Rules
+
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
