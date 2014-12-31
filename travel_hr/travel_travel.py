@@ -34,13 +34,20 @@ def _department_rule(self, cr, uid, ids, name, args, context=None):
 def _department_rule_search(
         self, cr, uid, obj=None, name=None, args=None, context=None):
     user_pool = self.pool['res.users']
+
     if isinstance(args, list):
         # uid lies, so get current user from arguments
         user = args[0][2]
     else:
         user = args
     if isinstance(user, int):
+        all_departments = user_pool.has_group(
+            cr, user, 'travel_hr.group_travel_all_departments')
         user = user_pool.browse(cr, uid, user, context=context)
+    else:
+        all_departments = user_pool.has_group(
+            cr, user.id, 'travel_hr.group_travel_all_departments')
+
     ids = [
         employee.department_id.id
         for employee in user.employee_ids
@@ -48,8 +55,13 @@ def _department_rule_search(
     ]
     ids.append(False)
     if self._name != 'hr.department':
+        if all_departments:
+            query = []
+        else:
+            query = [('department_id', 'in', ids)]
+
         ids = self.search(
-            cr, uid, [('department_id', 'in', ids)], context=context
+            cr, uid, query, context=context
         )
     return [('id', 'in', ids)]
 

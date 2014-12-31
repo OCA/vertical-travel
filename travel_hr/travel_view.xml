@@ -32,5 +32,9 @@
       </field>
     </record>
 
+    <record model="ir.actions.act_window" id="travel.action_travels_tree_list">
+      <field name="domain">[('department_rule', '=', uid)]</field>
+    </record>
+
   </data>
 </openerp>
