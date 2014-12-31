@@ -33,5 +33,28 @@
       <field name="domain_force">[(1,'=',1)]</field>
       <field name="active" eval="False" />
     </record>
+    <record id="travel_passenger_departments_rule" model="ir.rule">
+      <field name="name">Travel passenger department only rule</field>
+      <field name="model_id" ref="model_travel_passenger"/>
+      <field name="perm_read" eval="True"/>
+      <field name="perm_write" eval="False"/>
+      <field name="perm_create" eval="False"/>
+      <field name="perm_unlink" eval="False"/>
+      <field name="groups" eval="[(4, ref('travel.group_basic_travel_user'))]"/>
+      <field name="domain_force">[('department_rule', '=', user.id)]</field>
+      <field name="active" eval="False" />
+    </record>
+    <record id="travel_passenger_all_departments_rule" model="ir.rule">
+      <field name="name">Travel passenger department all</field>
+      <field name="model_id" ref="model_travel_passenger"/>
+      <field name="perm_read" eval="True"/>
+      <field name="perm_write" eval="False"/>
+      <field name="perm_create" eval="False"/>
+      <field name="perm_unlink" eval="False"/>
+      <field name="groups" eval="[(4, ref('group_travel_all_departments'))]"/>
+      <field name="domain_force">[(1,'=',1)]</field>
+      <field name="active" eval="False" />
+    </record>
+
   </data>
 </openerp>

@@ -21,12 +21,23 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from .travel_travel import _department_rule, _department_rule_search
 
 
 class travel_passenger(orm.Model):
     _inherit = 'travel.passenger'
     _columns = {
-        'department_id': fields.many2one('hr.department', 'Department'),
+        'department_id': fields.many2one(
+            'hr.department',
+            'Department'
+        ),
+        'department_rule': fields.function(
+            _department_rule,
+            fnct_search=_department_rule_search,
+            type='boolean',
+            method=True,
+            string="Department Rule",
+        ),
     }
 
     def get_employees_from_partner_ids(

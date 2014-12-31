@@ -23,37 +23,39 @@
 from openerp.osv import fields, orm
 
 
+# Based on _department_rule() from program_team
+def _department_rule(self, cr, uid, ids, name, args, context=None):
+    if isinstance(ids, (int, long)):
+        ids = [ids]
+    return {i: True for i in ids}
+
+
+# Based on _department_rule_search() from program_team
+def _department_rule_search(
+        self, cr, uid, obj=None, name=None, args=None, context=None):
+    user_pool = self.pool['res.users']
+    if isinstance(args, list):
+        # uid lies, so get current user from arguments
+        user = args[0][2]
+    else:
+        user = args
+    if isinstance(user, int):
+        user = user_pool.browse(cr, uid, user, context=context)
+    ids = [
+        employee.department_id.id
+        for employee in user.employee_ids
+        if employee.department_id
+    ]
+    ids.append(False)
+    if self._name != 'hr.department':
+        ids = self.search(
+            cr, uid, [('department_id', 'in', ids)], context=context
+        )
+    return [('id', 'in', ids)]
+
+
 class travel_travel(orm.Model):
     _inherit = 'travel.travel'
-
-    # Based on _department_rule() from program_team
-    def _department_rule(self, cr, uid, ids, name, args, context=None):
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-        return {i: True for i in ids}
-
-    # Based on _department_rule_search() from program_team
-    def _department_rule_search(
-            self, cr, uid, obj=None, name=None, args=None, context=None):
-        user_pool = self.pool['res.users']
-        if isinstance(args, list):
-            # uid lies, so get current user from arguments
-            user = args[0][2]
-        else:
-            user = args
-        if isinstance(user, int):
-            user = user_pool.browse(cr, uid, user, context=context)
-        ids = [
-            employee.department_id.id
-            for employee in user.employee_ids
-            if employee.department_id
-        ]
-        ids.append(False)
-        if self._name != 'hr.department':
-            ids = self.search(
-                cr, uid, [('department_id', 'in', ids)], context=context
-            )
-        return [('id', 'in', ids)]
 
     def _get_department_id(self, cr, uid, context=None):
         context = context or {}
