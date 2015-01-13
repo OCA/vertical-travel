@@ -22,7 +22,7 @@
 
 from openerp.osv import fields, orm
 from openerp.tools.translate import _
-from .res_config import get_basic_passenger_limit
+from .res_config import get_basic_passenger_limit, get_alert_address
 
 
 class travel_travel(orm.Model):
@@ -37,6 +37,27 @@ class travel_travel(orm.Model):
                                           cr, user, context=context)
         return {t.id: len(t.passenger_ids) > limit
                 for t in self.browse(cr, user, ids, context=context)}
+
+    def _get_responsible_emails(
+            self, cr, uid, ids, name=None, args=None, context=None):
+        context = context or {}
+        res = {}
+
+        for travel in self.browse(cr, uid, ids, context=context):
+            if travel.state == 'open':
+                ctx = dict(context, alert_type='sent')
+                res[travel.id] = get_alert_address(
+                    self.pool.get("ir.config_parameter"), cr, uid, context=ctx)
+            elif travel.state == 'reserved':
+                if travel.user_id.email:
+                    res[travel.id] = travel.user_id.email
+                else:
+                    raise orm.except_orm(
+                        _('Warning'),
+                        _('Responsible user has no e-mail set.')
+                    )
+
+        return res
 
     _columns = {
         'name': fields.char('Name of travel', required=True,
@@ -59,9 +80,14 @@ class travel_travel(orm.Model):
                                    ('confirmed', 'Confirmed'),
                                    ('done', 'Closed'),
                                    ], 'Status', readonly=True),
+        'responsible_emails': fields.function(_get_responsible_emails,
+                                              type='char',
+                                              string='Responsible e-mails'),
+        'user_id': fields.many2one('res.users', 'Responsible'),
     }
     _defaults = {
         'state': 'draft',
+        'user_id': lambda self, cr, uid, ctx: uid
     }
 
     def check_date(self, cr, uid, ids, context=None):
@@ -153,7 +179,7 @@ class travel_travel(orm.Model):
         if type(ids) is not list:
             ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
-            self.write(cr, uid, [travel.id], {'state': 'open'})
+            self.write(cr, uid, [travel.id], {'state': 'open', 'user_id': uid})
         return True
 
     def travel_book(self, cr, uid, ids, context=None):
@@ -161,7 +187,8 @@ class travel_travel(orm.Model):
         if type(ids) is not list:
             ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
-            self.write(cr, uid, [travel.id], {'state': 'booking'})
+            self.write(
+                cr, uid, [travel.id], {'state': 'booking'})
         return True
 
     def travel_reserve(self, cr, uid, ids, context=None):
@@ -169,7 +196,8 @@ class travel_travel(orm.Model):
         if type(ids) is not list:
             ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
-            self.write(cr, uid, [travel.id], {'state': 'reserved'})
+            self.write(
+                cr, uid, [travel.id], {'state': 'reserved'})
         return True
 
     def travel_confirm(self, cr, uid, ids, context=None):
@@ -177,7 +205,8 @@ class travel_travel(orm.Model):
         if type(ids) is not list:
             ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
-            self.write(cr, uid, [travel.id], {'state': 'confirmed'})
+            self.write(
+                cr, uid, [travel.id], {'state': 'confirmed'})
         return True
 
     def travel_close(self, cr, uid, ids, context=None):

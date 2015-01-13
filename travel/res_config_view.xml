@@ -17,6 +17,9 @@
           <group string="Security">
             <field name="basic_passenger_limit"/>
           </group>
+          <group string="Alerts">
+            <field name="sent_alert_address"/>
+          </group>
         </form>
       </field>
     </record>

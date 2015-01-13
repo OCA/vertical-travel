@@ -38,6 +38,7 @@ Travel management with passengers.
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
+* Joao Alfredo Gama Batista (joao.gama@savoirfairelinux.com)
 """,
     'depends': [
         'mail',
@@ -46,10 +47,11 @@ Contributors
     'external_dependencies': {},
     'data': [
         'security/travel_security.xml',
+        'security/ir.model.access.csv',
         'travel_view.xml',
         'travel_passenger_view.xml',
         'res_config_view.xml',
-        'security/ir.model.access.csv',
+        'travel_action.xml'
     ],
     'demo': [],
     'test': [],
