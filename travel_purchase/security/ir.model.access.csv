@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_travel_user_purchase,access_travel_user_purchase,purchase.model_purchase_order,travel.group_basic_travel_user,1,1,0,0
+access_travel_user_purchase_line,access_travel_user_purchase_line,purchase.model_purchase_order_line,travel.group_basic_travel_user,1,0,0,0
+access_travel_purchase_stock_move,access_travel_purchase_stock_move,stock.model_stock_move,travel.group_basic_travel_user,1,0,0,0
