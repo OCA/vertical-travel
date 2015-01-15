@@ -179,7 +179,9 @@ class travel_travel(orm.Model):
         if type(ids) is not list:
             ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
-            self.write(cr, uid, [travel.id], {'state': 'open', 'user_id': uid})
+            self.write(
+                cr, uid, [travel.id], {'state': 'open', 'user_id': uid},
+                context=context)
         return True
 
     def travel_book(self, cr, uid, ids, context=None):
@@ -188,7 +190,7 @@ class travel_travel(orm.Model):
             ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
             self.write(
-                cr, uid, [travel.id], {'state': 'booking'})
+                cr, uid, [travel.id], {'state': 'booking'}, context=context)
         return True
 
     def travel_reserve(self, cr, uid, ids, context=None):
@@ -197,7 +199,7 @@ class travel_travel(orm.Model):
             ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
             self.write(
-                cr, uid, [travel.id], {'state': 'reserved'})
+                cr, uid, [travel.id], {'state': 'reserved'}, context=context)
         return True
 
     def travel_confirm(self, cr, uid, ids, context=None):
@@ -206,7 +208,7 @@ class travel_travel(orm.Model):
             ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
             self.write(
-                cr, uid, [travel.id], {'state': 'confirmed'})
+                cr, uid, [travel.id], {'state': 'confirmed'}, context=context)
         return True
 
     def travel_close(self, cr, uid, ids, context=None):
@@ -214,5 +216,6 @@ class travel_travel(orm.Model):
         if type(ids) is not list:
             ids = [ids]
         for travel in self.browse(cr, uid, ids, context=context):
-            self.write(cr, uid, [travel.id], {'state': 'done'})
+            self.write(
+                cr, uid, [travel.id], {'state': 'done'}, context=context)
         return True
