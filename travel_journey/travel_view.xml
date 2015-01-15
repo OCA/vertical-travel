@@ -25,13 +25,13 @@
               name="Travel Summary"
               parent="travel.menu_travel_report"
               action="action_travel_summary_wizard"
-              groups="travel.group_authorized_travel_user"/>
+              groups="travel.group_basic_travel_user"/>
 
     <menuitem id="menu_travel_journey_order_form"
               name="Journey Order Form"
               parent="travel.menu_travel_report"
               action="action_travel_journey_order_form_wizard"
-              groups="travel.group_authorized_travel_user"/>
+              groups="travel.group_basic_travel_user"/>
 
   </data>
 </openerp>
