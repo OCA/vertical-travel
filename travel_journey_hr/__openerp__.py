@@ -38,13 +38,15 @@ Adds HR department to journey reports
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
+* Joao Alfredo Gama Batista (joao.gama@savoirfairelinux.com)
 """,
-    'depends': ['travel_journey', 'hr_department_sequence', ],
+    'depends': ['travel_journey', 'travel_hr', 'hr_department_sequence', ],
     'external_dependencies': {
         'python': [],
     },
     'data': [
         'travel_journey_report.xml',
+        'travel_journey_view.xml',
     ],
     'demo': [],
     'test': [],
