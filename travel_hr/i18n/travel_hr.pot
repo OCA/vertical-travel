@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-24 23:42+0000\n"
-"PO-Revision-Date: 2014-09-24 23:42+0000\n"
+"POT-Creation-Date: 2014-12-29 17:47+0000\n"
+"PO-Revision-Date: 2014-12-29 17:47+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: travel_hr
-#: field:travel.passenger,department_id:0
-#: field:travel.travel,department_id:0
-msgid "Department"
+#: field:travel.travel,department_rule:0
+msgid "Department Rule"
 msgstr ""
 
 #. module: travel_hr
@@ -30,3 +29,20 @@ msgstr ""
 #: model:ir.model,name:travel_hr.model_travel_passenger
 msgid "Passenger on travel"
 msgstr ""
+
+#. module: travel_hr
+#: model:res.groups,comment:travel_hr.group_travel_all_departments
+msgid "Full view for travels linked to all departments"
+msgstr ""
+
+#. module: travel_hr
+#: model:res.groups,name:travel_hr.group_travel_all_departments
+msgid "Department Filter"
+msgstr ""
+
+#. module: travel_hr
+#: field:travel.passenger,department_id:0
+#: field:travel.travel,department_id:0
+msgid "Department"
+msgstr ""
+

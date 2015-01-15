@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE openerp SYSTEM "openerp.dtd">
+
+<openerp>
+  <data>
+    <record id="group_travel_all_departments" model="res.groups">
+      <field name="name">Department Filter</field>
+      <field name="category_id" ref="travel.module_category_travel" />
+      <field name="comment">Full view for travels linked to all departments</field>
+    </record>
+  </data>
+</openerp>
