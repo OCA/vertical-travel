@@ -5,8 +5,8 @@
   <data>
 
     <record model="ir.module.category" id="module_category_travel">
-        <field name="name">Travel</field>
-        <field name="sequence">200</field>
+      <field name="name">Travel</field>
+      <field name="sequence">200</field>
     </record>
 
     <record id="group_basic_travel_user" model="res.groups">
@@ -22,6 +22,19 @@
       <field name="implied_ids" eval="[(4, ref('group_basic_travel_user'))]"/>
     </record>
 
+    <record id="group_travel_accountant" model="res.groups">
+      <field name="name">Accountant</field>
+      <field name="category_id" ref="module_category_travel" />
+      <field name="comment">Accounting view of travel forms</field>
+      <field name="implied_ids" eval="[(4, ref('group_basic_travel_user'))]"/>
+    </record>
+
+    <record id="group_travel_root" model="res.groups">
+      <field name="name">Superuser</field>
+      <field name="category_id" ref="module_category_travel" />
+      <field name="comment">Full view for any number of passengers</field>
+      <field name="implied_ids" eval="[(4, ref('group_authorized_travel_user'))]"/>
+    </record>
 
     <record id="group_travel_manager" model="res.groups">
       <field name="name">Manager</field>
@@ -41,12 +54,12 @@
       <field name="groups" eval="[(4, ref('travel.group_travel_manager'))]"/>
     </record>
 
-      <record id="travel_non_manager_rule" model="ir.rule">
-        <field name="name">Non-manager travel rule</field>
-        <field name="model_id" ref="model_travel_travel"/>
-        <field name="perm_read" eval="False"/>
-        <field name="groups" eval="[(4, ref('group_basic_travel_user')), (4, ref('group_authorized_travel_user'))]"/>
-        <field name="domain_force">[('manager_only', '=', False)]</field>
+    <record id="travel_non_manager_rule" model="ir.rule">
+      <field name="name">Non-manager travel rule</field>
+      <field name="model_id" ref="model_travel_travel"/>
+      <field name="perm_read" eval="False"/>
+      <field name="groups" eval="[(4, ref('group_basic_travel_user')), (4, ref('group_authorized_travel_user'))]"/>
+      <field name="domain_force">[('manager_only', '=', False)]</field>
     </record>
 
   </data>

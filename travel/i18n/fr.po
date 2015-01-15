@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 21:53+0000\n"
-"PO-Revision-Date: 2014-09-29 17:54-0500\n"
+"POT-Creation-Date: 2014-12-29 17:33+0000\n"
+"PO-Revision-Date: 2014-12-30 11:02-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -29,9 +29,9 @@ msgid "Confirmed"
 msgstr "Confirmé"
 
 #. module: travel
-#: view:travel.config.settings:0
-msgid "Apply"
-msgstr "Appliquer"
+#: selection:travel.travel,state:0
+msgid "Closed"
+msgstr "Terminé"
 
 #. module: travel
 #: view:travel.travel:0
@@ -48,30 +48,26 @@ msgstr "Confirmer"
 #: model:ir.module.category,name:travel.module_category_travel
 #: model:ir.ui.menu,name:travel.menu_top_travel
 #: model:ir.ui.menu,name:travel.menu_travel_config
-#: model:ir.ui.menu,name:travel.menu_travel_main_form
 #: field:travel.passenger,travel_id:0 field:travel.passenger,travel_name:0
 msgid "Travel"
 msgstr "Déplacement"
 
 #. module: travel
-#: model:ir.model,name:travel.model_travel_config_settings
-msgid "travel.config.settings"
-msgstr "travel.config.settings"
-
-#. module: travel
-#: code:addons/travel/travel.py:90
+#: code:addons/travel/travel.py:146
 #, python-format
-msgid ""
-"Only members of the Travel Managers group have the right to create a Travel "
-"with more than %d passengers."
-msgstr ""
-"Seuls les membres du groupe Gestionnaire des déplacements ont le droit de "
-"créer un Déplacement ayant plus de %d voyageurs."
+msgid "Only draft travels can be unlinked"
+msgstr "Seuls les déplacements en mode brouillon peuvent être supprimés"
 
 #. module: travel
-#: view:travel.passenger:0
-msgid "Update"
-msgstr "Mettre à jour"
+#: code:addons/travel/travel.py:91
+#, python-format
+msgid "Only members of the Travel Managers group have the right to create a Travel with more than %d passengers."
+msgstr "Seuls les membres du groupe Gestionnaire des déplacements ont le droit de créer un Déplacement ayant plus de %d voyageurs."
+
+#. module: travel
+#: field:travel.travel,city_ids:0
+msgid "Locations"
+msgstr "Lieux"
 
 #. module: travel
 #: model:res.groups,name:travel.group_travel_manager
@@ -102,8 +98,13 @@ msgstr "En réservation"
 
 #. module: travel
 #: selection:travel.travel,state:0
-msgid "Closed"
-msgstr "Terminé"
+msgid "Draft"
+msgstr "Nouveau"
+
+#. module: travel
+#: view:travel.travel:0
+msgid "Travel Schedule"
+msgstr "Calendrier des déplacements"
 
 #. module: travel
 #: help:travel.passenger,partner_id:0
@@ -116,14 +117,15 @@ msgid "TravelsTree"
 msgstr "TravelsTree"
 
 #. module: travel
-#: code:addons/travel/travel.py:109
+#: model:ir.ui.menu,name:travel.menu_travel_main_form
+msgid "Travel Management"
+msgstr "Gestion de déplacements"
+
+#. module: travel
+#: code:addons/travel/travel.py:110
 #, python-format
-msgid ""
-"Only members of the Travel Managers group have the rights to add more than "
-"%d passengers to a travel."
-msgstr ""
-"Seuls les membres du groupe Gestionnaire des déplacements ont le droit "
-"d'ajouter un Déplacement ayant plus de %d voyageurs."
+msgid "Only members of the Travel Managers group have the rights to add more than %d passengers to a travel."
+msgstr "Seuls les membres du groupe Gestionnaire des déplacements ont le droit d'ajouter un Déplacement ayant plus de %d voyageurs."
 
 #. module: travel
 #: field:travel.travel,state:0
@@ -137,19 +139,20 @@ msgid "Unread Messages"
 msgstr "Messages non-lus"
 
 #. module: travel
-#: code:addons/travel/travel.py:139
+#: view:travel.passenger:0
+msgid "Update"
+msgstr "Mettre à jour"
+
+#. module: travel
+#: code:addons/travel/travel.py:140
 #, python-format
-msgid ""
-"Only members of the Travel Managers group have the rights to delete a Travel "
-"with more than %d passengers (%s)."
-msgstr ""
-"Seuls les membres du groupe Gestionnaire des déplacements ont le droit de "
-"supprimer un Déplacement ayant plus de %d voyageurs (%s)."
+msgid "Only members of the Travel Managers group have the rights to delete a Travel with more than %d passengers (%s)."
+msgstr "Seuls les membres du groupe Gestionnaire des déplacements ont le droit de supprimer un Déplacement ayant plus de %d voyageurs (%s)."
 
 #. module: travel
 #: model:res.groups,name:travel.group_basic_travel_user
 msgid "Basic User"
-msgstr "Utilisateur de base"
+msgstr "Utilisateur"
 
 #. module: travel
 #: model:ir.model,name:travel.model_travel_passenger
@@ -183,9 +186,9 @@ msgid "Date"
 msgstr "Date"
 
 #. module: travel
-#: view:travel.travel:0
-msgid "Travel Schedule"
-msgstr "Calendrier des déplacements"
+#: model:res.groups,comment:travel.group_travel_accountant
+msgid "Accounting view of travel forms"
+msgstr "Vue comptable des formulaires de déplacement"
 
 #. module: travel
 #: view:travel.travel:0
@@ -208,13 +211,18 @@ msgid "End Date"
 msgstr "Fin"
 
 #. module: travel
-#: code:addons/travel/travel.py:74 constraint:travel.travel:0
+#: code:addons/travel/travel.py:75 constraint:travel.travel:0
 #, python-format
 msgid "Start date cannot be after departure date."
 msgstr "La date de début ne peut pas être postérieure à la date de départ."
 
 #. module: travel
-#: code:addons/travel/travel_passenger.py:64
+#: model:ir.model,name:travel.model_travel_config_settings
+msgid "travel.config.settings"
+msgstr "travel.config.settings"
+
+#. module: travel
+#: code:addons/travel/travel_passenger.py:66
 #: field:travel.passenger,partner_id:0
 #, python-format
 msgid "Passenger"
@@ -263,9 +271,9 @@ msgid "Travel for which the passenger is participating."
 msgstr "Déplacements du voyageur."
 
 #. module: travel
-#: view:travel.travel:0
-msgid "Close"
-msgstr "Fermer"
+#: view:travel.config.settings:0
+msgid "Apply"
+msgstr "Appliquer"
 
 #. module: travel
 #: view:travel.passenger:0
@@ -295,9 +303,7 @@ msgstr "Vue complète pour moins de 10 voyageurs"
 #. module: travel
 #: help:travel.config.settings,basic_passenger_limit:0
 msgid "Limit number of passengers to organize travels by non-managers."
-msgstr ""
-"Nombre limite de voyageurs pour l'organisation de déplacements par les non-"
-"gestionnaires."
+msgstr "Nombre limite de voyageurs pour l'organisation de déplacements par les non-gestionnaires."
 
 #. module: travel
 #: selection:travel.travel,state:0
@@ -315,14 +321,10 @@ msgid "State"
 msgstr "État"
 
 #. module: travel
-#: code:addons/travel/travel.py:117
+#: code:addons/travel/travel.py:118
 #, python-format
-msgid ""
-"Only members of the Travel Managers group have the rights to modify a Travel "
-"with more than %d passengers (%s)."
-msgstr ""
-"Seuls les membres du groupe Gestionnaire des déplacements ont le droit de "
-"modifier un Déplacement ayant plus de %d voyageurs (%s)."
+msgid "Only members of the Travel Managers group have the rights to modify a Travel with more than %d passengers (%s)."
+msgstr "Seuls les membres du groupe Gestionnaire des déplacements ont le droit de modifier un Déplacement ayant plus de %d voyageurs (%s)."
 
 #. module: travel
 #: model:res.groups,comment:travel.group_basic_travel_user
@@ -330,9 +332,9 @@ msgid "Minimal view of travel forms"
 msgstr "Vue minimale des formulaires de déplacement"
 
 #. module: travel
-#: field:travel.travel,city_ids:0
-msgid "Locations"
-msgstr "Lieux"
+#: model:res.groups,name:travel.group_travel_accountant
+msgid "Accountant"
+msgstr "Comptable"
 
 #. module: travel
 #: view:travel.passenger:0
@@ -342,12 +344,8 @@ msgstr "Enregistrer et fermer"
 #. module: travel
 #: help:travel.passenger,message_summary:0
 #: help:travel.travel,message_summary:0
-msgid ""
-"Holds the Chatter summary (number of messages, ...). This summary is "
-"directly in html format in order to be inserted in kanban views."
-msgstr ""
-"Contient le résumé de la discussion (nombre de messages, ...). Ce résumé est "
-"au format HTML pour permettre son utilisation dans les vues kanban."
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr "Contient le résumé de la discussion (nombre de messages, ...). Ce résumé est au format HTML pour permettre son utilisation dans les vues kanban."
 
 #. module: travel
 #: help:travel.travel,passenger_ids:0
@@ -355,8 +353,9 @@ msgid "List of passengers."
 msgstr "Liste de voyageurs."
 
 #. module: travel
-#: code:addons/travel/travel.py:89 code:addons/travel/travel.py:108
-#: code:addons/travel/travel.py:116 code:addons/travel/travel.py:138
+#: code:addons/travel/travel.py:90 code:addons/travel/travel.py:109
+#: code:addons/travel/travel.py:117 code:addons/travel/travel.py:139
+#: code:addons/travel/travel.py:145
 #, python-format
 msgid "Warning!"
 msgstr "Attention!"
@@ -372,9 +371,9 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "Draft"
-msgstr "Nouveau"
+#: view:travel.travel:0
+msgid "Close"
+msgstr "Fermer"
 
 #. module: travel
 #: field:travel.travel,date_start:0
@@ -393,9 +392,6 @@ msgstr "ou"
 
 #~ msgid "Open"
 #~ msgstr "Enregistrer"
-
-#~ msgid "Travel Management"
-#~ msgstr "Gestion de déplacements"
 
 #~ msgid "Partner"
 #~ msgstr "Partenaire"

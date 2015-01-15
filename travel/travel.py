@@ -140,6 +140,11 @@ class travel_travel(orm.Model):
                     _('Only members of the Travel Managers group have the '
                       'rights to delete a Travel with more than %d passengers '
                       '(%s).') % (limit, travel.name))
+            if travel.state != 'draft':
+                raise orm.except_orm(
+                    _('Warning!'),
+                    _('Only draft travels can be unlinked'))
+
         return super(travel_travel, self).unlink(
             cr, user, ids, context=context)
 
