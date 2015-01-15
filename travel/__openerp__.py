@@ -43,6 +43,7 @@ Contributors
     'depends': [
         'mail',
         'base_location',
+        'base_action_rule'
     ],
     'external_dependencies': {},
     'data': [
