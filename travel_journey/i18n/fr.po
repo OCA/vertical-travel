@@ -172,7 +172,7 @@ msgstr "Exporter le rapport"
 #: code:addons/travel_journey/travel_journey.py:189
 #, python-format
 msgid "Departure (%s) cannot be before Arrival (%s)."
-msgstr "Le départ (% s) ne peut pas être avant l'arrivée (% s)."
+msgstr "Le départ (%s) ne peut pas être avant l'arrivée (%s)."
 
 #. module: travel_journey
 #: code:addons/travel_journey/travel_journey.py:120
@@ -546,7 +546,7 @@ msgstr "Fermer"
 #. module: travel_journey
 #: field:travel.journey,product_uom_categ_kgm_ref:0
 msgid "Product Weight Category"
-msgstr "Product Weight Category"
+msgstr "Catégorie de poids du produit"
 
 #. module: travel_journey
 #: code:addons/travel_journey/wizard/travel_summary.py:120

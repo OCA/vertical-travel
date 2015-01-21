@@ -177,7 +177,7 @@ msgstr "Dîner"
 #: code:addons/travel_accommodation/wizard/travel_accommodation_import.py:52
 #, python-format
 msgid "Error"
-msgstr "Error"
+msgstr "Erreur"
 
 #. module: travel_accommodation
 #: code:addons/travel_accommodation/travel_accommodation.py:128
@@ -200,7 +200,7 @@ msgstr "Si le dîner est inclus."
 #: code:addons/travel_accommodation/wizard/travel_accommodation_import.py:53
 #, python-format
 msgid "No source passenger selected."
-msgstr "No source passenger selected."
+msgstr "Aucun passager sélectionné."
 
 #. module: travel_accommodation
 #: help:travel.accommodation,arrival:0

@@ -207,8 +207,7 @@ class travel_summary(orm.TransientModel):
         total_cell_label = Cell(
             _(u'TOTAL'), total_fnt, Column.title_aln,
             total_cell_r_style.borders, Column.title_ptn, number_format)
-        journeys = [i for i in travel.journey_ids]
-
+        journeys = [j for i in travel.passenger_ids for j in i.journey_ids]
         w = Workbook()
         ws = w.add_sheet(_('Travel Summary'))
 
