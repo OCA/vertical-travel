@@ -109,8 +109,11 @@ class travel_summary(orm.TransientModel):
         'export_filename': fields.char('Export Filename', size=128),
     }
     _defaults = {
-        'export_filename': _('travel_summary.xls'),
+        'export_filename': lambda self, *a: self._get_filename(*a),
     }
+
+    def _get_filename(self, cr, uid, ids, context=None):
+        return _('travel_summary.xls')
 
     def get_excel_columns(self, context=None):
         return [
