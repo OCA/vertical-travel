@@ -21,10 +21,28 @@
 ##############################################################################
 
 from openerp.osv import orm, fields
+from .res_config import get_alert_address
 
 
 class purchase_order(orm.Model):
     _inherit = 'purchase.order'
+
+    def _get_responsible_emails(
+            self, cr, uid, ids, name=None, args=None, context=None):
+        context = context or {}
+        res = {}
+
+        for purchase in self.browse(cr, uid, ids, context=context):
+            if purchase.state == 'approved' and purchase.travel_id is not False:
+                ctx = dict(context, alert_type='opened')
+                res[purchase.id] = get_alert_address(
+                    self.pool.get("ir.config_parameter"), cr, uid, context=ctx)
+
+        return res
+
     _columns = {
         'travel_id': fields.many2one('travel.travel', string="Travel"),
+        'responsible_emails': fields.function(_get_responsible_emails,
+                                              type='char',
+                                              string='Responsible e-mails'),
     }

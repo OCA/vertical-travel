@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="view_travel_purchase_configuration" model="ir.ui.view">
+      <field name="name">travel settings</field>
+      <field name="model">travel.config.settings</field>
+      <field name="inherit_id" ref="travel.view_travel_configuration" />
+      <field name="arch" type="xml">
+        <field name="sent_alert_address" position="after">
+          <field name="opened_alert_address" />
+        </field>
+      </field>
+    </record>
+  </data>
+</openerp>

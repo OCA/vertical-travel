@@ -47,6 +47,8 @@ Contributors
     'data': [
         'security/ir.model.access.csv',
         'travel_view.xml',
+        'travel_purchase_action.xml',
+        'res_config_view.xml'
     ],
     'demo': [],
     'test': [],
