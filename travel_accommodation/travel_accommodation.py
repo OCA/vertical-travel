@@ -61,15 +61,18 @@ class travel_accommodation(orm.Model):
             nights = self.str_to_date_difference(departure, arrival)
             if nights >= 0:
                 return {'value': {'nights': nights}}
+            # Remove the departure=False because we get the
+            # popup message two times. Anyway another control exists
+            # if you want to validate the form with bad dates.
             return {
                 'value': {
-                    'departure': False,
                     'nights': False,
                 },
                 'warning': {
                     'title': _('Arrival after Departure'),
-                    'message': _('Departure (%s) cannot be before '
-                                 'Arrival (%s).') % (departure, arrival),
+                    'message': _('Departure (%s) cannot be '
+                                 'before Arrival (%s).') %
+                                (departure, arrival),
                 },
             }
         return {}

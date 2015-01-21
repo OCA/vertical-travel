@@ -180,10 +180,11 @@ class travel_journey(orm.Model):
                         return_trip=False, context=None):
         if self._check_dep_arr_dates(departure, arrival):
             return {}
+        # Remove the return_arrival=False or return_arrival=False
+        # because we get the popup message two times.
+        # Anyway another control exists
+        # if you want to validate the form with bad dates.
         return {
-            'value': {
-                'return_arrival' if return_trip else 'arrival': False,
-            },
             'warning': {
                 'title': _('Arrival after Departure'),
                 'message': _('Departure (%s) cannot be before Arrival (%s).') %

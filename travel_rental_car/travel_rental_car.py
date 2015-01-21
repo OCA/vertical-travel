@@ -38,10 +38,10 @@ class travel_car_rental(orm.Model):
     def on_change_times(self, cr, uid, ids, start, end, context=None):
         if self._check_dep_arr_dates(start, end):
             return {}
+        # Remove the end=False because we get the
+        # popup message two times. Anyway another control exists
+        # if you want to validate the form with bad dates.
         return {
-            'value': {
-                'end': False,
-            },
             'warning': {
                 'title': _('Arrival after Departure'),
                 'message': _('End of rental (%s) cannot be '
