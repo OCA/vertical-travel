@@ -43,9 +43,9 @@ class travel_rental_service(orm.Model):
                 'end': False,
             },
             'warning': {
-                'title': 'Arrival after Departure',
-                'message': ('End of rental (%s) cannot be before Start (%s).' %
-                            (start, end)),
+                'title': _('Arrival after Departure'),
+                'message': _('End of rental (%s) cannot be '
+                             'before Start (%s).') % (start, end),
             },
         }
 

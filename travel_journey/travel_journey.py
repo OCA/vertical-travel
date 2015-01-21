@@ -185,9 +185,9 @@ class travel_journey(orm.Model):
                 'return_arrival' if return_trip else 'arrival': False,
             },
             'warning': {
-                'title': 'Arrival after Departure',
-                'message': ('Departure (%s) cannot be before Arrival (%s).' %
-                            (departure, arrival)),
+                'title': _('Arrival after Departure'),
+                'message': _('Departure (%s) cannot be before Arrival (%s).') %
+                            (departure, arrival),
             },
         }
 

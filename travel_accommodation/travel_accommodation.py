@@ -67,9 +67,9 @@ class travel_accommodation(orm.Model):
                     'nights': False,
                 },
                 'warning': {
-                    'title': 'Arrival after Departure',
-                    'message': ('Departure (%s) cannot be before Arrival (%s).'
-                                % (departure, arrival)),
+                    'title': _('Arrival after Departure'),
+                    'message': _('Departure (%s) cannot be before '
+                                 'Arrival (%s).') % (departure, arrival),
                 },
             }
         return {}
