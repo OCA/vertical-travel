@@ -7,7 +7,7 @@
       <field name="state">email</field>
       <field name="sequence">5</field>
       <field name="email">object.responsible_emails</field>
-      <field name="subject">Travel alert ([[object.name]])</field>
+      <field name="subject">Travel alert ([[object.travel_id.name]])</field>
       <field name="message">Hello,
 
 The purchase order ([[object.name]]) linked to the travel ([[object.travel_id.name]]) has just been opened.
