@@ -21,7 +21,7 @@
 ##############################################################################
 
 from openerp.osv import orm, fields
-from .res_config import get_alert_address
+from openerp.addons.travel.res_config import get_alert_address
 
 
 class purchase_order(orm.Model):
@@ -32,10 +32,10 @@ class purchase_order(orm.Model):
         context = context or {}
         res = {}
 
-        for purchase in self.browse(cr, uid, ids, context=context):
-            if purchase.state == 'approved' and purchase.travel_id is not False:
+        for po in self.browse(cr, uid, ids, context=context):
+            if po.state == 'approved' and po.travel_id is not False:
                 ctx = dict(context, alert_type='opened')
-                res[purchase.id] = get_alert_address(
+                res[po.id] = get_alert_address(
                     self.pool.get("ir.config_parameter"), cr, uid, context=ctx)
 
         return res
