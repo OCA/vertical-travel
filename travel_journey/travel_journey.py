@@ -180,14 +180,15 @@ class travel_journey(orm.Model):
                         return_trip=False, context=None):
         if self._check_dep_arr_dates(departure, arrival):
             return {}
+        # Remove the return_arrival=False or return_arrival=False
+        # because we get the popup message two times.
+        # Anyway another control exists
+        # if you want to validate the form with bad dates.
         return {
-            'value': {
-                'return_arrival' if return_trip else 'arrival': False,
-            },
             'warning': {
-                'title': 'Arrival after Departure',
-                'message': ('Departure (%s) cannot be before Arrival (%s).' %
-                            (departure, arrival)),
+                'title': _('Arrival after Departure'),
+                'message': _('Departure (%s) cannot be before Arrival (%s).') %
+                            (departure, arrival),
             },
         }
 
@@ -364,10 +365,21 @@ class travel_journey(orm.Model):
             type="date",
             help="Best estimate of end date calculated from filled fields.",
         ),
+        'product_uom_categ_kgm_ref': fields.many2one(
+            'product.uom.categ',
+            'Product Weight Category',
+            readonly=1,
+            required=1,
+        ),
     }
 
     _defaults = {
-        'class_id': _default_class
+        'class_id': _default_class,
+        'product_uom_categ_kgm_ref': (
+            lambda self, cr, uid, *a, **kw:
+            self.pool['ir.model.data'].get_object_reference(
+                cr, uid, 'product', 'product_uom_categ_kgm')[1]
+        ),
     }
 
     _constraints = [

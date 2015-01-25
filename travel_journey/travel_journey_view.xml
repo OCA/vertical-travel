@@ -55,7 +55,8 @@
                   <field name="baggage_weight_uom"
                          nolabel='1'
                          class="oe_inline"
-                         domain="[('category_id.name', '=', 'Weight')]"/>
+                         domain="[('category_id', '=', product_uom_categ_kgm_ref)]"/>
+                  <field name="product_uom_categ_kgm_ref" invisible="1"/>
                 </div>
               </group>
             </group>

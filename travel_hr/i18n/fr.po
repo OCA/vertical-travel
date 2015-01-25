@@ -21,7 +21,7 @@ msgstr ""
 #. module: travel_hr
 #: field:travel.travel,department_rule:0
 msgid "Department Rule"
-msgstr "Filtre UI"
+msgstr "Filtre UA"
 
 #. module: travel_hr
 #: model:ir.model,name:travel_hr.model_travel_travel
@@ -41,7 +41,7 @@ msgstr "Les utilisateurs de ce groupe peuvent avoir accès à tous les déplacem
 #. module: travel_hr
 #: model:res.groups,name:travel_hr.group_travel_all_departments
 msgid "Department Filter"
-msgstr "Filtre UI"
+msgstr "Filtre UA"
 
 #. module: travel_hr
 #: field:travel.passenger,department_id:0 field:travel.travel,department_id:0
