@@ -12,7 +12,9 @@
             <field name="travel_id"
                    on_change="update_journey_domain(travel_id)"
                     widget="selection"/>
-            <field name="journey_id" widget="selection"/>
+            <field name="journey_id"
+                   domain="[('passenger_id.travel_id', '=', travel_id)]"
+                   options="{'create': false, 'create_edit': false}"/>
           </group>
 
           <footer>
