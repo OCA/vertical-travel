@@ -11,7 +11,8 @@
             <group col="4">
               <group string="Location" col="2" colspan="2">
                 <field name="location" domain="[('is_accommodation', '=', True)]"
-                       context="{'default_is_accommodation': True, 'default_is_company': True}"/>
+                       context="{'default_is_accommodation': True, 'default_is_company': True}"
+                       options="{'create': false, 'create_edit': false}"/>
                 <field name="close_to"/>
                 <group col="3" colspan="2">
                   <label for="budget"/>
