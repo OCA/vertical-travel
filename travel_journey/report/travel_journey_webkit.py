@@ -41,19 +41,33 @@ class travel_journey_report(report_sxw.rml_parse):
             return ''
 
     def _get_passenger(self, journey):
+        user_object = self.pool['res.users']
+        employee_object = self.pool['hr.employee']
         try:
             passenger_name = journey.passenger_id.partner_id.name or ''
+            # Get job name for passenger
+            partner_id = journey.passenger_id.partner_id.id
+            user_ids = user_object.search(
+                self.cr, self.uid, [('partner_id', '=', partner_id)])
+            employee_ids = employee_object.search(
+                self.cr, self.uid, [('user_id', 'in', user_ids)])
+            job_id = employee_object.browse(
+                self.cr, self.uid, employee_ids[0]).job_id
+            job_name = ''
+            if job_id:
+                job_name = job_id.name
+
         except AttributeError:
-            passenger_name = ''
+            passenger_name, job_name = '', ''
         return """\
       <table width="100%%">
         <tr>
           <td class="field_input">
-            %s
+            %s, &nbsp; %s
           </td>
         </tr>
       </table>
-""" % passenger_name
+""" % (passenger_name, job_name)
 
 
 report_sxw.report_sxw(
