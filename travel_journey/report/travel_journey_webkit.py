@@ -40,19 +40,21 @@ class travel_journey_report(report_sxw.rml_parse):
         except (KeyError, IndexError):
             return ''
 
-    def _get_passenger(self, journey):
-        user_object = self.pool['res.users']
-        employee_object = self.pool['hr.employee']
+    # This function allows to get the name and job name for the passenger
+    @classmethod
+    def _get_passenger(cls, journey):
+        user_object = cls.pool['res.users']
+        employee_object = cls.pool['hr.employee']
         try:
             passenger_name = journey.passenger_id.partner_id.name or ''
             # Get job name for passenger
             partner_id = journey.passenger_id.partner_id.id
             user_ids = user_object.search(
-                self.cr, self.uid, [('partner_id', '=', partner_id)])
+                cls.cr, cls.uid, [('partner_id', '=', partner_id)])
             employee_ids = employee_object.search(
-                self.cr, self.uid, [('user_id', 'in', user_ids)])
+                cls.cr, cls.uid, [('user_id', 'in', user_ids)])
             job_id = employee_object.browse(
-                self.cr, self.uid, employee_ids[0]).job_id
+                cls.cr, cls.uid, employee_ids[0]).job_id
             job_name = ''
             if job_id:
                 job_name = job_id.name

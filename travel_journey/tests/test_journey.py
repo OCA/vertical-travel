@@ -25,6 +25,9 @@ from openerp.osv.orm import except_orm
 from openerp.tools.misc import DEFAULT_SERVER_DATE_FORMAT
 from openerp.tools.translate import _
 
+from openerp.addons.travel_journey.report.travel_journey_webkit \
+    import travel_journey_report
+
 
 class test_journey(TransactionCase):
 
@@ -194,3 +197,12 @@ class test_journey(TransactionCase):
             cr, uid, journey_id,
             field_name='date_stop', val='2014-03-10',
             arg=None, context=context)
+
+    def test_get_passenger(self):
+        """ Test the  _get_passenger function defined in the report """
+        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
+        journey_id = self.journey_model.create(cr, uid, vals, context=context)
+        journey_rec = self.journey_model.browse(
+            self.cr, self.uid, journey_id, context=self.context)
+        with self.assertRaises(AttributeError):
+            travel_journey_report._get_passenger(journey_rec)
