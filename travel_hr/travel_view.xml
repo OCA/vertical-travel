@@ -22,7 +22,9 @@
       <field name="arch" type="xml">
 
         <field name="date_stop" position="after">
-          <field name="department_id" required="True"/>
+          <field name="department_id"
+                 required="True"
+                 options="{'create': false, 'create_edit': false}"/>
         </field>
 
         <field name="partner_id" position="after">
