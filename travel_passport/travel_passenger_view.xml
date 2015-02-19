@@ -9,7 +9,8 @@
 
         <field name="partner_id" position="after">
           <field name="passport_id" domain="[('partner_id', '=', partner_id)]"
-                 context="{'default_partner_id': partner_id}"/>
+                 context="{'default_partner_id': partner_id}"
+                 options="{'create': false, 'create_edit': false}"/>
         </field>
 
       </field>
