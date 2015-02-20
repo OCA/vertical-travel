@@ -365,21 +365,10 @@ class travel_journey(orm.Model):
             type="date",
             help="Best estimate of end date calculated from filled fields.",
         ),
-        'product_uom_categ_kgm_ref': fields.many2one(
-            'product.uom.categ',
-            'Product Weight Category',
-            readonly=1,
-            required=1,
-        ),
     }
 
     _defaults = {
         'class_id': _default_class,
-        'product_uom_categ_kgm_ref': (
-            lambda self, cr, uid, *a, **kw:
-            self.pool['ir.model.data'].get_object_reference(
-                cr, uid, 'product', 'product_uom_categ_kgm')[1]
-        ),
     }
 
     _constraints = [
