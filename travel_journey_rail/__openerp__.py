@@ -23,7 +23,7 @@
 {
     'name': 'Travel Journey by Rail',
     'version': '0.1',
-    'author': 'Savoir-faire Linux',
+    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'maintainer': 'Savoir-faire Linux',
     'license': 'AGPL-3',
     'website': 'http://www.savoirfairelinux.com',
