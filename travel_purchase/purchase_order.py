@@ -45,4 +45,9 @@ class purchase_order(orm.Model):
         'responsible_emails': fields.function(_get_responsible_emails,
                                               type='char',
                                               string='Responsible e-mails'),
+        'is_opened': fields.boolean('Purchase open flag')
+    }
+
+    _defaults = {
+        'is_opened': False
     }
