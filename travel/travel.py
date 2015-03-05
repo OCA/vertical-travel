@@ -85,14 +85,14 @@ class travel_travel(orm.Model):
                                               string='Responsible e-mails'),
         'user_id': fields.many2one('res.users', 'Responsible'),
         'is_opened': fields.boolean('Open flag'),
-        'is_registered': fields.boolean('Registered flag')
+        'is_reserved': fields.boolean('Reserved flag')
     }
 
     _defaults = {
         'state': 'draft',
         'user_id': lambda self, cr, uid, ctx: uid,
         'is_opened': False,
-        'is_registered': False
+        'is_reserved': False
     }
 
     def check_date(self, cr, uid, ids, context=None):
