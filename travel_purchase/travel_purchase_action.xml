@@ -15,6 +15,14 @@ The purchase order ([[object.name]]) linked to the travel ([[object.travel_id.na
 Have a nice day!
       </field>
     </record>
+    <record id="travel_purchase_flag_opened_server_action" model="ir.actions.server">
+      <field name="name">Email alert when a purchase connected with a travel is opened</field>
+      <field name="model_id" ref="purchase.model_purchase_order" />
+      <field name="state">code</field>
+      <field name="sequence">10</field>
+      <field name="condition">object.is_opened is False</field>
+      <field name="code">object.write({'is_opened': True})</field>
+    </record>
     <record id="travel_purchase_opened_filter" model="ir.filters">
       <field name="name">Open</field>
       <field name="model_id">purchase.order</field>
@@ -25,7 +33,7 @@ Have a nice day!
       <field name="name">Send an alert when a purchase order linked to a travel is opened</field>
       <field name="model_id" ref="purchase.model_purchase_order"/>
       <field name="filter_id" ref="travel_purchase_opened_filter" />
-      <field name="server_action_ids" eval="[(6, 0, [ref('travel_purchase_opened_server_action')])]"/>
+      <field name="server_action_ids" eval="[(6, 0, [ref('travel_purchase_opened_server_action'), ref('travel_purchase_flag_opened_server_action')])]"/>
     </record>
   </data>
 </openerp>
