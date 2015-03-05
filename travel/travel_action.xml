@@ -20,6 +20,7 @@ Have a nice day!
       <field name="model_id" ref="model_travel_travel" />
       <field name="state">code</field>
       <field name="sequence">10</field>
+      <field name="condition">object.is_opened is False</field>
       <field name="code">object.write({'is_opened': True})</field>
     </record>
     <record id="travel_travel_opened_filter" model="ir.filters">
@@ -53,6 +54,7 @@ Have a nice day!
       <field name="model_id" ref="model_travel_travel" />
       <field name="state">code</field>
       <field name="sequence">10</field>
+      <field name="condition">object.is_reserved is False</field>
       <field name="code">object.write({'is_reserved': True})</field>
     </record>
     <record id="travel_travel_reserved_filter" model="ir.filters">
