@@ -15,6 +15,23 @@ A new travel ([[object.name]]) has just been sent to the travel agency by [[obje
 Have a nice day!
       </field>
     </record>
+    <record id="travel_travel_reserved_server_action" model="ir.actions.server">
+      <field name="name">Email alert when travel is reserved</field>
+      <field name="model_id" ref="model_travel_travel" />
+      <field name="state">email</field>
+      <field name="sequence">5</field>
+      <field name="email">object.responsible_emails</field>
+      <field name="subject">Travel alert ([[object.name]])</field>
+      <field name="message">Hello,
+
+The travel ([[object.name]]) has just been reserved.
+
+Have a nice day!
+      </field>
+    </record>
+  </data>
+
+  <data>
     <record id="travel_travel_flag_opened_server_action" model="ir.actions.server">
       <field name="name">Flag travel when it's sent to the travel agency</field>
       <field name="model_id" ref="model_travel_travel" />
@@ -33,21 +50,6 @@ Have a nice day!
       <field name="model_id" ref="model_travel_travel"/>
       <field name="filter_id" ref="travel_travel_opened_filter" />
       <field name="server_action_ids" eval="[(6, 0, [ref('travel_travel_opened_server_action'), ref('travel_travel_flag_opened_server_action')])]"/>
-    </record>
-
-    <record id="travel_travel_reserved_server_action" model="ir.actions.server">
-      <field name="name">Email alert when travel is reserved</field>
-      <field name="model_id" ref="model_travel_travel" />
-      <field name="state">email</field>
-      <field name="sequence">5</field>
-      <field name="email">object.responsible_emails</field>
-      <field name="subject">Travel alert ([[object.name]])</field>
-      <field name="message">Hello,
-
-The travel ([[object.name]]) has just been reserved.
-
-Have a nice day!
-      </field>
     </record>
     <record id="travel_travel_flag_reserved_server_action" model="ir.actions.server">
       <field name="name">Flag travel when it's reserved</field>
