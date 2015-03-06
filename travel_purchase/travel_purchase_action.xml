@@ -15,6 +15,9 @@ The purchase order ([[object.name]]) linked to the travel ([[object.travel_id.na
 Have a nice day!
       </field>
     </record>
+  </data>
+
+  <data>
     <record id="travel_purchase_flag_opened_server_action" model="ir.actions.server">
       <field name="name">Flag PO after sending alert</field>
       <field name="model_id" ref="purchase.model_purchase_order" />
