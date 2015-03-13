@@ -51,10 +51,26 @@ class test_journey(TransactionCase):
             'date_start': '2014-03-01',
             'date_stop': '2014-03-12',
         }, context=self.context)
-        partner_id = self.partner_model.create(
-            self.cr, self.uid, {'name': 'test_partner'}, context=self.context)
+        user_object = self.registry('res.users')
+        user_id = user_object.create(
+            self.cr, self.uid, {'name': 't_name', 'login': 't_login'}
+        )
+        user = user_object.browse(
+            self.cr, self.uid, user_id, context=self.context
+        )
+        hr_jobs = self.registry('hr.job')
+        job_id = hr_jobs.create(
+            self.cr, self.uid, {'name': 't_job_name'}, context=self.context
+        )
+        employee_object = self.registry('hr.employee')
+        employee_object.create(
+            self.cr,
+            self.uid,
+            {'name': 't_employee', 'user_id': user_id, 'job_id': job_id},
+            context=self.context
+        )
         self.passenger_id = self.passenger_model.create(self.cr, self.uid, {
-            'partner_id': partner_id,
+            'partner_id': user.partner_id.id,
             'travel_id': self.travel_id,
         }, context=self.context)
         city_id = self.city_model.create(self.cr, self.uid, {
@@ -199,10 +215,20 @@ class test_journey(TransactionCase):
             arg=None, context=context)
 
     def test_get_passenger(self):
-        """ Test the  _get_passenger function defined in the report """
+        """Test _get_passenger return message."""
         cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
         journey_id = self.journey_model.create(cr, uid, vals, context=context)
         journey_rec = self.journey_model.browse(
             self.cr, self.uid, journey_id, context=self.context)
-        with self.assertRaises(AttributeError):
-            travel_journey_report._get_passenger(journey_rec)
+        report = travel_journey_report(cr, uid, '', context=context)
+        expected_return = u"""      <table width="100%">
+        <tr>
+          <td class="field_input">
+            t_name, &nbsp; t_job_name
+          </td>
+        </tr>
+      </table>
+"""
+        self.assertEqual(report._get_passenger(journey_rec), expected_return)
+
+
