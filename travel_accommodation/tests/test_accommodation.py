@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-################################################################################
+###############################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    This module copyright (C) 2013 Savoir-faire Linux
@@ -18,10 +18,10 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-################################################################################
+###############################################################################
 
 from openerp.tests.common import TransactionCase
-from openerp.osv.osv import except_osv
+from openerp.osv.orm import except_orm
 
 
 class test_accommodation(TransactionCase):
@@ -72,7 +72,7 @@ class test_accommodation(TransactionCase):
             'cur_passenger_id': self.passenger_id,
         }, context=self.context)
         self.assertRaises(
-            except_osv,
+            except_orm,
             acc_import_model.data_import,
             self.cr, self.uid, [wizard_bad], context=self.context)
 

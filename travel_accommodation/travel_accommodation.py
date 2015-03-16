@@ -22,20 +22,34 @@
 
 from openerp.osv import fields, orm
 from openerp.tools.translate import _
+from openerp.tools import (
+    DEFAULT_SERVER_DATETIME_FORMAT,
+    DEFAULT_SERVER_DATE_FORMAT,
+)
+
 from datetime import datetime
 
 import openerp.addons.decimal_precision as dp
 
 
 class travel_accommodation(orm.Model):
+
     """Accommodation of travel"""
     _description = _(__doc__)
     _name = 'travel.accommodation'
+    _rec_name = 'location'
 
     @staticmethod
     def str_to_date_difference(lhs, rhs):
         def str_to_date(string):
-            return datetime.strptime(string, '%Y-%m-%d %H:%M:%S').date()
+            try:
+                return datetime.strptime(
+                    string, DEFAULT_SERVER_DATETIME_FORMAT
+                ).date()
+            except ValueError:
+                return datetime.strptime(
+                    string, DEFAULT_SERVER_DATE_FORMAT
+                ).date()
         return (str_to_date(lhs) - str_to_date(rhs)).days
 
     @staticmethod
@@ -47,15 +61,18 @@ class travel_accommodation(orm.Model):
             nights = self.str_to_date_difference(departure, arrival)
             if nights >= 0:
                 return {'value': {'nights': nights}}
+            # Remove the departure=False because we get the
+            # popup message two times. Anyway another control exists
+            # if you want to validate the form with bad dates.
             return {
                 'value': {
-                    'departure': False,
                     'nights': False,
                 },
                 'warning': {
-                    'title': 'Arrival after Departure',
-                    'message': ('Departure (%s) cannot be before Arrival (%s).'
-                                % (departure, arrival)),
+                    'title': _('Arrival after Departure'),
+                    'message': _('Departure (%s) cannot be '
+                                 'before Arrival (%s).') %
+                                (departure, arrival),
                 },
             }
         return {}
@@ -97,7 +114,10 @@ class travel_accommodation(orm.Model):
             help='Date and Time of departure from Accommodations.'),
         'nights': fields.function(_get_nights, string='Nights', type='float',
                                   digits=(1, 0)),
-        'breakfast': fields.boolean('Breakfast', help='Is breakfast included?'),
+        'breakfast': fields.boolean(
+            'Breakfast',
+            help='Is breakfast included?',
+        ),
         'lunch': fields.boolean('Lunch', help='Is lunch included?'),
         'dinner': fields.boolean('Dinner', help='Is dinner included?'),
         'passenger_id': fields.many2one(

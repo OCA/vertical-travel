@@ -21,11 +21,11 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
-from openerp.osv.osv import except_osv
 from openerp.tools.translate import _
 
 
 class travel_rental_service_import(orm.TransientModel):
+
     """Import data from other passengers"""
     _name = "travel.rental.service.import"
     _description = "Service Rental information import"
@@ -33,7 +33,8 @@ class travel_rental_service_import(orm.TransientModel):
         'travel_id': fields.many2one('travel.travel'),
         'cur_passenger_id': fields.many2one('travel.passenger'),
         'passenger_id': fields.many2one(
-            'travel.passenger', string='Import Service Rental information from',
+            'travel.passenger',
+            string='Import Service Rental information from',
             help='Other passengers on the same journey.'),
     }
 
@@ -47,7 +48,10 @@ class travel_rental_service_import(orm.TransientModel):
             cur_passenger_obj = tsri_obj.cur_passenger_id
             other_passenger_obj = tsri_obj.passenger_id
             if not other_passenger_obj:
-                raise except_osv(_('Error'), _('No source passenger selected.'))
+                raise orm.except_orm(
+                    _('Error'),
+                    _('No source passenger selected.')
+                )
             passenger_id = cur_passenger_obj.id
             for rental_obj in other_passenger_obj.rental_service_ids:
                 new_rental_id = trs_pool.copy(

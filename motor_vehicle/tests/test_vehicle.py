@@ -25,17 +25,20 @@ from openerp.osv.orm import browse_record
 
 
 class Base_Test_vehicle(TransactionCase):
+
     """
     Simple test creating a motor vehicle
     This is a base class for motor vehicle test cases.
     Inherit from this and setup values.
     """
 
-    def setUp(self, vals={}):
+    def setUp(self, vals=None):
         """
         Setting up motor vehicle.
         """
         super(Base_Test_vehicle, self).setUp()
+        if vals is None:
+            vals = {}
         # Default test values
         vehicle_category = self.registry('vehicle.category')
         category_id = vehicle_category.create(
@@ -72,9 +75,11 @@ class Base_Test_vehicle(TransactionCase):
 
 
 class Test_vehicle_bad(Base_Test_vehicle):
+
     """
     Simple test creating a motor vehicle, test against bad values
     """
+
     def setUp(self):
         """
         Setting up motor vehicle, then changing the values to test against.

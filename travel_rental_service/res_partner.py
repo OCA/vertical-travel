@@ -24,6 +24,7 @@ from openerp.osv import orm, fields
 
 
 class res_partner(orm.Model):
+
     """
     Inherits partner and adds rental service : boolean in the partner form
     """

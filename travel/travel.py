@@ -22,10 +22,11 @@
 
 from openerp.osv import fields, orm
 from openerp.tools.translate import _
-from res_config import get_basic_passenger_limit
+from .res_config import get_basic_passenger_limit
 
 
 class travel_travel(orm.Model):
+
     """Travel"""
     _description = _(__doc__)
     _name = 'travel.travel'
@@ -139,6 +140,11 @@ class travel_travel(orm.Model):
                     _('Only members of the Travel Managers group have the '
                       'rights to delete a Travel with more than %d passengers '
                       '(%s).') % (limit, travel.name))
+            if travel.state != 'draft':
+                raise orm.except_orm(
+                    _('Warning!'),
+                    _('Only draft travels can be unlinked'))
+
         return super(travel_travel, self).unlink(
             cr, user, ids, context=context)
 

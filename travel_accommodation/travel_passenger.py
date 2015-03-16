@@ -26,9 +26,10 @@ from openerp.osv import fields, orm
 class travel_passenger(orm.Model):
     _inherit = 'travel.passenger'
     _columns = {
-        'accommodation_ids': fields.one2many('travel.accommodation', 'passenger_id',
-                                             'Accommodations', help='List of accommodations.'),
-
+        'accommodation_ids': fields.one2many(
+            'travel.accommodation',
+            'passenger_id',
+            'Accommodations',
+            help='List of accommodations.',
+        ),
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

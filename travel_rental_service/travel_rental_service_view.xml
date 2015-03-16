@@ -11,9 +11,10 @@
             <group col="4">
               <group string="Location" col="2" colspan="2">
                 <field name="location" domain="[('is_rental_service', '=', True)]"
-                       context="{'default_is_rental_service': True, 'default_is_company': True}"/>
+                       context="{'default_is_rental_service': True, 'default_is_company': True}"
+                       options="{'create': false, 'create_edit': false}"/>
                 <field name="city_id"
-                       options='{"create_name_field": "city"}'/>
+                       options='{"create_name_field": "city", "create": false, "create_edit": false}'/>
               </group>
               <group string="Times" col="2" colspan="2">
                 <field name="start"

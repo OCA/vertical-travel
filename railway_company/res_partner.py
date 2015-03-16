@@ -24,8 +24,9 @@ from openerp.osv import orm, fields
 
 
 class res_partner(orm.Model):
-    """
-    Inherits partner and adds railway_company : boolean in the partner form
+
+    """Inherits partner and adds railway_company:
+    boolean in the partner form
     """
     _inherit = 'res.partner'
     _columns = {
@@ -34,5 +35,3 @@ class res_partner(orm.Model):
     _defaults = {
         'railway_company': 0,
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

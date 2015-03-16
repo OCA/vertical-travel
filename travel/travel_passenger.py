@@ -25,6 +25,7 @@ from openerp.tools.translate import _
 
 
 class travel_passenger(orm.Model):
+
     """Passenger on travel"""
     _description = _(__doc__)
     _name = 'travel.passenger'
@@ -32,8 +33,12 @@ class travel_passenger(orm.Model):
     _rec_name = 'partner_id'
     _columns = {
         'partner_id': fields.many2one(
-            'res.partner', 'Partner', required=True, ondelete='cascade',
-            help="Name of Passenger."),
+            'res.partner',
+            'Passenger',
+            required=True,
+            ondelete='cascade',
+            help="Name of Passenger.",
+        ),
         'travel_id': fields.many2one(
             'travel.travel', 'Travel',
             help='Travel for which the passenger is participating.'),
@@ -51,13 +56,16 @@ class travel_passenger(orm.Model):
 
     def action_passenger_form_view(self, cr, uid, ids, context=None):
         """Call action, if there is a travel, put it in the name."""
+        if not ids:
+            return {}
         if type(ids) is not list:
             ids = [ids]
-        travels = self.browse(cr, uid, ids, context=context)
-        travel_name = ('%s / %s ' % (travels[0].travel_id.name,
-                                     travels[0].name_get()[0][1])
-                       if len(travels) == 1 else False)
+        passenger = self.browse(cr, uid, ids, context=context)[0]
+        travel = passenger.travel_id
+        travel_name = ('%s / %s ' % (travel.name, passenger.name_get()[0][1]))
         name = travel_name or _('Passenger')
+        context['default_date_start'] = travel.date_start
+        context['default_date_stop'] = travel.date_stop
         return {
             'name': name,
             'res_model': 'travel.passenger',

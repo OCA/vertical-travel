@@ -21,11 +21,11 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
-from openerp.osv.osv import except_osv
 from openerp.tools.translate import _
 
 
 class travel_accommodation_import(orm.TransientModel):
+
     """Import data from other passengers"""
     _name = "travel.accommodation.import"
     _description = "Accommodation information import"
@@ -48,7 +48,10 @@ class travel_accommodation_import(orm.TransientModel):
             cur_passenger_obj = tai_obj.cur_passenger_id
             other_passenger_obj = tai_obj.passenger_id
             if not other_passenger_obj:
-                raise except_osv(_('Error'), _('No source passenger selected.'))
+                raise orm.except_orm(
+                    _('Error'),
+                    _('No source passenger selected.')
+                )
             passenger_id = cur_passenger_obj.id
             for acc_obj in other_passenger_obj.accommodation_ids:
                 new_acc_id = ta_pool.copy(cr, uid, acc_obj.id, context=context)

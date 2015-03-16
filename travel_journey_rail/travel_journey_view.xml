@@ -9,7 +9,7 @@
       <field name="arch" type="xml">
         <group name="Info" position="inside">
           <group string="Rail" col="4" attrs="{'invisible': [('type', '!=', 'rail')]}">
-            <field name="railway_company"/>
+            <field name="railway_company" options="{'create': false, 'create_edit': false}" />
             <field name="reservation"/>
             <group string="Railway Station" col="2" colspan="2">
               <field name="railway_station_from"/>

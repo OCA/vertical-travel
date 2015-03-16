@@ -27,8 +27,8 @@
 Partner Airline: Module Data
 ============================
 
-Core Data for Partner Airline, is kept as a separate module to overcome the need
-to localize core data as well as to avoid long load times.
+Core Data for Partner Airline, is kept as a separate module to overcome the
+need to localize core data as well as to avoid long load times.
 
 Contributors
 ------------
@@ -49,5 +49,3 @@ Contributors
     'auto_install': False,
     'images': [],
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

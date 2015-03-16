@@ -9,8 +9,16 @@
       <field name="priority" eval="1.0"/>
       <field name="arch" type="xml">
         <notebook name="Info" position="inside">
-          <page string="Journey">
-            <field name="journey_ids"/>
+          <page string="Journeys">
+            <field name="journey_ids" context="{'default_departure': context.get('default_date_start', False), 'default_arrival': context.get('default_date_stop', False)}">
+              <tree>
+                <field name="origin"/>
+                <field name="destination"/>
+                <field name="departure"/>
+                <field name="arrival"/>
+                <field name="type"/>
+              </tree>
+            </field>
             <center>
               <!-- Import from other passengers with widget TODO: filter by state='draft'? -->
               <button string="Copy Journey from other Passengers"

@@ -38,12 +38,14 @@ Adds an "Expenses" tab to travel form.
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
+* Joao Alfredo Gama Batista (joao.gama@savoirfairelinux.com)
 """,
     'depends': ['travel', 'purchase', ],
     'external_dependencies': {
         'python': [],
     },
     'data': [
+        'security/ir.model.access.csv',
         'travel_view.xml',
     ],
     'demo': [],

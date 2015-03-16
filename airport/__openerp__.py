@@ -39,7 +39,7 @@ Contributors
     'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['base', 'transportation', ],
+    'depends': ['transportation', ],
     'external_dependencies': {},
     'data': [
         'res_partner_view.xml',
@@ -50,5 +50,3 @@ Contributors
     'auto_install': False,
     'images': [],
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -22,7 +22,7 @@
 
 {
     'name': 'Travel - HR Bindings',
-    'version': '0.1',
+    'version': '1.2',
     'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
@@ -38,12 +38,14 @@ Adds HR department to passenger view
 Contributors
 ------------
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
+* Joao Alfredo Gama Batista (joao.gama@savoirfairelinux.com)
 """,
-    'depends': ['travel', 'hr_department_sequence', ],
+    'depends': ['travel', 'hr', ],
     'external_dependencies': {
         'python': [],
     },
     'data': [
+        'security/travel_hr_security.xml',
         'travel_passenger_view.xml',
         'travel_view.xml',
     ],
@@ -52,5 +54,3 @@ Contributors
     'installable': True,
     'auto_install': True,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

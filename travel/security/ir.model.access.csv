@@ -1,3 +1,8 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-access_travel_user,access_travel_user,model_travel_travel,group_basic_travel_user,1,1,1,1
-access_travel_passenger,travel_passenger_user,model_travel_passenger,group_basic_travel_user,1,1,1,1
+access_travel_user,access_travel_user,model_travel_travel,group_basic_travel_user,1,1,1,0
+access_authorized_travel_user,access_authorized_travel_user,model_travel_travel,group_authorized_travel_user,1,1,1,1
+access_travel_accountant,access_travel_accountant,model_travel_travel,group_travel_accountant,1,1,1,1
+access_travel_manager,access_travel_manager,model_travel_travel,group_travel_manager,1,1,1,1
+access_travel_passenger,access_travel_passenger_user,model_travel_passenger,group_basic_travel_user,1,1,1,1
+access_travel_accountant,access_travel_accountant,model_travel_travel,group_travel_accountant,1,1,1,1
+access_travel_manager,access_travel_manager,model_travel_travel,group_travel_manager,1,1,1,1

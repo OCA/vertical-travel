@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-12 21:15+0000\n"
-"PO-Revision-Date: 2013-12-12 16:16-0500\n"
+"POT-Creation-Date: 2014-12-29 17:47+0000\n"
+"PO-Revision-Date: 2014-12-29 12:58-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -15,16 +15,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: travel_hr
-#: field:travel.passenger,department_id:0
-msgid "Department"
-msgstr "Unité administrative"
+#: field:travel.travel,department_rule:0
+msgid "Department Rule"
+msgstr "Filtre UA"
+
+#. module: travel_hr
+#: model:ir.model,name:travel_hr.model_travel_travel
+msgid "Travel"
+msgstr "Déplacement"
 
 #. module: travel_hr
 #: model:ir.model,name:travel_hr.model_travel_passenger
 msgid "Passenger on travel"
 msgstr "Voyageur en déplacement"
 
+#. module: travel_hr
+#: model:res.groups,comment:travel_hr.group_travel_all_departments
+msgid "Full view for travels linked to all departments"
+msgstr "Les utilisateurs de ce groupe peuvent avoir accès à tous les déplacements peu importe leurs UA"
+
+#. module: travel_hr
+#: model:res.groups,name:travel_hr.group_travel_all_departments
+msgid "Department Filter"
+msgstr "Filtre UA"
+
+#. module: travel_hr
+#: field:travel.passenger,department_id:0 field:travel.travel,department_id:0
+msgid "Department"
+msgstr "Unité administrative"

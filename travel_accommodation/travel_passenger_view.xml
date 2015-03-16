@@ -10,7 +10,7 @@
       <field name="arch" type="xml">
         <notebook name="Info" position="inside">
           <page string="Accommodation">
-            <field name="accommodation_ids">
+            <field name="accommodation_ids" context="{'default_arrival': context.get('default_date_start', False), 'default_departure': context.get('default_date_stop', False)}">
               <tree name="PassengerAccommodationTree" version="7.0">
                 <field name="location"/>
                 <field name="arrival"/>

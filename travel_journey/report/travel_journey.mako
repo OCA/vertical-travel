@@ -44,7 +44,7 @@
             ${_("means of transport")}
           </td>
           <td class="field_input">
-            ${o.type or ''}
+            ${dict(o._get_type()).get(o.type, o.type or '')}
           </td>
         </tr>
       </table>

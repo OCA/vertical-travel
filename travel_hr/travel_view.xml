@@ -2,17 +2,40 @@
 <openerp>
   <data>
 
+    <record model="ir.ui.view" id="travel_tree_view">
+      <field name="name">Travel Tree HR View</field>
+      <field name="model">travel.travel</field>
+      <field name="inherit_id" ref="travel.travel_tree_view" />
+      <field name="arch" type="xml">
+
+          <field name="date_stop" position="after">
+            <field name="department_id"/>
+          </field>
+
+      </field>
+    </record>
+
     <record model="ir.ui.view" id="travel_form_view">
       <field name="name">Travel Form HR View</field>
       <field name="model">travel.travel</field>
       <field name="inherit_id" ref="travel.travel_form_view" />
       <field name="arch" type="xml">
 
+        <field name="date_stop" position="after">
+          <field name="department_id"
+                 required="True"
+                 options="{'create': false, 'create_edit': false}"/>
+        </field>
+
         <field name="partner_id" position="after">
           <field name="department_id" readonly="1"/>
         </field>
 
       </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="travel.action_travels_tree_list">
+      <field name="domain">[('department_rule', '=', uid)]</field>
     </record>
 
   </data>

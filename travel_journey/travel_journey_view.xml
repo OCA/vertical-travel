@@ -18,16 +18,16 @@
               </group>
               <group string="Cities" col="2" colspan="2">
                 <field name="origin"
-                       options='{"create_name_field": "city"}'
+                       options='{"create_name_field": "city", "create": false, "create_edit": false}'
                        on_change="on_change_return('return_destination', origin)"/>
                 <field name="destination"
-                       options='{"create_name_field": "city"}'
+                       options='{"create_name_field": "city", "create": false, "create_edit": false}'
                        on_change="on_change_return('return_origin', destination)"/>
                 <field name="return_origin"
-                       options='{"create_name_field": "city"}'
+                       options='{"create_name_field": "city", "create": false, "create_edit": false}'
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
                 <field name="return_destination"
-                       options='{"create_name_field": "city"}'
+                       options='{"create_name_field": "city", "create": false, "create_edit": false}'
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
               </group>
               <group string="Times" col="3" colspan="2">
@@ -55,7 +55,7 @@
                   <field name="baggage_weight_uom"
                          nolabel='1'
                          class="oe_inline"
-                         domain="[('category_id.name', '=', 'Weight')]"/>
+                         domain="[('category_id', '=', %(product.product_uom_categ_kgm)d)]"/>
                 </div>
               </group>
             </group>
@@ -72,7 +72,7 @@
       <field name="name">Travel Journey List View</field>
       <field name="model">travel.journey</field>
       <field name="arch" type="xml">
-        <tree string="Travel List">
+        <tree string="Travel List" create="false">
           <field name="origin"/>
           <field name="destination"/>
           <field name="departure"/>
@@ -89,6 +89,7 @@
         <gantt string="Travel Gantt"
                date_start="date_start"
                date_stop="date_stop"
+               create="false"
                default_group_by="travel"/>
       </field>
     </record>
@@ -112,7 +113,7 @@
       <field name="name">Journeys</field>
       <field name="view_id" ref="travel_journey_gantt_view"/>
       <field name="res_model">travel.journey</field>
-      <field name="view_mode">gantt,tree,form</field>
+      <field name="view_mode">gantt,tree</field>
       <field name="search_view_id" ref="travel_journey_search" />
       <field name="context">{'search_default_travel_group': 1, 'search_default_passenger_group': 1}</field>
     </record>
