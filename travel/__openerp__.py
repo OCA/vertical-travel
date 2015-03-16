@@ -51,6 +51,9 @@ Contributors
         'views/res_config.xml',
         'security/ir.model.access.csv',
     ],
+    'demo': [
+        'demo/travel.xml',
+    ],
     'test': [],
     'installable': True,
 }
