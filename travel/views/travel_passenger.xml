@@ -10,7 +10,6 @@
           <group name="General" col="4">
             <field name="partner_id"
                    domain="[('is_company', '=', False)]"
-                   on_change="on_change_partner_id(partner_id)"
                    options="{'create': false, 'create_edit': false}"/>
             <field name="travel_id" invisible="1" />
           </group>

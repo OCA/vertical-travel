@@ -20,38 +20,6 @@
 #
 ##############################################################################
 
-{
-    'name': 'Travel',
-    'version': '0.2',
-    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
-    'maintainer': 'Savoir-faire Linux',
-    'website': 'http://www.savoirfairelinux.com',
-    'license': 'AGPL-3',
-    'category': 'Customer Relationship Management',
-    'summary': 'Travel Management',
-    'description': """
-Travel
-======
-
-Travel management with passengers.
-
-Contributors
-------------
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
-""",
-    'depends': [
-        'mail',
-        'base_location',
-    ],
-    'external_dependencies': {},
-    'data': [
-        'security/travel_security.xml',
-        'travel_view.xml',
-        'travel_passenger_view.xml',
-        'res_config_view.xml',
-        'security/ir.model.access.csv',
-    ],
-    'demo': [],
-    'test': [],
-    'installable': True,
-}
+from . import (
+    models,
+)
