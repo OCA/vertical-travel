@@ -219,7 +219,7 @@ class test_journey(TransactionCase):
         cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
         journey_id = self.journey_model.create(cr, uid, vals, context=context)
         journey_rec = self.journey_model.browse(
-            self.cr, self.uid, journey_id, context=self.context)
+            cr, uid, journey_id, context=context)
         report = travel_journey_report(cr, uid, '', context=context)
         expected_return = u"""      <table width="100%">
         <tr>
@@ -230,5 +230,3 @@ class test_journey(TransactionCase):
       </table>
 """
         self.assertEqual(report._get_passenger(journey_rec), expected_return)
-
-
