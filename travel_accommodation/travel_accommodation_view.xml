@@ -20,7 +20,8 @@
                   <div style="width:25%%">
                     <field name="budget_currency"
                            nolabel='1'
-                           class="oe_inline"/>
+                           class="oe_inline"
+                           options="{'create': false, 'create_edit': false}"/>
                   </div>
                 </group>
               </group>
