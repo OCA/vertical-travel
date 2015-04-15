@@ -30,8 +30,8 @@
     'category': 'Customer Relationship Management',
     'summary': 'Accommodations on a Travel',
     'description': """
- Travel Accommodation
-=====================
+Travel Accommodation
+====================
 This module adds accommodation management for travels.
 
 Contributors
