@@ -115,7 +115,7 @@ class Travel(models.Model):
 
     @api.multi
     def unlink(self):
-        """Prevent deletion is travel isn't in draft
+        """Prevent deletion if travel isn't in draft
 
         Warn if ids being deleted contain a travel which has too many
         passengers for the current user to delete.
