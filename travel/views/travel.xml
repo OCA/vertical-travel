@@ -57,7 +57,6 @@
                 <field name="passenger_ids" nolabel="1">
                   <tree name="TravelPassengerTree" version="7.0" editable="bottom">
                     <field name="partner_id" domain="[('is_company', '=', False)]"
-                           on_change="on_change_partner_id(partner_id)"
                            options="{'create': false, 'create_edit': false}" />
                     <button name="action_passenger_form_view"
                             type="object"

@@ -20,33 +20,31 @@
 #
 ###############################################################################
 
+from ..models.res_config import DEFAULT_PASSENGER_LIMIT
 from openerp.tests.common import TransactionCase
 
 
-class test_passenger(TransactionCase):
+class TestPassengerConfig(TransactionCase):
 
     def setUp(self):
-        super(test_passenger, self).setUp()
-        # Clean up registries
-        self.registry('ir.model').clear_caches()
-        self.registry('ir.model.data').clear_caches()
-        # Get registries
-        self.user_model = self.registry("res.users")
-        self.partner_model = self.registry("res.partner")
-        self.travel_model = self.registry("travel.travel")
-        self.settings_model = self.registry("travel.config.settings")
-        # Get context
-        self.context = self.user_model.context_get(self.cr, self.uid)
+        super(TestPassengerConfig, self).setUp()
         self.vals = {
             'basic_passenger_limit': 8,
         }
 
     def test_passenger_limit(self):
-        cr, uid, vals, context = self.cr, self.uid, self.vals, self.context
-        settings_id = self.settings_model.create(
-            cr, uid, vals, context=context)
-        default = self.settings_model.get_default_basic_passenger_limit(
-            cr, uid, settings_id, context=context)
-        self.assertEqual(default['basic_passenger_limit'], 10)
-        self.settings_model.set_basic_passenger_limit(
-            cr, uid, settings_id, context=context)
+        """Test default passenger limit before and after it is changed"""
+        setting_pool = self.env["travel.config.settings"]
+        self.assertEqual(
+            setting_pool.get_basic_passenger_limit(),
+            DEFAULT_PASSENGER_LIMIT,
+            "Passenger limit isn't at the default %d" % DEFAULT_PASSENGER_LIMIT
+        )
+        settings = self.env["travel.config.settings"].create(self.vals)
+        settings.set_basic_passenger_limit()
+        self.assertEqual(
+            settings.get_basic_passenger_limit(),
+            self.vals['basic_passenger_limit'],
+            "Passenger limit hasn't been properly changed to %d"
+            % self.vals['basic_passenger_limit']
+        )

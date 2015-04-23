@@ -20,14 +20,40 @@
 #
 ##############################################################################
 
-from . import (
-    test_travel,
-    test_passenger,
-    test_res_config,
-)
+{
+    'name': 'Travel',
+    'version': '1.0',
+    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
+    'maintainer': 'Savoir-faire Linux',
+    'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
+    'category': 'Customer Relationship Management',
+    'summary': 'Travel Management',
+    'description': """
+Travel
+======
 
-checks = [
-    test_travel,
-    test_passenger,
-    test_res_config,
-]
+Travel management with passengers.
+
+Contributors
+------------
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
+""",
+    'depends': [
+        'mail',
+        'base_location',
+    ],
+    'external_dependencies': {},
+    'data': [
+        'security/travel_security.xml',
+        'views/travel.xml',
+        'views/travel_passenger.xml',
+        'views/res_config.xml',
+        'security/ir.model.access.csv',
+    ],
+    'demo': [
+        'demo/travel.xml',
+    ],
+    'test': [],
+    'installable': True,
+}
