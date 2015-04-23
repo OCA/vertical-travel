@@ -63,7 +63,7 @@ class TestPassenger(TransactionCase):
         """Test that action_passenger_form_view returns the proper
         default dates in context
         """
-        context = self.passenger.action_passenger_form_view()[0]['context']
+        context = self.passenger.action_passenger_form_view()['context']
         self.assertEqual(
             context.get('default_date_start'),
             self.travel_vals.get('date_start'),
