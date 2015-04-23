@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <record id="demo_travel_fosdem_2015" model="travel.travel">
+      <field name="name">Travel to FOSDEM 2015</field>
+      <field name="date_start">2015-01-30</field>
+      <field name="date_stop">2015-02-01</field>
+      <field name="passenger_ids" eval="[
+        (0, 0, {'partner_id': ref('base.res_partner_address_4')}),
+        (0, 0, {'partner_id': ref('base.res_partner_address_5')}),
+        (0, 0, {'partner_id': ref('base.res_partner_address_6')}),
+      ]"/>
+
+    </record>
+
+  </data>
+</openerp>
