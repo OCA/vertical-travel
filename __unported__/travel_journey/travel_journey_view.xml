@@ -46,7 +46,9 @@
               </group>
 
               <separator string="Class and Baggage" colspan="4"/>
-              <field name="class_id" colspan="4"/>
+              <field name="class_id"
+                     colspan="4"
+                     options="{'create': false, 'create_edit': false}"/>
               <field name="baggage_qty"/>
               <group col="3" colspan="2">
                 <label for="baggage_weight"/>

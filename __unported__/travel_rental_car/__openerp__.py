@@ -30,8 +30,8 @@
     'category': 'Customer Relationship Management',
     'summary': 'Renting Cars on a Travel',
     'description': """
- Travel Car Rentals
-===================
+Travel Car Rentals
+==================
 This module adds car rental management for travels.
 
 Contributors

@@ -12,7 +12,8 @@
               <group string="Location" col="2" colspan="2">
                 <field name="pickup_loc"/>
                 <field name="dropoff_loc"/>
-                <field name="type"/>
+                <field name="type"
+                       options="{'create': false, 'create_edit': false}"/>
               </group>
               <group string="Times" col="2" colspan="2">
                 <field name="start"
