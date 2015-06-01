@@ -33,12 +33,6 @@ class TravelConfiguration(models.TransientModel):
     _name = 'travel.config.settings'
     _inherit = 'res.config.settings'
 
-    basic_passenger_limit = fields.Integer(
-        'Basic Passenger Limit',
-        default="get_basic_passenger_limit",
-        help='Limit number of passengers to organize travels by non-managers.'
-    )
-
     @api.model
     def get_basic_passenger_limit(self):
         """Return set passenger limit if it set, otherwise get default"""
@@ -58,3 +52,9 @@ class TravelConfiguration(models.TransientModel):
             "travel.basic_passenger_limit",
             self.basic_passenger_limit or DEFAULT_PASSENGER_LIMIT
         )
+
+    basic_passenger_limit = fields.Integer(
+        'Basic Passenger Limit',
+        default=get_basic_passenger_limit,
+        help='Limit number of passengers to organize travels by non-managers.'
+    )
