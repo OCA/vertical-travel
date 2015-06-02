@@ -55,6 +55,6 @@ class TravelConfiguration(models.TransientModel):
 
     basic_passenger_limit = fields.Integer(
         'Basic Passenger Limit',
-        default=get_basic_passenger_limit,
+        default=lambda self: self.get_basic_passenger_limit(),
         help='Limit number of passengers to organize travels by non-managers.'
     )
