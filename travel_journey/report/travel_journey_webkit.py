@@ -21,6 +21,7 @@
 ##############################################################################
 
 from openerp.report import report_sxw
+from openerp.addons.report_webkit.webkit_report import WebKitParser
 
 
 class travel_journey_report(report_sxw.rml_parse):
@@ -32,6 +33,7 @@ class travel_journey_report(report_sxw.rml_parse):
             'who': self._get_signer,
             'signer': self._get_signer,
             'passenger': self._get_passenger,
+            'mentor': self._get_mentor,
         })
 
     def _get_signer(self):
@@ -40,27 +42,32 @@ class travel_journey_report(report_sxw.rml_parse):
         except (KeyError, IndexError):
             return ''
 
+    def _get_mentor(self, journey):
+        """This function allows to get the name and job name for the
+        passenger's mentor.
+
+        :param journey: travel.journey record
+        :return: html string with name and the job of the passenger.
+        """
+        try:
+            user = journey.passenger_id.partner_id.user_ids[0]
+            return user.employee_ids[0].coach_id.name
+
+        except AttributeError:
+            return ''
+
     def _get_passenger(self, journey):
         """This function allows to get the name and job name for the passenger.
 
         :param journey: travel.journey record
         :return: html string with name and the job of the passenger.
         """
-        user_object = self.pool['res.users']
-        employee_object = self.pool['hr.employee']
         try:
-            passenger_name = journey.passenger_id.partner_id.name or ''
-            # Get job name for passenger
-            partner_id = journey.passenger_id.partner_id.id
-            user_ids = user_object.search(
-                self.cr, self.uid, [('partner_id', '=', partner_id)])
-            employee_ids = employee_object.search(
-                self.cr, self.uid, [('user_id', 'in', user_ids)])
-            job_id = employee_object.browse(
-                self.cr, self.uid, employee_ids[0]).job_id
-            job_name = ''
-            if job_id:
-                job_name = job_id.name
+            partner = journey.passenger_id.partner_id
+            passenger_name = partner.name
+
+            employee = partner.user_ids[0].employee_ids[0]
+            job_name = employee.job_id.name if employee.job_id else ''
 
         except AttributeError:
             passenger_name, job_name = '', ''
@@ -75,7 +82,7 @@ class travel_journey_report(report_sxw.rml_parse):
 """ % (passenger_name, job_name)
 
 
-report_sxw.report_sxw(
+WebKitParser(
     name='report.travel.journey.order.webkit',
     table='travel.journey',
     rml='addons/travel_journey/report/travel_passenger.mako',

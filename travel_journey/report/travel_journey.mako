@@ -9,7 +9,7 @@
     %for o in objects:
       <h1>${_("Mission Manifest").upper()}</h1>
       <h2>XXXXXXXXXXXXXXXXXXXXXXXXXXX</h2>
-      <h3>${who()}</h3>
+      <h3>${mentor(o)}</h3>
       ${_("prescribed for")}
       ${passenger(o)}
 
@@ -62,7 +62,7 @@
         </tr>
       </table>
       <p>
-        ${who()} <br/>
+        ${mentor(o)} <br/>
         ${_("thanks civilian and miliary authorities of the countries visited "
             "of the facilities they choose to equip bearer of this order for "
             "the smooth running of the mission.")}
