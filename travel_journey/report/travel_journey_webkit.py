@@ -21,6 +21,7 @@
 ##############################################################################
 
 from openerp.report import report_sxw
+from openerp.addons.report_webkit.webkit_report import WebKitParser
 
 
 class travel_journey_report(report_sxw.rml_parse):
@@ -34,7 +35,7 @@ class travel_journey_report(report_sxw.rml_parse):
             'passenger': self._get_passenger,
         })
 
-    def _get_signer(self):
+    def _get_signer(self, journey):
         try:
             return self.localcontext['user'].name_get()[0][1]
         except (KeyError, IndexError):
@@ -75,7 +76,7 @@ class travel_journey_report(report_sxw.rml_parse):
 """ % (passenger_name, job_name)
 
 
-report_sxw.report_sxw(
+WebKitParser(
     name='report.travel.journey.order.webkit',
     table='travel.journey',
     rml='addons/travel_journey/report/travel_passenger.mako',

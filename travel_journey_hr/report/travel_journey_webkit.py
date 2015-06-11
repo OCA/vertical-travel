@@ -36,7 +36,7 @@ class travel_journey_report(travel_journey_webkit.travel_journey_report):
             'who': self._get_who,
         })
 
-    def _get_who(self):
+    def _get_who(self, journey):
         cr, uid, context = self.cr, self.uid, self.localcontext
         employee_pool = self.pool.get('hr.employee')
         employee_ids = employee_pool.search(
