@@ -29,6 +29,8 @@ from openerp.tools.misc import (
     DEFAULT_SERVER_TIME_FORMAT,
 )
 
+from openerp.addons.travel.travel import _get_travel_states
+
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -343,7 +345,8 @@ class travel_journey(orm.Model):
             store=True),
         'state': fields.related(
             'passenger_id', 'travel_state', type='selection', string='State',
-            store=True),
+            store=True,
+            selection=lambda *a, **kw: _get_travel_states(*a, **kw)),
         'type': fields.selection(
             _get_type, 'Travel journey type', help='Travel journey type.'),
         'reservation': fields.char(
