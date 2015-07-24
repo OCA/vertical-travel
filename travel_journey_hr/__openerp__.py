@@ -47,6 +47,7 @@ Contributors
     'data': [
         'travel_journey_report.xml',
         'travel_journey_view.xml',
+        'security/ir.model.access.csv',
     ],
     'demo': [],
     'test': [],
