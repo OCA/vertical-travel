@@ -20,5 +20,4 @@
 #
 ##############################################################################
 
-from . import report
-from . import wizard
+from . import travel_journey_order_form

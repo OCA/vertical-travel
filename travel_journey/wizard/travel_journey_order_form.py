@@ -21,7 +21,6 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
-from openerp.tools.translate import _
 
 
 class travel_journey_order_form(orm.TransientModel):
@@ -35,33 +34,15 @@ class travel_journey_order_form(orm.TransientModel):
     }
 
     def print_report(self, cr, uid, ids, data, context=None):
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+
+        assert len(ids) == 1, 'Expected a single record'
+
         wizard = self.browse(cr, uid, ids, context=context)[0]
         journey = wizard.journey_id
         data['ids'] = [journey.id]
         data['model'] = ['travel.journey']
-
-        # Check if the passenger of the journey is related to a hr.employee
-        # if not the report cannot be generated as it requires details
-        # from employee.
-        # It seems logically it should not happen, but as the system allows
-        # it, we prefer to inform the user how to fix the issue.
-        user_object = self.pool['res.users']
-        employee_object = self.pool['hr.employee']
-        passenger_name = journey.passenger_id.partner_id.name or ''
-        partner_id = journey.passenger_id.partner_id.id
-        user_ids = user_object.search(
-            cr, uid, [('partner_id', '=', partner_id)])
-        employee_ids = employee_object.search(
-            cr, uid, [('user_id', 'in', user_ids)])
-
-        if not employee_ids:
-            raise orm.except_orm(
-                _('Error'),
-                _(
-                    'The passenger "%s" is not linked to any employee. '
-                    'The report cannot be generated.'
-                ) % passenger_name
-            )
 
         return {
             'type': 'ir.actions.report.xml',

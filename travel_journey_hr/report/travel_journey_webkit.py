@@ -51,6 +51,40 @@ class travel_journey_report(travel_journey_webkit.travel_journey_report):
             _logger.warn('Unable to get department from user. Using name.')
             return super(travel_journey_report, self)._get_who()
 
+    def _get_passenger(self, journey):
+        """This function allows to get the name and job name for the passenger.
+
+        :param journey: travel.journey record
+        :return: html string with name and the job of the passenger.
+        """
+        user_object = self.pool['res.users']
+        employee_object = self.pool['hr.employee']
+        try:
+            passenger_name = journey.passenger_id.partner_id.name or ''
+            # Get job name for passenger
+            partner_id = journey.passenger_id.partner_id.id
+            user_ids = user_object.search(
+                self.cr, self.uid, [('partner_id', '=', partner_id)])
+            employee_ids = employee_object.search(
+                self.cr, self.uid, [('user_id', 'in', user_ids)])
+            job_id = employee_object.browse(
+                self.cr, self.uid, employee_ids[0]).job_id
+            job_name = ''
+            if job_id:
+                job_name = job_id.name
+
+        except AttributeError:
+            passenger_name, job_name = '', ''
+        return """\
+      <table width="100%%">
+        <tr>
+          <td class="field_input">
+            %s, &nbsp; %s
+          </td>
+        </tr>
+      </table>
+""" % (passenger_name, job_name)
+
 report_sxw.report_sxw(
     name='report.travel.journey.hr.order.webkit',
     table='travel.journey',
