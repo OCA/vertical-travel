@@ -308,15 +308,15 @@ class TravelJourney(models.Model):
        'res.better.zip'
     )
     is_return = fields.Boolean(
-       'Return Trip', 
+       string='Return Trip', 
        help='Generate a return trip'
     )
     departure = fields.Datetime(
-       'Desired Departure', 
+       string='Desired Departure', 
        help='Desired date and time of departure.'
     )
     arrival = fields.Datetime(
-       'Desired Arrival', 
+       string='Desired Arrival', 
        help='Desired date and time of Arrival.'
     )
     return_departure = fields.Datetime('Desired Departure (return)')
@@ -329,11 +329,11 @@ class TravelJourney(models.Model):
        help='Desired class of voyage.'
     )
     baggage_qty = fields.Integer(
-       'Baggage Quantity', 
+       string='Baggage Quantity', 
        help='Number of articles in baggage.'
     )
     baggage_weight = fields.Float(
-       'Baggage Weight', 
+       string='Baggage Weight', 
        help='Weight of baggage.'
     )
     baggage_weight_uom = fields.Many2one(
@@ -359,12 +359,12 @@ class TravelJourney(models.Model):
        store=True
     )
     journey_type = fields.Selection(
-       'Travel journey type',
-       _get_journey_type, 
+       string='Travel journey type',
+       selection='_get_journey_type', 
        help='Travel journey type.'
     )
     reservation = fields.Char(
-       'Reservation Number', 
+       string='Reservation Number', 
        help="Number of the ticket reservation."
     )
     cancellation = fields.Text('Cancellation', help='Notes on cancellation.')
