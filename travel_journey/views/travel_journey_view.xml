@@ -13,7 +13,7 @@
             <field name="passenger_id" required="0" invisible="1"/>
             <group col="4">
               <group col="4" colspan="4">
-                <field name="type"/>
+                <field name="journey_type"/>
                 <field name="is_return" attrs="{'invisible': [('passenger_id', '!=', False)]}"/>
               </group>
               <group string="Cities" col="2" colspan="2">
@@ -79,7 +79,7 @@
           <field name="destination"/>
           <field name="departure"/>
           <field name="arrival"/>
-          <field name="type"/>
+          <field name="journey_type"/>
         </tree>
       </field>
     </record>

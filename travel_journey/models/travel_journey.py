@@ -50,22 +50,22 @@ class TravelJourney(models.Model):
         res = {}
         date = False
 
-        if self.type:
+        if self.journey_type:
             try:
-                journey_class = self._journey_type_classes[self.type]
+                journey_class = self._journey_type_classes[self.journey_type]
                 date = journey_class._estimate_typed_date(
                     self, self, field_name)
             except KeyError:
                 _logger.error(
                     _('Transportation type "%s" has not registered its '
                       'class in _journey_types, skipping its dates')
-                    % self.type)
+                    % self.journey_type)
             except AttributeError:
                 _logger.error(
                     _('Transportation type "%s" has not registered a '
                       '_estimate_typed_date() function, skipping its '
                       'dates')
-                    % self.type)
+                    % self.journey_type)
         if field_name == 'date_start':
             date = (date or self.departure or
                     self.passenger_id.travel_id.date_start)
@@ -103,9 +103,9 @@ class TravelJourney(models.Model):
         if type(ids) in (int, long):
             ids = [ids]
         for journey in self.browse(cr, uid, ids, context=context):
-            if journey.type:
+            if journey.journey_type:
                 try:
-                    journey_class = self._journey_type_classes[journey.type]
+                    journey_class = self._journey_type_classes[journey.journey_type]
                     if (journey_class._inv_estimate_typed_date(
                             self, journey, field_name, val)):
                         continue
@@ -113,12 +113,12 @@ class TravelJourney(models.Model):
                     _logger.error(
                         _('Transportation type "%s" has not registered its '
                           'class in _journey_types, skipping its dates')
-                        % journey.type)
+                        % journey.journey_type)
                 except AttributeError:
                     _logger.error(
                         _('Transportation type "%s" has not registered a '
                           '_inv_estimate_typed_date() function, skipping its '
-                          'dates') % journey.type)
+                          'dates') % journey.journey_type)
             if field_name == 'date_start':
                 if journey.departure:
                     journey.write({'departure': val})
@@ -136,7 +136,7 @@ class TravelJourney(models.Model):
                 'travel_journey', 'travel_journey_class_directive')[1]
     
     @api.one
-    def _get_type(self):
+    def _get_journey_type(self):
 #         if type(ids) is dict and context is None:
 #             context = ids
         res = self.env['travel.journey.type'].search(cr, uid, [])
@@ -248,19 +248,19 @@ class TravelJourney(models.Model):
     def company_get(self):
         res = _("N/A")
         try:
-            if self.type:
-                journey_class = self._journey_type_classes[self.type]
+            if self.journey_type:
+                journey_class = self._journey_type_classes[self.journey_type]
                 res = journey_class._company_typed_get(self, self)
         except KeyError:
             _logger.error(
                 _('Transportation type "%s" has not registered its '
                   'class in _journey_types, skipping its company')
-                % self.type)
+                % self.journey_type)
         except AttributeError:
             _logger.error(
                 _('Transportation type "%s" has not registered a '
                   '_estimate_typed_date() function, skipping its company')
-                % self.type)
+                % self.journey_type)
         finally:
             return res
     
@@ -358,9 +358,9 @@ class TravelJourney(models.Model):
        related='passenger_id.travel_state', 
        store=True
     )
-    type = fields.Selection(
+    journey_type = fields.Selection(
        'Travel journey type',
-       _get_type, 
+       _get_journey_type, 
        help='Travel journey type.'
     )
     reservation = fields.Char(
