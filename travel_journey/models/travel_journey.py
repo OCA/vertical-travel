@@ -137,8 +137,6 @@ class TravelJourney(models.Model):
     
     @api.one
     def _get_journey_type(self):
-#         if type(ids) is dict and context is None:
-#             context = ids
         res = self.env['travel.journey.type'].search(cr, uid, [])
         #res = acc_type_obj.read(cr, uid, ids, ['code', 'name'], context)
         return [(r.code, r.name) for r in res]
