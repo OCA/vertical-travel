@@ -176,7 +176,7 @@ class TravelJourney(models.Model):
             self.return_destination = self.origin
     
     @api.onchange('destination')
-    def onchange_origin(self):
+    def onchange_destination(self):
         if self.destination:
             self.return_origin = self.destination
         
