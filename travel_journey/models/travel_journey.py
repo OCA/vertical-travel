@@ -43,7 +43,7 @@ class TravelJourney(models.Model):
     @staticmethod
     def _check_dep_arr_dates(departure, arrival):
         return not departure or not arrival or departure >= arrival
-    
+
     @api.one
     def _estimate_datetime(self, field_name):
         """If there is no start date from journey, get it from travel"""
@@ -78,7 +78,7 @@ class TravelJourney(models.Model):
         except ValueError:
             date = datetime.strptime(date, DEFAULT_SERVER_DATETIME_FORMAT)
         res[self.id] = date
-        
+
         return res
 
     @api.one
@@ -105,7 +105,8 @@ class TravelJourney(models.Model):
         for journey in self.browse(cr, uid, ids, context=context):
             if journey.journey_type:
                 try:
-                    journey_class = self._journey_type_classes[journey.journey_type]
+                    journey_class = self._journey_type_classes[
+                                            journey.journey_type]
                     if (journey_class._inv_estimate_typed_date(
                             self, journey, field_name, val)):
                         continue
@@ -133,14 +134,13 @@ class TravelJourney(models.Model):
     @api.one
     def _default_class(self):
         return self.env['ir.model.data'].get_object_reference(
-                'travel_journey', 'travel_journey_class_directive')[1]
-    
+            'travel_journey', 'travel_journey_class_directive')[1]
+
     @api.one
     def _get_journey_type(self):
         res = self.env['travel.journey.type'].search(cr, uid, [])
-        #res = acc_type_obj.read(cr, uid, ids, ['code', 'name'], context)
         return [(r.code, r.name) for r in res]
-    
+
     @api.v7
     def create(self, cr, uid, vals, context=None):
         """If is_return is checked, create a return trip after."""
@@ -167,46 +167,45 @@ class TravelJourney(models.Model):
         )
         if return_vals:
             super(TravelJourney, self).create(cr, uid, return_vals,
-                                               context=context)
+                context=context)
         return res
 
     @api.onchange('origin')
     def onchange_origin(self):
         if self.origin:
             self.return_destination = self.origin
-    
+
     @api.onchange('destination')
     def onchange_destination(self):
         if self.destination:
             self.return_origin = self.destination
-        
+
     @api.one
-    @api.constrains('departure','arrival')
+    @api.constrains('departure', 'arrival')
     def check_date_exists(self):
         if self.departure is None and self.arrival is None:
             raise exceptions.ValidationError(
                 _('A desired date of arrival or departure '
-                'must be set on journey.'))
-        
+                  'must be set on journey.'))
 
     @api.one
-    @api.constrains('is_return','return_departure','return_arrival')
+    @api.constrains('is_return', 'return_departure', 'return_arrival')
     def check_date_exists_return(self):
         if self.is_return and (self.return_departure is None or
                                self.return_arrival is None): 
-           raise exceptions.ValidationError(
-              _('A desired date of arrival or departure must be '
-                 'set on journey for .'))
-    
+            raise exceptions.ValidationError(
+                _('A desired date of arrival or departure must be '
+                'set on journey for .'))
+
     @api.one
-    @api.constrains('departure','arrival')
+    @api.constrains('departure', 'arrival')
     def check_date(self):
         if self._check_dep_arr_dates(self.departure, self.arrival):
             raise exceptions.ValidationError(
                _('Departure date cannot be after arrival date on journey.'))
 
     @api.one
-    @api.constrains('return_departure','return_arrival')
+    @api.constrains('return_departure', 'return_arrival')
     def check_date_return(self):
         if self.is_return:
             if self._check_dep_arr_dates(self.return_departure, 
@@ -216,14 +215,14 @@ class TravelJourney(models.Model):
                      'date on journey for return.'))
 
     @api.one
-    @api.constrains('baggage_weight','baggage_weight_uom')
+    @api.constrains('baggage_weight', 'baggage_weight_uom')
     def check_uom(self):
         # uom can be null if there is 0 ludgage
         if (bool(self.baggage_weight) ^
                 bool(self.baggage_weight_uom)):
            raise exceptions.ValidationError(
               _('Unit of Measure not specified for Baggage Weight.'))
-    
+
     @api.multi
     def name_get(self):
         return [
@@ -253,7 +252,7 @@ class TravelJourney(models.Model):
                 % self.journey_type)
         finally:
             return res
-    
+
     @api.one
     def origin_get(self):
         return self.origin
@@ -265,11 +264,11 @@ class TravelJourney(models.Model):
     @api.one
     def departure_date_get(self):
         return self._estimate_date('date_start')
-    
+
     @api.one
     def arrival_date_get(self):
         return self._estimate_date('date_stop')
-    
+
     @api.one
     def departure_time_get(self):
         return self._estimate_time('date_start')
@@ -277,99 +276,98 @@ class TravelJourney(models.Model):
     @api.one
     def arrival_time_get(self):
         return self._estimate_time('date_stop')
-    
+
     origin = fields.Many2one(
-       'res.better.zip', 
-       string='Origin', 
-       required='True',
-       help='Source city of travel.'
+        'res.better.zip', 
+        string='Origin', 
+        required='True',
+        help='Source city of travel.'
     )
     destination = fields.Many2one(
-       'res.better.zip', 
-       string='Destination',
-       required='True',
-       help='Destination city of travel.')
+        'res.better.zip', 
+        string='Destination',
+        required='True',
+        help='Destination city of travel.')
     return_origin = fields.Many2one(
-       'res.better.zip',
-       string='Origin (return)',
+        'res.better.zip',
+        string='Origin (return)',
     )
     return_destination = fields.Many2one(
-       'res.better.zip',
-       string='Destination (return)',
+        'res.better.zip',
+        string='Destination (return)',
     )
     is_return = fields.Boolean(
-       string='Return Trip', 
-       help='Generate a return trip'
+        string='Return Trip', 
+        help='Generate a return trip'
     )
     departure = fields.Datetime(
        string='Desired Departure', 
        help='Desired date and time of departure.'
     )
     arrival = fields.Datetime(
-       string='Desired Arrival', 
-       help='Desired date and time of Arrival.'
+        string='Desired Arrival', 
+        help='Desired date and time of Arrival.'
     )
     return_departure = fields.Datetime('Desired Departure (return)')
     return_arrival = fields.Datetime('Desired Arrival (return)')
     class_id = fields.Many2one(
-       'travel.journey.class',
-       string='Class',
-       default= _default_class,
-       required=True,
-       help='Desired class of voyage.'
+        'travel.journey.class',
+        string='Class',
+        default= _default_class,
+        required=True,
+        help='Desired class of voyage.'
     )
     baggage_qty = fields.Integer(
-       string='Baggage Quantity', 
-       help='Number of articles in baggage.'
+        string='Baggage Quantity', 
+        help='Number of articles in baggage.'
     )
     baggage_weight = fields.Float(
-       string='Baggage Weight', 
-       help='Weight of baggage.'
+        string='Baggage Weight', 
+        help='Weight of baggage.'
     )
     baggage_weight_uom = fields.Many2one(
-       'product.uom', 
-       string='Baggage Weight Unit of Measure',
-       help='Unit of Measure for Baggage Weight'
+        'product.uom', 
+        string='Baggage Weight Unit of Measure',
+        help='Unit of Measure for Baggage Weight'
     )
     comment = fields.Text('Comments')
     passenger_id = fields.Many2one(
-       'travel.passenger', 
-       string='Passenger', 
-       required=True,
-       help='Passenger on this journey.'
+        'travel.passenger', 
+        string='Passenger', 
+        required=True,
+        help='Passenger on this journey.'
     )
     travel = fields.Char(
-       string='Travel',
-       related = 'passenger_id.travel_name',
-       store=True
+        string='Travel',
+        related = 'passenger_id.travel_name',
+        store=True
     )
     state = fields.Selection(
-       string='State', 
-       related='passenger_id.travel_state', 
-       store=True
+        string='State', 
+        related='passenger_id.travel_state', 
+        store=True
     )
     journey_type = fields.Selection(
-       string='Travel journey type',
-       selection='_get_journey_type', 
-       help='Travel journey type.'
+        string='Travel journey type',
+        selection='_get_journey_type', 
+        help='Travel journey type.'
     )
     reservation = fields.Char(
-       string='Reservation Number', 
-       help="Number of the ticket reservation."
+        string='Reservation Number', 
+        help="Number of the ticket reservation."
     )
     cancellation = fields.Text('Cancellation', help='Notes on cancellation.')
     date_start = fields.Date(
-       string="Start Date",
-       compute='_estimate_date',
-       fnct_inv=_inv_estimate_date,
-       type="date",
-       help="Best estimate of start date calculated from filled fields."
+        string="Start Date",
+        compute='_estimate_date',
+        fnct_inv=_inv_estimate_date,
+        type="date",
+        help="Best estimate of start date calculated from filled fields."
     )
     date_stop = fields.Date(
-       string="Stop Date",
-       compute='_estimate_date',
-       fnct_inv=_inv_estimate_date,
-       type="date",
-       help="Best estimate of end date calculated from filled fields.",
+        string="Stop Date",
+        compute='_estimate_date',
+        fnct_inv=_inv_estimate_date,
+        type="date",
+        help="Best estimate of end date calculated from filled fields.",
     )
-
