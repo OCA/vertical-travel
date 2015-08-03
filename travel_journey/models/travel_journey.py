@@ -192,7 +192,7 @@ class TravelJourney(models.Model):
     @api.constrains('is_return', 'return_departure', 'return_arrival')
     def check_date_exists_return(self):
         if self.is_return and (self.return_departure is None or
-                            self.return_arrival is None):
+                               self.return_arrival is None):
             raise exceptions.ValidationError(
                 _('A desired date of arrival or departure must be '
                   'set on journey for .'))
