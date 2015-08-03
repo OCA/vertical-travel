@@ -287,23 +287,23 @@ class TravelJourney(models.Model):
         return self._estimate_time('date_stop')
     
     origin = fields.Many2one(
-       'Origin', 
        'res.better.zip', 
+       string='Origin', 
        required='True',
        help='Source city of travel.'
     )
     destination = fields.Many2one(
-       'Destination',
        'res.better.zip', 
+       string='Destination',
        required='True',
        help='Destination city of travel.')
     return_origin = fields.Many2one(
-       'Origin (return)',
-       'res.better.zip'
+       'res.better.zip',
+       string='Origin (return)',
     )
     return_destination = fields.Many2one(
-       'Destination (return)',
-       'res.better.zip'
+       'res.better.zip',
+       string='Destination (return)',
     )
     is_return = fields.Boolean(
        string='Return Trip', 
@@ -320,8 +320,8 @@ class TravelJourney(models.Model):
     return_departure = fields.Datetime('Desired Departure (return)')
     return_arrival = fields.Datetime('Desired Arrival (return)')
     class_id = fields.Many2one(
-       'Class',
        'travel.journey.class',
+       string='Class',
        default= _default_class,
        required=True,
        help='Desired class of voyage.'
@@ -335,14 +335,14 @@ class TravelJourney(models.Model):
        help='Weight of baggage.'
     )
     baggage_weight_uom = fields.Many2one(
-       'Baggage Weight Unit of Measure',
        'product.uom', 
+       string='Baggage Weight Unit of Measure',
        help='Unit of Measure for Baggage Weight'
     )
     comment = fields.Text('Comments')
     passenger_id = fields.Many2one(
-       'Passenger', 
        'travel.passenger', 
+       string='Passenger', 
        required=True,
        help='Passenger on this journey.'
     )
