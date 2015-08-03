@@ -162,11 +162,11 @@ class TravelJourney(models.Model):
             return_vals['departure'] = vals.get('return_departure', False)
             return_vals['arrival'] = vals.get('return_arrival', False)
         vals = clear_return_vals(vals)
-        res = super(travel_journey, self).create(
+        res = super(TravelJourney, self).create(
             cr, uid, vals, context=context
         )
         if return_vals:
-            super(travel_journey, self).create(cr, uid, return_vals,
+            super(TravelJourney, self).create(cr, uid, return_vals,
                                                context=context)
         return res
 
