@@ -106,7 +106,7 @@ class TravelJourney(models.Model):
             if journey.journey_type:
                 try:
                     journey_class = self._journey_type_classes[
-                         journey.journey_type]
+                        journey.journey_type]
                     if (journey_class._inv_estimate_typed_date(
                             self, journey, field_name, val)):
                         continue
@@ -167,7 +167,7 @@ class TravelJourney(models.Model):
         )
         if return_vals:
             super(TravelJourney, self).create(cr, uid, return_vals,
-                 context=context)
+                                              context=context)
         return res
 
     @api.onchange('origin')
@@ -208,11 +208,11 @@ class TravelJourney(models.Model):
     @api.constrains('return_departure', 'return_arrival')
     def check_date_return(self):
         if self.is_return:
-            if self._check_dep_arr_dates(self.return_departure, 
-                    self.return_arrival):
+            if self._check_dep_arr_dates(self.return_departure,
+                                         self.return_arrival):
                 raise exceptions.ValidationError(
                     _('Departure date cannot be after arrival '
-                    'date on journey for return.'))
+                      'date on journey for return.'))
 
     @api.one
     @api.constrains('baggage_weight', 'baggage_weight_uom')
@@ -313,7 +313,7 @@ class TravelJourney(models.Model):
     class_id = fields.Many2one(
         'travel.journey.class',
         string='Class',
-        default= '_default_class',
+        default='_default_class',
         required=True,
         help='Desired class of voyage.'
     )
