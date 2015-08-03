@@ -43,14 +43,12 @@ Contributors
     'depends': [
         'travel',
         'product',  # for product.uom in baggage weight
-        'report_webkit',
         'hr',
     ],
     'data': [
         'views/travel_passenger_view.xml',
         'views/travel_journey_view.xml',
         'data/travel_journey_data.xml',
-        'report/travel_journey_report.xml',
         'security/ir.model.access.csv',
         'wizard/travel_journey_import_view.xml',
         'wizard/travel_summary_view.xml',
