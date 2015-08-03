@@ -21,7 +21,7 @@
 ##############################################################################
 
 from datetime import datetime
-from openerp import fields, models, api, _
+from openerp import fields, models, api, exceptions, _
 from openerp.tools.misc import (
     DEFAULT_SERVER_DATE_FORMAT,
     DEFAULT_SERVER_DATETIME_FORMAT,
@@ -42,7 +42,7 @@ class TravelJourney(models.Model):
 
     @staticmethod
     def _check_dep_arr_dates(departure, arrival):
-        return not departure or not arrival or departure <= arrival
+        return not departure or not arrival or departure >= arrival
     
     @api.one
     def _estimate_datetime(self, field_name):
@@ -170,31 +170,21 @@ class TravelJourney(models.Model):
                                                context=context)
         return res
 
-    @staticmethod
-    def on_change_return(cr, uid, ids, key, location, context=None):
-        return {'value': {key: location}}
-
-    def on_change_times(self, cr, uid, ids, departure, arrival,
-                        return_trip=False, context=None):
-        if self._check_dep_arr_dates(departure, arrival):
-            return {}
-        # Remove the return_arrival=False or return_arrival=False
-        # because we get the popup message two times.
-        # Anyway another control exists
-        # if you want to validate the form with bad dates.
-        return {
-            'warning': {
-                'title': _('Arrival after Departure'),
-                'message': _('Departure (%s) cannot be before Arrival (%s).') %
-                            (departure, arrival),
-            },
-        }
+    @api.onchange('origin')
+    def onchange_origin(self):
+        if self.origin:
+            self.return_destination = self.origin
     
+    @api.onchange('destination')
+    def onchange_origin(self):
+        if self.destination:
+            self.return_origin = self.destination
+        
     @api.one
     @api.constrains('departure','arrival')
     def check_date_exists(self):
         if self.departure is None and self.arrival is None:
-            raise ValidationError(
+            raise exceptions.ValidationError(
                 _('A desired date of arrival or departure '
                 'must be set on journey.'))
         
@@ -204,7 +194,7 @@ class TravelJourney(models.Model):
     def check_date_exists_return(self):
         if self.is_return and (self.return_departure is None or
                                self.return_arrival is None): 
-           raise ValidationError(
+           raise exceptions.ValidationError(
               _('A desired date of arrival or departure must be '
                  'set on journey for .'))
     
@@ -212,24 +202,26 @@ class TravelJourney(models.Model):
     @api.constrains('departure','arrival')
     def check_date(self):
         if self._check_dep_arr_dates(self.departure, self.arrival):
-            raise ValidationError(
+            raise exceptions.ValidationError(
                _('Departure date cannot be after arrival date on journey.'))
 
     @api.one
     @api.constrains('return_departure','return_arrival')
     def check_date_return(self):
-        if self._check_dep_arr_dates(self.return_departure, 
-                                     self.return_arrival):
-            raise ValidationError(
-               _('Departure date cannot be after arrival '
-                 'date on journey for return.'))
+        if self.is_return:
+            if self._check_dep_arr_dates(self.return_departure, 
+                                         self.return_arrival):
+                raise exceptions.ValidationError(
+                   _('Departure date cannot be after arrival '
+                     'date on journey for return.'))
 
     @api.one
     @api.constrains('baggage_weight','baggage_weight_uom')
     def check_uom(self):
-        if not (bool(self.baggage_weight) ^
-                    bool(self.baggage_weight_uom)):
-           raise ValidationError(
+        # uom can be null if there is 0 ludgage
+        if (bool(self.baggage_weight) ^
+                bool(self.baggage_weight_uom)):
+           raise exceptions.ValidationError(
               _('Unit of Measure not specified for Baggage Weight.'))
     
     @api.multi
