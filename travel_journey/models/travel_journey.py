@@ -25,7 +25,6 @@ from openerp import fields, models, api, exceptions, _
 from openerp.tools.misc import (
     DEFAULT_SERVER_DATE_FORMAT,
     DEFAULT_SERVER_DATETIME_FORMAT,
-    DEFAULT_SERVER_TIME_FORMAT,
 )
 
 import logging
@@ -124,14 +123,14 @@ class TravelJourney(models.Model):
                       'dates') % self.journey_type)
         if field_name == 'date_start':
             if self.departure:
-                self.write({'departure': val})
+                self.write({'departure': self.date_start})
             elif self.passenger_id.travel_id.date_start:
-                self.passenger_id.travel_id.write({'date_start': val})
+                self.passenger_id.travel_id.write({'date_start': self.date_start})
         elif field_name == 'date_stop':
             if self.arrival:
-                self.write({'arrival': val})
+                self.write({'arrival': self.date_stop})
             elif self.passenger_id.travel_id.date_stop:
-                self.passenger_id.travel_id.write({'date_stop': val})
+                self.passenger_id.travel_id.write({'date_stop': self.date_stop})
 
     @api.one
     def _default_class(self):
