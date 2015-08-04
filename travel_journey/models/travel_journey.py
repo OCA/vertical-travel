@@ -125,12 +125,14 @@ class TravelJourney(models.Model):
             if self.departure:
                 self.write({'departure': self.date_start})
             elif self.passenger_id.travel_id.date_start:
-                self.passenger_id.travel_id.write({'date_start': self.date_start})
+                self.passenger_id.travel_id.write({'date_start': 
+                                                   self.date_start})
         elif field_name == 'date_stop':
             if self.arrival:
                 self.write({'arrival': self.date_stop})
             elif self.passenger_id.travel_id.date_stop:
-                self.passenger_id.travel_id.write({'date_stop': self.date_stop})
+                self.passenger_id.travel_id.write({'date_stop': 
+                                                   self.date_stop})
 
     @api.one
     def _default_class(self):
