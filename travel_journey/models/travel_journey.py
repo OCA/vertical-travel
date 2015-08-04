@@ -82,54 +82,56 @@ class TravelJourney(models.Model):
         return res
 
     @api.one
+    def _estimate_date_start(self):
+        return self._estimate_date('date_start')
+
+    @api.one
+    def _estimate_date_stop(self):
+        return self._estimate_date('date_stop')
+
+    @api.one
     def _estimate_date(self, field_name):
-        datetimes = self._estimate_datetime(field_name)
-        return {
-            i: datetimes[i].strftime(DEFAULT_SERVER_DATE_FORMAT)
-            for i in datetimes
-        }
+        return self._estimate_datetime(field_name)
 
     @api.one
     def _estimate_time(self, field_name):
-        datetimes = self._estimate_datetime(field_name)
-        return {
-            i: datetimes[i].strftime(DEFAULT_SERVER_TIME_FORMAT)
-            for i in datetimes
-        }
+        return self._estimate_datetime(field_name)
 
-    def _inv_estimate_date(self, cr, uid, ids, field_name, val, arg,
-                           context=None):
+    @api.one
+    def _inv_estimate_date_start(self):
+        return self._inv_estimate_date('date_start')
+
+    @api.one
+    def _inv_estimate_date_stop(self):
+        return self._inv_estimate_date('date_stop')
+
+    @api.one
+    def _inv_estimate_date(self, field_name):
         """If there is no start date in journey, set it in travel"""
-        if type(ids) in (int, long):
-            ids = [ids]
-        for journey in self.browse(cr, uid, ids, context=context):
-            if journey.journey_type:
-                try:
-                    journey_class = self._journey_type_classes[
-                        journey.journey_type]
-                    if (journey_class._inv_estimate_typed_date(
-                            self, journey, field_name, val)):
-                        continue
-                except KeyError:
-                    _logger.error(
-                        _('Transportation type "%s" has not registered its '
-                          'class in _journey_types, skipping its dates')
-                        % journey.journey_type)
-                except AttributeError:
-                    _logger.error(
-                        _('Transportation type "%s" has not registered a '
-                          '_inv_estimate_typed_date() function, skipping its '
-                          'dates') % journey.journey_type)
-            if field_name == 'date_start':
-                if journey.departure:
-                    journey.write({'departure': val})
-                elif journey.passenger_id.travel_id.date_start:
-                    journey.passenger_id.travel_id.write({'date_start': val})
-            elif field_name == 'date_stop':
-                if journey.arrival:
-                    journey.write({'arrival': val})
-                elif journey.passenger_id.travel_id.date_stop:
-                    journey.passenger_id.travel_id.write({'date_stop': val})
+        if self.journey_type:
+            try:
+                journey_class = self._journey_type_classes[
+                    self.journey_type]
+            except KeyError:
+                _logger.error(
+                    _('Transportation type "%s" has not registered its '
+                      'class in _journey_types, skipping its dates')
+                    % self.journey_type)
+            except AttributeError:
+                _logger.error(
+                    _('Transportation type "%s" has not registered a '
+                      '_inv_estimate_typed_date() function, skipping its '
+                      'dates') % self.journey_type)
+        if field_name == 'date_start':
+            if self.departure:
+                self.write({'departure': val})
+            elif self.passenger_id.travel_id.date_start:
+                self.passenger_id.travel_id.write({'date_start': val})
+        elif field_name == 'date_stop':
+            if self.arrival:
+                self.write({'arrival': val})
+            elif self.passenger_id.travel_id.date_stop:
+                self.passenger_id.travel_id.write({'date_stop': val})
 
     @api.one
     def _default_class(self):
@@ -359,15 +361,15 @@ class TravelJourney(models.Model):
     cancellation = fields.Text('Cancellation', help='Notes on cancellation.')
     date_start = fields.Date(
         string="Start Date",
-        compute='_estimate_date',
-        fnct_inv=_inv_estimate_date,
+        compute='_estimate_date_start',
+        fnct_inv='_inv_estimate_date_start',
         type="date",
         help="Best estimate of start date calculated from filled fields."
     )
     date_stop = fields.Date(
         string="Stop Date",
-        compute='_estimate_date',
-        fnct_inv=_inv_estimate_date,
+        compute='_estimate_date_stop',
+        fnct_inv='_inv_estimate_date_stop',
         type="date",
         help="Best estimate of end date calculated from filled fields.",
     )
