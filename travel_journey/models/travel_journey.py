@@ -143,8 +143,8 @@ class TravelJourney(models.Model):
         res = self.env['travel.journey.type'].search()
         return [(r.code, r.name) for r in res]
 
-    @api.v7
-    def create(self, cr, uid, vals, context=None):
+    @api.one
+    def create(self, vals):
         """If is_return is checked, create a return trip after."""
         def clear_return_vals(mVals):
             mVals = mVals.copy()
@@ -164,12 +164,9 @@ class TravelJourney(models.Model):
             return_vals['departure'] = vals.get('return_departure', False)
             return_vals['arrival'] = vals.get('return_arrival', False)
         vals = clear_return_vals(vals)
-        res = super(TravelJourney, self).create(
-            cr, uid, vals, context=context
-        )
+        res = super(TravelJourney, self).create(vals)
         if return_vals:
-            super(TravelJourney, self).create(cr, uid, return_vals,
-                                              context=context)
+            super(TravelJourney, self).create(return_vals)
         return res
 
     @api.onchange('origin')
