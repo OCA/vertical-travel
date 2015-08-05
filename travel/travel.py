@@ -25,6 +25,17 @@ from openerp.tools.translate import _
 from .res_config import get_basic_passenger_limit
 
 
+def _get_travel_states(self, cr, uid, ids=None, context=None):
+    return [
+        ('draft', _('Draft')),
+        ('open', _('Saved')),
+        ('booking', _('In Reservation')),
+        ('reserved', _('Reserved')),
+        ('confirmed', _('Confirmed')),
+        ('done', _('Closed')),
+    ]
+
+
 class travel_travel(orm.Model):
 
     """Travel"""
@@ -52,13 +63,9 @@ class travel_travel(orm.Model):
                                         store=True,
                                         type='boolean',
                                         string='Manager'),
-        'state': fields.selection([('draft', 'Draft'),
-                                   ('open', 'Saved'),
-                                   ('booking', 'In Reservation'),
-                                   ('reserved', 'Reserved'),
-                                   ('confirmed', 'Confirmed'),
-                                   ('done', 'Closed'),
-                                   ], 'Status', readonly=True),
+        'state': fields.selection(
+            lambda *a, **kw: _get_travel_states(*a, **kw),
+            'Status', readonly=True),
     }
     _defaults = {
         'state': 'draft',

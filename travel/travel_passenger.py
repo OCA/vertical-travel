@@ -23,6 +23,8 @@
 from openerp.osv import fields, orm
 from openerp.tools.translate import _
 
+from .travel import _get_travel_states
+
 
 class travel_passenger(orm.Model):
 
@@ -45,7 +47,8 @@ class travel_passenger(orm.Model):
         'travel_name': fields.related(
             'travel_id', 'name', type='char', string='Travel'),
         'travel_state': fields.related(
-            'travel_id', 'state', type='selection', string='State'),
+            'travel_id', 'state', type='selection', string='State',
+            selection=lambda *a, **kw: _get_travel_states(*a, **kw)),
     }
 
     def name_get(self, cr, uid, ids, context=None):

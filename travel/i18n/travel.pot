@@ -21,12 +21,14 @@ msgid "Configure Travel"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
+#: code:addons/travel/travel.py:0
+#, python-format
 msgid "Confirmed"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
+#: code:addons/travel/travel.py:0
+#, python-format
 msgid "Closed"
 msgstr ""
 
@@ -90,12 +92,14 @@ msgid "Followers"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
+#: code:addons/travel/travel.py:0
+#, python-format
 msgid "In Reservation"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
+#: code:addons/travel/travel.py:0
+#, python-format
 msgid "Draft"
 msgstr ""
 
@@ -195,7 +199,8 @@ msgid "Cities"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
+#: code:addons/travel/travel.py:0
+#, python-format
 msgid "Saved"
 msgstr ""
 
@@ -310,7 +315,8 @@ msgid "Limit number of passengers to organize travels by non-managers."
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
+#: code:addons/travel/travel.py:0
+#, python-format
 msgid "Reserved"
 msgstr ""
 
