@@ -21,6 +21,7 @@
 ##############################################################################
 
 from openerp.report import report_sxw
+from openerp.addons.report_webkit.webkit_report import WebKitParser
 
 
 class travel_journey_report(report_sxw.rml_parse):
@@ -34,48 +35,31 @@ class travel_journey_report(report_sxw.rml_parse):
             'passenger': self._get_passenger,
         })
 
-    def _get_signer(self):
+    def _get_signer(self, journey):
         try:
             return self.localcontext['user'].name_get()[0][1]
         except (KeyError, IndexError):
             return ''
 
     def _get_passenger(self, journey):
-        """This function allows to get the name and job name for the passenger.
+        """This function allows to get the name for the passenger.
 
         :param journey: travel.journey record
-        :return: html string with name and the job of the passenger.
+        :return: html string with name of the passenger.
         """
-        user_object = self.pool['res.users']
-        employee_object = self.pool['hr.employee']
-        try:
-            passenger_name = journey.passenger_id.partner_id.name or ''
-            # Get job name for passenger
-            partner_id = journey.passenger_id.partner_id.id
-            user_ids = user_object.search(
-                self.cr, self.uid, [('partner_id', '=', partner_id)])
-            employee_ids = employee_object.search(
-                self.cr, self.uid, [('user_id', 'in', user_ids)])
-            job_id = employee_object.browse(
-                self.cr, self.uid, employee_ids[0]).job_id
-            job_name = ''
-            if job_id:
-                job_name = job_id.name
-
-        except AttributeError:
-            passenger_name, job_name = '', ''
+        passenger_name = journey.passenger_id.partner_id.name
         return """\
       <table width="100%%">
         <tr>
           <td class="field_input">
-            %s, &nbsp; %s
+            %s
           </td>
         </tr>
       </table>
-""" % (passenger_name, job_name)
+""" % passenger_name
 
 
-report_sxw.report_sxw(
+WebKitParser(
     name='report.travel.journey.order.webkit',
     table='travel.journey',
     rml='addons/travel_journey/report/travel_passenger.mako',

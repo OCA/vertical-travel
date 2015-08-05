@@ -29,10 +29,9 @@ from openerp.addons.travel_journey.report.travel_journey_webkit \
     import travel_journey_report
 
 
-class test_journey(TransactionCase):
-
+class test_journey_base(TransactionCase):
     def setUp(self):
-        super(test_journey, self).setUp()
+        super(test_journey_base, self).setUp()
         # Clean up registries
         self.registry('ir.model').clear_caches()
         self.registry('ir.model.data').clear_caches()
@@ -52,25 +51,15 @@ class test_journey(TransactionCase):
             'date_stop': '2014-03-12',
         }, context=self.context)
         user_object = self.registry('res.users')
-        user_id = user_object.create(
+        self.user_id = user_object.create(
             self.cr, self.uid, {'name': 't_name', 'login': 't_login'}
         )
-        user = user_object.browse(
-            self.cr, self.uid, user_id, context=self.context
+        self.user = user_object.browse(
+            self.cr, self.uid, self.user_id, context=self.context
         )
-        hr_jobs = self.registry('hr.job')
-        job_id = hr_jobs.create(
-            self.cr, self.uid, {'name': 't_job_name'}, context=self.context
-        )
-        employee_object = self.registry('hr.employee')
-        employee_object.create(
-            self.cr,
-            self.uid,
-            {'name': 't_employee', 'user_id': user_id, 'job_id': job_id},
-            context=self.context
-        )
+
         self.passenger_id = self.passenger_model.create(self.cr, self.uid, {
-            'partner_id': user.partner_id.id,
+            'partner_id': self.user.partner_id.id,
             'travel_id': self.travel_id,
         }, context=self.context)
         city_id = self.city_model.create(self.cr, self.uid, {
@@ -82,6 +71,9 @@ class test_journey(TransactionCase):
             'departure': '2014-03-12',
             'passenger_id': self.passenger_id,
         }
+
+
+class test_journey(test_journey_base):
 
     def test_create_journey(self):
         self.journey_model.create(
@@ -224,7 +216,7 @@ class test_journey(TransactionCase):
         expected_return = u"""      <table width="100%">
         <tr>
           <td class="field_input">
-            t_name, &nbsp; t_job_name
+            t_name
           </td>
         </tr>
       </table>

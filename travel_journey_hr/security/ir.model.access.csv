@@ -1,0 +1,2 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_hr_job_user,hr_job_user,hr.model_hr_job,travel.group_basic_travel_user,1,0,0,0

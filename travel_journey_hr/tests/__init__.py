@@ -20,5 +20,8 @@
 #
 ##############################################################################
 
-from . import report
-from . import wizard
+from . import test_journey
+
+checks = [
+    test_journey,
+]

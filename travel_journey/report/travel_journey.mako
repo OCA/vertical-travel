@@ -9,7 +9,7 @@
     %for o in objects:
       <h1>${_("Mission Manifest").upper()}</h1>
       <h2>XXXXXXXXXXXXXXXXXXXXXXXXXXX</h2>
-      <h3>${who()}</h3>
+      <h3>${who(o)}</h3>
       ${_("prescribed for")}
       ${passenger(o)}
 
@@ -62,7 +62,7 @@
         </tr>
       </table>
       <p>
-        ${who()} <br/>
+        ${who(o)} <br/>
         ${_("thanks civilian and miliary authorities of the countries visited "
             "of the facilities they choose to equip bearer of this order for "
             "the smooth running of the mission.")}
@@ -71,7 +71,7 @@
         ${_("Made in %s, the") % (company.partner_id.city or '')}
       </div>
       <div class="sign_name">
-        ${signer()}
+        ${signer(o)}
       </div>
     %endfor
   </body>
