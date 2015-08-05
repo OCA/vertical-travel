@@ -17,15 +17,11 @@
                 <field name="is_return" attrs="{'invisible': [('passenger_id', '!=', False)]}"/>
               </group>
               <group string="Cities" col="2" colspan="2">
-                <field name="origin"
-                       options='{"create_name_field": "city", "create": false, "create_edit": false}'/>
-                <field name="destination"
-                       options='{"create_name_field": "city", "create": false, "create_edit": false}'/>
+                <field name="origin"/>
+                <field name="destination"/>
                 <field name="return_origin"
-                       options='{"create_name_field": "city", "create": false, "create_edit": false}'
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
                 <field name="return_destination"
-                       options='{"create_name_field": "city", "create": false, "create_edit": false}'
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
               </group>
               <group string="Times" col="3" colspan="2">
