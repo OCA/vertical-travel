@@ -107,20 +107,6 @@ class TravelJourney(models.Model):
     @api.one
     def _inv_estimate_date(self, field_name):
         """If there is no start date in journey, set it in travel"""
-        if self.journey_type:
-            try:
-                journey_class = self._journey_type_classes[
-                    self.journey_type]
-            except KeyError:
-                _logger.error(
-                    _('Transportation type "%s" has not registered its '
-                      'class in _journey_types, skipping its dates')
-                    % self.journey_type)
-            except AttributeError:
-                _logger.error(
-                    _('Transportation type "%s" has not registered a '
-                      '_inv_estimate_typed_date() function, skipping its '
-                      'dates') % self.journey_type)
         if field_name == 'date_start':
             if self.departure:
                 self.write({'departure': self.date_start})
