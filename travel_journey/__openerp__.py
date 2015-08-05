@@ -52,7 +52,6 @@ Contributors
         'security/ir.model.access.csv',
         'wizard/travel_journey_import_view.xml',
         'wizard/travel_summary_view.xml',
-        'wizard/travel_journey_order_form_view.xml',
         'views/travel_view.xml',
     ],
     'demo': [],
