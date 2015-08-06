@@ -13,35 +13,25 @@
             <field name="passenger_id" required="0" invisible="1"/>
             <group col="4">
               <group col="4" colspan="4">
-                <field name="type"/>
+                <field name="journey_type"/>
                 <field name="is_return" attrs="{'invisible': [('passenger_id', '!=', False)]}"/>
               </group>
               <group string="Cities" col="2" colspan="2">
-                <field name="origin"
-                       options='{"create_name_field": "city", "create": false, "create_edit": false}'
-                       on_change="on_change_return('return_destination', origin)"/>
-                <field name="destination"
-                       options='{"create_name_field": "city", "create": false, "create_edit": false}'
-                       on_change="on_change_return('return_origin', destination)"/>
+                <field name="origin"/>
+                <field name="destination"/>
                 <field name="return_origin"
-                       options='{"create_name_field": "city", "create": false, "create_edit": false}'
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
                 <field name="return_destination"
-                       options='{"create_name_field": "city", "create": false, "create_edit": false}'
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
               </group>
               <group string="Times" col="3" colspan="2">
-                <field name="departure"
-                       on_change="on_change_times(departure, arrival, False)"/>
+                <field name="departure"/>
                 <b>or</b>
-                <field name="arrival" colspan="3"
-                       on_change="on_change_times(departure, arrival, False)"/>
+                <field name="arrival" colspan="3"/>
                 <field name="return_departure"
-                       on_change="on_change_times(return_departure, return_arrival, True)"
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
                 <b attrs="{'invisible': [('is_return', '=', False)]}">or</b>
                 <field name="return_arrival" colspan="3"
-                       on_change="on_change_times(return_departure, return_arrival, True)"
                        attrs="{'invisible': [('is_return', '=', False)]}"/>
               </group>
 
@@ -79,7 +69,7 @@
           <field name="destination"/>
           <field name="departure"/>
           <field name="arrival"/>
-          <field name="type"/>
+          <field name="journey_type"/>
         </tree>
       </field>
     </record>

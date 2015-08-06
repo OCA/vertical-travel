@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2010 - 2014 Savoir-faire Linux
+#    This module copyright (C) 2013 Savoir-faire Linux
 #    (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,4 +20,10 @@
 #
 ##############################################################################
 
-from . import travel_journey_webkit
+from . import (
+    travel,
+    travel_journey,
+    travel_journey_class,
+    travel_passenger,
+    travel_journey_type,
+)

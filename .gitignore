@@ -45,6 +45,10 @@ coverage.xml
 # Pycharm
 .idea
 
+# Eclispe/PyDev
+.project
+.pydevproject
+
 # Backup files
 *~
 *.swp
