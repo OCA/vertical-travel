@@ -403,3 +403,7 @@ msgstr ""
 msgid "or"
 msgstr ""
 
+#. module: travel
+#: view:travel.travel:0
+msgid "Search Travels"
+msgstr ""

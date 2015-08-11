@@ -88,6 +88,11 @@ msgid "Book"
 msgstr "Mettre en réservation"
 
 #. module: travel
+#: view:travel.travel:0
+msgid "Search Travels"
+msgstr "Chercher des voyages"
+
+#. module: travel
 #: field:travel.passenger,message_follower_ids:0
 #: field:travel.travel,message_follower_ids:0
 msgid "Followers"

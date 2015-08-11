@@ -86,10 +86,21 @@
       </field>
     </record>
 
+    <record id="view_travel_search" model="ir.ui.view">
+      <field name="name">Search Travels</field>
+      <field name="model">travel.travel</field>
+      <field name="arch" type="xml">
+        <search string="Search Travels">
+          <field name="name"/>
+        </search>
+      </field>
+    </record>
+
     <!-- Actions -->
     <record model="ir.actions.act_window" id="action_travels_tree_list">
         <field name="name">Travels</field>
         <field name="view_id" ref="travel_tree_view"/>
+        <field name="search_view_id" ref="view_travel_search"/>
         <field name="res_model">travel.travel</field>
         <field name="view_mode">tree,form,calendar</field>
     </record>
