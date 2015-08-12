@@ -1,23 +1,30 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* travel_accommodation
+# 	* travel_accommodation
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 15:35+0000\n"
-"PO-Revision-Date: 2014-03-05 15:35+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2015-01-21 16:26+0000\n"
+"PO-Revision-Date: 2015-01-21 11:26-0500\n"
+"Last-Translator: EL Hadji DEM <elhadji.dem@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. module: travel_accommodation
 #: help:travel.accommodation,passenger_id:0
 msgid "Passenger on this accommodation."
+msgstr ""
+
+#. module: travel_accommodation
+#: code:addons/travel_accommodation/travel_accommodation.py:70
+#, python-format
+msgid "Arrival after Departure"
 msgstr ""
 
 #. module: travel_accommodation
@@ -36,6 +43,12 @@ msgid "Budget per Night"
 msgstr ""
 
 #. module: travel_accommodation
+#: code:addons/travel_accommodation/travel_accommodation.py:71
+#, python-format
+msgid "Departure (%s) cannot be before Arrival (%s)."
+msgstr ""
+
+#. module: travel_accommodation
 #: view:res.partner:0
 msgid "Travel"
 msgstr ""
@@ -46,8 +59,7 @@ msgid "Date and Time of departure from Accommodations."
 msgstr ""
 
 #. module: travel_accommodation
-#: view:travel.accommodation:0
-#: field:travel.accommodation,location:0
+#: view:travel.accommodation:0 field:travel.accommodation,location:0
 msgid "Location"
 msgstr ""
 
@@ -57,7 +69,6 @@ msgid "Import"
 msgstr ""
 
 #. module: travel_accommodation
-#: model:_description:0
 #: model:ir.model,name:travel_accommodation.model_travel_accommodation_import
 msgid "Accommodation information import"
 msgstr ""
@@ -89,13 +100,11 @@ msgid "unknown"
 msgstr ""
 
 #. module: travel_accommodation
-#: model:_description:0
 #: model:ir.model,name:travel_accommodation.model_travel_accommodation
 msgid "Accommodation of travel"
 msgstr ""
 
 #. module: travel_accommodation
-#: model:_description:0
 #: model:ir.model,name:travel_accommodation.model_travel_passenger
 msgid "Passenger on travel"
 msgstr ""
@@ -126,10 +135,8 @@ msgid "Location of Accommodation."
 msgstr ""
 
 #. module: travel_accommodation
-#: view:res.partner:0
-#: field:res.partner,is_accommodation:0
-#: view:travel.accommodation:0
-#: view:travel.passenger:0
+#: view:res.partner:0 field:res.partner,is_accommodation:0
+#: view:travel.accommodation:0 view:travel.passenger:0
 msgid "Accommodation"
 msgstr ""
 
@@ -145,7 +152,7 @@ msgid "Passenger"
 msgstr ""
 
 #. module: travel_accommodation
-#: code:addons/travel_accommodation/travel_accommodation.py:114
+#: code:addons/travel_accommodation/travel_accommodation.py:131
 #: constraint:travel.accommodation:0
 #, python-format
 msgid "Currency not specified for budget."
@@ -167,7 +174,13 @@ msgid "Dinner"
 msgstr ""
 
 #. module: travel_accommodation
-#: code:addons/travel_accommodation/travel_accommodation.py:111
+#: code:addons/travel_accommodation/wizard/travel_accommodation_import.py:52
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: travel_accommodation
+#: code:addons/travel_accommodation/travel_accommodation.py:128
 #: constraint:travel.accommodation:0
 #, python-format
 msgid "Arrival date cannot be after departure date."
@@ -181,6 +194,12 @@ msgstr ""
 #. module: travel_accommodation
 #: help:travel.accommodation,lunch:0
 msgid "Is lunch included?"
+msgstr ""
+
+#. module: travel_accommodation
+#: code:addons/travel_accommodation/wizard/travel_accommodation_import.py:53
+#, python-format
+msgid "No source passenger selected."
 msgstr ""
 
 #. module: travel_accommodation
@@ -214,7 +233,6 @@ msgid "Cancel"
 msgstr ""
 
 #. module: travel_accommodation
-#: model:_description:0
 #: model:ir.model,name:travel_accommodation.model_res_partner
 msgid "Partner"
 msgstr ""
@@ -238,4 +256,3 @@ msgstr ""
 #: field:travel.accommodation,close_to:0
 msgid "Close to"
 msgstr ""
-

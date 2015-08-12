@@ -1,23 +1,30 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* travel_rental_service
+# 	* travel_rental_service
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 15:35+0000\n"
-"PO-Revision-Date: 2014-03-05 15:35+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2015-01-21 17:23+0000\n"
+"PO-Revision-Date: 2015-01-21 12:24-0500\n"
+"Last-Translator: EL Hadji DEM <elhadji.dem@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. module: travel_rental_service
 #: field:travel.rental.service,city_id:0
 msgid "City"
+msgstr ""
+
+#. module: travel_rental_service
+#: code:addons/travel_rental_service/travel_rental_service.py:46
+#, python-format
+msgid "Arrival after Departure"
 msgstr ""
 
 #. module: travel_rental_service
@@ -41,13 +48,12 @@ msgid "Maximum capacity of people in room."
 msgstr ""
 
 #. module: travel_rental_service
-#: field:travel.rental.service,end:0
-msgid "End"
+#: model:ir.model,name:travel_rental_service.model_travel_rental_service
+msgid "Service rentals for travel"
 msgstr ""
 
 #. module: travel_rental_service
-#: view:travel.rental.service:0
-#: field:travel.rental.service,location:0
+#: view:travel.rental.service:0 field:travel.rental.service,location:0
 msgid "Location"
 msgstr ""
 
@@ -57,8 +63,8 @@ msgid "List of service rentals."
 msgstr ""
 
 #. module: travel_rental_service
-#: view:travel.rental.service.import:0
-msgid "Import"
+#: field:travel.rental.service,end:0
+msgid "End"
 msgstr ""
 
 #. module: travel_rental_service
@@ -73,7 +79,6 @@ msgid "Travel - Other services"
 msgstr ""
 
 #. module: travel_rental_service
-#: model:_description:0
 #: model:ir.model,name:travel_rental_service.model_travel_passenger
 msgid "Passenger on travel"
 msgstr ""
@@ -81,6 +86,11 @@ msgstr ""
 #. module: travel_rental_service
 #: field:travel.rental.service.import,passenger_id:0
 msgid "Import Service Rental information from"
+msgstr ""
+
+#. module: travel_rental_service
+#: view:travel.rental.service.import:0
+msgid "Import"
 msgstr ""
 
 #. module: travel_rental_service
@@ -105,14 +115,12 @@ msgid "Other passengers on the same journey."
 msgstr ""
 
 #. module: travel_rental_service
-#: view:travel.rental.service:0
-#: field:travel.rental.service,equipment:0
+#: view:travel.rental.service:0 field:travel.rental.service,equipment:0
 msgid "Desired equipment"
 msgstr ""
 
 #. module: travel_rental_service
-#: view:travel.rental.service:0
-#: field:travel.rental.service,services:0
+#: view:travel.rental.service:0 field:travel.rental.service,services:0
 msgid "Desired services"
 msgstr ""
 
@@ -122,16 +130,21 @@ msgid "Times"
 msgstr ""
 
 #. module: travel_rental_service
-#: code:addons/travel_rental_service/travel_rental_service.py:77
+#: view:travel.rental.service.import:0
+msgid "Cancel"
+msgstr ""
+
+#. module: travel_rental_service
+#: code:addons/travel_rental_service/travel_rental_service.py:79
 #: constraint:travel.rental.service:0
 #, python-format
 msgid "End date cannot be after Start date for service rental."
 msgstr ""
 
 #. module: travel_rental_service
-#: model:_description:0
-#: model:ir.model,name:travel_rental_service.model_travel_rental_service
-msgid "Service rentals for travel"
+#: code:addons/travel_rental_service/wizard/travel_rental_service_import.py:52
+#, python-format
+msgid "Error"
 msgstr ""
 
 #. module: travel_rental_service
@@ -145,8 +158,13 @@ msgid "Passenger"
 msgstr ""
 
 #. module: travel_rental_service
-#: view:res.partner:0
-#: field:res.partner,is_rental_service:0
+#: code:addons/travel_rental_service/wizard/travel_rental_service_import.py:53
+#, python-format
+msgid "No source passenger selected."
+msgstr ""
+
+#. module: travel_rental_service
+#: view:res.partner:0 field:res.partner,is_rental_service:0
 msgid "Rental Service"
 msgstr ""
 
@@ -176,12 +194,12 @@ msgid "Service Rentals"
 msgstr ""
 
 #. module: travel_rental_service
-#: view:travel.rental.service.import:0
-msgid "Cancel"
+#: code:addons/travel_rental_service/travel_rental_service.py:47
+#, python-format
+msgid "End of rental (%s) cannot be before Start (%s)."
 msgstr ""
 
 #. module: travel_rental_service
-#: model:_description:0
 #: model:ir.model,name:travel_rental_service.model_res_partner
 msgid "Partner"
 msgstr ""
@@ -192,8 +210,6 @@ msgid "or"
 msgstr ""
 
 #. module: travel_rental_service
-#: model:_description:0
 #: model:ir.model,name:travel_rental_service.model_travel_rental_service_import
 msgid "Service Rental information import"
 msgstr ""
-

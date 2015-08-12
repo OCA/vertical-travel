@@ -23,15 +23,15 @@
 {
     'name': 'Travel Accommodation',
     'version': '0.1',
-    'author': 'Savoir-faire Linux',
+    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
     'category': 'Customer Relationship Management',
     'summary': 'Accommodations on a Travel',
     'description': """
- Travel Accommodation
-=====================
+Travel Accommodation
+====================
 This module adds accommodation management for travels.
 
 Contributors

@@ -25,6 +25,17 @@ from openerp.tools.translate import _
 from .res_config import get_basic_passenger_limit, get_alert_address
 
 
+def _get_travel_states(self, cr, uid, ids=None, context=None):
+    return [
+        ('draft', _('Draft')),
+        ('open', _('Saved')),
+        ('booking', _('In Reservation')),
+        ('reserved', _('Reserved')),
+        ('confirmed', _('Confirmed')),
+        ('done', _('Closed')),
+    ]
+
+
 class travel_travel(orm.Model):
 
     """Travel"""
@@ -73,19 +84,15 @@ class travel_travel(orm.Model):
                                         store=True,
                                         type='boolean',
                                         string='Manager'),
-        'state': fields.selection([('draft', 'Draft'),
-                                   ('open', 'Saved'),
-                                   ('booking', 'In Reservation'),
-                                   ('reserved', 'Reserved'),
-                                   ('confirmed', 'Confirmed'),
-                                   ('done', 'Closed'),
-                                   ], 'Status', readonly=True),
         'responsible_emails': fields.function(_get_responsible_emails,
                                               type='char',
                                               string='Responsible e-mails'),
         'user_id': fields.many2one('res.users', 'Responsible'),
         'is_opened': fields.boolean('Open flag'),
-        'is_reserved': fields.boolean('Reserved flag')
+        'is_reserved': fields.boolean('Reserved flag'),
+        'state': fields.selection(
+            lambda *a, **kw: _get_travel_states(*a, **kw),
+            'Status', readonly=True),
     }
 
     _defaults = {

@@ -32,6 +32,18 @@ msgid "Basic Passenger Limit"
 msgstr ""
 
 #. module: travel
+#: code:addons/travel/travel.py:0
+#, python-format
+msgid "Confirmed"
+msgstr ""
+
+#. module: travel
+#: code:addons/travel/travel.py:0
+#, python-format
+msgid "Closed"
+msgstr ""
+
+#. module: travel
 #: field:travel.passenger,message_unread:0
 #: field:travel.travel,message_unread:0
 msgid "Unread Messages"
@@ -138,8 +150,15 @@ msgid "Minimal view of travel forms"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "Confirmed"
+#: code:addons/travel/travel.py:0
+#, python-format
+msgid "In Reservation"
+msgstr ""
+
+#. module: travel
+#: code:addons/travel/travel.py:0
+#, python-format
+msgid "Draft"
 msgstr ""
 
 #. module: travel
@@ -279,13 +298,9 @@ msgid "Book"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "Draft"
-msgstr ""
-
-#. module: travel
-#: selection:travel.travel,state:0
-msgid "Closed"
+#: code:addons/travel/travel.py:0
+#, python-format
+msgid "Saved"
 msgstr ""
 
 #. module: travel
@@ -416,11 +431,6 @@ msgid "Responsible"
 msgstr ""
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "In Reservation"
-msgstr ""
-
-#. module: travel
 #: view:travel.travel:0
 msgid "Travel Schedule"
 msgstr ""
@@ -478,7 +488,8 @@ msgstr ""
 
 #. module: travel
 #: model:ir.filters,name:travel.travel_travel_reserved_filter
-#: selection:travel.travel,state:0
+#: code:addons/travel/travel.py:0
+#, python-format
 msgid "Reserved"
 msgstr ""
 
@@ -491,10 +502,5 @@ msgstr ""
 #. module: travel
 #: view:travel.config.settings:0
 msgid "Apply"
-msgstr ""
-
-#. module: travel
-#: selection:travel.travel,state:0
-msgid "Saved"
 msgstr ""
 

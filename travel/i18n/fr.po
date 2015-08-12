@@ -35,6 +35,18 @@ msgid "Basic Passenger Limit"
 msgstr "Limite de base du nombre de voyageurs"
 
 #. module: travel
+#: code:addons/travel/travel.py:0
+#, python-format
+msgid "Confirmed"
+msgstr "Confirmé"
+
+#. module: travel
+#: code:addons/travel/travel.py:0
+#, python-format
+msgid "Closed"
+msgstr "Terminé"
+
+#. module: travel
 #: field:travel.passenger,message_unread:0
 #: field:travel.travel,message_unread:0
 msgid "Unread Messages"
@@ -142,11 +154,6 @@ msgid "Minimal view of travel forms"
 msgstr "Vue minimale des formulaires de déplacement"
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "Confirmed"
-msgstr "Confirmé"
-
-#. module: travel
 #: view:travel.travel:0
 msgid "Confirm"
 msgstr "Confirmer"
@@ -209,6 +216,18 @@ msgstr "Seuls les membres du groupe Gestionnaire des déplacements ont le droit 
 #: field:travel.passenger,travel_state:0
 msgid "State"
 msgstr "État"
+
+#. module: travel
+#: code:addons/travel/travel.py:0
+#, python-format
+msgid "In Reservation"
+msgstr "En réservation"
+
+#. module: travel
+#: code:addons/travel/travel.py:0
+#, python-format
+msgid "Draft"
+msgstr "Nouveau"
 
 #. module: travel
 #: view:travel.travel:0
@@ -287,16 +306,6 @@ msgid "Book"
 msgstr "Mettre en réservation"
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "Draft"
-msgstr "Nouveau"
-
-#. module: travel
-#: selection:travel.travel,state:0
-msgid "Closed"
-msgstr "Terminé"
-
-#. module: travel
 #: view:travel.travel:0
 msgid "TravelsTree"
 msgstr "TravelsTree"
@@ -351,6 +360,17 @@ msgstr "Villes"
 #: field:travel.config.settings,sent_alert_address:0
 msgid "Travel Sent Alert"
 msgstr "Alerte : un déplacement a été envoyé au bureau des voyages"
+
+#. module: travel
+#: code:addons/travel/travel.py:0
+#, python-format
+msgid "Saved"
+msgstr "Enregistré"
+
+#. module: travel
+#: help:travel.travel,city_ids:0
+msgid "Destination cities of travel."
+msgstr "Ville d'arrivée."
 
 #. module: travel
 #: view:travel.travel:0 field:travel.travel,passenger_ids:0
@@ -422,11 +442,6 @@ msgid "Responsible"
 msgstr "Responsable"
 
 #. module: travel
-#: selection:travel.travel,state:0
-msgid "In Reservation"
-msgstr "En réservation"
-
-#. module: travel
 #: view:travel.travel:0
 msgid "Travel Schedule"
 msgstr "Calendrier des déplacements"
@@ -483,7 +498,8 @@ msgstr "Superuser"
 
 #. module: travel
 #: model:ir.filters,name:travel.travel_travel_reserved_filter
-#: selection:travel.travel,state:0
+#: code:addons/travel/travel.py:0
+#, python-format
 msgid "Reserved"
 msgstr "Réservé"
 
@@ -497,11 +513,6 @@ msgstr "Gestionnaire des déplacements"
 #: view:travel.config.settings:0
 msgid "Apply"
 msgstr "Appliquer"
-
-#. module: travel
-#: selection:travel.travel,state:0
-msgid "Saved"
-msgstr "Enregistré"
 
 #~ msgid "Travel Management"
 #~ msgstr "Gestion de déplacements"

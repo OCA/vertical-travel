@@ -29,6 +29,8 @@ from openerp.tools.misc import (
     DEFAULT_SERVER_TIME_FORMAT,
 )
 
+from openerp.addons.travel.travel import _get_travel_states
+
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -180,14 +182,15 @@ class travel_journey(orm.Model):
                         return_trip=False, context=None):
         if self._check_dep_arr_dates(departure, arrival):
             return {}
+        # Remove the return_arrival=False or return_arrival=False
+        # because we get the popup message two times.
+        # Anyway another control exists
+        # if you want to validate the form with bad dates.
         return {
-            'value': {
-                'return_arrival' if return_trip else 'arrival': False,
-            },
             'warning': {
-                'title': 'Arrival after Departure',
-                'message': ('Departure (%s) cannot be before Arrival (%s).' %
-                            (departure, arrival)),
+                'title': _('Arrival after Departure'),
+                'message': _('Departure (%s) cannot be before Arrival (%s).') %
+                            (departure, arrival),
             },
         }
 
@@ -342,7 +345,8 @@ class travel_journey(orm.Model):
             store=True),
         'state': fields.related(
             'passenger_id', 'travel_state', type='selection', string='State',
-            store=True),
+            store=True,
+            selection=lambda *a, **kw: _get_travel_states(*a, **kw)),
         'type': fields.selection(
             _get_type, 'Travel journey type', help='Travel journey type.'),
         'reservation': fields.char(
@@ -367,7 +371,7 @@ class travel_journey(orm.Model):
     }
 
     _defaults = {
-        'class_id': _default_class
+        'class_id': _default_class,
     }
 
     _constraints = [

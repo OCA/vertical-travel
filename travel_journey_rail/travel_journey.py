@@ -42,8 +42,9 @@ class travel_journey(orm.Model):
             'Arrival', help='Date and time of the arrival of the train.'),
     }
 
-    def init(self, cr):
+    def __init__(self, pool, cr):
         """Register this class to be able to do polymorphic things"""
+        super(travel_journey, self).__init__(pool, cr)
         self._journey_type_classes['rail'] = travel_journey
 
     def _estimate_typed_date(self, journey, field_name):

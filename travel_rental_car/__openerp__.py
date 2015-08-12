@@ -23,15 +23,15 @@
 {
     'name': 'Travel Car Rentals',
     'version': '0.1',
-    'author': 'Savoir-faire Linux',
+    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
     'category': 'Customer Relationship Management',
     'summary': 'Renting Cars on a Travel',
     'description': """
- Travel Car Rentals
-===================
+Travel Car Rentals
+==================
 This module adds car rental management for travels.
 
 Contributors

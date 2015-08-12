@@ -23,7 +23,7 @@
 {
     'name': 'Travel Journey',
     'version': '0.1',
-    'author': 'Savoir-faire Linux',
+    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
@@ -44,6 +44,7 @@ Contributors
         'travel',
         'product',  # for product.uom in baggage weight
         'report_webkit',
+        'hr',
     ],
     'data': [
         'travel_passenger_view.xml',
