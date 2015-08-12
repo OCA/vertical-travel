@@ -27,7 +27,6 @@ install:
   - git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
-  - sudo apt-get install -y -qq postfix
   - git clone https://github.com/OCA/partner-contact $HOME/partner-contact -b ${VERSION}
   - git clone https://github.com/OCA/hr ${HOME}/hr -b ${VERSION}
 
