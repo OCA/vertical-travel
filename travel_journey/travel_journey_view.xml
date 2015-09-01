@@ -75,6 +75,7 @@
       <field name="model">travel.journey</field>
       <field name="arch" type="xml">
         <tree string="Travel List" create="false">
+          <field name="passenger_id"/>
           <field name="origin"/>
           <field name="destination"/>
           <field name="departure"/>
