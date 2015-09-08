@@ -182,6 +182,21 @@ class travel_journey(orm.Model):
                         return_trip=False, context=None):
         if self._check_dep_arr_dates(departure, arrival):
             return {}
+
+        context_timestamp = fields.datetime.context_timestamp
+
+        departure = context_timestamp(
+            cr, uid,
+            datetime.strptime(departure, DEFAULT_SERVER_DATETIME_FORMAT),
+            context=context
+        ).strftime(DEFAULT_SERVER_DATETIME_FORMAT)
+
+        arrival = context_timestamp(
+            cr, uid,
+            datetime.strptime(arrival, DEFAULT_SERVER_DATETIME_FORMAT),
+            context=context
+        ).strftime(DEFAULT_SERVER_DATETIME_FORMAT)
+
         # Remove the return_arrival=False or return_arrival=False
         # because we get the popup message two times.
         # Anyway another control exists
