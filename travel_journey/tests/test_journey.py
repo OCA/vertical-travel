@@ -162,11 +162,15 @@ class test_journey(TransactionCase):
             location=new_city_id, context=context)
         self.assertEqual(res['value']['return_destination'], new_city_id)
         res = self.journey_model.on_change_times(
-            cr, uid, journey_id, departure='2014-03-01', arrival='2014-03-12',
+            cr, uid, journey_id,
+            departure='2014-03-01 00:00:00',
+            arrival='2014-03-12 00:00:00',
             return_trip=False, context=context)
         self.assertEqual(res, {})
         res = self.journey_model.on_change_times(
-            cr, uid, journey_id, departure='2014-03-12', arrival='2014-03-01',
+            cr, uid, journey_id,
+            departure='2014-03-12 00:00:00',
+            arrival='2014-03-01 00:00:00',
             return_trip=False, context=context)
         self.assertIn('warning', res)
 
