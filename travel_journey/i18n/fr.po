@@ -18,8 +18,8 @@ msgstr ""
 #. module: travel_journey
 #: code:addons/travel_journey/travel_journey.py:189
 #, python-format
-msgid "Arrival after Departure"
-msgstr "Arrivée après Départ"
+msgid "Departure after Arrival"
+msgstr "Départ après arrivée"
 
 #. module: travel_journey
 #: field:travel.journey,destination:0
@@ -161,8 +161,8 @@ msgstr "Exporter le rapport"
 #. module: travel_journey
 #: code:addons/travel_journey/travel_journey.py:190
 #, python-format
-msgid "Departure (%s) cannot be before Arrival (%s)."
-msgstr "Le départ (%s) ne peut pas être avant l'arrivée (%s)."
+msgid "Departure (%s) cannot be after Arrival (%s)."
+msgstr "Le départ (%s) ne peut pas être après l'arrivée (%s)."
 
 #. module: travel_journey
 #: code:addons/travel_journey/travel_journey.py:120

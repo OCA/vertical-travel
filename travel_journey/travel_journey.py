@@ -203,8 +203,8 @@ class travel_journey(orm.Model):
         # if you want to validate the form with bad dates.
         return {
             'warning': {
-                'title': _('Arrival after Departure'),
-                'message': _('Departure (%s) cannot be before Arrival (%s).') %
+                'title': _('Departure after Arrival'),
+                'message': _('Departure (%s) cannot be after Arrival (%s).') %
                             (departure, arrival),
             },
         }

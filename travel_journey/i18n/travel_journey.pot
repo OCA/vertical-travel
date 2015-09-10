@@ -161,7 +161,7 @@ msgstr ""
 #. module: travel_journey
 #: code:addons/travel_journey/travel_journey.py:190
 #, python-format
-msgid "Departure (%s) cannot be before Arrival (%s)."
+msgid "Departure (%s) cannot be after Arrival (%s)."
 msgstr ""
 
 #. module: travel_journey
