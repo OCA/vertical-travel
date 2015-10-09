@@ -8,8 +8,8 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[travel](travel/) | 1.0 | Travel Management
-[travel_journey](travel_journey/) | 0.1 | Starting point and destinations of Travel
+[travel](travel/) | 8.0.1.0.0 | Travel Management
+[travel_journey](travel_journey/) | 8.0.0.1.0 | Starting point and destinations of Travel
 
 Unported addons
 ---------------

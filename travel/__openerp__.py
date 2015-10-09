@@ -22,7 +22,7 @@
 
 {
     'name': 'Travel',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
