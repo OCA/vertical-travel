@@ -342,7 +342,7 @@ class travel_journey(orm.Model):
             help='Passenger on this journey.'),
         'travel': fields.related(
             'passenger_id', 'travel_name', type='char', string='Travel',
-            store=True),
+        ),
         'state': fields.related(
             'passenger_id', 'travel_state', type='selection', string='State',
             store=True,
