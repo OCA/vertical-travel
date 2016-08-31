@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 15:30+0000\n"
-"PO-Revision-Date: 2014-09-25 11:31-0500\n"
+"POT-Creation-Date: 2015-03-05 19:16+0000\n"
+"PO-Revision-Date: 2015-03-05 14:20-0500\n"
 "Last-Translator: Sandy Carter <sandy.carter@savoirfairelinux.com>\n"
 "Language-Team: Savoir-faire Linux\n"
 "Language: fr\n"
@@ -19,15 +19,61 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. module: travel_purchase
+#: field:purchase.order,is_opened:0
+msgid "Purchase open flag"
+msgstr "EJ ouvert?"
+
+#. module: travel_purchase
+#: field:travel.config.settings,opened_alert_address:0
+msgid "Travel PO Open Alert"
+msgstr "Alert de signature du bon d'achat"
+
+#. module: travel_purchase
+#: model:ir.actions.server,name:travel_purchase.travel_purchase_opened_server_action
+msgid "Email alert when a purchase connected with a travel is opened"
+msgstr "Courriel d'alerte quand le bon d'achat est ouvert"
+
+#. module: travel_purchase
+#: field:purchase.order,responsible_emails:0
+msgid "Responsible e-mails"
+msgstr "Addresse electronique des responsables"
+
+#. module: travel_purchase
 #: model:ir.model,name:travel_purchase.model_travel_travel
 #: field:purchase.order,travel_id:0
 msgid "Travel"
 msgstr "Déplacement"
 
 #. module: travel_purchase
-#: model:ir.model,name:travel_purchase.model_purchase_order
-msgid "Purchase Order"
-msgstr "Bons de commande"
+#: model:ir.model,name:travel_purchase.model_travel_config_settings
+msgid "travel.config.settings"
+msgstr ""
+
+#. module: travel_purchase
+#: model:ir.actions.server,message:travel_purchase.travel_purchase_opened_server_action
+msgid ""
+"Hello,\n"
+"\n"
+"The purchase order ([[object.name]]) linked to the travel ([[object.travel_id.name]]) has just been opened.\n"
+"\n"
+"Have a nice day!\n"
+"      "
+msgstr ""
+"Bonjour,\n"
+"\n"
+"L'Engagement juridique ([[object.name]]) lié au déplacement ([[object.travel_id.name]]) a été « signé ».\n"
+"\n"
+"Bonne journée.\n"
+
+#. module: travel_purchase
+#: view:travel.travel:0
+msgid "Expenses"
+msgstr "Dépenses"
+
+#. module: travel_purchase
+#: model:ir.actions.server,subject:travel_purchase.travel_purchase_opened_server_action
+msgid "Travel alert ([[object.travel_id.name]])"
+msgstr "Alerte déplacement ([[object.travel_id.name]])"
 
 #. module: travel_purchase
 #: field:travel.travel,purchase_order_ids:0
@@ -35,6 +81,21 @@ msgid "Purchase Orders"
 msgstr "Bons de commande"
 
 #. module: travel_purchase
-#: view:travel.travel:0
-msgid "Expenses"
-msgstr "Dépenses"
+#: model:ir.actions.server,name:travel_purchase.travel_purchase_flag_opened_server_action
+msgid "Flag PO after sending alert"
+msgstr "Signale l'EJ après l'envoyé de l'alerte"
+
+#. module: travel_purchase
+#: model:ir.model,name:travel_purchase.model_purchase_order
+msgid "Purchase Order"
+msgstr "Bons de commande"
+
+#. module: travel_purchase
+#: model:ir.filters,name:travel_purchase.travel_purchase_opened_filter
+msgid "Open"
+msgstr "Ouvert"
+
+#. module: travel_purchase
+#: help:travel.config.settings,opened_alert_address:0
+msgid "E-mail address to send alert when a purchase order linked to travel is opened."
+msgstr "Courriel d'alerte pour quand le bon d'achat lié au déplacement est ouvert"

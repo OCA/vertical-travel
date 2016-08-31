@@ -23,4 +23,5 @@
 from . import (
     travel,
     purchase_order,
+    res_config
 )

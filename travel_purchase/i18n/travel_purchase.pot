@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 15:30+0000\n"
-"PO-Revision-Date: 2014-09-25 15:30+0000\n"
+"POT-Creation-Date: 2015-03-05 19:16+0000\n"
+"PO-Revision-Date: 2015-03-05 19:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,54 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: travel_purchase
+#: field:purchase.order,is_opened:0
+msgid "Purchase open flag"
+msgstr ""
+
+#. module: travel_purchase
+#: field:travel.config.settings,opened_alert_address:0
+msgid "Travel PO Open Alert"
+msgstr ""
+
+#. module: travel_purchase
+#: model:ir.actions.server,name:travel_purchase.travel_purchase_opened_server_action
+msgid "Email alert when a purchase connected with a travel is opened"
+msgstr ""
+
+#. module: travel_purchase
+#: field:purchase.order,responsible_emails:0
+msgid "Responsible e-mails"
+msgstr ""
+
+#. module: travel_purchase
 #: model:ir.model,name:travel_purchase.model_travel_travel
 #: field:purchase.order,travel_id:0
 msgid "Travel"
 msgstr ""
 
 #. module: travel_purchase
-#: model:ir.model,name:travel_purchase.model_purchase_order
-msgid "Purchase Order"
+#: model:ir.model,name:travel_purchase.model_travel_config_settings
+msgid "travel.config.settings"
+msgstr ""
+
+#. module: travel_purchase
+#: model:ir.actions.server,message:travel_purchase.travel_purchase_opened_server_action
+msgid "Hello,\n"
+"\n"
+"The purchase order ([[object.name]]) linked to the travel ([[object.travel_id.name]]) has just been opened.\n"
+"\n"
+"Have a nice day!\n"
+"      "
+msgstr ""
+
+#. module: travel_purchase
+#: view:travel.travel:0
+msgid "Expenses"
+msgstr ""
+
+#. module: travel_purchase
+#: model:ir.actions.server,subject:travel_purchase.travel_purchase_opened_server_action
+msgid "Travel alert ([[object.travel_id.name]])"
 msgstr ""
 
 #. module: travel_purchase
@@ -32,6 +72,22 @@ msgid "Purchase Orders"
 msgstr ""
 
 #. module: travel_purchase
-#: view:travel.travel:0
-msgid "Expenses"
+#: model:ir.actions.server,name:travel_purchase.travel_purchase_flag_opened_server_action
+msgid "Flag PO after sending alert"
 msgstr ""
+
+#. module: travel_purchase
+#: model:ir.model,name:travel_purchase.model_purchase_order
+msgid "Purchase Order"
+msgstr ""
+
+#. module: travel_purchase
+#: model:ir.filters,name:travel_purchase.travel_purchase_opened_filter
+msgid "Open"
+msgstr ""
+
+#. module: travel_purchase
+#: help:travel.config.settings,opened_alert_address:0
+msgid "E-mail address to send alert when a purchase order linked to travel is opened."
+msgstr ""
+
