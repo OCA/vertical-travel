@@ -4,6 +4,7 @@
 # Travel Addons
 
 [//]: # (addons)
+
 Available addons
 ----------------
 addon | version | summary
