@@ -12,6 +12,7 @@ addon | version | summary
 [travel](travel/) | 8.0.1.0.0 | Travel Management
 [travel_journey](travel_journey/) | 8.0.0.1.0 | Starting point and destinations of Travel
 
+
 Unported addons
 ---------------
 addon | version | summary
