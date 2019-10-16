@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -40,7 +39,7 @@ Contributors
     'depends': [],
     'external_dependencies': {},
     'data': [
-        'partner_view.xml',
+        'views/partner_view.xml',
     ],
     'demo': [],
     'test': [],
