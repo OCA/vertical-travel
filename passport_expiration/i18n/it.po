@@ -6,40 +6,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-04-02 19:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.2\n"
 
 #. module: passport_expiration
 #: model:ir.model.fields,field_description:passport_expiration.field_hr_employee__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: passport_expiration
 #: model:ir.model,name:passport_expiration.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Dipendente"
 
 #. module: passport_expiration
 #: model:ir.model.fields,field_description:passport_expiration.field_hr_employee__passport_expiration_date
 msgid "Expiration Date"
-msgstr ""
+msgstr "Data di scadenza"
 
 #. module: passport_expiration
 #: model:ir.model.fields,help:passport_expiration.field_hr_employee__passport_expiration_date
 msgid "Expiration date of the passport."
-msgstr ""
+msgstr "Data di scadenza della password."
 
 #. module: passport_expiration
 #: model:ir.model.fields,field_description:passport_expiration.field_hr_employee__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: passport_expiration
 #: model:ir.model.fields,field_description:passport_expiration.field_hr_employee____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
